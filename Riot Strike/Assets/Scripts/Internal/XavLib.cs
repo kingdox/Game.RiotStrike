@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using S = System;
+using System.IO;
+
 #endregion
 //namespace XavLib
 //{
@@ -13,16 +15,17 @@ using S = System;
 /// <see cref="XavHelpTo"/> Ultima Actualización => 31 marzo 2021
 ///
 /// </summary>
-namespace XavHelpTo{
+namespace XavHelpTo
+{
 
     /// <summary>
     /// Herramienta para las funciones principales ó más frecuentes
     /// </summary>
-    public static class Supply{
+    public static class Supply {
 
         //public static T Assign<T>(this T t, T t2) => t = t2;
 
-        
+
         /// <summary>
         /// Get the type of the gameobject selected
         /// </summary>
@@ -73,9 +76,9 @@ namespace XavHelpTo{
         ///  Saca el porcentaje de la cantidad y el maximo en caso de tener
         /// </summary>
         /// <returns>El porcentaje de count sobre el max</returns>
-        public static float PercentOf(this float count, float max, bool normalize= false) => count / max * (normalize ? 1: 100);
-        public static int PercentOf(this int count, int max, bool normalize = false) => (int)((float)count).PercentOf(max ,normalize);
-        public static float PercentOf(this float[] c, bool normalize = false) => c[0].PercentOf(c[1],normalize);
+        public static float PercentOf(this float count, float max, bool normalize = false) => count / max * (normalize ? 1 : 100);
+        public static int PercentOf(this int count, int max, bool normalize = false) => (int)((float)count).PercentOf(max, normalize);
+        public static float PercentOf(this float[] c, bool normalize = false) => c[0].PercentOf(c[1], normalize);
         public static Vector2 PercentOf(this Vector2 count, Vector2 max, bool normalize = false) => count / max * (normalize ? 1 : 100);
         /// <summary>
         /// Basado en el porcentaje obtienes el valor mediante un maximo establecido
@@ -92,6 +95,36 @@ namespace XavHelpTo{
         {
             Debug.Log($"{Look.Look.Debugging(color)} {s}"); return s;
         }
+
+
+
+
+        public static T LoadJson<T>(this string path)
+        {
+            T t;
+            path.LoadJson(out t);
+            return t;
+        }
+        /// <summary>
+        /// Access in <seealso cref="Application.streamingAssetsPath "/> and Loads the object
+        /// path = $"{Application.streamingAssetsPath}/{path}.json"
+        /// </summary>
+        public static T LoadJson<T>(this string path, out T container)
+        {
+            path = $"{Application.streamingAssetsPath}/{path}.json";
+            if (File.Exists(path)) {
+                string jsonString = File.ReadAllText(path);
+                container = JsonUtility.FromJson<T>(jsonString);
+            }
+            else
+            {
+                $"ERR => {nameof(LoadJson)}: No se encuentra en el path, esta en streaming? => {path}".Print("red");
+                container = default;
+            }
+            return container;
+        }
+       
+
 
     }
 

@@ -1,5 +1,6 @@
 ﻿#region Imports
 using UnityEngine;
+using XavHelpTo;
 #endregion
 
 namespace Environment
@@ -18,6 +19,9 @@ namespace Environment
 
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
+
+
+        public readonly static AchievementList ACHIEVEMENT_DATA =  "AchievementData".LoadJson<AchievementList>();
 
     }
     /// <summary>
