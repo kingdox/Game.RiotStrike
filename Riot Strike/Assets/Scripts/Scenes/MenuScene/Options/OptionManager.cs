@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Set;
-using UnityEngine.InputSystem;
 using Environment;
 #endregion
 /// <summary>
@@ -16,19 +15,15 @@ public class OptionManager : MonoBehaviour
 {
     #region Variable
     [Header("Option Manager")]
-
-
-    public InputActionReference input_ref;
-
-
-
-    [Space]
     public Scrollbar scroll;
 
     [Header("Music And Sound")]
     public Slider slider_music;
     public Slider slider_sound;
     public Slider slider_sensibility;
+
+    [Header("Switch Options")]
+    public bool[] switchConfigs; //Post processing, Invert X, Invert Y
 
     [Header("Controls")]
     public Button btn_back;

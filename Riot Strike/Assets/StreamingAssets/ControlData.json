@@ -1,24 +1,44 @@
 ﻿{
-  "CONTROLS": [
-    {
-      "NAME": "Atacar",
-      "KEY": "left click",
-      "DEBUG_DESCRIPTION": "Para atacar a los enemigos"
-    },
-    {
-      "NAME": "Test 2",
-      "KEY": "Test 2",
-      "DEBUG_DESCRIPTION": "Este es un test"
-    },
-    {
-      "NAME": "Test 3",
-      "KEY": "Test 3",
-      "DEBUG_DESCRIPTION": "Este es un test"
-    },
-    {
-      "NAME": "Test 4",
-      "KEY": "Test 4",
-      "DEBUG_DESCRIPTION": "Este es un test"
-    }
-  ]
+    "CONTROLS": [
+        {
+            "NAME": "Atacar",
+            "KEY": "leftclick",
+            "DEBUG_DESCRIPTION": "Para atacar a los enemigos"
+        },
+        {
+            "NAME": "Apuntar",
+            "KEY": "rightclick",
+            "DEBUG_DESCRIPTION": ""
+        },
+        {
+            "NAME": "Habilidad",
+            "KEY": "space",
+            "DEBUG_DESCRIPTION": ""
+        },
+        {
+            "NAME": "Mover Adelante",
+            "KEY": "W",
+            "DEBUG_DESCRIPTION": ""
+        },
+        {
+            "NAME": "Mover Atrás",
+            "KEY": "S",
+            "DEBUG_DESCRIPTION": ""
+        },
+        {
+            "NAME": "Mover Izquierda",
+            "KEY": "A",
+            "DEBUG_DESCRIPTION": ""
+        },
+        {
+            "NAME": "Mover Derecha",
+            "KEY": "D",
+            "DEBUG_DESCRIPTION": ""
+        },
+        {
+            "NAME": "Abrir Chat",
+            "KEY": "enter",
+            "DEBUG_DESCRIPTION": ""
+        }
+    ]
 }

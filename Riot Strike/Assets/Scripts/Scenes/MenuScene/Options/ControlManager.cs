@@ -14,7 +14,16 @@ using Environment;
 public class ControlManager : MonoBehaviour
 {
     #region Variable
-    public RefreshController[] refresh_controls;
+    [SerializeField] private InputActionReference[] actions = null;
+
+    private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
+    public string test;
+
+
+
+
+
+    private RefreshController[] refresh_controls;
     [Header("Control Manager")]
     public Transform tr_parent_controls;
     public GameObject pref_controlItem;
@@ -27,7 +36,9 @@ public class ControlManager : MonoBehaviour
     }
     #endregion
     #region Method
-
+    /// <summary>
+    /// Returns the length of the <seealso cref="Data.CONTROLS"/>
+    /// </summary>
     private int ControlLength => Data.CONTROLS.Length;
 
     /// <summary>
@@ -37,35 +48,20 @@ public class ControlManager : MonoBehaviour
     {
         refresh_controls = new RefreshController[0];
         int savedLength = saved.controlKeys.Length;
-        if (!savedLength.Equals(ControlLength))
-        {
+        if (!savedLength.Equals(ControlLength)){
             //Rellenamos los campos vacíos
-            for (int i = 0; i < ControlLength; i++)
-            {
-
-                if (i >= savedLength)
-                {
-                    Data.CONTROLS[i].KEY.PushIn(ref saved.controlKeys);
-                }
-                else
-                {
-                    $"{i}, {savedLength}".Print("red");
-                }
-
+            for (int i = 0; i < ControlLength; i++){
+                if (i >= savedLength) Data.CONTROLS[i].KEY.PushIn(ref saved.controlKeys);
             }
             DataSystem.Set(saved);
             DataSystem.Save();
             $"{nameof(OptionManager)} => Asignado nueva dimension a los controles".Print("blue");
         }
-
-        for (int i = 0; i < ControlLength; i++)
-        {
-            CreateControl(Data.CONTROLS[i], saved.controlKeys[i]);
-        }
-
-
+        for (int i = 0; i < ControlLength; i++) CreateControl(Data.CONTROLS[i], saved.controlKeys[i]);
     }
-
+    /// <summary>
+    /// Create a Control and set the values
+    /// </summary>
     private void CreateControl(in Control c, string keyControl)
     {
         RefreshController _refresh = RefreshController.CreateRefresh(in pref_controlItem, in tr_parent_controls);
@@ -80,26 +76,14 @@ public class ControlManager : MonoBehaviour
         _refresh.GetButton(RefreshButton.RESET).onClick.AddListener(delegate { ResetKey(index); });
 
     }
-
-    
-
-    /// <summary>
-    /// Assign a new key
-    /// </summary>
-    public void AssignKey(int index)
-    {
-        $"Funcionando Test {index}".Print();
-    }
-
-
     /// <summary>
     /// Reset a key
     /// </summary>
-    public void ResetKey(int index)
-    {
-        $"Reset! {index}".Print();
+    public void ResetKey(int index){
+        //$"Reset! {index}".Print();
         SavedData saved = DataSystem.Get;
         saved.controlKeys[index] = Data.CONTROLS[index].KEY;
+        DataSystem.Set(saved);
         refresh_controls[index].RefreshText(RefreshText.VALUE, in saved.controlKeys[index]);
     }
 
@@ -109,6 +93,65 @@ public class ControlManager : MonoBehaviour
     public void ResetAll()
     {
         for (int i = 0; i < ControlLength; i++) ResetKey(i);
+    }
+    /// <summary>
+    /// Assign a new key
+    /// </summary>
+    public void AssignKey(int index)
+    {
+        $"Funcionando Test {index}".Print();
+
+
+
+
+    }
+
+    private const string RebindsKey = "rebinds";
+
+    private void Start2()
+    {
+        string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
+
+        if (string.IsNullOrEmpty(rebinds)) { return; }
+
+        //playerController.PlayerInput.actions.LoadBindingOverridesFromJson(rebinds);
+
+        int bindingIndex = actions[0].action.GetBindingIndexForControl(actions[0].action.controls[0]);
+
+        test = InputControlPath.ToHumanReadableString(
+            actions[0].action.bindings[bindingIndex].effectivePath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice);
+    }
+
+    public void Save()
+    {
+        //string rebinds = playerController.PlayerInput.actions.SaveBindingOverridesAsJson();
+
+        //PlayerPrefs.SetString(RebindsKey, rebinds);
+    }
+
+    public void StartRebinding()
+    {
+        //playerController.PlayerInput.SwitchCurrentActionMap("Menu");
+
+        rebindingOperation = actions[0].action.PerformInteractiveRebinding()
+            .WithControlsExcluding("Mouse")
+            .OnMatchWaitForAnother(0.1f)
+            .OnComplete(operation => RebindComplete())
+            .Start();
+    }
+
+    private void RebindComplete()
+    {
+        int bindingIndex = actions[0].action.GetBindingIndexForControl(actions[0].action.controls[0]);
+
+        test = InputControlPath.ToHumanReadableString(
+            actions[0].action.bindings[bindingIndex].effectivePath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice);
+
+        rebindingOperation.Dispose();
+
+        //playerController.PlayerInput.SwitchCurrentActionMap("Gameplay");
     }
     #endregion
 }
