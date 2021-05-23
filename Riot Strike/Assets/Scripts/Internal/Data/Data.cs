@@ -15,25 +15,27 @@ namespace Environment
         public static Data data = new Data();
 
         public const string savedPath = "saved.txt";
-        public const string version = "v0.0.1";
+        public const string version = "v0.0.5";
 
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
 
 
-        
-        public readonly static Achievement[] ACHIEVEMENTS =  "AchievementData".LoadJson<AchievementList>().ACHIEVEMENTS;
-        public readonly static Credit[] CREDITS =            "CreditData".LoadJson<CreditList>().CREDITS;
-
+        [Header("Json Data Loads")]        
+        public readonly static Achievement[] ACHIEVEMENTS = "AchievementData".LoadJson<AchievementList>().ACHIEVEMENTS;
+        public readonly static Credit[] CREDITS = "CreditData".LoadJson<CreditList>().CREDITS;
+        public readonly static TutorialList TUTORIAL = "TutorialData".LoadJson<TutorialList>();
     }
     /// <summary>
     /// Las escenas del juego, ordenadas como en "Build Settings"
     /// </summary>
     public enum Scenes
     {
-        SplashScene=0,
-        MenuScene=1,
-        GameScene=2
+        [InspectorName("Splash")]SPLASH_SCENE=0,
+        [InspectorName("Tutorial")] TUTORIAL_SCENE =1,
+        [InspectorName("Intro Video")] INTRO_SCENE =2,
+        [InspectorName("Menú")] MENU_SCENE =3,
+        [InspectorName("Juego")] GAME_SCENE =4
     }
 
     /// <summary>

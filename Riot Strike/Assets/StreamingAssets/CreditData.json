@@ -30,6 +30,14 @@
             "NAMES": [
                 "???"
             ]
+        },
+        {
+            "BACKGROUND": [ 1, 1, 1 ],
+            "TEXT": "Mensiónes Especiales",
+            "NAMES": [
+                "ivan",
+                "Lino"
+            ]
         }
 
     ]

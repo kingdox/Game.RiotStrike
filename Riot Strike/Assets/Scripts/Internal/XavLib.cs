@@ -56,6 +56,14 @@ namespace XavHelpTo
         }
 
         /// <summary>
+        /// Remove al the childs
+        /// </summary>
+        public static void ClearChilds(this Transform t)
+        {
+            for (int i = 0; i < t.childCount; i++) Object.Destroy(t.GetChild(i).gameObject);
+        }
+
+        /// <summary>
         /// Check the status of a static reference of an object as a Singleton
         /// </summary>
         public static void Singleton<T>(this T @this, ref T @_, bool isMultiScene = true)
@@ -345,7 +353,19 @@ namespace XavHelpTo
             /// </summary>
             public static T[] PushIn<T>(this T t, params T[] ts) => Set.Push(t, ts);
             public static T[] PushIn<T>(this T t, ref T[] ts) => ts = Set.Push(t, ts);
-
+            public static T[] RemoveIn<T>(this int start, ref T[] ts)
+            {
+                T[] newArr = new T[0];
+                for (int i = 0; i < ts.Length; i++)
+                {
+                    if (i != start)
+                    {
+                        ts[i].PushIn(ref newArr);
+                    }
+                }
+                ts = newArr;
+                return newArr;
+            }
             /// <summary>
             /// Creas una nueva dimension de arreglo del tipo que desees
             /// </summary>
@@ -799,7 +819,7 @@ namespace XavHelpTo
                 /// <summary>
                 /// Retorna un valor distinto al ultimo suponiendo que la dimension es mayor a 1
                 /// </summary>
-                public static int DifferentIndex(int max, int lastInt = -1)
+                public static int DifferentIndex(this int max, int lastInt = -1)
                 {
                     int _newInt = lastInt;
 

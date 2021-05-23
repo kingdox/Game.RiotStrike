@@ -4,6 +4,7 @@ using System;
 using Environment;
 using XavHelpTo;
 using XavHelpTo.Change;
+using CreditRefresh;
 #endregion
 public class CreditManager : MonoBehaviour
 {
@@ -37,11 +38,10 @@ public class CreditManager : MonoBehaviour
     /// </summary>
     private void CreateCredit(string name, Color color)
     {
-        GameObject _obj = Instantiate<GameObject>(pref_creditItem, tr_parent_credits);
-        CreditController _ctrl_credit;
-        _obj.transform.Component(out _ctrl_credit);
-        _ctrl_credit.Refresh(name, color);
+        RefreshController _refresh = RefreshController.CreateRefresh(in pref_creditItem, in tr_parent_credits);
 
+        _refresh.RefreshText(RefreshText.NAME, name);
+        _refresh.RefreshImgColor(RefreshImage.BACKGROUND, color);
     }
 
     #endregion
@@ -61,4 +61,17 @@ public struct Credit
     public float[] BACKGROUND;//[float,float,float]
     public string TEXT;
     public string[] NAMES;
+}
+
+
+namespace CreditRefresh
+{
+    public enum RefreshImage
+    {
+        BACKGROUND = 0
+    }
+    public enum RefreshText
+    {
+        NAME = 0,
+    }
 }

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
-# endregion
+using UnityEngine.InputSystem;
+#endregion
 /// <summary>
 /// Manages every option to configure for player
 /// </summary>
@@ -18,6 +19,11 @@ public class OptionManager : MonoBehaviour
     [Header("Music And Sound")]
     public Slider slider_music;
     public Slider slider_sound;
+    public Slider slider_sensibility;
+
+    [Header("Controls")]
+    public Button btn_back;
+
 
     #endregion
     #region Event
@@ -26,6 +32,7 @@ public class OptionManager : MonoBehaviour
 
         //Loads the saved data 
         SavedData saved = DataSystem.Get;
+        slider_sensibility.value = saved.sensibilityPercent;
         slider_music.value = saved.musicPercent;
         slider_sound.value = saved.soundPercent;
     }
@@ -33,25 +40,30 @@ public class OptionManager : MonoBehaviour
     #region Method
 
 
+    public void SetNewKey(InputAction.CallbackContext ctx)
+    {
+        //ctx.action.name
+    }
 
-    ///// <summary>
-    ///// Save the changes and sets the new value
-    ///// percent is normalized in 0-1
-    ///// </summary>
-    //public static void SetMusic(float percent) {
-    //    AudioSystem.SetSound(percent);
-    //    AudioSystem.SavedBValues();
 
-    //}
-    ///// <summary>
-    ///// Save the changes and sets the new value
-    ///// percent is normalized in 0-1
-    ///// </summary>
-    //public static void SetSound(float percent)
-    //{
-    //    AudioSystem.SetSound(percent);
-    //    AudioSystem.SavedBValues();
-    //}
+    /// <summary>
+    /// Save every configuration changed in Game
+    /// </summary>
+    public void SaveConfigurations()
+    {
+        AudioSystem.SavedBValues();
+
+    }
+
+
+    /// <summary>
+    /// Change Sensibility
+    /// </summary>
+    public static void SetSensibility(float percent)
+    {
+        SavedData saved = DataSystem.Get;
+        saved.sensibilityPercent = percent;
+    }
 
     #endregion
 }

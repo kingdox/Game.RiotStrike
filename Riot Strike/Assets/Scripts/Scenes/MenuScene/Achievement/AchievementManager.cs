@@ -1,10 +1,13 @@
 ﻿#region Access
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Change;
 using XavHelpTo.Set;
 using Environment;
-# endregion
+using AchievementRefresh;
+#endregion
 /// <summary>
 /// Loads the json and then check if the saved data surpass the requirements to set a check
 /// </summary>
@@ -14,7 +17,8 @@ public class AchievementManager : MonoBehaviour
     [Header("Achievement Manager")]
     public Transform tr_parent_achievements;
     public GameObject pref_achievementItem;
-    
+
+
     #endregion
     #region Events
     private void Start()
@@ -49,11 +53,13 @@ public class AchievementManager : MonoBehaviour
     /// </summary>
     private void CreateAchievement(in Achievement achievement, int pts)
     {
-        GameObject _obj = Instantiate<GameObject>(pref_achievementItem, tr_parent_achievements);
-        AchievementController _ctrl_achievement;
-        _obj.transform.Component(out _ctrl_achievement);
+        RefreshController _refresh = RefreshController.CreateRefresh(in pref_achievementItem, in tr_parent_achievements);
 
-        _ctrl_achievement.RefreshAchievement(achievement, pts);
+        bool isDone = pts >= achievement.REQUIREMENT;
+
+        _refresh.RefreshImgColor(RefreshImage.ICON, new Color(1, 1, 1, isDone.ToInt()));
+        _refresh.RefreshText(RefreshText.NAME, achievement.NAME);
+        _refresh.RefreshText(RefreshText.DESCRIPTION, achievement.DESCRIPTION);
     }
 
     /// <summary>
@@ -78,4 +84,17 @@ public struct Achievement
     public string DESCRIPTION;
     public int REQUIREMENT;
     public string DEBUG_REQUIREMENT;
+}
+
+namespace AchievementRefresh
+{
+    public enum RefreshImage
+    {
+        ICON =0
+    }
+    public enum RefreshText
+    {
+        NAME = 0,
+        DESCRIPTION = 1
+    }
 }

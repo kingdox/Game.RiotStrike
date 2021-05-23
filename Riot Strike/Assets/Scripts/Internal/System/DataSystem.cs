@@ -112,8 +112,8 @@ namespace StorageData
 public struct SavedData
 {
 
-
     [Header("Internal Saved Data")]
+        [Tooltip("Primera vez en jugar?")] public bool isFirstTime;
         [Tooltip("El jugador nesecita que se le muestre el tutorial al iniciar?")] public bool tutorialDone;
         [Tooltip("Puntaje de Logros obtenidos")]public int[] achievementsPoints;
 
@@ -121,6 +121,7 @@ public struct SavedData
     [Header("Options in Saved Data")]
         [Tooltip("decibeles guardado de musica")] public float musicPercent;
         [Tooltip("Porcentaje guardado de sonido")] public float soundPercent;
+        [Tooltip("Porcentaje guardado de Sensibilidad del mouse")] public float sensibilityPercent;//
         [Tooltip("Idioma actual")] public string currentLang;
         [Tooltip("Qué tan sensible es el agarre?")]public float dragSensibility; // 1-10, if 0 => 3f defualt
 

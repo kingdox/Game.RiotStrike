@@ -36,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1996126317002489553
+--- !u!114 &7686178096783607455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,12 +45,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8802854122390115314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94128946f6cc4689b057e6d45ffc3d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d1bc36b34dc442b4ae146f85e555a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img_icon: {fileID: 8802854121741414007}
-  txt_title: {fileID: 3911527728431475462}
-  txt_description: {fileID: 1295130810685361771}
+  imgs:
+  - {fileID: 8802854121741414007}
+  txts:
+  - {fileID: 3911527728431475462}
+  - {fileID: 1295130810685361771}
 --- !u!1001 &1773155610641710105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122303685181099264, guid: 4c2d37b542224499c91a89dd7335b797, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122303685181099264, guid: 4c2d37b542224499c91a89dd7335b797, type: 3}
       propertyPath: m_TagString

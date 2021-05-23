@@ -179,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2209753084253596043}
-  - component: {fileID: 9181922225451997025}
+  - component: {fileID: 5011824102182927001}
   m_Layer: 0
   m_Name: Credit Item
   m_TagString: Untagged
@@ -208,7 +208,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9181922225451997025
+--- !u!114 &5011824102182927001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,8 +217,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2209753084253596040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2246ef01c266d462ba68a85abc99d0d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d1bc36b34dc442b4ae146f85e555a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt_name: {fileID: 2209753083107077219}
-  img_background: {fileID: 2209753083350353906}
+  imgs:
+  - {fileID: 2209753083350353906}
+  txts:
+  - {fileID: 2209753083107077219}
