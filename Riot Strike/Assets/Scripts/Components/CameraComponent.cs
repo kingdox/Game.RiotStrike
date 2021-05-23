@@ -37,8 +37,6 @@ public class CameraComponent : MonoBehaviour
         ctrl_follow.SetTarget(cameraPoints[index]);
 
         lastIndex = index;
-        //TODO revisar si el tramo posee hijos, de ser así resolver la cadena entera,
-        //osea no ir al instante
     }
 
     #endregion

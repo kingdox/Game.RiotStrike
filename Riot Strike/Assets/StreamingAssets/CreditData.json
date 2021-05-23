@@ -1,0 +1,36 @@
+﻿{
+    "CREDITS": [
+        {
+            "BACKGROUND": [ 1, 1, 1 ],
+            "TEXT": "Diseño y desarrollo",
+            "NAMES": [
+                "Xavier Arpa López"
+            ]
+        },
+        {
+            "BACKGROUND": [ 1, 1, 1 ],
+            "TEXT": "Arte 2D",
+            "NAMES": [
+                "Ester"
+            ]
+        },
+        {
+            "BACKGROUND": [ 1, 1, 1 ],
+            "TEXT": "Arte 3D",
+            "NAMES": [
+                "People 1",
+                "People 2",
+                "People 3",
+                "People 4"
+            ]
+        },
+        {
+            "BACKGROUND": [ 1, 1, 1 ],
+            "TEXT": "Marketing",
+            "NAMES": [
+                "???"
+            ]
+        }
+
+    ]
+}

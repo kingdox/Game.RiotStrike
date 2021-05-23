@@ -21,7 +21,9 @@ namespace Environment
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
 
 
-        public readonly static AchievementList ACHIEVEMENT_DATA =  "AchievementData".LoadJson<AchievementList>();
+        
+        public readonly static Achievement[] ACHIEVEMENTS =  "AchievementData".LoadJson<AchievementList>().ACHIEVEMENTS;
+        public readonly static Credit[] CREDITS =            "CreditData".LoadJson<CreditList>().CREDITS;
 
     }
     /// <summary>

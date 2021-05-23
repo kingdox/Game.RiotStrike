@@ -20,16 +20,17 @@ public class FollowController : MonoBehaviour
 
     #endregion
     #region Events
-    private void Update()
-    {
-        if (TargetExist)
-        {
-            Move();
-            Rotate();
-        }
-    }
+    private void Update() => FollowTarget();
     #endregion
     #region Methods
+    /// <summary>
+    /// Follow the target moving the object and rotating
+    /// </summary>
+    private void FollowTarget(){
+        if (!TargetExist) return; // 🛡
+        Move();
+        Rotate();
+    }
 
     /// <summary>
     /// Moves the object to the target coordinates

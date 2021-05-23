@@ -300,7 +300,7 @@ namespace XavHelpTo
             /// <summary>
             /// Gets a random boolean
             /// </summary>
-            public static bool RandomBool() => Random.Range(0, 2) == 0;
+            public static bool RandomBool => Random.Range(0, 2) == 0;
 
 
             public static Color RandomColor(float min = 0, float max = 1 )
@@ -415,7 +415,42 @@ namespace XavHelpTo
             /// Actualizamos el arreglo para que posea el mismo tamaño que el nuevo,
             /// estos cambios pueden eliminar o añadir huecos, los nuevos iniciarán en 0
             /// </summary>
-            public static float[] Length(float[] oldArr, int newLength)
+            public static int[] Length(in int[] oldArr,  int newLength){
+
+                //Si es igual no se hace nada
+                if (oldArr.Length == newLength) return oldArr;
+
+
+                //revisamos quién es mas grande
+                bool condition = oldArr.Length > newLength;
+
+                int[] newArr = new int[condition
+                    ? (oldArr.Length - newLength)
+                    : (newLength)
+                ];
+
+
+                //si hay menos datos llenamos el nuevo arreglo
+                //Puede que perdamos algunos valores
+                if (condition)
+                {
+                    for (int z = 0; z < newArr.Length; z++) newArr[z] = oldArr[z];
+                }
+                else
+                {
+                    for (int z = 0; z < newArr.Length; z++)
+                    {
+                        newArr[z] = z < oldArr.Length - 1
+                            ? oldArr[z]
+                            : 0
+                        ;
+                    }
+                }
+
+                return newArr;
+
+            }
+            public static float[] Length(in float[] oldArr,  int newLength)
             {
 
                 //Si es igual no se hace nada
@@ -570,11 +605,26 @@ namespace XavHelpTo
                 public static float[] ToArray(this Vector3 v) => new float[] {v[0], v[1], v[2] };
                 public static float[] ToArray(this Vector2 v) => new float[] {v[0], v[1]};
 
+            /// <summary>
+            ///  Set to color an array
+            /// </summary>
+            public static Color ToColor(this int[] t)
+            {
+                Color c = Color.white;
+                for (int i = 0; i < t.Length; i++) c[i] = t[i];
+                return c;
+            }
+            public static Color ToColor(this float[] t)
+            {
+                Color c = Color.white;
+                for (int i = 0; i < t.Length; i++) c[i] = t[i];
+                return c;
+            }
 
-                /// <summary>
-                /// Returns a <see cref="Vector3"/> with the axis
-                /// </summary>
-                public static Vector3 ToAxis(this float value, int axis=0){
+            /// <summary>
+            /// Returns a <see cref="Vector3"/> with the axis
+            /// </summary>
+            public static Vector3 ToAxis(this float value, int axis=0){
                     Vector3 newAxist = new Vector3();
                     newAxist[axis] = 1 * value;
                     return newAxist;
@@ -616,9 +666,17 @@ namespace XavHelpTo
 
                     return ints;
                 }
+            public static int[] ToInt(this float[] t)
+            {
+                int length = t.Length;
+                int[] newInt = new int[length];
+                for (int x = 0; x < length; x++) newInt[x] = (int)t[x];
+                return newInt;
+            }
+
         }
-            #endregion
-        }
+        #endregion
+    }
         namespace Know
         {
         #region Know

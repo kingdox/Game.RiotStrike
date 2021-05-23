@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2032023690173813591}
   - component: {fileID: 2032023690173813592}
   m_Layer: 0
-  m_Name: '>Buttons'
+  m_Name: '>Interactable'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

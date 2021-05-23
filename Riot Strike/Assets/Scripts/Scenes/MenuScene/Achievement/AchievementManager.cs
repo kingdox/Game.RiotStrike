@@ -1,10 +1,8 @@
 ﻿#region Access
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
-using XavHelpTo.Get;
+using XavHelpTo.Set;
 using Environment;
 # endregion
 /// <summary>
@@ -19,42 +17,49 @@ public class AchievementManager : MonoBehaviour
     
     #endregion
     #region Events
-    private void Awake()
-    {
-        
-    }
     private void Start()
     {
-        //LoadAchievements();
-
-
-        foreach (Achievement achievement in Data.ACHIEVEMENT_DATA.ACHIEVEMENTS)
-        {
-            CreateAchievement(in achievement);
-        }
+        SavedData saved = DataSystem.Get;
+        GenerateAchievements(ref saved);
     }
     #endregion
     #region Methods
 
 
-    ///// <summary>
-    ///// Load the achievements
-    ///// </summary>
-    //private void LoadAchievements() => "AchievementData".LoadJson(out achievementList);
+    /// <summary>
+    /// Creates the acheivements
+    /// </summary>
+    private void GenerateAchievements(ref SavedData saved)
+    {
+
+        if (!saved.achievementsPoints.Length.Equals(AchievementQty))
+        {   
+            //Set the new length
+            saved.achievementsPoints = Set.Length(in saved.achievementsPoints, AchievementQty);
+            DataSystem.Set(saved);
+            DataSystem.Save();
+            $"{nameof(AchievementManager)} => Asignado nueva dimension a los logros".Print("blue");
+        }
+
+        for (int i = 0; i < AchievementQty; i++) CreateAchievement(in Data.ACHIEVEMENTS[i], saved.achievementsPoints[i]);
+    }
 
     /// <summary>
     /// Create a achievement
     /// </summary>
-    private void CreateAchievement(in Achievement achievement)
+    private void CreateAchievement(in Achievement achievement, int pts)
     {
         GameObject _obj = Instantiate<GameObject>(pref_achievementItem, tr_parent_achievements);
         AchievementController _ctrl_achievement;
         _obj.transform.Component(out _ctrl_achievement);
 
-        _ctrl_achievement.RefreshAchievement(achievement, 0);
-
-
+        _ctrl_achievement.RefreshAchievement(achievement, pts);
     }
+
+    /// <summary>
+    /// Qty of achievements
+    /// </summary>
+    private int AchievementQty => Data.ACHIEVEMENTS.Length;
     #endregion
 }
 
