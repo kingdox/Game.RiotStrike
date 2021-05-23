@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo.Change;
 using XavHelpTo;
-# endregion
+#endregion
 /// <summary>
 /// Controls the information an refresh it if is required
 /// </summary>
@@ -11,8 +11,9 @@ public class RefreshController : MonoBehaviour
 {
     #region Variable
     [Header("RefreshController")]
-    [SerializeField] private Image[] imgs;
-    [SerializeField] private Text[] txts;
+    [SerializeField] private Image[] imgs = new Image[0];
+    [SerializeField] private Text[] txts = new Text[0];
+    [SerializeField] private Button[] btns = new Button[0];
     #endregion
     #region Event
 
@@ -29,7 +30,13 @@ public class RefreshController : MonoBehaviour
     public void RefreshText<T>(T index, in string value) => txts[index.ToInt()].text = value;
 
 
+    /// <summary>
+    /// Sets the interaction of the button
+    /// </summary>
+    public void RefreshButtonInteraction<T>(T index, bool condition) => btns[index.ToInt()].interactable = condition;
 
+
+    public Button GetButton<T>(T index) => btns[index.ToInt()];
     /// <summary>
     /// Gets the image
     /// </summary>

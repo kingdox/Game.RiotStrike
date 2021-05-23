@@ -1,0 +1,24 @@
+﻿{
+  "CONTROLS": [
+    {
+      "NAME": "Atacar",
+      "KEY": "left click",
+      "DEBUG_DESCRIPTION": "Para atacar a los enemigos"
+    },
+    {
+      "NAME": "Test 2",
+      "KEY": "Test 2",
+      "DEBUG_DESCRIPTION": "Este es un test"
+    },
+    {
+      "NAME": "Test 3",
+      "KEY": "Test 3",
+      "DEBUG_DESCRIPTION": "Este es un test"
+    },
+    {
+      "NAME": "Test 4",
+      "KEY": "Test 4",
+      "DEBUG_DESCRIPTION": "Este es un test"
+    }
+  ]
+}

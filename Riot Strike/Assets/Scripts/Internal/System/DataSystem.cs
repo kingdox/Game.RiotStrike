@@ -125,6 +125,7 @@ public struct SavedData
         [Tooltip("Idioma actual")] public string currentLang;
         [Tooltip("Qué tan sensible es el agarre?")]public float dragSensibility; // 1-10, if 0 => 3f defualt
 
+        [Tooltip("Keys guardados del usuario, por defecto tendrá los del arreglo")] public string[] controlKeys; 
 
     //Extra Debug ?
     [Header("Debug Area")]

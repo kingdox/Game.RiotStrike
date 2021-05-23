@@ -53,6 +53,9 @@ MonoBehaviour:
   txts:
   - {fileID: 3911527728431475462}
   - {fileID: 1295130810685361771}
+  btns:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1773155610641710105
 PrefabInstance:
   m_ObjectHideFlags: 0

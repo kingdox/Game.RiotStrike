@@ -25,6 +25,7 @@ namespace Environment
         public readonly static Achievement[] ACHIEVEMENTS = "AchievementData".LoadJson<AchievementList>().ACHIEVEMENTS;
         public readonly static Credit[] CREDITS = "CreditData".LoadJson<CreditList>().CREDITS;
         public readonly static TutorialList TUTORIAL = "TutorialData".LoadJson<TutorialList>();
+        public readonly static Control[] CONTROLS = "ControlData".LoadJson<ControlList>().CONTROLS;
     }
     /// <summary>
     /// Las escenas del juego, ordenadas como en "Build Settings"

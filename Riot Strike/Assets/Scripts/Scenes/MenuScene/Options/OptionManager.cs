@@ -1,10 +1,13 @@
 ﻿#region Access
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Set;
 using UnityEngine.InputSystem;
+using Environment;
 #endregion
 /// <summary>
 /// Manages every option to configure for player
@@ -12,8 +15,14 @@ using UnityEngine.InputSystem;
 public class OptionManager : MonoBehaviour
 {
     #region Variable
+    [Header("Option Manager")]
 
-    [Header("")]
+
+    public InputActionReference input_ref;
+
+
+
+    [Space]
     public Scrollbar scroll;
 
     [Header("Music And Sound")]
@@ -28,22 +37,22 @@ public class OptionManager : MonoBehaviour
     #endregion
     #region Event
     private void Start(){
-        scroll.value = 1;
+
+        btn_back.onClick.AddListener(SaveConfigurations);
 
         //Loads the saved data 
         SavedData saved = DataSystem.Get;
-        slider_sensibility.value = saved.sensibilityPercent;
         slider_music.value = saved.musicPercent;
         slider_sound.value = saved.soundPercent;
+        slider_sensibility.value = saved.sensibilityPercent;
+
+
+
+        scroll.value = 1;
     }
     #endregion
     #region Method
 
-
-    public void SetNewKey(InputAction.CallbackContext ctx)
-    {
-        //ctx.action.name
-    }
 
 
     /// <summary>
@@ -52,10 +61,8 @@ public class OptionManager : MonoBehaviour
     public void SaveConfigurations()
     {
         AudioSystem.SavedBValues();
-
+        
     }
-
-
     /// <summary>
     /// Change Sensibility
     /// </summary>
@@ -73,15 +80,7 @@ public enum OptionSwitch
 {
     POST_PROCESS
 }
-/* Opciones
- * 
- * Cambiar la musica
- * Cambiar el sonido
- * 
- * Cambiar los controles (Levantar un modal 3D)
- * Ver Como Jugar (levantar un modal 3D) 
- * Jugar el Tutorial (Cambiar Escena al tutorial)
- *
- *
- * Nota: los modales 3D que se levanten ya existen, solo mueves a la persona por el mapa
- */
+
+
+
+
