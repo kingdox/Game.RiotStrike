@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Set;
-using UnityEngine.InputSystem;
 using RefreshControl;
 using Environment;
 # endregion
@@ -14,15 +13,6 @@ using Environment;
 public class ControlManager : MonoBehaviour
 {
     #region Variable
-    [SerializeField] private InputActionReference[] actions = null;
-
-    private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
-    public string test;
-
-
-
-
-
     private RefreshController[] refresh_controls;
     [Header("Control Manager")]
     public Transform tr_parent_controls;
@@ -33,6 +23,12 @@ public class ControlManager : MonoBehaviour
     {
         SavedData saved = DataSystem.Get;
         GenerateControlOptions(ref saved);
+    }
+
+    private void Update()
+    {
+
+        
     }
     #endregion
     #region Method
@@ -100,59 +96,8 @@ public class ControlManager : MonoBehaviour
     public void AssignKey(int index)
     {
         $"Funcionando Test {index}".Print();
-
-
-
-
     }
 
-    private const string RebindsKey = "rebinds";
-
-    private void Start2()
-    {
-        string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);
-
-        if (string.IsNullOrEmpty(rebinds)) { return; }
-
-        //playerController.PlayerInput.actions.LoadBindingOverridesFromJson(rebinds);
-
-        int bindingIndex = actions[0].action.GetBindingIndexForControl(actions[0].action.controls[0]);
-
-        test = InputControlPath.ToHumanReadableString(
-            actions[0].action.bindings[bindingIndex].effectivePath,
-            InputControlPath.HumanReadableStringOptions.OmitDevice);
-    }
-
-    public void Save()
-    {
-        //string rebinds = playerController.PlayerInput.actions.SaveBindingOverridesAsJson();
-
-        //PlayerPrefs.SetString(RebindsKey, rebinds);
-    }
-
-    public void StartRebinding()
-    {
-        //playerController.PlayerInput.SwitchCurrentActionMap("Menu");
-
-        rebindingOperation = actions[0].action.PerformInteractiveRebinding()
-            .WithControlsExcluding("Mouse")
-            .OnMatchWaitForAnother(0.1f)
-            .OnComplete(operation => RebindComplete())
-            .Start();
-    }
-
-    private void RebindComplete()
-    {
-        int bindingIndex = actions[0].action.GetBindingIndexForControl(actions[0].action.controls[0]);
-
-        test = InputControlPath.ToHumanReadableString(
-            actions[0].action.bindings[bindingIndex].effectivePath,
-            InputControlPath.HumanReadableStringOptions.OmitDevice);
-
-        rebindingOperation.Dispose();
-
-        //playerController.PlayerInput.SwitchCurrentActionMap("Gameplay");
-    }
     #endregion
 }
 
@@ -162,7 +107,7 @@ public class ControlManager : MonoBehaviour
 [Serializable]
 public struct ControlList { public Control[] CONTROLS; }
 /// <summary>
-/// Structure of the achievements
+/// Structure of the control info
 /// </summary>
 [Serializable]
 public struct Control
@@ -186,3 +131,8 @@ namespace RefreshControl
         RESET = 1
     }
 }
+
+
+
+//TODO
+public struct DataList<T> { public T[] DATA; }
