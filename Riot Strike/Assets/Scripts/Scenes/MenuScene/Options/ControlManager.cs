@@ -37,31 +37,7 @@ public class ControlManager : MonoBehaviour
     }
     private void OnGUI()
     {
-        if (isBinding)
-        {
-            Event e = Event.current;
-            //e.keyCode != KeyCode.None &&
-            if ( e.isKey || e.isMouse )
-            {
-                isBinding = false;
-
-                KeyCode k;
-                if (e.isMouse) k=(KeyCode)Enum.Parse(typeof(KeyCode), $"mouse{Event.current.button}", true);
-                else k = e.keyCode;
-                Debug.Log(k);
-
-                SavedData saved = DataSystem.Get;
-                saved.controlKeys[actualBindIndex] = k.ToString();
-
-                refresh_controls[actualBindIndex].RefreshText(RefreshText.VALUE, k.ToString());
-
-                //Guardamos el nuevo key
-                //refrescamos el texto,
-                //hacemos unbind
-
-            }
-        }
-
+        if (isBinding) BindResponseEvent();
     }
     #endregion
     #region Method
@@ -131,40 +107,69 @@ public class ControlManager : MonoBehaviour
     {
         for (int i = 0; i < ControlLength; i++)
         {
-            RefreshButtonInteraction(i, RefreshButton.KEY, toBind.Equals(-1) || toBind.Equals(i));
+            RefreshButtonInteraction(i, RefreshButton.KEY, toBind.Equals(-1) );//|| toBind.Equals(i)
             RefreshButtonInteraction(i, RefreshButton.RESET, toBind.Equals(-1));
         }
     }
 
     /// <summary>
-    /// Assign a new key
+    /// Creates the edition to the new key, disabling buttons
     /// </summary>
     public void AssignKey(int index)
     {
-        isBinding = !isBinding;
+        if (isBinding) return;//🛡
 
+        isBinding = true;
+        actualBindIndex = index;
 
         //Detectar si se esta asignando algo o no
-        if (isBinding){
-            Binding();
-            btn_back.interactable = true;
-            btn_reset.interactable = true;
-            //Vuelve todo a la normalidad y guarda los cambios
-            refresh_controls[index].RefreshText(RefreshText.VALUE, DataSystem.Get.controlKeys[index]);
-        }
-        else
+        Binding(index);
+        btn_back.interactable = false;
+        btn_reset.interactable = false;
+
+        //Coloca cualquier texto para que asignemos algo...
+        refresh_controls[index].RefreshText(RefreshText.VALUE, "...");
+    }
+
+    /// <summary>
+    /// Wait the response to change the binding,
+    /// if is correct key then invoke <seealso cref="SetNewKey(KeyCode)"/>
+    /// </summary>
+    public void BindResponseEvent()
+    {
+        Event e = Event.current;
+        //e.keyCode != KeyCode.None &&
+        if (e.isKey || e.isMouse)
         {
+            KeyCode k;
+            if (e.isMouse) k = (KeyCode)Enum.Parse(typeof(KeyCode), $"mouse{Event.current.button}", true);
+            else k = e.keyCode;
 
-            Binding(index);
-            btn_back.interactable = false;
-            btn_reset.interactable = false;
-
-            refresh_controls[index].RefreshText(RefreshText.VALUE, "...");
-            //permite alterar la tecla escogida
-            //Hacemos que la persona esté asignando la siguiente tecla
-
+            if (k != KeyCode.None) SetNewKey(k);
         }
+    }
 
+    /// <summary>
+    /// Assign the last <seealso cref="actualBindIndex"/>
+    /// </summary>
+    public void SetNewKey(KeyCode k)
+    {
+        if (!isBinding) return;//🛡
+        isBinding = false;
+
+        //Guardamos
+        SavedData saved = DataSystem.Get;
+        saved.controlKeys[actualBindIndex] = k.ToString();
+        DataSystem.Set(saved);
+
+        refresh_controls[actualBindIndex]
+            .RefreshText(RefreshText.VALUE,
+            saved.controlKeys[actualBindIndex]);
+
+        Binding();
+        btn_back.interactable = true;
+        btn_reset.interactable = true;
+        actualBindIndex = -1; //resets the index
     }
 
     #endregion

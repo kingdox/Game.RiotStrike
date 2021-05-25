@@ -2,17 +2,17 @@
     "DATA": [
         {
             "NAME": "Atacar",
-            "KEY": "leftclick",
+            "KEY": "Mouse0",
             "DEBUG_DESCRIPTION": "Para atacar a los enemigos"
         },
         {
             "NAME": "Apuntar",
-            "KEY": "rightclick",
+            "KEY": "Mouse1",
             "DEBUG_DESCRIPTION": ""
         },
         {
             "NAME": "Habilidad",
-            "KEY": "space",
+            "KEY": "Space",
             "DEBUG_DESCRIPTION": ""
         },
         {
@@ -37,7 +37,7 @@
         },
         {
             "NAME": "Abrir Chat",
-            "KEY": "enter",
+            "KEY": "Return",
             "DEBUG_DESCRIPTION": ""
         }
     ]
