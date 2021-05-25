@@ -43,7 +43,7 @@ public class ControlManager : MonoBehaviour
     /// <summary>
     /// Returns the length of the <seealso cref="Data.CONTROLS"/>
     /// </summary>
-    private int ControlLength => Data.CONTROLS.Length;
+    private int ControlLength => Environment.Data.CONTROLS.Length;
     private void RefreshButtonInteraction(int i, RefreshButton btn, bool condition) => refresh_controls[i].GetButton(btn).interactable = condition;
 
     /// <summary>
@@ -56,11 +56,11 @@ public class ControlManager : MonoBehaviour
         if (!savedLength.Equals(ControlLength)){
             //Rellenamos los campos vacíos
             for (int i = 0; i < ControlLength; i++){
-                if (i >= savedLength) Data.CONTROLS[i].KEY.PushIn(ref saved.controlKeys);
+                if (i >= savedLength) Environment.Data.CONTROLS[i].KEY.PushIn(ref saved.controlKeys);
             }
             DataSystem.Set(saved);
         }
-        for (int i = 0; i < ControlLength; i++) CreateControl(Data.CONTROLS[i], saved.controlKeys[i]);
+        for (int i = 0; i < ControlLength; i++) CreateControl(Environment.Data.CONTROLS[i], saved.controlKeys[i]);
     }
     /// <summary>
     /// Create a Control and set the values
@@ -84,7 +84,7 @@ public class ControlManager : MonoBehaviour
     /// </summary>
     public void ResetKey(int index){
         SavedData saved = DataSystem.Get;
-        saved.controlKeys[index] = Data.CONTROLS[index].KEY;
+        saved.controlKeys[index] = Environment.Data.CONTROLS[index].KEY;
         DataSystem.Set(saved);
         refresh_controls[index].RefreshText(RefreshText.VALUE, in saved.controlKeys[index]);
     }

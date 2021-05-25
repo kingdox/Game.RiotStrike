@@ -17,7 +17,7 @@ public class CreditManager : MonoBehaviour
     #region Event
     private void Start()
     {
-        foreach (var c in Data.CREDITS) CreateCreditList(in c);
+        foreach (var c in Environment.Data.CREDITS) CreateCreditList(in c);
     }
     #endregion
     #region Method

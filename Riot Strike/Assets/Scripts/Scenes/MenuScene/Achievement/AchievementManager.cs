@@ -43,7 +43,7 @@ public class AchievementManager : MonoBehaviour
             DataSystem.Set(saved);
         }
 
-        for (int i = 0; i < AchievementQty; i++) CreateAchievement(in Data.ACHIEVEMENTS[i], saved.achievementsPoints[i]);
+        for (int i = 0; i < AchievementQty; i++) CreateAchievement(in Environment.Data.ACHIEVEMENTS[i], saved.achievementsPoints[i]);
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ public class AchievementManager : MonoBehaviour
     /// <summary>
     /// Qty of achievements
     /// </summary>
-    private int AchievementQty => Data.ACHIEVEMENTS.Length;
+    private int AchievementQty => Environment.Data.ACHIEVEMENTS.Length;
     #endregion
 }
 /// <summary>

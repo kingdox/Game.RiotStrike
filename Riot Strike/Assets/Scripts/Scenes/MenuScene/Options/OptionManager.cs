@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Get;
@@ -28,7 +29,6 @@ public class OptionManager : MonoBehaviour
     public Slider slider_sound;
     public Slider slider_sensibility;
 
-
     [Header("Switch Options")]
     public RefreshController[] refresh_switchs;
 
@@ -43,6 +43,8 @@ public class OptionManager : MonoBehaviour
         "English"
     };
 
+    //[Header("Post Processing")]
+    //PostProcessVolume as
 
     #endregion
     #region Event
