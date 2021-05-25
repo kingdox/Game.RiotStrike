@@ -2,4 +2,96 @@
 <main>
     <string key="lang">English</string>
     <string key="game">Riot Strike</string>
+
+    <_ key=""><!--COMMIT--></_>
+
+
+    <_ key="general"><!--General--></_>
+        <general key="back">Back</general>
+        <general key="active">Active</general>
+        <general key="disabled">Disabled</general>
+
+
+
+    <_ key="_menu"><!--MENU--></_>
+        <menu key="menu_singlePlayer">Sigleplayer</menu>
+        <menu key="menu_multiPlayer">Multiplayer</menu>
+        <menu key="menu_options">Options</menu>
+        <menu key="menu_achievements">Achievements</menu>
+        <menu key="menu_credits">Credits</menu>
+        <menu key="menu_exit">Exit</menu>
+
+    <_ key="_menu_selector"><!--SELECTOR--></_>
+
+
+    <_ key="_options"><!--OPTIONS--></_>
+        <_options key="options_title">Options</_options>
+        <_options key="options_music">Music</_options>
+        <_options key="options_sound">Sound</_options>
+        <_options key="options_sensibility">Sensibility</_options>
+        <_options key="options_postProcessing">Post processing</_options>
+        <_options key="options_invert_x">Invert axis X</_options>
+        <_options key="options_invert_y">Invert axis Y</_options>
+        <_options key="options_controls">Controls</_options>
+        <_options key="options_tutorial">Tutorial</_options>
+
+
+    <_ key="_achievements"><!--ACHIEVEMENTS--></_>
+        <_achievements key="achievements_title">Achievements</_achievements>
+        <_achievements key="achievements_name_0">Novice</_achievements>
+            <_achievements key="achievements_description_0">Finish the tutorial</_achievements>
+        <_achievements key="achievements_name_1">Bulletless</_achievements>
+            <_achievements key="achievements_description_1">Anyway, it's infinite, isn't it?</_achievements>
+        <_achievements key="achievements_name_2">Trash guy</_achievements>
+            <_achievements key="achievements_description_2">Honestly Idk I hate the trash</_achievements>
+        <_achievements key="achievements_name_3">Ma fault</_achievements>
+            <_achievements key="achievements_description_3">Friendly?</_achievements>
+        <_achievements key="achievements_name_4">Wiu wiu</_achievements>
+            <_achievements key="achievements_description_4">You have to be a healer guy to your friends</_achievements>
+        <_achievements key="achievements_name_5">RRSS</_achievements>
+            <_achievements key="achievements_description_5">¡This is not your social media chat!</_achievements>
+        <_achievements key="achievements_name_6">Master</_achievements>
+            <_achievements key="achievements_description_6">You finish with every character</_achievements>
+        <_achievements key="achievements_name_7">Hide'n Seek</_achievements>
+            <_achievements key="achievements_description_7">Shoot the mistery thing</_achievements>
+
+
+    <_ key="_credits"><!--CREDITS--></_>
+        <_credits key="_credits_title">Credits</_credits>
+        <_credits key="_credits_text_0">Design and Development</_credits>
+        <_credits key="_credits_text_1">Art 2D</_credits>
+        <_credits key="_credits_text_2">Art 3D</_credits>
+        <_credits key="_credits_text_3">Marketing</_credits>
+        <_credits key="_credits_text_4">Special Thanks</_credits>
+
+
+    <_ key="_tutorials"><!--TUTORIALS--></_>
+        <_tutorials key="_tutorials_title">Tutorial</_tutorials>
+        <_tutorials key="_tutorials_opt_how">How to play</_tutorials>
+        <_tutorials key="_tutorials_opt_goal">Goals</_tutorials>
+        <_tutorials key="_tutorials_opt_play">Play Tutorial</_tutorials>
+        <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
+            <_tutorials key="_tutorials_game_"></_tutorials>
+        <_ key="_tutorials_menu"><!--TUTORIALS MENU--></_>
+            <_tutorials key="_tutorials_menu_0">    the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</_tutorials>
+            <_tutorials key="_tutorials_menu_1"> Parrafo 2</_tutorials>
+            <_tutorials key="_tutorials_menu_2"> Parrafo 3</_tutorials>
+        <_ key="_tutorials_goal"><!--TUTORIALS GOAL--></_>
+            <_tutorials key="_tutorials_goal_0">Parrafo goal1</_tutorials>
+            <_tutorials key="_tutorials_goal_1">2</_tutorials>
+
+
+    <_ key="_controls"><!--CONTROLS--></_>
+        <_controls key="_controls_title">Controls</_controls>
+        <_controls key="_controls_reset">Restart values</_controls>
+        <_controls key="_controls_attack">Attack</_controls>
+        <_controls key="_controls_focus">Focus</_controls>
+        <_controls key="_controls_spell">Spell</_controls>
+        <_controls key="_controls_move_forward">Forward</_controls>
+        <_controls key="_controls_move_back">Back</_controls>
+        <_controls key="_controls_move_left">Left</_controls>
+        <_controls key="_controls_move_right">Right</_controls>
+        <_controls key="_controls_chat">Chat</_controls>
+        <_controls key="_controls_pause">Pause</_controls>
+
 </main>

@@ -27,7 +27,6 @@ namespace Environment
 
         public readonly static Achievement[] ACHIEVEMENTS = LoadData<Achievement>();
         public readonly static Credit[] CREDITS = LoadData<Credit>();
-        public readonly static TutorialList TUTORIAL = "TutorialData".LoadJson<TutorialList>();
         public readonly static Control[] CONTROLS = LoadData<Control>();
 
 

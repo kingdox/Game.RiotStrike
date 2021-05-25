@@ -30,8 +30,6 @@ public class ControlManager : MonoBehaviour
         isBinding = false;
         SavedData saved = DataSystem.Get;
         GenerateControlOptions(ref saved);
-
-
         
         
     }
@@ -73,9 +71,8 @@ public class ControlManager : MonoBehaviour
         _refresh.PushIn(ref refresh_controls);
         int index = refresh_controls.Length - 1;
 
-        _refresh.RefreshText(RefreshText.TITLE, in c.NAME);
+        _refresh.Translate(RefreshText.TITLE, c.NAME);
         _refresh.RefreshText(RefreshText.VALUE, in keyControl);
-        //_refresh.RefreshText(RefreshText.DEFAULT, in c.KEY);
 
         _refresh.GetButton(RefreshButton.KEY).onClick.AddListener(delegate { AssignKey(index); });
         _refresh.GetButton(RefreshButton.RESET).onClick.AddListener(delegate { ResetKey(index); });

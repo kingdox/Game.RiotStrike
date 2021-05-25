@@ -798,7 +798,6 @@ namespace XavHelpTo
                 public static int IndexOf(char[] chars, int startIndex, params char[] finder) { for (int x = startIndex; x < chars.Length; x++) if (chars[x].IsEqualOf(finder)) return x; return -1; }
                 public static int IndexOf(string text, int startIndex, params char[] finder) { for (int x = startIndex; x < text.Length; x++) if (text[x].IsEqualOf(finder)) return x; return -1; }
                 public static int IndexOf<T>(T t, int startIndex, params T[] finder) { for (int x = startIndex; x < finder.Length; x++) if (t.IsEqualOf(finder)) return x; return -1; }
-
             /// <summary>
             /// Busca en un arreglo y si encuentra, muestra donde
             /// <para> caso contrario devuelve -1 </para>
@@ -821,7 +820,7 @@ namespace XavHelpTo
                 /// Conoces el siguiente indice basado en la longitud del arreglo
                 /// <para>Se le puede definir un inicio en caso de haber</para>
                 /// </summary>
-                public static int NextIndex(bool goNext, int indexLength, int index = 0) => goNext ? (index == indexLength - 1 ? 0 : index + 1) : (index == 0 ? indexLength - 1 : index - 1);
+                public static int NextIndex(this bool goNext, int indexLength, int index = 0) => goNext ? (index == indexLength - 1 ? 0 : index + 1) : (index == 0 ? indexLength - 1 : index - 1);
                 /// <summary>
                 /// Retorna un valor distinto al ultimo suponiendo que la dimension es mayor a 1
                 /// </summary>

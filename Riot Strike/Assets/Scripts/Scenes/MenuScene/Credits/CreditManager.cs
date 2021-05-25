@@ -28,7 +28,7 @@ public class CreditManager : MonoBehaviour
     /// <param name="c"></param>
     private void CreateCreditList(in Credit c){
         //1. creamos el titulo
-        CreateCredit(c.TEXT, c.BACKGROUND.ToColor());
+        CreateCredit(c.TEXT, c.BACKGROUND.ToColor(), true);
         //2. creamos un for de los nombres
         foreach (string n in c.NAMES) CreateCredit(n, Color.black);
     }
@@ -36,13 +36,18 @@ public class CreditManager : MonoBehaviour
     /// <summary>
     /// Create a credit
     /// </summary>
-    private void CreateCredit(string name, Color color)
+    private void CreateCredit(string name, Color color, bool isTitle=false)
     {
         RefreshController _refresh = RefreshController.CreateRefresh(in pref_creditItem, in tr_parent_credits);
 
-        _refresh.RefreshText(RefreshText.NAME, name);
+        if (isTitle) _refresh.Translate(RefreshText.NAME, name);
+        else _refresh.RefreshText(RefreshText.NAME, name);
+
         _refresh.RefreshImgColor(RefreshImage.BACKGROUND, color);
     }
+
+
+   
 
     #endregion
 }

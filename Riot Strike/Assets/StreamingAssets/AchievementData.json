@@ -2,52 +2,52 @@
 
   "DATA" :[
     {
-      "NAME": "Novice",
-      "DESCRIPTION": "Completado el complejo tuto",
-      "REQUIREMENT": 1,
-      "DEBUG_REQUIREMENT": "Completa el tutorial o abre la ventana de tutorial."
+        "NAME": "achievements_name_0",
+        "DESCRIPTION": "achievements_description_0",
+        "REQUIREMENT": 1,
+        "DEBUG_REQUIREMENT": "Completa el tutorial o abre la ventana de tutorial."
     },
     {
-      "NAME": "Malgasta-balas",
-      "DESCRIPTION": "Igual se crean solas, no?",
-      "REQUIREMENT": 1000,
-      "DEBUG_REQUIREMENT": "Dispara 1000 balas"
+        "NAME": "achievements_name_1",
+        "DESCRIPTION": "achievements_description_1",
+        "REQUIREMENT": 1000,
+        "DEBUG_REQUIREMENT": "Dispara 1000 balas"
     },
     {
-      "NAME": "Sucio",
-      "DESCRIPTION": "No me gusta botar la basura",
-      "REQUIREMENT": 9,
-      "DEBUG_REQUIREMENT": "Dispara a todas las basuras en 1 partida. (son 9)"
+        "NAME": "achievements_name_2",
+        "DESCRIPTION": "achievements_description_2",
+        "REQUIREMENT": 9,
+        "DEBUG_REQUIREMENT": "Dispara a todas las basuras en 1 partida. (son 9)"
     },
     {
-      "NAME": "Mala mia",
-      "DESCRIPTION": "Ese es tu héroe?",
-      "REQUIREMENT": 1,
-      "DEBUG_REQUIREMENT": "Dispara a alguno de tus aliados"
+        "NAME": "achievements_name_3",
+        "DESCRIPTION": "achievements_description_3",
+        "REQUIREMENT": 1,
+        "DEBUG_REQUIREMENT": "Dispara a alguno de tus aliados"
     },
     {
-      "NAME": "Wiu wiu",
-      "DESCRIPTION": "Se la mejor ambulancia para tus compas",
-      "REQUIREMENT": 20,
-      "DEBUG_REQUIREMENT": "Revive a los aliados más de 20 veces"
+        "NAME": "achievements_name_4",
+        "DESCRIPTION": "achievements_description_4",
+        "REQUIREMENT": 20,
+        "DEBUG_REQUIREMENT": "Revive a los aliados más de 20 veces"
     },
     {
-      "NAME": "Perico",
-      "DESCRIPTION": "¡Que esto no es una red social niño !",
-      "REQUIREMENT": 50,
-      "DEBUG_REQUIREMENT": "Envía más de 50 mensajes"
+        "NAME": "achievements_name_5",
+        "DESCRIPTION": "achievements_description_5",
+        "REQUIREMENT": 50,
+        "DEBUG_REQUIREMENT": "Envía más de 50 mensajes"
     },
     {
-      "NAME": "Master",
-      "DESCRIPTION": "Ya has tocado de todo un poco",
-      "REQUIREMENT": 5,
-      "DEBUG_REQUIREMENT": "Juega con todos los personajes (son 5)"
+        "NAME": "achievements_name_6",
+        "DESCRIPTION": "achievements_description_6",
+        "REQUIREMENT": 5,
+        "DEBUG_REQUIREMENT": "Juega con todos los personajes (son 5)"
     },
     {
-      "NAME": "Escondidas",
-      "DESCRIPTION": "Encuentra el elemento misterioso",
-      "REQUIREMENT": 1,
-      "DEBUG_REQUIREMENT": "Dispara a una nota escondida en alguna parte del mapa de juego"
+        "NAME": "achievements_name_7",
+        "DESCRIPTION": "achievements_description_7",
+        "REQUIREMENT": 1,
+        "DEBUG_REQUIREMENT": "Dispara a una nota escondida en alguna parte del mapa de juego"
     }
   ]
 }

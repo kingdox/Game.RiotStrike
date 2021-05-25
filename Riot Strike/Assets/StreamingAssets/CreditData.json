@@ -2,21 +2,21 @@
     "DATA": [
         {
             "BACKGROUND": [ 1, 1, 1 ],
-            "TEXT": "Diseño y desarrollo",
+            "TEXT": "_credits_text_0",
             "NAMES": [
                 "Xavier Arpa López"
             ]
         },
         {
             "BACKGROUND": [ 1, 1, 1 ],
-            "TEXT": "Arte 2D",
+            "TEXT": "_credits_text_1",
             "NAMES": [
                 "Ester"
             ]
         },
         {
             "BACKGROUND": [ 1, 1, 1 ],
-            "TEXT": "Arte 3D",
+            "TEXT": "_credits_text_2",
             "NAMES": [
                 "People 1",
                 "People 2",
@@ -26,14 +26,14 @@
         },
         {
             "BACKGROUND": [ 1, 1, 1 ],
-            "TEXT": "Marketing",
+            "TEXT": "_credits_text_3",
             "NAMES": [
                 "???"
             ]
         },
         {
             "BACKGROUND": [ 1, 1, 1 ],
-            "TEXT": "Mensiónes Especiales",
+            "TEXT": "_credits_text_4",
             "NAMES": [
                 "ivan",
                 "Lino"

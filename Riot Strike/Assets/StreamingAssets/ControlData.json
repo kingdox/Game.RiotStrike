@@ -1,44 +1,49 @@
 ﻿{
     "DATA": [
         {
-            "NAME": "Atacar",
+            "NAME": "_controls_attack",
             "KEY": "Mouse0",
             "DEBUG_DESCRIPTION": "Para atacar a los enemigos"
         },
         {
-            "NAME": "Apuntar",
+            "NAME": "_controls_focus",
             "KEY": "Mouse1",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Apuntar o hacer foco a la vision"
         },
         {
-            "NAME": "Habilidad",
+            "NAME": "_controls_spell",
             "KEY": "Space",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Usar la Habilidad del personaje"
         },
         {
-            "NAME": "Mover Adelante",
+            "NAME": "_controls_move_forward",
             "KEY": "W",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Moverte para adelante"
         },
         {
-            "NAME": "Mover Atrás",
+            "NAME": "_controls_move_back",
             "KEY": "S",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Moverte para atrás"
         },
         {
-            "NAME": "Mover Izquierda",
+            "NAME": "_controls_move_left",
             "KEY": "A",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Moverte a la izquierda"
         },
         {
-            "NAME": "Mover Derecha",
+            "NAME": "_controls_move_right",
             "KEY": "D",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Moverte a la derecha"
         },
         {
-            "NAME": "Abrir Chat",
+            "NAME": "_controls_chat",
             "KEY": "Return",
-            "DEBUG_DESCRIPTION": ""
+            "DEBUG_DESCRIPTION": "Para abrir el dialogo de juego"
+        },
+        {
+            "NAME": "_controls_pause",
+            "KEY": "Escape",
+            "DEBUG_DESCRIPTION": "Para Pausar el juego"
         }
     ]
 }

@@ -14,8 +14,17 @@ using TutorialRefresh;
 public class TutorialManager : MonoBehaviour
 {
     #region Variable
-    private Tutorial[] tutorials;
     private int lastTutorial = -1;
+
+    private const int QTY_MENU = 3;
+    private const int QTY_GOAL = 2;
+
+    public Tutorial[] tutorials;
+    private Tutorial tutorialMenu = new Tutorial("_tutorials_opt_how", "_tutorials_menu", QTY_MENU);
+    private Tutorial tutorialGoal = new Tutorial("_tutorials_opt_goal", "_tutorials_goal", QTY_GOAL);
+
+
+
     [Header("Achievement Manager")]
     public bool isInMenu;
     [Space]
@@ -29,11 +38,12 @@ public class TutorialManager : MonoBehaviour
 
         if (isInMenu)
         {
+            tutorialMenu.PushIn(ref tutorials);
+            tutorialGoal.PushIn(ref tutorials);
+
             //asigns the menu and goal values
-            tutorials = Set.ToArray(Data.TUTORIAL.MENU, Data.TUTORIAL.GOAL);
             LoadTutorialInfo(0);
         }
-        else tutorials = Set.ToArray(Data.TUTORIAL.GAME);
         
     }
     #endregion
@@ -46,14 +56,14 @@ public class TutorialManager : MonoBehaviour
     {
         tr_parent_tutorialInfo.ClearChilds();
         //0. modificamos el 0 que es el TITULAR ?
-        CreateInfo(tutorialInfo.TITLE, true);
+        CreateInfo(tutorialInfo.titleKey, true);
 
-        for (int i = 0; i < tutorialInfo.INFO.Length; i++)
+        for (int i = 0; i < tutorialInfo.qty; i++)
         {
-            CreateInfo(tutorialInfo.INFO[i]);
+            CreateInfo($"{tutorialInfo.infoKey}_{i}");
         }
     }
-
+    
     /// <summary>
     /// Create the tutorial information item
     /// </summary>
@@ -61,7 +71,8 @@ public class TutorialManager : MonoBehaviour
     {
 
         RefreshController _refresh = RefreshController.CreateRefresh(in pref_tutorial, in tr_parent_tutorialInfo);
-        _refresh.RefreshText(RefreshText.INFO, in info);
+        //_refresh.RefreshText(RefreshText.INFO, in info);
+        _refresh.Translate(RefreshText.INFO,info);
 
         if (isTitle)
         {
@@ -70,6 +81,7 @@ public class TutorialManager : MonoBehaviour
             txt.alignment = TextAnchor.MiddleCenter;
         }
     }
+
 
     /// <summary>
     /// Loads the tutorial selected
@@ -87,23 +99,20 @@ public class TutorialManager : MonoBehaviour
 
     #endregion
 }
-/// <summary>
-/// List of achievements
-/// </summary>
-[Serializable]
-public struct TutorialList {
-    public Tutorial GAME;
-    public Tutorial MENU;
-    public Tutorial GOAL;
-}
-/// <summary>
-/// Structure of the achievements
-/// </summary>
+
 [Serializable]
 public struct Tutorial
 {
-    public string TITLE;
-    public string[] INFO;
+    public string titleKey;
+    public string infoKey;
+    public int qty;
+
+    public Tutorial(string titleKey,string infoKey, int qty)
+    {
+        this.titleKey = titleKey;
+        this.infoKey = infoKey;
+        this.qty = qty;
+    }
 }
 
 namespace TutorialRefresh

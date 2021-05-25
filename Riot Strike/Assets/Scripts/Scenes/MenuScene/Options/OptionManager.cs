@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Get;
+using XavHelpTo.Change;
+using XavHelpTo.Know;
 using XavHelpTo.Set;
 using Environment;
 using Switch = OptionRefresh.Switch;
@@ -15,8 +18,8 @@ using Switch = OptionRefresh.Switch;
 public class OptionManager : MonoBehaviour
 {
     #region Variable
-    private const string ACTIVE = "Activado";
-    private const string DISABLE = "Desactivado";
+    private const string ACTIVE = "active";
+    private const string DISABLE = "disabled";
     [Header("Option Manager")]
     public Scrollbar scroll;
 
@@ -26,12 +29,19 @@ public class OptionManager : MonoBehaviour
     public Slider slider_sensibility;
 
 
-
     [Header("Switch Options")]
     public RefreshController[] refresh_switchs;
 
     [Header("Controls")]
     public Button btn_back;
+
+    [Header("Languages")]
+    public int index_lang=0;
+    public static readonly string[] LANGUAGES =
+    {
+        TranslateSystem.DEFAULT_LANG,
+        "English"
+    };
 
 
     #endregion
@@ -42,10 +52,27 @@ public class OptionManager : MonoBehaviour
     }
     #endregion
     #region Method
+
+
+    /// <summary>
+    /// Change the language to the next idiom
+    /// </summary>
+    [ContextMenu("Cambiar Idioma")]
+    public void ChangeLang()
+    {
+        index_lang = true.NextIndex(LANGUAGES.Length,index_lang);
+        TranslateSystem.InitLang(LANGUAGES[index_lang]);
+        
+    }
+
     /// <summary>
     /// Change the information showed based on a condition
     /// </summary>
-    private void SwitchItemStatus(RefreshController refresh, bool condition){refresh.GetText(Switch.RefreshText.VALUE).text = condition ? ACTIVE : DISABLE;}
+    private void SwitchItemStatus(RefreshController refresh, bool condition){
+        refresh.GetText(Switch.RefreshText.VALUE).transform.Component(out TranslateController transC);
+        transC.key = condition ? ACTIVE : DISABLE;
+        transC.Translate();
+    }
 
     /// <summary>
     /// Loads the saved data to set all the saved configurations in game
@@ -57,12 +84,16 @@ public class OptionManager : MonoBehaviour
         slider_music.value = saved.musicPercent;
         slider_sound.value = saved.soundPercent;
         slider_sensibility.value = saved.sensibilityPercent;
+        index_lang = Know.IndexOf(LANGUAGES, 0, saved.currentLang).Min(0).Max(LANGUAGES.Length);
+        
 
         int length = refresh_switchs.Length;
         if ( !length.Equals(saved.switch_configs.Length)){
             length.NewIn(out saved.switch_configs);
             DataSystem.Set(saved);
         }
+
+
 
 
         for (int i = 0; i < refresh_switchs.Length; i++)
@@ -78,14 +109,21 @@ public class OptionManager : MonoBehaviour
     public void SaveConfigurations()
     {
         AudioSystem.SavedBValues();
-        
+
+        SavedData saved = DataSystem.Get;
+        saved.currentLang = LANGUAGES[index_lang];
+
+
+
+        DataSystem.Set(saved);
+        DataSystem.Save();
     }
 
     /// <summary>
     ///  Change the option of one of the switchOption
     /// </summary>
     public void SwitchOption(int index){
-        index.Print();
+        //index.Print();
         RefreshController refresh = refresh_switchs[index];
         SavedData saved = DataSystem.Get;
         bool status = !saved.switch_configs[index];
@@ -101,6 +139,7 @@ public class OptionManager : MonoBehaviour
     {
         SavedData saved = DataSystem.Get;
         saved.sensibilityPercent = percent;
+        DataSystem.Set(saved);
     }
     #endregion
 }

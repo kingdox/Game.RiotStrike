@@ -19,7 +19,7 @@ public class TranslateSystem : MonoBehaviour
     public Dictionary<string, string> dic_Lang;
 
     private bool inited;
-    public static UnityAction LangSubscribe;
+    public static UnityAction OnSetLanguage;
 
     #region Debug Variables
         [HideInInspector] public bool debug_mode = false;
@@ -38,27 +38,13 @@ public class TranslateSystem : MonoBehaviour
         this.Singleton(ref _,true);
     }
     private void Start(){
-
-        InitLang(DataSystem.Get.currentLang );
+        InitLang(DataSystem.Get.currentLang ); //TODO pasar a onEnable?
         //Traduce los que se suscribieron
-        RefreshTexts();
         inited = true;
     }
     #endregion
     #region Methods
-    /// <summary>
-    /// Initializes the Language Dictionary
-    /// </summary>
-    private void InitLang(string lang= default, string defaultLang = default)
-    {
-        systemLanguage = Application.systemLanguage.ToString().Print();
-        TextAsset txt = LoadTextAsset(
-            PATH_LANG,
-            lang ?? systemLanguage, // sets the lang or the system default lang
-            defaultLang ?? DEFAULT_LANG //which lang set as default if the file does not exist?
-        );
-        dic_Lang = LoadDictionary(txt); // loads the Dictionary of the Lang
-    }
+   
     /// <summary>
     /// Carga el archivo a buscar y lo inserta en un <see cref="TextAsset"/>
     /// </summary>
@@ -98,7 +84,23 @@ public class TranslateSystem : MonoBehaviour
     private string GetValueIn(in Dictionary<string, string> dic, in string key) => !(dic is null) && dic.ContainsKey(key) ? dic[key] : $"Err: {key}";
 
 
-    #region  Public Methods 
+    #region  Public Methods
+    /// <summary>
+    /// Initializes the Language Dictionary
+    /// </summary>
+    public static void InitLang(string lang = default, string defaultLang = default) => _._InitLang(lang, defaultLang);
+    public  void _InitLang(string lang = default, string defaultLang = default) 
+    {
+        systemLanguage = Application.systemLanguage.ToString();
+        TextAsset txt = LoadTextAsset(
+            PATH_LANG,
+            lang ?? systemLanguage, // sets the lang or the system default lang
+            defaultLang ?? DEFAULT_LANG //which lang set as default if the file does not exist?
+        );
+        dic_Lang = LoadDictionary(txt); // loads the Dictionary of the Lang
+        //$"IDIOMA refresh".Print();
+        RefreshTexts();
+    }
     /// <summary>
     /// Makes a translation of the dictionary of language
     /// </summary>
@@ -111,7 +113,7 @@ public class TranslateSystem : MonoBehaviour
     /// Invoca el refrescamiento para los suscritos
     /// </summary>
     [ContextMenu("Refrescar textos")]
-    public void RefreshTexts() => LangSubscribe?.Invoke();
+    public void RefreshTexts() => OnSetLanguage?.Invoke();
     /// <summary>
     /// Show if is Inited
     /// </summary>

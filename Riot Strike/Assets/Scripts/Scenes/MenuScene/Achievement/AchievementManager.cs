@@ -56,8 +56,9 @@ public class AchievementManager : MonoBehaviour
         bool isDone = pts >= achievement.REQUIREMENT;
 
         _refresh.RefreshImgColor(RefreshImage.ICON, new Color(1, 1, 1, isDone.ToInt()));
-        _refresh.RefreshText(RefreshText.NAME, achievement.NAME);
-        _refresh.RefreshText(RefreshText.DESCRIPTION, achievement.DESCRIPTION);
+
+        _refresh.Translate( RefreshText.NAME, achievement.NAME);
+        _refresh.Translate( RefreshText.DESCRIPTION, achievement.DESCRIPTION);
     }
 
     /// <summary>

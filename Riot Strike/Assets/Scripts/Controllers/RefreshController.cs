@@ -14,6 +14,7 @@ public class RefreshController : MonoBehaviour
     [SerializeField] private Image[] imgs = new Image[0];
     [SerializeField] private Text[] txts = new Text[0];
     [SerializeField] private Button[] btns = new Button[0];
+
     #endregion
     #region Event
 

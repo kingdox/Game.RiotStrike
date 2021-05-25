@@ -2,4 +2,96 @@
 <main>
     <string key="lang">Español</string>
     <string key="game">Riot Strike</string>
+
+    <_ key=""><!--COMMIT--></_>
+
+
+    <_ key="general"><!--General--></_>
+        <general key="back">Atrás</general>
+        <general key="active">Activado</general>
+        <general key="disabled">Desactivado</general>
+
+
+
+    <_ key="_menu"><!--MENU--></_>
+        <menu key="menu_singlePlayer">Un Jugador</menu>
+        <menu key="menu_multiPlayer">Multijugador</menu>
+        <menu key="menu_options">Opciones</menu>
+        <menu key="menu_achievements">Logros</menu>
+        <menu key="menu_credits">Créditos</menu>
+        <menu key="menu_exit">Salir</menu>
+
+    <_ key="_menu_selector"><!--SELECTOR--></_>
+
+
+    <_ key="_options"><!--OPTIONS--></_>
+        <_options key="options_title">Opciones</_options>
+        <_options key="options_music">Musica</_options>
+        <_options key="options_sound">Sonido</_options>
+        <_options key="options_sensibility">Sensibilidad</_options>
+        <_options key="options_postProcessing">Post Proceso</_options>
+        <_options key="options_invert_x">Invertir eje X</_options>
+        <_options key="options_invert_y">Invertir eje Y</_options>
+        <_options key="options_controls">Controles</_options>
+        <_options key="options_tutorial">Tutorial</_options>
+
+
+    <_ key="_achievements"><!--ACHIEVEMENTS--></_>
+        <_achievements key="achievements_title">Logros</_achievements>
+        <_achievements key="achievements_name_0">Novice</_achievements>
+            <_achievements key="achievements_description_0">Completado el complejo tuto</_achievements>
+        <_achievements key="achievements_name_1">Malgasta-balas</_achievements>
+            <_achievements key="achievements_description_1">Igual se crean solas, no?</_achievements>
+        <_achievements key="achievements_name_2">Sucio</_achievements>
+            <_achievements key="achievements_description_2">No me gusta botar la basura</_achievements>
+        <_achievements key="achievements_name_3">Mala mia</_achievements>
+            <_achievements key="achievements_description_3">Ese es tu héroe?</_achievements>
+        <_achievements key="achievements_name_4">Wiu wiu</_achievements>
+            <_achievements key="achievements_description_4">Se la mejor ambulancia para tus compas</_achievements>
+        <_achievements key="achievements_name_5">Perico</_achievements>
+            <_achievements key="achievements_description_5">¡Que esto no es una red social niño !</_achievements>
+        <_achievements key="achievements_name_6">Master</_achievements>
+            <_achievements key="achievements_description_6">Ya has tocado de todo un poco</_achievements>
+        <_achievements key="achievements_name_7">Escondidas</_achievements>
+            <_achievements key="achievements_description_7">Encuentra el elemento misterioso</_achievements>
+
+
+    <_ key="_credits"><!--CREDITS--></_>
+        <_credits key="_credits_title">Créditos</_credits>
+        <_credits key="_credits_text_0">Diseño y desarrollo</_credits>
+        <_credits key="_credits_text_1">Arte 2D</_credits>
+        <_credits key="_credits_text_2">Arte 3D</_credits>
+        <_credits key="_credits_text_3">Marketing</_credits>
+        <_credits key="_credits_text_4">Mensiónes Especiales</_credits>
+
+
+    <_ key="_tutorials"><!--TUTORIALS--></_>
+        <_tutorials key="_tutorials_title">Tutorial</_tutorials>
+        <_tutorials key="_tutorials_opt_how">Cómo Jugar</_tutorials>
+        <_tutorials key="_tutorials_opt_goal">Objetivos</_tutorials>
+        <_tutorials key="_tutorials_opt_play">Jugar Tutorial</_tutorials>
+        <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
+            <_tutorials key="_tutorials_game_"></_tutorials>
+        <_ key="_tutorials_menu"><!--TUTORIALS MENU--></_>
+            <_tutorials key="_tutorials_menu_0">    the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</_tutorials>
+            <_tutorials key="_tutorials_menu_1"> Parrafo 2</_tutorials>
+            <_tutorials key="_tutorials_menu_2"> Parrafo 3</_tutorials>
+        <_ key="_tutorials_goal"><!--TUTORIALS GOAL--></_>
+            <_tutorials key="_tutorials_goal_0">Parrafo goal1</_tutorials>
+            <_tutorials key="_tutorials_goal_1">2</_tutorials>
+
+
+    <_ key="_controls"><!--CONTROLS--></_>
+        <_controls key="_controls_title">Controles</_controls>
+        <_controls key="_controls_reset">Reiniciar valores</_controls>
+        <_controls key="_controls_attack">Atacar</_controls>
+        <_controls key="_controls_focus">Apuntar</_controls>
+        <_controls key="_controls_spell">Habilidad</_controls>
+        <_controls key="_controls_move_forward">Mover Adelante</_controls>
+        <_controls key="_controls_move_back">Mover Atrás</_controls>
+        <_controls key="_controls_move_left">Mover Izquierda</_controls>
+        <_controls key="_controls_move_right">Mover Derecha</_controls>
+        <_controls key="_controls_chat">Abrir Chat</_controls>
+        <_controls key="_controls_pause">Pausa</_controls>
+
 </main>
