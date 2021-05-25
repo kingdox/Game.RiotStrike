@@ -38,7 +38,8 @@ public class TranslateSystem : MonoBehaviour
         this.Singleton(ref _,true);
     }
     private void Start(){
-        InitLang();
+
+        InitLang(DataSystem.Get.currentLang );
         //Traduce los que se suscribieron
         RefreshTexts();
         inited = true;
