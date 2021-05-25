@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
         //    _saved.soundPercent = 1;
         //    DataSystem.Set(_saved);
         //}
-
+        $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
     }
     #endregion
     #region Methods

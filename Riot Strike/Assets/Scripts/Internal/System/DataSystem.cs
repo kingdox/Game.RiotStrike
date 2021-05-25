@@ -23,7 +23,7 @@ public class DataSystem : MonoBehaviour
     #region ###### EVENTS
     private void Awake()
     {
-        this.Singleton(ref _);
+        this.Singleton(ref _,true);
         _._SaveLoadFile(!File.Exists(Path));
     }
     #endregion

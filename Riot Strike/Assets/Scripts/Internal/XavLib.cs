@@ -626,6 +626,12 @@ namespace XavHelpTo
                 public static float[] ToArray(this Vector2 v) => new float[] {v[0], v[1]};
 
             /// <summary>
+            /// Transform The string in keycode
+            /// </summary>
+            public static KeyCode ToKeyCode(this string key, bool ignoreCase =true) => (KeyCode)S.Enum.Parse(typeof(KeyCode), key, ignoreCase);
+            public static KeyCode ToKeyCode(this Event e , out KeyCode k) => k = (e.isMouse ? $"mouse{Event.current.button}".ToKeyCode() : e.keyCode);
+
+            /// <summary>
             ///  Set to color an array
             /// </summary>
             public static Color ToColor(this int[] t)

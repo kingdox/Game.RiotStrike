@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Change;
 using XavHelpTo.Set;
 using RefreshControl;
 using Environment;
@@ -29,12 +30,12 @@ public class ControlManager : MonoBehaviour
         isBinding = false;
         SavedData saved = DataSystem.Get;
         GenerateControlOptions(ref saved);
+
+
+        
+        
     }
 
-    private void Update()
-    {
-       
-    }
     private void OnGUI()
     {
         if (isBinding) BindResponseEvent();
@@ -141,9 +142,9 @@ public class ControlManager : MonoBehaviour
         //e.keyCode != KeyCode.None &&
         if (e.isKey || e.isMouse)
         {
-            KeyCode k;
-            if (e.isMouse) k = (KeyCode)Enum.Parse(typeof(KeyCode), $"mouse{Event.current.button}", true);
-            else k = e.keyCode;
+            e.ToKeyCode(out KeyCode k);
+            //if (e.isMouse) k = $"mouse{Event.current.button}".ToKeyCode();
+            //else k = e.keyCode;
 
             if (k != KeyCode.None) SetNewKey(k);
         }

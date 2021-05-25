@@ -29,7 +29,7 @@ public class AudioSystem : MonoBehaviour
     #endregion
     #region Event
     private void Awake() {
-        this.Singleton(ref _);
+        this.Singleton(ref _,true);
         this.Component(out src_sound);
         transform.GetChild(0).Component(out src_generalSound, true);
     }
