@@ -21,11 +21,24 @@ namespace Environment
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
 
 
-        [Header("Json Data Loads")]        
-        public readonly static Achievement[] ACHIEVEMENTS = "AchievementData".LoadJson<AchievementList>().ACHIEVEMENTS;
-        public readonly static Credit[] CREDITS = "CreditData".LoadJson<CreditList>().CREDITS;
+        [Header("Json Data Loads")]
+        private const string DATA_KEY = "Data";
+        private static T[] LoadData<T>()=>(typeof(T) + DATA_KEY).LoadJson<DataList<T>>().DATA;
+
+        public readonly static Achievement[] ACHIEVEMENTS = LoadData<Achievement>();
+        public readonly static Credit[] CREDITS = LoadData<Credit>();
         public readonly static TutorialList TUTORIAL = "TutorialData".LoadJson<TutorialList>();
-        public readonly static Control[] CONTROLS = "ControlData".LoadJson<ControlList>().CONTROLS;
+        public readonly static Control[] CONTROLS = LoadData<Control>();
+
+
+
+        //TODO los nuevos
+        public readonly static Buff[] BUFFS = LoadData<Buff>();
+        public readonly static Spell[] SPELLS = LoadData<Spell>();
+        public readonly static Weapon[] WEAPONS = LoadData<Weapon>();
+        public readonly static Character[] CHARACTERS = LoadData<Character>();
+        public readonly static Stat[] STATS = LoadData<Stat>();
+
     }
     /// <summary>
     /// Las escenas del juego, ordenadas como en "Build Settings"
@@ -44,6 +57,57 @@ namespace Environment
     /// </summary>
     public enum ScreenTrigger { SHOW, HIDE };
 
+    /// <summary>
+    /// Helper who generalize to a list of inforamtion, used in JSON files
+    /// </summary>
+    public struct DataList<T> { public T[] DATA; }
     #endregion
 }
 
+
+
+#region TODO MOver leugo
+
+public struct Buff
+{
+    public string NAME;
+    public string ID;
+    public string DESCRIPTION;
+    public float COOLDOWN;
+    public string OWNER;
+}
+public struct Character
+{
+    public string NAME;
+    public string NICKNAME;
+    public string ROLE;
+    public string DESCRITION;
+    public string ID;
+}
+public struct Spell
+{
+    public string NAME;
+    public string ID;
+    public string DESCRIPTION;
+    public float COOLDOWN;
+    public string OWNER;
+}
+public struct Weapon
+{
+    public string NAME;
+    public string ID;
+    public string APPEARENCE;
+    public int AMMO;
+    public float RELOAD_TIME;
+    public float CADENCE;
+    public string OWNER;
+}
+public struct Stat
+{
+    public string ID;
+    public int STRENGHT;
+    public int DEFENSE;
+    public int SPEED;
+}
+
+#endregion

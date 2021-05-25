@@ -1,0 +1,45 @@
+﻿{
+    "DATA":[
+		{
+			"NAME":"Rifle",
+			"ID":"0",
+			"APPEARENCE":"Rifle de francotirador un rifle largo y pesado con una mirilla telescópica*",
+			"AMMO":4,
+			"RELOAD_TIME":4,
+			"CADENCE": 0.8,
+			"OWNER":"Enlai Ming"
+		},{
+			"NAME":"Lanzagranadas",
+			"ID":"1",
+			"APPEARENCE":"Lanzagranadas corto",
+			"AMMO":4,
+			"RELOAD_TIME":2,
+			"CADENCE": 0.5,
+			"OWNER":"Tabare Flare"
+		},{
+			"NAME":"Fusil AK 47",
+			"ID":"2",
+			"APPEARENCE":"Fusil de repetición con capacidad de electrificarse",
+			"AMMO":12,
+			"RELOAD_TIME":3,
+			"CADENCE": 0.3,
+			"OWNER":"Cole Megalos"
+		},{
+			"NAME":"Katana",
+			"ID":"3",
+			"APPEARENCE":"Katana larga  de un material indestructible y que conduce la corriente eléctrica",
+			"AMMO":6,
+			"RELOAD_TIME":1,
+			"CADENCE": 0.2,
+			"OWNER":"Akiyama Arata"
+		},{
+			"NAME":"Ametralladora",
+			"ID":"4",
+			"APPEARENCE":"Ametralladora integrada en el brazo izquierdo",
+			"AMMO":20,
+			"RELOAD_TIME":5,
+			"CADENCE": 0.2,
+			"OWNER":"X-F20"
+		}
+	]
+}

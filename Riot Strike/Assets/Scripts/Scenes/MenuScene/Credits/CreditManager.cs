@@ -46,12 +46,6 @@ public class CreditManager : MonoBehaviour
 
     #endregion
 }
-
-/// <summary>
-/// List of achievements
-/// </summary>
-[Serializable]
-public struct CreditList { public Credit[] CREDITS; }
 /// <summary>
 /// Structure of the achievements
 /// </summary>

@@ -126,9 +126,7 @@ public struct SavedData
         [Tooltip("Qué tan sensible es el agarre?")]public float dragSensibility; // 1-10, if 0 => 3f defualt
         [Tooltip("Keys guardados del usuario, por defecto tendrá los del arreglo")] public string[] controlKeys;
 
-        [Tooltip("Activamos el post procesado?")] public bool activePostProcess;
-        [Tooltip("Invertir la mira del eje X")] public bool invertX;
-        [Tooltip("Invertir la mira del eje Y")] public bool invertY;
+        [Tooltip("Configurations that need boolean movements")]public bool[] switch_configs;
 
 
     //Extra Debug ?

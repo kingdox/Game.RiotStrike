@@ -41,8 +41,6 @@ public class AchievementManager : MonoBehaviour
             //Set the new length
             saved.achievementsPoints = Set.Length(in saved.achievementsPoints, AchievementQty);
             DataSystem.Set(saved);
-            DataSystem.Save();
-            $"{nameof(AchievementManager)} => Asignado nueva dimension a los logros".Print("blue");
         }
 
         for (int i = 0; i < AchievementQty; i++) CreateAchievement(in Data.ACHIEVEMENTS[i], saved.achievementsPoints[i]);
@@ -68,12 +66,6 @@ public class AchievementManager : MonoBehaviour
     private int AchievementQty => Data.ACHIEVEMENTS.Length;
     #endregion
 }
-
-/// <summary>
-/// List of achievements
-/// </summary>
-[Serializable]
-public struct AchievementList{public Achievement[] ACHIEVEMENTS; }
 /// <summary>
 /// Structure of the achievements
 /// </summary>

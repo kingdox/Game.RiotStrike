@@ -1,0 +1,39 @@
+﻿{
+    "DATA": [
+        {
+            "NAME": "Enlai Ming",
+            "NICKNAME": "REVGO.D.",
+            "ROLE": "Sanador",
+            "DESCRITION": "Lore",
+            "ID": "0"
+        },
+        {
+            "NAME": "Tabare Flare",
+            "NICKNAME": "JUMPERMod",
+            "ROLE": "Velocista",
+            "DESCRITION": "Lore",
+            "ID": "1"
+        },
+        {
+            "NAME": "Cole Megalos",
+            "NICKNAME": "ThunderBOLD",
+            "ROLE": "Tanque",
+            "DESCRITION": "Lore",
+            "ID": "2"
+        },
+        {
+            "NAME": "Akiyama Arata",
+            "NICKNAME": "Edgein Kami",
+            "ROLE": "Asesino",
+            "DESCRITION": "Lore",
+            "ID": "3"
+        },
+        {
+            "NAME": "X-F20",
+            "NICKNAME": "X-F20 Patrullero",
+            "ROLE": "Equilibrado",
+            "DESCRITION": "Lore",
+            "ID": "4"
+        }
+    ]
+}

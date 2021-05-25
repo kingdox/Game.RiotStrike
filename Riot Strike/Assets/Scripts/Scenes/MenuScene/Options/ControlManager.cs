@@ -14,21 +14,54 @@ public class ControlManager : MonoBehaviour
 {
     #region Variable
     private RefreshController[] refresh_controls;
+    private bool isBinding=false;
+    private int actualBindIndex = -1;
     [Header("Control Manager")]
     public Transform tr_parent_controls;
     public GameObject pref_controlItem;
+    [Space]
+    public Button btn_back;
+    public Button btn_reset;
     #endregion
     #region Event
     private void Start()
     {
+        isBinding = false;
         SavedData saved = DataSystem.Get;
         GenerateControlOptions(ref saved);
     }
 
     private void Update()
     {
+       
+    }
+    private void OnGUI()
+    {
+        if (isBinding)
+        {
+            Event e = Event.current;
+            //e.keyCode != KeyCode.None &&
+            if ( e.isKey || e.isMouse )
+            {
+                isBinding = false;
 
-        
+                KeyCode k;
+                if (e.isMouse) k=(KeyCode)Enum.Parse(typeof(KeyCode), $"mouse{Event.current.button}", true);
+                else k = e.keyCode;
+                Debug.Log(k);
+
+                SavedData saved = DataSystem.Get;
+                saved.controlKeys[actualBindIndex] = k.ToString();
+
+                refresh_controls[actualBindIndex].RefreshText(RefreshText.VALUE, k.ToString());
+
+                //Guardamos el nuevo key
+                //refrescamos el texto,
+                //hacemos unbind
+
+            }
+        }
+
     }
     #endregion
     #region Method
@@ -36,6 +69,7 @@ public class ControlManager : MonoBehaviour
     /// Returns the length of the <seealso cref="Data.CONTROLS"/>
     /// </summary>
     private int ControlLength => Data.CONTROLS.Length;
+    private void RefreshButtonInteraction(int i, RefreshButton btn, bool condition) => refresh_controls[i].GetButton(btn).interactable = condition;
 
     /// <summary>
     /// Generates a list of items in controls
@@ -50,8 +84,6 @@ public class ControlManager : MonoBehaviour
                 if (i >= savedLength) Data.CONTROLS[i].KEY.PushIn(ref saved.controlKeys);
             }
             DataSystem.Set(saved);
-            DataSystem.Save();
-            $"{nameof(OptionManager)} => Asignado nueva dimension a los controles".Print("blue");
         }
         for (int i = 0; i < ControlLength; i++) CreateControl(Data.CONTROLS[i], saved.controlKeys[i]);
     }
@@ -70,13 +102,13 @@ public class ControlManager : MonoBehaviour
 
         _refresh.GetButton(RefreshButton.KEY).onClick.AddListener(delegate { AssignKey(index); });
         _refresh.GetButton(RefreshButton.RESET).onClick.AddListener(delegate { ResetKey(index); });
-
     }
+
+
     /// <summary>
     /// Reset a key
     /// </summary>
     public void ResetKey(int index){
-        //$"Reset! {index}".Print();
         SavedData saved = DataSystem.Get;
         saved.controlKeys[index] = Data.CONTROLS[index].KEY;
         DataSystem.Set(saved);
@@ -90,22 +122,53 @@ public class ControlManager : MonoBehaviour
     {
         for (int i = 0; i < ControlLength; i++) ResetKey(i);
     }
+
+    /// <summary>
+    /// Disable all the buttons in screen if is binding, else enable all
+    /// </summary>
+    /// <param name="toBind"></param>
+    public void Binding(int toBind= -1)
+    {
+        for (int i = 0; i < ControlLength; i++)
+        {
+            RefreshButtonInteraction(i, RefreshButton.KEY, toBind.Equals(-1) || toBind.Equals(i));
+            RefreshButtonInteraction(i, RefreshButton.RESET, toBind.Equals(-1));
+        }
+    }
+
     /// <summary>
     /// Assign a new key
     /// </summary>
     public void AssignKey(int index)
     {
-        $"Funcionando Test {index}".Print();
+        isBinding = !isBinding;
+
+
+        //Detectar si se esta asignando algo o no
+        if (isBinding){
+            Binding();
+            btn_back.interactable = true;
+            btn_reset.interactable = true;
+            //Vuelve todo a la normalidad y guarda los cambios
+            refresh_controls[index].RefreshText(RefreshText.VALUE, DataSystem.Get.controlKeys[index]);
+        }
+        else
+        {
+
+            Binding(index);
+            btn_back.interactable = false;
+            btn_reset.interactable = false;
+
+            refresh_controls[index].RefreshText(RefreshText.VALUE, "...");
+            //permite alterar la tecla escogida
+            //Hacemos que la persona esté asignando la siguiente tecla
+
+        }
+
     }
 
     #endregion
 }
-
-/// <summary>
-/// List of achievements
-/// </summary>
-[Serializable]
-public struct ControlList { public Control[] CONTROLS; }
 /// <summary>
 /// Structure of the control info
 /// </summary>
@@ -134,5 +197,3 @@ namespace RefreshControl
 
 
 
-//TODO
-public struct DataList<T> { public T[] DATA; }
