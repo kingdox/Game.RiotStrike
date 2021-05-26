@@ -582,6 +582,10 @@ namespace XavHelpTo
                 public static void SceneTo(string name) => SceneManager.LoadScene(name);
                 public static void ToScene(this int i) => Change.SceneTo(i);
                 public static void ToScene(this string i) => Change.SceneTo(i);
+                public static void ToScene<T>(this T i)
+                {
+                    if (Know.Know.IsEnum(i)) Change.SceneTo(i.ToInt());
+                }
                 /// <summary>
                 /// Activa o desactiva el <seealso cref="GameObject"/> basado en una condición
                 /// <para>Dependencia con <seealso cref="GameObject"/> </para>

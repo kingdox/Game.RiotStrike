@@ -63,7 +63,12 @@ public class ImageController : MonoBehaviour , IImageController
         yield return new WaitForSeconds(timeToDisable);
         gameObject.SetActive(false);
     }
-    
+    public void Invert()
+    {
+        Color c = color_want;
+        color_want = color_initial;
+        color_initial = c;
+    }
     public void Refresh() => img.color = color_initial;
     public bool IsEnd() => img.color.Equals(color_want);
     #endregion

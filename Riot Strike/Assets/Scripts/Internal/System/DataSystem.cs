@@ -113,7 +113,7 @@ public struct SavedData
 {
 
     [Header("Internal Saved Data")]
-        [Tooltip("Primera vez en jugar?")] public bool isFirstTime;
+        [Tooltip("Primera vez en jugar?")] public bool isOld;
         [Tooltip("El jugador nesecita que se le muestre el tutorial al iniciar?")] public bool tutorialDone;
         [Tooltip("Puntaje de Logros obtenidos")]public int[] achievementsPoints;
 
