@@ -43,8 +43,8 @@ public class OptionManager : MonoBehaviour
         "English"
     };
 
-    //[Header("Post Processing")]
-    //PostProcessVolume as
+    [Header("Post Processing")]
+    public GameObject obj_postProcessing;
 
     #endregion
     #region Event
@@ -87,7 +87,7 @@ public class OptionManager : MonoBehaviour
         slider_sound.value = saved.soundPercent;
         slider_sensibility.value = saved.sensibilityPercent;
         index_lang = Know.IndexOf(LANGUAGES, 0, saved.currentLang).Min(0).Max(LANGUAGES.Length);
-        
+
 
         int length = refresh_switchs.Length;
         if ( !length.Equals(saved.switch_configs.Length)){
@@ -104,6 +104,20 @@ public class OptionManager : MonoBehaviour
             refresh_switchs[i].GetButton(Switch.RefreshButton.SWITCH).onClick.AddListener(delegate { SwitchOption(c); });
             SwitchItemStatus(refresh_switchs[i], saved.switch_configs[i]);
         }
+
+        //obj_postProcessing.SetActive(saved.switch_configs[.ToInt()]);
+        refresh_switchs[SwitchOptionConfig.POST_PROCESSING.ToInt()]
+            .GetButton(Switch.RefreshButton.SWITCH)
+            .onClick.AddListener(SetPostProcessing);
+    }
+
+    /// <summary>
+    /// Sets the status visual of postprocessing
+    /// </summary>
+    public void SetPostProcessing()
+    {
+        obj_postProcessing
+            .SetActive(!obj_postProcessing.activeInHierarchy);
     }
     /// <summary>
     /// Save every configuration changed in Game
@@ -146,6 +160,13 @@ public class OptionManager : MonoBehaviour
     #endregion
 }
 
+
+public enum SwitchOptionConfig
+{
+    POST_PROCESSING=0,
+    INVERT_AXIS_X=1,
+    INVERT_AXIS_Y=2,
+}
 
 namespace OptionRefresh
 {

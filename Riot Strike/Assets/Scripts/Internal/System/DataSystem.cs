@@ -128,7 +128,6 @@ public struct SavedData
 
         [Tooltip("Configurations that need boolean movements")]public bool[] switch_configs;
 
-
     //Extra Debug ?
     [Header("Debug Area")]
         [Tooltip("Para debug, saber las veces que se ha guardado")]public int debug_savedTimes;
