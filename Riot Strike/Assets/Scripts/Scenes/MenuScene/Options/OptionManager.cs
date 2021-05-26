@@ -10,7 +10,7 @@ using XavHelpTo.Get;
 using XavHelpTo.Change;
 using XavHelpTo.Know;
 using XavHelpTo.Set;
-using Environment;
+using Dat = Environment.Data;
 using Switch = OptionRefresh.Switch;
 #endregion
 /// <summary>
@@ -37,11 +37,7 @@ public class OptionManager : MonoBehaviour
 
     [Header("Languages")]
     public int index_lang=0;
-    public static readonly string[] LANGUAGES =
-    {
-        TranslateSystem.DEFAULT_LANG,
-        "English"
-    };
+   
 
     [Header("Post Processing")]
     public GameObject obj_postProcessing;
@@ -62,8 +58,8 @@ public class OptionManager : MonoBehaviour
     [ContextMenu("Cambiar Idioma")]
     public void ChangeLang()
     {
-        index_lang = true.NextIndex(LANGUAGES.Length,index_lang);
-        TranslateSystem.InitLang(LANGUAGES[index_lang]);
+        index_lang = true.NextIndex(Dat.LANGUAGES.Length,index_lang);
+        TranslateSystem.InitLang(Dat.LANGUAGES[index_lang]);
         
     }
 
@@ -86,7 +82,7 @@ public class OptionManager : MonoBehaviour
         slider_music.value = saved.musicPercent;
         slider_sound.value = saved.soundPercent;
         slider_sensibility.value = saved.sensibilityPercent;
-        index_lang = Know.IndexOf(LANGUAGES, 0, saved.currentLang).Min(0).Max(LANGUAGES.Length);
+        index_lang = Know.IndexOf(Dat.LANGUAGES, 0, saved.currentLang).Min(0).Max(Dat.LANGUAGES.Length);
 
 
         int length = refresh_switchs.Length;
@@ -127,7 +123,7 @@ public class OptionManager : MonoBehaviour
         AudioSystem.SavedBValues();
 
         SavedData saved = DataSystem.Get;
-        saved.currentLang = LANGUAGES[index_lang];
+        saved.currentLang = Dat.LANGUAGES[index_lang];
 
 
 

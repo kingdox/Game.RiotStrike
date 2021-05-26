@@ -27,6 +27,7 @@ public class SplashManager : MonoBehaviour
     public ImageController imgCtrl_Splash;
 
     [Header("Lang Modal")]
+    public GameObject pref_button;
     public CanvasGroup canvasGroup;
     [Range(1,5)]
     public float speed=1;
@@ -44,6 +45,14 @@ public class SplashManager : MonoBehaviour
     }
     #endregion
     #region Method
+    private void GenerateModalButtons() {
+        //pref_button
+        //TODO
+    }
+    private void CreateButton() {
+        //TODO
+
+    }
 
     /// <summary>
     /// Manages he display of the splash

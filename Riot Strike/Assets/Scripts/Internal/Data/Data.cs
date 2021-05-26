@@ -20,6 +20,11 @@ namespace Environment
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
 
+        public static readonly string[] LANGUAGES =
+        {
+            TranslateSystem.DEFAULT_LANG,
+            "English"
+        };
 
         [Header("Json Data Loads")]
         private const string DATA_KEY = "Data";
