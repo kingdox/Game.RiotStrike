@@ -25,6 +25,12 @@ public class IntroManager : MonoBehaviour
     #region Method
 
 
+    public void GunAnimShow() { }
+    public void GunAnimShot() { }
+
+    public void UiAnimTransparency(bool setTransparent) { }
+
+    public void SkipMessageDisable() { }
 
 
     /// <summary>
