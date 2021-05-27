@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <main>
+    <string key="lang_title">Language</string>
     <string key="lang">English</string>
     <string key="game">Riot Strike</string>
 
@@ -10,8 +11,12 @@
         <general key="back">Back</general>
         <general key="active">Active</general>
         <general key="disabled">Disabled</general>
+        <general key="accept">Accept</general>
+        <general key="cancel">Cancel</general>
 
-
+    <_ key="_intro"><!--INTRO--></_>
+        <intro key="_intro_skip_0">Press</intro>
+        <intro key="_intro_skip_1">to skip intro</intro>
 
     <_ key="_menu"><!--MENU--></_>
         <menu key="menu_singlePlayer">Sigleplayer</menu>

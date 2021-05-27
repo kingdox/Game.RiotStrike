@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <main>
+    <string key="lang_title">Idioma</string>
     <string key="lang">Español</string>
     <string key="game">Riot Strike</string>
 
@@ -10,8 +11,13 @@
         <general key="back">Atrás</general>
         <general key="active">Activado</general>
         <general key="disabled">Desactivado</general>
+        <general key="accept">Aceptar</general>
+        <general key="cancel">Cancelar</general>
 
 
+    <_ key="_intro"><!--INTRO--></_>
+        <intro key="_intro_skip_0">Presiona</intro>
+        <intro key="_intro_skip_1">Para saltar la introducción</intro>
 
     <_ key="_menu"><!--MENU--></_>
         <menu key="menu_singlePlayer">Un Jugador</menu>

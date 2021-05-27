@@ -8,6 +8,7 @@ using XavHelpTo.Get;
 using XavHelpTo.Set;
 using Environment;
 using XavHelpTo.Change;
+using LangRefresh;
 #endregion
 public class SplashManager : MonoBehaviour
 {
@@ -28,15 +29,17 @@ public class SplashManager : MonoBehaviour
 
     [Header("Lang Modal")]
     public GameObject pref_button;
+    public Transform tr_parent_buttons;
     public CanvasGroup canvasGroup;
-    [Range(1,5)]
-    public float speed=1;
+    //[Range(0.1f,5f)]
+    //public float speed=.5f;
     #endregion
     #region Event
     private void Start()
     {
         langSelected = false;
         canvasGroup.alpha = 0;
+        GenerateModalButtons();
     }
     private void Update()
     {
@@ -45,13 +48,37 @@ public class SplashManager : MonoBehaviour
     }
     #endregion
     #region Method
+    /// <summary>
+    /// Generate the list of buttons
+    /// </summary>
     private void GenerateModalButtons() {
-        //pref_button
-        //TODO
+        foreach (string lang in Environment.Data.LANGUAGES){
+            CreateButton(lang);
+        }
     }
-    private void CreateButton() {
-        //TODO
+    /// <summary>
+    /// Generate a button language
+    /// </summary>
+    /// <param name="lang"></param>
+    private void CreateButton(string lang) {
+        RefreshController _refresh = RefreshController.CreateRefresh(in pref_button, in tr_parent_buttons);
+        _refresh.RefreshText(RefreshText.LANG, lang);
+        //_refresh.Translate(RefreshText.LANG, lang); Esto no se traduce para tenerlo para cada idioma
 
+        //se le añade un actualizador de traducción
+        _refresh.GetButton(RefreshButton.BUTTON).onClick.AddListener(delegate { SetLang(lang); });
+    }
+
+    /// <summary>
+    /// Updates the information and save the language of the user
+    /// </summary>
+    /// <param name="lang"></param>
+    private void SetLang(string lang)
+    {
+        TranslateSystem.InitLang(lang);
+        SavedData saved = DataSystem.Get;
+        saved.currentLang = lang;
+        DataSystem.Set(saved);
     }
 
     /// <summary>
@@ -78,11 +105,15 @@ public class SplashManager : MonoBehaviour
         }
         else
         {
-            GoTo(true);
+            GoTo(saved.tutorialDone);
         }
         
     }
 
+    /// <summary>
+    /// Indice that the lang was selected
+    /// </summary>
+    public void AcceptLang() => langSelected = !langSelected;
 
     /// <summary>
     /// Displays
@@ -90,53 +121,55 @@ public class SplashManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator DisplayLanguageModal()
     {
-
         //Mostramos el canvas
         yield return Fade(false, canvasGroup);
-
-
         //esperamos que le de aceptar y esto cambiará con el tiempo a invisible
-        while (!langSelected)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-
+        while (!langSelected){yield return new WaitForEndOfFrame();}
         yield return Fade(true, canvasGroup);
 
+
+        SavedData saved = DataSystem.Get;
+        saved.isOld = true;
+        DataSystem.Set(saved);
+        DataSystem.Save();
+        //Ver intro
+        GoTo(false);
     }
 
     private IEnumerator Fade(bool fade, CanvasGroup canvasGroup)
     {
-        int init = fade.ToInt();
-        int end = (!fade).ToInt();
-
-        while (!end.Equals(canvasGroup.alpha))
+        float end = (!fade).ToInt();
+        while (!canvasGroup.alpha.Equals(end))
         {
-            canvasGroup.alpha += Mathf.Lerp(init, end, Time.deltaTime * speed).Min(0).Max(1);
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, end, (Time.time*Time.deltaTime));
             yield return new WaitForEndOfFrame();
         }
-
-        $"Fade {fade}, {init} to {end}".Print();
     }
 
-
     /// <summary>
-    /// Change the scene to the menu or to the tutorial if is first time
+    /// Change the scene to the intro video or to the tutorial if is first time
     /// </summary>
-    /// <param name="toMenu"></param>
-    private void GoTo(bool toMenu)
+    private void GoTo(bool toIntro)
     {
-        if (toMenu) Scenes.MENU_SCENE.ToScene();
+        if (toIntro) Scenes.INTRO_SCENE.ToScene();
         else Scenes.TUTORIAL_SCENE.ToScene();
     }
 
 
-    public void SetLanguage(string lang)
-    {
-
-    }
+   
     #endregion
 }
 
 
 
+namespace LangRefresh
+{
+    public enum RefreshButton
+    {
+        BUTTON=0
+    }
+    public enum RefreshText
+    {
+        LANG = 0,
+    }
+}

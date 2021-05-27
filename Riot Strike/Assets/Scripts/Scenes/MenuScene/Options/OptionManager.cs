@@ -84,6 +84,7 @@ public class OptionManager : MonoBehaviour
         slider_sensibility.value = saved.sensibilityPercent;
         index_lang = Know.IndexOf(Dat.LANGUAGES, 0, saved.currentLang).Min(0).Max(Dat.LANGUAGES.Length);
 
+        obj_postProcessing.SetActive(saved.switch_configs[SwitchOptionConfig.POST_PROCESSING.ToInt()]);
 
         int length = refresh_switchs.Length;
         if ( !length.Equals(saved.switch_configs.Length)){
@@ -124,8 +125,6 @@ public class OptionManager : MonoBehaviour
 
         SavedData saved = DataSystem.Get;
         saved.currentLang = Dat.LANGUAGES[index_lang];
-
-
 
         DataSystem.Set(saved);
         DataSystem.Save();
