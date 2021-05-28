@@ -122,7 +122,7 @@ public struct SavedData
         [Tooltip("decibeles guardado de musica")] public float musicPercent;
         [Tooltip("Porcentaje guardado de sonido")] public float soundPercent;
         [Tooltip("Porcentaje guardado de Sensibilidad del mouse")] public float sensibilityPercent;//
-        [Tooltip("Idioma actual")] public string currentLang;
+        [Tooltip("Current language")] public string currentLang;
         [Tooltip("Qué tan sensible es el agarre?")]public float dragSensibility; // 1-10, if 0 => 3f defualt
         [Tooltip("Keys guardados del usuario, por defecto tendrá los del arreglo")] public string[] controlKeys;
 

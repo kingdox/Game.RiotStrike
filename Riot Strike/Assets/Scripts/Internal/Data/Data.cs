@@ -1,6 +1,7 @@
 ﻿#region Imports
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Change;
 #endregion
 
 namespace Environment
@@ -35,7 +36,6 @@ namespace Environment
         public readonly static Control[] CONTROLS = LoadData<Control>();
 
 
-
         //TODO los nuevos
         public readonly static Buff[] BUFFS = LoadData<Buff>();
         public readonly static Spell[] SPELLS = LoadData<Spell>();
@@ -43,6 +43,11 @@ namespace Environment
         public readonly static Character[] CHARACTERS = LoadData<Character>();
         public readonly static Stat[] STATS = LoadData<Stat>();
 
+
+        /// <summary>
+        /// Returns a Control by a enum argument
+        /// </summary>
+        public static Control Control<T>(T t) => CONTROLS[t.ToInt()];
     }
     /// <summary>
     /// Las escenas del juego, ordenadas como en "Build Settings"
