@@ -22,11 +22,11 @@ public class TranslateSystem : MonoBehaviour
     public static UnityAction OnSetLanguage;
 
     #region Debug Variables
-        [HideInInspector] public bool debug_mode = false;
-        [HideInInspector] public string debug_folder = "Spanish";
-        [HideInInspector] public string debug_key = "lang";
         public const string PATH_LANG = "Lang/";
         public const string DEFAULT_LANG = "Spanish";
+        [HideInInspector] public bool debug_mode = false;
+        [HideInInspector] public string debug_folder = DEFAULT_LANG;
+        [HideInInspector] public string debug_key = "lang";
 
     #endregion
     #endregion
@@ -106,7 +106,10 @@ public class TranslateSystem : MonoBehaviour
     /// </summary>
     public static string Translate(in string key){
         string result = "";
-        if (_ is null || _.dic_Lang is null) return result; // 🛡
+        if (_ is null || _.dic_Lang is null){
+            $"Error con la instancia estatica de {nameof(TranslateSystem)}".Print("red");
+            return result; // 🛡
+        }
         return _.GetValueIn(_.dic_Lang, key);
     }
     /// <summary>
@@ -118,6 +121,11 @@ public class TranslateSystem : MonoBehaviour
     /// Show if is Inited
     /// </summary>
     public static bool Inited => !(_ is null) && _.inited;
+
+    /// <summary>
+    /// Set the internal value
+    /// </summary>
+    public void _EditorSetInstance() => _ = this;
     #endregion
     #endregion
 }

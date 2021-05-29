@@ -2,6 +2,7 @@
 using UnityEngine;
 using XavHelpTo;
 using XavHelpTo.Change;
+using System.Linq;
 #endregion
 
 namespace Environment
@@ -18,7 +19,6 @@ namespace Environment
         public const string savedPath = "saved.txt";
         public const string version = "v0.5.0";
 
-        private const string DATA_KEY = "Data";
 
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
@@ -32,29 +32,45 @@ namespace Environment
         
 
         [Header("Json Data Loads")]
-        public readonly static Achievement[] ACHIEVEMENTS = LoadData<Achievement>();
-        public readonly static Credit[] CREDITS = LoadData<Credit>();
-        public readonly static Control[] CONTROLS = LoadData<Control>();
+        public readonly static AchievementData[] ACHIEVEMENTS = LoadData<AchievementData>();
+        public readonly static CreditData[] CREDITS = LoadData<CreditData>();
+        public readonly static ControlData[] CONTROLS = LoadData<ControlData>();
 
 
         //TODO los nuevos
-        public readonly static Buff[] BUFFS = LoadData<Buff>();
-        public readonly static Spell[] SPELLS = LoadData<Spell>();
-        public readonly static Weapon[] WEAPONS = LoadData<Weapon>();
-        public readonly static Character[] CHARACTERS = LoadData<Character>();
-        public readonly static Stat[] STATS = LoadData<Stat>();
+        public readonly static BuffData[] BUFFS = LoadData<BuffData>();
+        public readonly static SpellData[] SPELLS = LoadData<SpellData>();
+        public readonly static WeaponData[] WEAPONS = LoadData<WeaponData>();
+        public readonly static CharacterData[] CHARACTERS = LoadData<CharacterData>();
+        public readonly static StatData[] STATS = LoadData<StatData>();
 
 
 
         /// <summary>
-        /// Loads the json data based on <typeparamref name="T"/> + <see cref="DATA_KEY"/>
+        /// Loads the json data based on <typeparamref name="T"/>
         /// </summary>
-        private static T[] LoadData<T>() => (typeof(T) + DATA_KEY).LoadJson<DataList<T>>().DATA;
+        private static T[] LoadData<T>() => (typeof(T).ToString()).LoadJson<DataList<T>>().DATA;
         /// <summary>
-        /// Returns a Control by a enum argument
+        /// Returns a <see cref="ControlData"/> by a <see cref="EControl"/> argument
         /// </summary>
-        public static Control Control(EControl control) => CONTROLS[control.ToInt()];
-        
+        public static ControlData Control(EControl control) => CONTROLS[control.ToInt()];
+        /// <summary>
+        /// returns the <see cref="CharacterData"/> in <see cref="ECharacter"/> enum cahracters
+        /// </summary>
+        public static CharacterData Character(ECharacter character) => CHARACTERS[character.ToInt()];
+
+        /// <summary>
+        /// Gets the <see cref="StatData"/> document with an ID
+        /// </summary>
+        public static StatData GetStatData(string ID) => STATS.Where(S => S.ID.Equals(ID)).FirstOrDefault();
+        /// <summary>
+        /// Gets the <see cref="SpellData"/> document with an ID
+        /// </summary>
+        public static SpellData GetSpellData(string ID) => SPELLS.Where(S => S.ID.Equals(ID)).FirstOrDefault();
+        /// <summary>
+        /// Gets the <see cref="WeaponData"/> document with an ID
+        /// </summary>
+        public static WeaponData GetWeaponData(string ID) => WEAPONS.Where(W => W.ID.Equals(ID)).FirstOrDefault();
     }
     /// <summary>
     /// Las escenas del juego, ordenadas como en "Build Settings"
@@ -79,51 +95,3 @@ namespace Environment
     public struct DataList<T> { public T[] DATA; }
     #endregion
 }
-
-
-
-#region TODO MOver leugo
-
-public struct Buff
-{
-    public string NAME;
-    public string ID;
-    public string DESCRIPTION;
-    public float COOLDOWN;
-    public string OWNER;
-}
-public struct Character
-{
-    public string NAME;
-    public string NICKNAME;
-    public string ROLE;
-    public string DESCRITION;
-    public string ID;
-}
-public struct Spell
-{
-    public string NAME;
-    public string ID;
-    public string DESCRIPTION;
-    public float COOLDOWN;
-    public string OWNER;
-}
-public struct Weapon
-{
-    public string NAME;
-    public string ID;
-    public string APPEARENCE;
-    public int AMMO;
-    public float RELOAD_TIME;
-    public float CADENCE;
-    public string OWNER;
-}
-public struct Stat
-{
-    public string ID;
-    public int STRENGHT;
-    public int DEFENSE;
-    public int SPEED;
-}
-
-#endregion

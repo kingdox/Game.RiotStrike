@@ -68,7 +68,7 @@ namespace MenuScene
         /// <summary>
         /// Create a Control and set the values
         /// </summary>
-        private void CreateControl(in Control c, string keyControl)
+        private void CreateControl(in ControlData c, string keyControl)
         {
             RefreshController _refresh = RefreshController.CreateRefresh(in pref_controlItem, in tr_parent_controls);
             _refresh.PushIn(ref refresh_controls);
@@ -176,19 +176,5 @@ namespace MenuScene
         #endregion
     }
 }
-
-/// <summary>
-/// Structure of the control info
-/// </summary>
-[Serializable]
-public struct Control
-{
-    public string NAME;
-    public string KEY;
-    public string DEBUG_DESCRIPTION;
-}
-
-
-
 
 

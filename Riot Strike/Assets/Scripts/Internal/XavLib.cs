@@ -13,8 +13,6 @@ using UnityEditor;
 /// <summary>
 /// Herramientas para facilitar a Xavier contra el codigo
 /// <para>Aquí se poseerán funciones unicamente "static"</para>
-/// <see cref="XavHelpTo"/> Ultima Actualización => 29 mayo 2021
-///
 /// </summary>
 namespace XavHelpTo
 {
@@ -683,6 +681,17 @@ namespace XavHelpTo
             public static int ToInt(this bool condition) => condition ? 1 : 0;
             public static int ToInt(this float val) => (int)val;
             public static int ToInt(this S.Enum @enum) => S.Convert.ToInt32(@enum);
+            public static int[] ToInt<T>(this T[] t)
+            {
+                int[] ints = new int[t.Length]; //Set.Set.FillWith(-1,t.Length)
+
+                for (int x = 0; x < t.Length; x++)
+                {
+                    ints[x] = t[x].ToInt();
+                }
+
+                return ints;
+            }
             public static int ToInt<T>(this T t, bool isInt = false)
             {
                 int result = -1;
@@ -703,17 +712,7 @@ namespace XavHelpTo
 
                 return result;
             }
-            public static int[] ToInt<T>(this T[] t)
-            {
-                int[] ints = new int[t.Length]; //Set.Set.FillWith(-1,t.Length)
-
-                for (int x = 0; x < t.Length; x++)
-                {
-                    ints[x] = t[x].ToInt();
-                }
-
-                return ints;
-            }
+            
         public static int[] ToInt(this float[] t)
         {
             int length = t.Length;
@@ -977,8 +976,11 @@ namespace XavHelpTo
                         style.wordWrap = value[0].ToBool();
                         break;
                     case "textColor":
-                        try { style.normal.textColor = value.ToInt().ToColor(); }
-                        catch { $"{nameof(XavHelpTo)}_{nameof(EditorWindow)}_{nameof(In)} => Error Asignando el color, ejemplo correcto => thatColor.ToArray()".Print("red"); }
+                        "No disponible".Print("red");
+                        //if (typeof(T) == typeof(int))
+                        //{
+                        //try { style.normal.textColor = new Color(value[0], value[0], value[0] };
+                        //catch { $"{nameof(XavHelpTo)}_{nameof(EditorWindow)}_{nameof(In)} => Error Asignando el color, ejemplo correcto => thatColor.ToArray()".Print("red"); }
                         break;
                     case "alignment":
                         style.alignment = (TextAnchor)value[0].ToInt();
@@ -1042,6 +1044,8 @@ namespace XavHelpTo
                 cRef = c.ToFloat();
                 return c;
             }
+          
+
             public static string TextField(ref string txtRef) => txtRef = EditorGUILayout.TextField(txtRef);
             public static string TextArea(ref string txtRef) => txtRef = EditorGUILayout.TextArea(txtRef);
             public static bool Toggle(ref bool txtRef) => txtRef = EditorGUILayout.Toggle(txtRef);

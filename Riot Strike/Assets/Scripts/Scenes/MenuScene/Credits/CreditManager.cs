@@ -29,7 +29,7 @@ namespace MenuScene
         /// Generates the list of a creditList, with title and their names
         /// </summary>
         /// <param name="c"></param>
-        private void CreateCreditList(in Credit c)
+        private void CreateCreditList(in CreditData c)
         {
             //1. creamos el titulo
             CreateCredit(c.TEXT, c.BACKGROUND.ToColor(), true);
@@ -56,15 +56,6 @@ namespace MenuScene
         #endregion
     }
 }
-/// <summary>
-/// Structure of the achievements
-/// </summary>
-[Serializable]
-public struct Credit
-{
-    public float[] BACKGROUND;//[float,float,float]
-    public string TEXT;
-    public string[] NAMES;
-}
+
 
 

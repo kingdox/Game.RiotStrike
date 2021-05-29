@@ -51,7 +51,7 @@ namespace MenuScene
         /// <summary>
         /// Create a achievement
         /// </summary>
-        private void CreateAchievement(in Achievement achievement, int pts)
+        private void CreateAchievement(in AchievementData achievement, int pts)
         {
             RefreshController _refresh = RefreshController.CreateRefresh(in pref_achievementItem, in tr_parent_achievements);
 
@@ -70,16 +70,6 @@ namespace MenuScene
         #endregion
     }
 }
-/// <summary>
-/// Structure of the achievements
-/// </summary>
-[Serializable]
-public struct Achievement
-{
-    public string NAME;
-    public string DESCRIPTION;
-    public int REQUIREMENT;
-    public string DEBUG_REQUIREMENT;
-}
+
 
 
