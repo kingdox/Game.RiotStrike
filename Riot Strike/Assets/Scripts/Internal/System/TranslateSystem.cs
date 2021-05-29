@@ -81,7 +81,7 @@ public class TranslateSystem : MonoBehaviour
     /// <summary>
     /// Recupera el valor dentro de el archivo indicado usando un key
     /// </summary>
-    private string GetValueIn(in Dictionary<string, string> dic, in string key) => !(dic is null) && dic.ContainsKey(key) ? dic[key] : $"Err: {key}";
+    private string GetValueIn(in Dictionary<string, string> dic, in string key) => !(dic is null) && dic.ContainsKey(key) ? dic[key] : key;
 
 
     #region  Public Methods

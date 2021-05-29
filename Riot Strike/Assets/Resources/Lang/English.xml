@@ -91,6 +91,7 @@
         <_controls key="_controls_reset">Restart values</_controls>
         <_controls key="_controls_attack">Attack</_controls>
         <_controls key="_controls_focus">Focus</_controls>
+        <_controls key="_controls_reload">Reload</_controls>
         <_controls key="_controls_spell">Spell</_controls>
         <_controls key="_controls_move_forward">Forward</_controls>
         <_controls key="_controls_move_back">Back</_controls>

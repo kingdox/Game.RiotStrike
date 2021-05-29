@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using XavHelpTo;
 # endregion
 /// <summary>
-/// Manages the translation asigned
+/// Controls the translation asigned
 /// </summary>
 public class TranslateController : MonoBehaviour
 {
@@ -17,12 +17,8 @@ public class TranslateController : MonoBehaviour
     public bool startTranslate = true;
     #endregion
     #region Events
-    private void Awake(){
-        if (!txt) this.Component(out txt);
-    }
-    private void Start() {  
-        if (startTranslate) Translate();
-    }
+    private void Awake(){if (!txt) this.Component(out txt);}
+    private void Start() {if (startTranslate) Translate();}
     private void OnEnable() => TranslateSystem.OnSetLanguage += Translate;
     private void OnDisable() => TranslateSystem.OnSetLanguage -= Translate;
     #endregion
@@ -30,12 +26,6 @@ public class TranslateController : MonoBehaviour
     /// <summary>
     /// Calls <seealso cref="TranslateSystem.Translate(in string)"/> to Translate the <seealso cref="txt"/>
     /// </summary>
-    public void Translate()
-    {
-        string result = TranslateSystem.Translate(in key);
-        if (!result.Equals("")){
-            txt.text = result;
-        }
-    }
+    public void Translate() => txt.text = TranslateSystem.Translate(in key);
     #endregion
 }

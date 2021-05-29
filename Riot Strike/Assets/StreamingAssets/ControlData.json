@@ -11,6 +11,11 @@
             "DEBUG_DESCRIPTION": "Apuntar o hacer foco a la vision"
         },
         {
+            "NAME": "_controls_reload",
+            "KEY": "R",
+            "DEBUG_DESCRIPTION": "Recargar la munición (que es infinita)"
+        },
+        {
             "NAME": "_controls_spell",
             "KEY": "Space",
             "DEBUG_DESCRIPTION": "Usar la Habilidad del personaje"

@@ -92,6 +92,7 @@
         <_controls key="_controls_reset">Reiniciar valores</_controls>
         <_controls key="_controls_attack">Atacar</_controls>
         <_controls key="_controls_focus">Apuntar</_controls>
+        <_controls key="_controls_reload">Recargar</_controls>
         <_controls key="_controls_spell">Habilidad</_controls>
         <_controls key="_controls_move_forward">Mover Adelante</_controls>
         <_controls key="_controls_move_back">Mover Atrás</_controls>

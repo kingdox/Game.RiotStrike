@@ -16,21 +16,22 @@ namespace Environment
         public static Data data = new Data();
 
         public const string savedPath = "saved.txt";
-        public const string version = "v0.0.5";
+        public const string version = "v0.5.0";
+
+        private const string DATA_KEY = "Data";
 
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
-
+        //languages availables in game
         public static readonly string[] LANGUAGES =
         {
             TranslateSystem.DEFAULT_LANG,
             "English"
         };
 
-        [Header("Json Data Loads")]
-        private const string DATA_KEY = "Data";
-        private static T[] LoadData<T>()=>(typeof(T) + DATA_KEY).LoadJson<DataList<T>>().DATA;
+        
 
+        [Header("Json Data Loads")]
         public readonly static Achievement[] ACHIEVEMENTS = LoadData<Achievement>();
         public readonly static Credit[] CREDITS = LoadData<Credit>();
         public readonly static Control[] CONTROLS = LoadData<Control>();
@@ -44,10 +45,16 @@ namespace Environment
         public readonly static Stat[] STATS = LoadData<Stat>();
 
 
+
+        /// <summary>
+        /// Loads the json data based on <typeparamref name="T"/> + <see cref="DATA_KEY"/>
+        /// </summary>
+        private static T[] LoadData<T>() => (typeof(T) + DATA_KEY).LoadJson<DataList<T>>().DATA;
         /// <summary>
         /// Returns a Control by a enum argument
         /// </summary>
-        public static Control Control<T>(T t) => CONTROLS[t.ToInt()];
+        public static Control Control(EControl control) => CONTROLS[control.ToInt()];
+        
     }
     /// <summary>
     /// Las escenas del juego, ordenadas como en "Build Settings"

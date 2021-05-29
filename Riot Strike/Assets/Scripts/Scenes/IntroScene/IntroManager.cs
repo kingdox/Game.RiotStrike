@@ -1,65 +1,75 @@
 ﻿#region Access
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Change;
 using IntroRefresh;
 #endregion
-/// <summary>
-/// Manages the intro video
-/// </summary>
-public class IntroManager : MonoBehaviour
+namespace IntroScene
 {
-    #region Variable
-
-    [Tooltip("Usado para animar el movimiento del arma y ejecucion")]
-    public Animator animator_gun;
-    [Space]
-    [Tooltip("Usado para el manejo de las pantallas y todo lo que se muestre")]
-    public Animator animator_UI;
-    [Space]
-    public RefreshController refresh_skip;
-
-    #endregion
-    #region Event
-    private void Awake()
-    {
-        //Hides the cursor while is seeeing the animation inte
-        Cursor.visible = false;
-
-    }
-    private void Start()
-    {
-        string MSG_1 = TranslateSystem.Translate("_intro_skip_0");
-        string MSG_KEY = Environment.Data.Control(EControl.PAUSE).KEY;
-        string MSG_2 = TranslateSystem.Translate("_intro_skip_1");
-
-        refresh_skip.RefreshText(SkipText.SKIP, $"{MSG_1} {MSG_KEY} {MSG_2}");
-    }
-    #endregion
-    #region Method
-
-
-    public void GunAnimShow() { }
-
-    public void UiAnimTransparency(bool setTransparent) { }
-
-    public void SkipMessageDisable() { }
-
-
     /// <summary>
-    /// Changes the scene to the menu
+    /// Manages the intro video
+    /// in <see cref="Environment.Scenes.INTRO_SCENE"/>
     /// </summary>
-    public void GoToMenu() => Environment.Scenes.MENU_SCENE.ToScene();
-    #endregion
-}
-
-namespace IntroRefresh
-{
-    enum SkipText
+    public class IntroManager : MonoBehaviour
     {
-        SKIP
+        #region Variable
+        private static IntroManager _;
+        public const string TRIGGER_KEY = "Shot";
+        private KeyCode skipCode;
+        [Tooltip("Usado para animar el movimiento del arma y ejecucion")]
+        public Animator animator_gun;
+        [Space]
+        [Tooltip("Usado para el manejo de las pantallas y todo lo que se muestre")]
+        public Animator animator_UI;
+        [Space]
+        public RefreshController refresh_skip;
+
+        #endregion
+        #region Event
+        private void Awake(){
+            this.Singleton(ref _,false);
+            //Hides the cursor while is seeeing the animation inte
+            Cursor.visible = false;
+
+        }
+        private void Start()
+        {
+            string MSG_1 = TranslateSystem.Translate("_intro_skip_0");
+            string KEY = DataSystem.Get.controlKeys[EControl.PAUSE.ToInt()];
+            string MSG_2 = TranslateSystem.Translate("_intro_skip_1");
+            refresh_skip.RefreshText(SkipText.SKIP, $"{MSG_1} {KEY} {MSG_2}");
+
+            skipCode = KEY.ToKeyCode();
+        }
+        private void Update()
+        {
+            if (Input.GetKey(skipCode))
+            {
+                "Funciona".Print();
+                GoToMenu();
+            }
+        }
+        #endregion
+        #region Method
+
+        /// <summary>
+        /// Starts the Gun animation
+        /// </summary>
+        public static void GunAnimShow() => _.animator_gun.SetTrigger(TRIGGER_KEY);
+
+        /// <summary>
+        /// Ends the introduction with the last animation
+        /// </summary>
+        public static void UIAnimEnd() => _.animator_UI.SetTrigger(TRIGGER_KEY);
+
+            /// <summary>
+            /// Changes the scene to the menu
+            /// </summary>
+            public static void GoToMenu()
+            {
+                Environment.Scenes.MENU_SCENE.ToScene();
+                Cursor.visible = true;
+            }
+        #endregion
     }
 }

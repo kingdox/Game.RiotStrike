@@ -2,7 +2,6 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Environment;
 using XavHelpTo;
 using StorageData;
 #endregion
@@ -10,7 +9,7 @@ using StorageData;
 /// <summary>
 /// Encargado de ser la conexión de los datos guardados con las escenas
 /// Este podrá cargar el ultimo archivo o guardar un archivo con sus datos
-/// <para>Dependencias: <seealso cref="Data"/>, <seealso cref="SavedData"/>, <seealso cref="DataStorage"/></para>
+/// <para>Dependencias: <seealso cref="Environment.Data"/>, <seealso cref="SavedData"/>, <seealso cref="DataStorage"/></para>
 /// </summary>
 public class DataSystem : MonoBehaviour
 {
@@ -71,7 +70,7 @@ public class DataSystem : MonoBehaviour
     /// </summary>
     public static void Save() => _._SaveLoadFile(true);
     /// <summary>
-    /// Loaf the data
+    /// Load the data
     /// </summary>
     public static void Load() => _._SaveLoadFile(false);
     /// <summary>
@@ -79,8 +78,13 @@ public class DataSystem : MonoBehaviour
     /// </summary>
     public static void Delete() => File.Delete(Path);
 
-
+    /// <summary>
+    /// Debug Pointer to save the <see cref="DataStorage"/> file
+    /// </summary>
     [ContextMenu("Guardar los datos")] public void _Save() => Save();
+    /// <summary>
+    /// Debug Pointer to delete the <see cref="DataStorage"/> file
+    /// </summary>
     [ContextMenu("Eliminas el archivo")] public void _Delete() => Delete();
     #endregion
 }
@@ -123,7 +127,6 @@ public struct SavedData
         [Tooltip("Porcentaje guardado de sonido")] public float soundPercent;
         [Tooltip("Porcentaje guardado de Sensibilidad del mouse")] public float sensibilityPercent;//
         [Tooltip("Current language")] public string currentLang;
-        [Tooltip("Qué tan sensible es el agarre?")]public float dragSensibility; // 1-10, if 0 => 3f defualt
         [Tooltip("Keys guardados del usuario, por defecto tendrá los del arreglo")] public string[] controlKeys;
 
         [Tooltip("Configurations that need boolean movements")]public bool[] switch_configs;
