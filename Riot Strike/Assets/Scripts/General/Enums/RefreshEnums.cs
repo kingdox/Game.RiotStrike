@@ -2,22 +2,47 @@
 using UnityEngine.UI;
 #endregion
 #region Enums
+#region IntroScene
 namespace IntroRefresh
 {
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in Intro item
-    /// in <see cref="IntroManager"/>
+    /// in <see cref="IntroScene.IntroManager"/>
     /// </summary>
     enum SkipText
     {
         SKIP=0
     }
 }
+#endregion
+#region SplashScene
+namespace LangRefresh
+{
+    /// <summary>
+    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Button"/> in splash item
+    /// in <see cref="SplashScene.SplashManager"/>
+    /// </summary>
+    public enum RefreshButton
+    {
+        BUTTON = 0
+    }
+    /// <summary>
+    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in splash item
+    /// in <see cref="SplashScene.SplashManager"/>
+    /// </summary>
+    public enum RefreshText
+    {
+        LANG = 0,
+    }
+}
+#endregion
+#region MenuScene
+
 namespace CreditRefresh
 {
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Image"/> in credit item
-    ///  in <see cref="CreditManager"/>
+    ///  in <see cref="MenuScene.CreditManager"/>
     /// </summary>
     public enum RefreshImage
     {
@@ -25,7 +50,7 @@ namespace CreditRefresh
     }
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in credit item
-    /// in <see cref="CreditManager"/>
+    /// in <see cref="MenuScene.CreditManager"/>
     /// </summary>
     public enum RefreshText
     {
@@ -39,7 +64,7 @@ namespace OptionRefresh
     {
         /// <summary>
         /// Refresher enum in <see cref="RefreshController"/> of <see cref="Button"/> in option item
-        /// in <see cref="OptionManager"/>
+        /// in <see cref="MenuScene.OptionManager"/>
         /// </summary>
         public enum RefreshButton
         {
@@ -47,7 +72,7 @@ namespace OptionRefresh
         }
         /// <summary>
         /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in option item
-        /// in <see cref="OptionManager"/>
+        /// in <see cref="MenuScene.OptionManager"/>
         /// </summary>
         public enum RefreshText
         {
@@ -56,30 +81,12 @@ namespace OptionRefresh
         }
     }
 }
-namespace LangRefresh
-{
-    /// <summary>
-    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Button"/> in splash item
-    /// in <see cref="SplashManager"/>
-    /// </summary>
-    public enum RefreshButton
-    {
-        BUTTON = 0
-    }
-    /// <summary>
-    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in splash item
-    /// in <see cref="SplashManager"/>
-    /// </summary>
-    public enum RefreshText
-    {
-        LANG = 0,
-    }
-}
+
 namespace ControlRefresh
 {
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in key controls item
-    /// in <see cref="ControlManager"/>
+    /// in <see cref="MenuScene.ControlManager"/>
     /// </summary>
     public enum RefreshText
     {
@@ -89,7 +96,7 @@ namespace ControlRefresh
     }
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Button"/> in key controls items
-    /// in <see cref="ControlManager"/>
+    /// in <see cref="MenuScene.ControlManager"/>
     /// </summary>
     public enum RefreshButton
     {
@@ -101,7 +108,7 @@ namespace TutorialRefresh
 {
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in tutorial item
-    /// in <see cref="TutorialManager"/>
+    /// in <see cref="MenuScene.TutorialManager"/>
     /// </summary>
     public enum RefreshText
     {
@@ -113,7 +120,7 @@ namespace AchievementRefresh
 {
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Image"/> in achievement item
-    /// in <see cref="AchievementManager"/>
+    /// in <see cref="MenuScene.AchievementManager"/>
     /// </summary>
     public enum RefreshImage
     {
@@ -121,7 +128,7 @@ namespace AchievementRefresh
     }
     /// <summary>
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in achievement item
-    /// in <see cref="AchievementManager"/>
+    /// in <see cref="MenuScene.AchievementManager"/>
     /// </summary>
     public enum RefreshText
     {
@@ -129,4 +136,54 @@ namespace AchievementRefresh
         DESCRIPTION = 1
     }
 }
+
+namespace SelectorRefresh
+{
+    namespace Title
+    {
+        /// <summary>
+        /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in title
+        /// in <seealso cref="MenuScene.SelectorManager"/>
+        /// </summary>
+        public enum Text
+        {
+            TITLE=0
+        }
+    }
+    namespace Quirk
+    {
+        /// <summary>
+        /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in quirks item
+        /// in <seealso cref="MenuScene.SelectorManager"/>
+        /// </summary>
+        public enum Text
+        {
+            TITLE=0,
+            DESCRIPTION=1,
+        }
+        /// <summary>
+        /// Refresher enum in <see cref="RefreshController"/> of <see cref="Image"/> in quirks item
+        /// in <seealso cref="MenuScene.SelectorManager"/>
+        /// </summary>
+        public enum Image
+        {
+            BACKGROUND=0,
+            ICON=1
+        }
+    }
+    namespace Lore
+    {
+        /// <summary>
+        /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in lore area of the panel info selector 
+        /// in <seealso cref="MenuScene.SelectorManager"/>
+        /// </summary>
+        public enum Text
+        {
+            LORE = 0,
+        }
+    }
+}
+
+#endregion
+
 #endregion

@@ -29,9 +29,14 @@ namespace Environment
             "English"
         };
 
+
+        [Header("Paths")]
+        public const string PATH_ICON = "Image/Sprites/Icons";
+
         
 
         [Header("Json Data Loads")]
+        public readonly static StatData[] STATS = LoadData<StatData>();
         public readonly static AchievementData[] ACHIEVEMENTS = LoadData<AchievementData>();
         public readonly static CreditData[] CREDITS = LoadData<CreditData>();
         public readonly static ControlData[] CONTROLS = LoadData<ControlData>();
@@ -42,7 +47,6 @@ namespace Environment
         public readonly static SpellData[] SPELLS = LoadData<SpellData>();
         public readonly static WeaponData[] WEAPONS = LoadData<WeaponData>();
         public readonly static CharacterData[] CHARACTERS = LoadData<CharacterData>();
-        public readonly static StatData[] STATS = LoadData<StatData>();
 
 
 
@@ -62,7 +66,7 @@ namespace Environment
         /// <summary>
         /// Gets the <see cref="StatData"/> document with an ID
         /// </summary>
-        public static StatData GetStatData(string ID) => STATS.Where(S => S.ID.Equals(ID)).FirstOrDefault();
+        public static StatData GetStatData(string ID) => STATS.Where(S => S.ID.Equals(ID)).First();
         /// <summary>
         /// Gets the <see cref="SpellData"/> document with an ID
         /// </summary>

@@ -37,6 +37,7 @@ public struct ControlData
 /// <summary>
 /// Json Structure of the Buffs
 /// </summary>
+[Serializable]
 public struct BuffData
 {
     public string NAME;
@@ -48,6 +49,7 @@ public struct BuffData
 /// <summary>
 /// Json Structure of the Character
 /// </summary>
+[Serializable]
 public struct CharacterData
 {
     public string NAME;
@@ -59,6 +61,7 @@ public struct CharacterData
 /// <summary>
 /// Json Structure of the Spell
 /// </summary>
+[Serializable]
 public struct SpellData
 {
     public string NAME;
@@ -70,6 +73,7 @@ public struct SpellData
 /// <summary>
 /// Json Structure of the Weapon
 /// </summary>
+[Serializable]
 public struct WeaponData
 {
     public string NAME;
@@ -83,11 +87,17 @@ public struct WeaponData
 /// <summary>
 /// Json Structure of the Stat
 /// </summary>
+[Serializable]
 public struct StatData
 {
     public string ID;
     public int STRENGHT;
     public int DEFENSE;
     public int SPEED;
+
+    /// <summary>
+    /// Creates an array wih every stat value
+    /// </summary>
+    public int[] ToArray() => new int[3] {STRENGHT,DEFENSE,SPEED};
 }
 #endregion

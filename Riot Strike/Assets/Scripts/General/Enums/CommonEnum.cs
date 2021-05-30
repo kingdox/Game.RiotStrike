@@ -54,4 +54,12 @@ public enum EStat
     SPEED=2,
     HEALTH=3,
 }
+/// <summary>
+/// Special elements who define the player and their own play style
+/// </summary>
+public enum EQuirk
+{
+    SPELL=0,
+    WEAPON=1,
+}
 #endregion

@@ -1,11 +1,7 @@
 ﻿#region Access
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
-using XavHelpTo.Change;
-using XavHelpTo.Know;
 #endregion
 namespace MenuScene
 {
@@ -21,12 +17,9 @@ namespace MenuScene
         public Transform tr_parent_imgs;
         #endregion
         #region Events
-        private void Awake()
-        {
-            tr_parent_imgs.Components(out imgs);
-        }
         private void Start()
         {
+            tr_parent_imgs.Components(out imgs);
             SetQty(0);
         }
         #endregion
@@ -40,10 +33,7 @@ namespace MenuScene
         /// Set the qty of the character selected
         /// </summary>
         public void SetQty(int qty){
-            if (!qty.IsOnBounds(imgs)) return; // 🛡
-            for (int i = 0; i < Length; i++){
-                imgs[i].enabled = i < qty; 
-            }
+            for (int i = 0; i < Length; i++)imgs[i].enabled = i < qty;
         }
 
         

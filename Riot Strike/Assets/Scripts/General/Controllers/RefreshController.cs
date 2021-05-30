@@ -26,6 +26,10 @@ public class RefreshController : MonoBehaviour
     /// </summary>
     public void RefreshImgColor<T>(T index, in Color color) => imgs[index.ToInt()].color = color;
     /// <summary>
+    /// Changes the sprite of the image
+    /// </summary>
+    public void RefreshImgSprite<T>(T index, in Sprite sprite) => imgs[index.ToInt()].sprite = sprite;
+    /// <summary>
     /// Changes the information of the text
     /// </summary>
     public void RefreshText<T>(T index, in string value) => txts[index.ToInt()].text = value;

@@ -561,6 +561,18 @@ namespace XavHelpTo
                 return arr;
             }
 
+
+            /// <summary>
+            /// Rounds the values
+            /// </summary>
+            public static float[] Round(this float[] vals){
+                int length = vals.Length;
+                for (int i = 0; i < length; i++) vals[i] = Change.Change.ToInt(vals[i]);
+                
+                return vals;
+            }
+
+
         }
         #endregion
     }
@@ -650,6 +662,15 @@ namespace XavHelpTo
             Color c = Color.white;
             for (int i = 0; i < t.Length; i++) c[i] = t[i];
             return c;
+        }
+        /// <summary>
+        ///  Set a Vector with the float values
+        /// </summary>
+        public static Vector3 ToVector(this float[] vals)
+        {
+                Vector3 vector = new Vector3();
+                for (int i = 0; i < vals.Length; i++) vector[i] = vals[i];
+                return vector;
         }
 
         /// <summary>
@@ -752,17 +773,17 @@ namespace XavHelpTo
         /// Check if the value is an Enumerator
         /// </summary>
         public static bool IsEnum<T>(this T t) => typeof(T).IsEnum;
-            /// <summary>
-            /// Revisa si el objeto está seleccionado
-            /// </summary>
-            public static bool Focus(GameObject obj) => obj.Equals(EventSystem.current.currentSelectedGameObject);
+        /// <summary>
+        /// Revisa si el objeto está seleccionado
+        /// </summary>
+        public static bool Focus(GameObject obj) => obj.Equals(EventSystem.current.currentSelectedGameObject);
             
-            /// <summary>
-            /// Detecta si el indice está dentro del arreglo
-            /// </summary>
-            public static bool IsOnBounds(int i, int length) => i == Mathf.Clamp(i, 0, length - 1);
-            public static bool IsOnBounds<T>(this int i, T[] length) => IsOnBounds(i, length.Length);
-            public static bool IsOnBounds(int i, int length, bool direction) => i == Mathf.Clamp(i + (direction ? 1 : -1) , 0, length - 1);
+        /// <summary>
+        /// Detecta si el indice está dentro del arreglo
+        /// </summary>
+        public static bool IsOnBounds(int i, int length) => i == Mathf.Clamp(i, 0, length - 1);
+        public static bool IsOnBounds<T>(this int i, T[] length) => IsOnBounds(i, length.Length);
+        public static bool IsOnBounds(int i, int length, bool direction) => i == Mathf.Clamp(i + (direction ? 1 : -1) , 0, length - 1);
             
         /// <summary>
         /// Check if one of the values from the array are equal
