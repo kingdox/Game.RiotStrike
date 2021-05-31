@@ -100,7 +100,7 @@ namespace MenuScene
             }
 
             // vemos si hay post procesado o no, por defecto no
-            obj_postProcessing.SetActive(saved.switch_configs[SwitchOptionConfig.POST_PROCESSING.ToInt()]);
+            obj_postProcessing.SetActive(saved.switch_configs[ESwitchOpt.POST_PROCESSING.ToInt()]);
 
             for (int i = 0; i < refresh_switchs.Length; i++)
             {
@@ -109,8 +109,7 @@ namespace MenuScene
                 SwitchItemStatus(refresh_switchs[i], saved.switch_configs[i]);
             }
 
-            //obj_postProcessing.SetActive(saved.switch_configs[.ToInt()]);
-            refresh_switchs[SwitchOptionConfig.POST_PROCESSING.ToInt()]
+            refresh_switchs[ESwitchOpt.POST_PROCESSING.ToInt()]
                 .GetButton(Switch.RefreshButton.SWITCH)
                 .onClick.AddListener(SetPostProcessing);
         }
@@ -165,11 +164,5 @@ namespace MenuScene
 }
 
 
-public enum SwitchOptionConfig
-{
-    POST_PROCESSING=0,
-    INVERT_AXIS_X=1,
-    INVERT_AXIS_Y=2,
-}
 
 

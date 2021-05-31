@@ -62,4 +62,13 @@ public enum EQuirk
     SPELL=0,
     WEAPON=1,
 }
+/// <summary>
+/// List of options Switch
+/// </summary>
+public enum ESwitchOpt
+{
+    POST_PROCESSING = 0,
+    INVERT_AXIS_X = 1,
+    INVERT_AXIS_Y = 2,
+}
 #endregion

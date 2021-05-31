@@ -35,10 +35,8 @@ namespace XavHelpTo
             t = gameobj.GetComponent<T>();
             if (canAdd && Know.Know.IsNull(t))
             {
-                if (t is GameObject)
-                {
+                if (t is GameObject) $"Hay problemas al traer {nameof(GameObject)}, traer en cambio {nameof(Transform)}".Print("red");
 
-                }
                 t = gameobj.gameObject.AddComponent<T>();
             }
         }
@@ -837,9 +835,9 @@ namespace XavHelpTo
         /// <para>Dependencia con <see cref="IsEqualOf(char, char[])"/> para hacer más de una busqueda</para>
         /// </summary>
         public static int IndexOf<T>( T[] ts, int startIndex, params T[] finder){for (int x = startIndex; x < ts.Length; x++) if (ts[x].IsEqualOf(finder)) return x; return -1;}
-            public static int IndexOf(char[] chars, int startIndex, params char[] finder) { for (int x = startIndex; x < chars.Length; x++) if (chars[x].IsEqualOf(finder)) return x; return -1; }
-            public static int IndexOf(string text, int startIndex, params char[] finder) { for (int x = startIndex; x < text.Length; x++) if (text[x].IsEqualOf(finder)) return x; return -1; }
-            public static int IndexOf<T>(T t, int startIndex, params T[] finder) { for (int x = startIndex; x < finder.Length; x++) if (t.IsEqualOf(finder)) return x; return -1; }
+        public static int IndexOf(char[] chars, int startIndex, params char[] finder) { for (int x = startIndex; x < chars.Length; x++) if (chars[x].IsEqualOf(finder)) return x; return -1; }
+        public static int IndexOf(string text, int startIndex, params char[] finder) { for (int x = startIndex; x < text.Length; x++) if (text[x].IsEqualOf(finder)) return x; return -1; }
+        public static int IndexOf<T>(T t, int startIndex, params T[] finder) { for (int x = startIndex; x < finder.Length; x++) if (t.IsEqualOf(finder)) return x; return -1; }
         /// <summary>
         /// Busca en un arreglo y si encuentra, muestra donde
         /// <para> caso contrario devuelve -1 </para>
