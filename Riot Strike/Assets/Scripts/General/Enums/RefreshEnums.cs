@@ -15,6 +15,19 @@ namespace IntroRefresh
     }
 }
 #endregion
+#region TutorialScene
+namespace TutorialGameRefresh
+{
+    /// <summary>
+    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in tutorial game skip item
+    /// in <see cref="TutorialScene.TutorialGameManager"/>
+    /// </summary>
+    enum Text
+    {
+        SKIP=0
+    }
+}
+#endregion
 #region SplashScene
 namespace LangRefresh
 {
@@ -37,7 +50,6 @@ namespace LangRefresh
 }
 #endregion
 #region MenuScene
-
 namespace CreditRefresh
 {
     /// <summary>
@@ -81,7 +93,6 @@ namespace OptionRefresh
         }
     }
 }
-
 namespace ControlRefresh
 {
     /// <summary>
@@ -115,7 +126,6 @@ namespace TutorialRefresh
         INFO = 0
     }
 }
-
 namespace AchievementRefresh
 {
     /// <summary>
@@ -136,7 +146,6 @@ namespace AchievementRefresh
         DESCRIPTION = 1
     }
 }
-
 namespace SelectorRefresh
 {
     namespace Title
@@ -183,7 +192,5 @@ namespace SelectorRefresh
         }
     }
 }
-
 #endregion
-
 #endregion

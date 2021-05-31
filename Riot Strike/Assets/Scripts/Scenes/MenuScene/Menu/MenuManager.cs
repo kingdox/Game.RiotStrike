@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
 using XavHelpTo.Change;
-
 # endregion
 /// <summary>
 /// Manage the menu in main menu
@@ -27,7 +26,6 @@ public class MenuManager : MonoBehaviour
     public CameraComponent comp_cam;
     [Range(1, 10)]
     public int timeToExit;
-
     #endregion
     #region Events
     private void Awake()

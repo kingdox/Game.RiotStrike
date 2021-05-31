@@ -19,6 +19,7 @@ namespace Environment
         public const string savedPath = "saved.txt";
         public const string version = "v0.5.0";
 
+        public const string TAG_PLAYER = "Player";
 
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
