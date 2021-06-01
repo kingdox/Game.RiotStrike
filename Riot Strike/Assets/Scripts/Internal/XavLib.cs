@@ -23,7 +23,7 @@ namespace XavHelpTo
     public static class Supply {
 
         //public static T Assign<T>(this T t, T t2) => t = t2;
-
+        
 
         /// <summary>
         /// Get the type of the gameobject selected
@@ -53,7 +53,7 @@ namespace XavHelpTo
         }
 
         /// <summary>
-        /// Remove al the childs
+        /// Remove all the childs
         /// </summary>
         public static void ClearChilds(this Transform t)
         {
@@ -104,16 +104,11 @@ namespace XavHelpTo
 
 
 
-        public static T LoadJson<T>(this string path)
-        {
-            T t;
-            path.LoadJson(out t);
-            return t;
-        }
         /// <summary>
         /// Access in <seealso cref="Application.streamingAssetsPath "/> and Loads the object
         /// path = $"{Application.streamingAssetsPath}/{path}.json"
         /// </summary>
+        public static T LoadJson<T>(this string path) => path.LoadJson(out T t);
         public static T LoadJson<T>(this string path, out T container)
         {
             path = $"{Application.streamingAssetsPath}/{path}.json";
