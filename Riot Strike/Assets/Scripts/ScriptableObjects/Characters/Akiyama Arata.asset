@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beafdd239d9b34c6687ed2d8314fc4fc, type: 3}
   m_Name: Akiyama Arata
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  idStat: 
-  idWeapon: 
-  idSpell: 
+  weapon: {fileID: 11400000, guid: 0929c25af5658492e9514d86ae807ac8, type: 2}
+  idStat: 3
+  idWeapon: 3
+  idSpell: 3

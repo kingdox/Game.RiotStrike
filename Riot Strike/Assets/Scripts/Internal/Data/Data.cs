@@ -20,7 +20,7 @@ namespace Environment
         public const string version = "v0.5.0";
 
         public const string TAG_PLAYER = "Player";
-
+        public const int STAT_MAX = 5;
         //Screen Trigger Keys
         public static readonly string[] SCREEN_TRIGGERS = { "Show", "Hide" };
         //languages availables in game
@@ -30,6 +30,9 @@ namespace Environment
             "English"
         };
 
+
+        [Header("ID")]
+        public const string ID_BASE_STAT = "Base";
 
         [Header("Paths")]
         public const string PATH_ICON = "Image/Sprites/Icons";

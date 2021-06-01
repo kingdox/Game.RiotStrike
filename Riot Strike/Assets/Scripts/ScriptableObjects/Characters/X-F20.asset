@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beafdd239d9b34c6687ed2d8314fc4fc, type: 3}
-  m_Name: Akiyama Arata
+  m_Name: X-F20
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  idStat: 
-  idWeapon: 
-  idSpell: 
+  weapon: {fileID: 11400000, guid: b1e9b20f719614004a9ac7287321eb86, type: 2}
+  idStat: 4
+  idWeapon: 4
+  idSpell: 4

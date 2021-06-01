@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beafdd239d9b34c6687ed2d8314fc4fc, type: 3}
   m_Name: Cole Megalos
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  idStat: 
-  idWeapon: 
-  idSpell: 
+  weapon: {fileID: 11400000, guid: bfdc77a69377c4b36bc8c3bc7c2606da, type: 2}
+  idStat: 2
+  idWeapon: 2
+  idSpell: 2

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beafdd239d9b34c6687ed2d8314fc4fc, type: 3}
   m_Name: Tabare Flare
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  idStat: 
-  idWeapon: 
-  idSpell: 
+  weapon: {fileID: 11400000, guid: 08ff3fae94f8547d294486659e4b7149, type: 2}
+  idStat: 1
+  idWeapon: 1
+  idSpell: 1

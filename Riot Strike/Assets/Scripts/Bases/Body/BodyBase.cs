@@ -15,12 +15,12 @@ using XavHelpTo.Get;
 public abstract class BodyBase : MonoBehaviour
 {
     #region Variables
-    [Header("Character")]
+    [Header("Body")]
     public StatData stat;
     public int life;
     public bool isDead;
-    //[Space]
-    //public Character character;TODO
+    [Space]
+    public Character character;
 
     protected Action OnAttack;
     protected Action OnFocus;
@@ -28,7 +28,15 @@ public abstract class BodyBase : MonoBehaviour
     protected Action OnSpell;
     #endregion
     #region Event
-
+    private void Awake()
+    {
+        stat = Dat.GetStatData(character.idStat);
+        stat.ToRealStat();
+    }
+    private void Start()
+    {
+        
+    }
     #endregion
     #region Method
 
