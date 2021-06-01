@@ -1,4 +1,5 @@
 ﻿#region Access
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,16 +21,16 @@ public abstract class BodyBase : MonoBehaviour
     public bool isDead;
     //[Space]
     //public Character character;TODO
+
+    protected Action OnAttack;
+    protected Action OnFocus;
+    protected Action OnReload;
+    protected Action OnSpell;
     #endregion
     #region Event
 
     #endregion
     #region Method
-    //TODO
-    private void InvokeReload() { }
-    private void InvokeAttack() { }
-    private void InvokeFocus() { }
-    private void InvokeSpell() { }
 
     protected virtual void Death() { }
     #endregion

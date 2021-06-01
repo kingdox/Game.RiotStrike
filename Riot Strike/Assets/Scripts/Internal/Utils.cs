@@ -1,4 +1,5 @@
 ﻿#region Access
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,25 +29,36 @@ public static class Utils
 
     /// <summary>
     /// Transform the <see cref="EControl"/> to
-    /// <seealso cref="KeyCode"/> 
+    /// <seealso cref="KeyCode"/> with the <see cref="SavedData"/> values
     /// </summary>
     public static KeyCode ToKeyCode(this EControl e) => DataSystem.Get.controlKeys[e.ToInt()].ToKeyCode();
 
+
+    /// <summary>
+    /// Check if is pressed or not
+    /// </summary>
+    public static bool IsPressed(this EControl e) => Input.GetKey(e.ToKeyCode());
+    /// <summary>
+    /// Check if is holding in the frame
+    /// </summary>
+    public static bool IsPressedDown(this EControl e) => Input.GetKeyDown(e.ToKeyCode());
     /// <summary>
     /// Check if is pressed, returning 1 if is true or else 0
     /// </summary>
-    public static int Pressed(this EControl e) => Input.GetKey(e.ToKeyCode()).ToInt();
+    public static int Pressed(this EControl e) => e.IsPressed().ToInt();
     /// <summary>
     /// Check if is pressed in the frame
     /// </summary>
-    public static int PressedDown(this EControl e) => Input.GetKeyDown(e.ToKeyCode()).ToInt();
+    public static int PressedDown(this EControl e) => e.IsPressedDown().ToInt();
 
 
     /// <summary>
     /// Returns the status of the axis, where it can be 1,0 or -1
     /// </summary>
     public static int Axis(EControl ePositive, EControl eNegative) => ePositive.Pressed() + -eNegative.Pressed();
-    
+
+
+
 
     #endregion
 }

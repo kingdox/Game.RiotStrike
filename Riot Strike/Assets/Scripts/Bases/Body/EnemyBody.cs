@@ -11,7 +11,11 @@ using XavHelpTo;
 public class EnemyBody : BodyBase
 {
     #region Variables
-
+    /*
+     * TODO Hacer un patrón de estados para el manejo de comportamientos
+     *  - Esta debe poder ser que llame al padre para manejo de los invoke___
+     * 
+     */
     #endregion
     #region Events
 

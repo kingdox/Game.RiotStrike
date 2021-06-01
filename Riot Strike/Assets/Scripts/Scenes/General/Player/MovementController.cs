@@ -23,6 +23,7 @@ public class MovementController : MonoBehaviour
     {
         Controls();
         Movement();
+
     }
     #endregion
     #region Methods

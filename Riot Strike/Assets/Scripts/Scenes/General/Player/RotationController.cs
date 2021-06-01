@@ -1,4 +1,5 @@
 ﻿#region Access
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,6 @@ public class RotationController : MonoBehaviour
     [Header("Rotation Controller")]
     public Transform tr_head;
     public float magnitude;
-
     #endregion
     #region Event
     private void Update()

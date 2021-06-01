@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f826dd152cc74876b96b784e65918d5, type: 3}
-  m_Name: Enlai Ming
+  m_Script: {fileID: 11500000, guid: f52776561dd3649d9bfb70383b1e4d24, type: 3}
+  m_Name: RocketGreenades Weapon
   m_EditorClassIdentifier: 
-  stat:
-    ID: 
-    STRENGHT: 0
-    DEFENSE: 0
-    SPEED: 0
-  statID: 
-  isDead: 0
