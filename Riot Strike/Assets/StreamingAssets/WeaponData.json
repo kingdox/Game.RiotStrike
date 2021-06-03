@@ -1,45 +1,49 @@
 ﻿{
     "DATA":[
 		{
-			"NAME":"Rifle",
-			"ID":"0",
-			"APPEARENCE":"Rifle de francotirador un rifle largo y pesado con una mirilla telescópica*",
-			"AMMO":4,
-			"RELOAD_TIME":4,
+			"NAME": "weapon_name_0",
+			"ID": "0",
+			"APPEARENCE": "weapon_appearence_0",
+			"AMMO": 4,
+			"RELOAD_TIME": 4,
 			"CADENCE": 0.8,
-			"OWNER":"Enlai Ming"
-		},{
-			"NAME":"Lanzagranadas",
-			"ID":"1",
-			"APPEARENCE":"Lanzagranadas corto",
-			"AMMO":4,
-			"RELOAD_TIME":2,
+			"OWNER": "Enlai Ming"
+		},
+		{
+			"NAME": "weapon_name_1",
+			"ID": "1",
+			"APPEARENCE": "weapon_appearence_1",
+			"AMMO": 4,
+			"RELOAD_TIME": 2,
 			"CADENCE": 0.5,
-			"OWNER":"Tabare Flare"
-		},{
-			"NAME":"Fusil AK 47",
-			"ID":"2",
-			"APPEARENCE":"Fusil de repetición con capacidad de electrificarse",
-			"AMMO":12,
-			"RELOAD_TIME":3,
+			"OWNER": "Tabare Flare"
+		},
+		{
+			"NAME": "weapon_name_2",
+			"ID": "2",
+			"APPEARENCE": "weapon_appearence_2",
+			"AMMO": 12,
+			"RELOAD_TIME": 3,
 			"CADENCE": 0.3,
-			"OWNER":"Cole Megalos"
-		},{
-			"NAME":"Katana",
-			"ID":"3",
-			"APPEARENCE":"Katana larga  de un material indestructible y que conduce la corriente eléctrica",
-			"AMMO":6,
-			"RELOAD_TIME":1,
+			"OWNER": "Cole Megalos"
+		},
+		{
+			"NAME": "weapon_name_3",
+			"ID": "3",
+			"APPEARENCE": "weapon_appearence_3",
+			"AMMO": 6,
+			"RELOAD_TIME": 1,
 			"CADENCE": 0.2,
-			"OWNER":"Akiyama Arata"
-		},{
-			"NAME":"Ametralladora",
-			"ID":"4",
-			"APPEARENCE":"Ametralladora integrada en el brazo izquierdo",
-			"AMMO":20,
-			"RELOAD_TIME":5,
+			"OWNER": "Akiyama Arata"
+		},
+		{
+			"NAME": "weapon_name_4",
+			"ID": "4",
+			"APPEARENCE": "weapon_appearence_4",
+			"AMMO": 20,
+			"RELOAD_TIME": 5,
 			"CADENCE": 0.2,
-			"OWNER":"X-F20"
+			"OWNER": "X-F20"
 		}
 	]
 }

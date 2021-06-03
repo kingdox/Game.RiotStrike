@@ -107,7 +107,7 @@ public class TranslateSystem : MonoBehaviour
     public static string Translate(in string key){
         string result = "";
         if (_ is null || _.dic_Lang is null){
-            $"Error con la instancia estatica de {nameof(TranslateSystem)}".Print("red");
+            $"Error {nameof(TranslateSystem)} al cargar el key '{key}'".Print("red");
             return result; // 🛡
         }
         return _.GetValueIn(_.dic_Lang, key);

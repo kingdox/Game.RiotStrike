@@ -4,24 +4,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Change;
+using XavHelpTo.Set;
+using XavHelpTo.Get;
 #endregion
 
 /// <summary>
 /// Management of the body who player can `play`
 /// </summary>
-[RequireComponent(typeof(MovementController), typeof(RotationController))]
+[RequireComponent(typeof(MovementController), typeof(RotationController), typeof(GravityController))]
 public class PlayerBody : BodyBase
 {
     #region Variable
 
     private MovementController movement;
     private RotationController rotation;
+    private const string KEY_AXIS_X = "Mouse X";
+    private const string KEY_AXIS_Y = "Mouse Y";
     [Header("Player Body")]
     public bool canMove = true;
     public bool canRotate = true;
 
     #endregion
     #region Event
+    public override void Awake() {
+        base.Awake();
+    }
     private void Start()
     {
         this.Component(out movement);
@@ -29,7 +37,6 @@ public class PlayerBody : BodyBase
     }
     private void Update()
     {
-
         Control();
     }
     #endregion
@@ -41,22 +48,29 @@ public class PlayerBody : BodyBase
     private void Control()
     {
         //MOVEMENT
-        movement.enabled = canMove;
+        if (canMove) movement.Move(stat.SPEED,
+            Utils.Axis(EControl.RIGHT, EControl.LEFT),
+            0f,
+            Utils.Axis(EControl.FORWARD, EControl.BACK)
+        );
 
         //ROTATION
-        rotation.enabled = canRotate;
+        if (canRotate) rotation.Rotate(
+            Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.SPEED),
+            Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.SPEED)
+        );
 
         //ATTACK
-        if (EControl.ATTACK.IsPressed()) Act(OnAttack);
+        CheckPress(EControl.ATTACK, OnAttack);
 
         //FOCUS
-        if (EControl.FOCUS.IsPressed()) Act(OnFocus);
+        CheckPress(EControl.FOCUS, OnFocus);
 
         //RELOAD
-        if (EControl.RELOAD.IsPressed()) Act(OnReload);
+        CheckPress(EControl.RELOAD, OnReload);
 
         //SPELL
-        if (EControl.SPELL.IsPressed()) Act(OnSpell);
+        CheckPress(EControl.SPELL, OnSpell);
 
         //CHAT
         // TODO (Multiplayer) 
@@ -65,11 +79,12 @@ public class PlayerBody : BodyBase
         // TODO
     }
 
-
     /// <summary>
-    /// Starts the Invoke of an <see cref="Action"/>
+    /// fire the <seealso cref="Action"/> if <seealso cref="EControl"/> is pressed
     /// </summary>
-    private void Act(Action a) => a?.Invoke();
+    private void CheckPress(EControl e, Action a){
+        if (e.IsPressed()) a?.Invoke();
+    }
     #endregion
 
 }

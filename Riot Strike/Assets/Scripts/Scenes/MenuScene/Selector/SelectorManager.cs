@@ -23,6 +23,7 @@ namespace MenuScene
         #region Variable
         private const string PATH_FOLDER_WEAPON = "Weapons";
         private const string PATH_FOLDER_SPELLS = "Spells";
+        private const string KEY_TITLE_CHOOSE = "selector_title";
 
         private StatViewController[] ctrl_statViews;
         private RefreshController[] refresh_quirks;
@@ -43,7 +44,6 @@ namespace MenuScene
             tr_parent_statViews.Components(out ctrl_statViews);
             tr_parent_quirks.Components(out refresh_quirks);
 
-
             ClearPanel();
         }
         #endregion
@@ -55,6 +55,9 @@ namespace MenuScene
         private void ClearPanel()
         {
             //title
+            refresh_title.Translate(Title.Text.TITLE, KEY_TITLE_CHOOSE);
+
+            //lore
             refresh_lore.RefreshText(Lore.Text.LORE, "");
 
             //quirks
@@ -83,7 +86,8 @@ namespace MenuScene
             WeaponData weaponData = Dat.GetWeaponData(characterData.ID);
 
             //Refresh the title
-            refresh_title.RefreshText(Title.Text.TITLE, characterData.NICKNAME);
+            refresh_title.Translate(Title.Text.TITLE, characterData.NICKNAME);
+            //refresh_title.RefreshText(Title.Text.TITLE, characterData.NICKNAME);
 
             //Refresh the stats
             int[] stats = statData.ToArray();
@@ -94,7 +98,8 @@ namespace MenuScene
             RefreshQuirk(EQuirk.WEAPON, weaponData.NAME, weaponData.APPEARENCE, $"{PATH_FOLDER_WEAPON}/{weaponData.ID}");
 
             //Refresh the lore
-            refresh_lore.RefreshText(Lore.Text.LORE, in characterData.DESCRITION);
+            //refresh_lore.RefreshText(Lore.Text.LORE, in characterData.DESCRITION);
+            refresh_lore.Translate(Lore.Text.LORE, characterData.DESCRITION);
 
             //Refresh the visual Character
             tr_parent_character.ClearChilds();
@@ -110,8 +115,10 @@ namespace MenuScene
         )
         {
             RefreshController refresh = refresh_quirks[quirk.ToInt()];
-            refresh.RefreshText(Quirk.Text.TITLE, name);
-            refresh.RefreshText(Quirk.Text.DESCRIPTION, description);
+            //refresh.RefreshText(Quirk.Text.TITLE, name);
+            refresh.Translate(Quirk.Text.TITLE, name);
+            //refresh.RefreshText(Quirk.Text.DESCRIPTION, description);
+            refresh.Translate(Quirk.Text.DESCRIPTION, description);
             refresh.RefreshImgColor(Quirk.Image.BACKGROUND, Color.white);
 
             //refresh the image

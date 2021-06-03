@@ -23,7 +23,6 @@ namespace XavHelpTo
     public static class Supply {
 
         //public static T Assign<T>(this T t, T t2) => t = t2;
-        
 
         /// <summary>
         /// Get the type of the gameobject selected
@@ -88,6 +87,7 @@ namespace XavHelpTo
         /// <summary>
         /// Basado en el porcentaje obtienes el valor mediante un maximo establecido
         /// </summary>
+        public static int QtyOf(this int percent, float max) => Change.Change.ToInt((max / 100) * percent);
         public static float QtyOf(this float percent, float max) => (max / 100) * percent;
         public static Vector2 QtyOf(this Vector2 percent, Vector2 max) => (max / 100) * percent;
 

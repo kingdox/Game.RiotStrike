@@ -58,7 +58,13 @@ public static class Utils
     public static int Axis(EControl ePositive, EControl eNegative) => ePositive.Pressed() + -eNegative.Pressed();
 
 
-
+    /// <summary>
+    /// get the axis type, using the sensibility established and the  own invert axis
+    /// </summary>
+    public static float Axis(string key, ESwitchOpt invert, float aimSpeed) =>
+        Input.GetAxis(key)
+        * (DataSystem.Get.sensibilityPercent * aimSpeed)
+        * (DataSystem.Get.switch_configs[invert.ToInt()] ? 1 : -1);
 
     #endregion
 }

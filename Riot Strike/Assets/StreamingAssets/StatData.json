@@ -4,7 +4,7 @@
             "ID": "Base",
             "STRENGHT": 25,
             "DEFENSE": 350,
-            "SPEED": 2
+            "SPEED": 10
         },
         {
             "ID": "0",

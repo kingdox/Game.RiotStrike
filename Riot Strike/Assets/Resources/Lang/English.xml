@@ -27,6 +27,7 @@
         <menu key="menu_exit">Exit</menu>
 
     <_ key="_menu_selector"><!--SELECTOR--></_>
+        <selector key="selector_title" meme="si">Choose your class</selector>
 
 
     <_ key="_options"><!--OPTIONS--></_>
@@ -90,7 +91,7 @@
         <_controls key="_controls_title">Controls</_controls>
         <_controls key="_controls_reset">Restart values</_controls>
         <_controls key="_controls_attack">Attack</_controls>
-        <_controls key="_controls_focus">Focus</_controls>
+        <_controls key="_controls_focus">Aim</_controls>
         <_controls key="_controls_reload">Reload</_controls>
         <_controls key="_controls_spell">Spell</_controls>
         <_controls key="_controls_move_forward">Forward</_controls>
@@ -100,4 +101,61 @@
         <_controls key="_controls_chat">Chat</_controls>
         <_controls key="_controls_pause">Pause</_controls>
 
+    <_ key="_character"><!--PERSONAJES--></_>
+        <_ key="_character_0"><!--Enlai Ming--></_>
+            <character key="_character_role_0">Healer</character>
+            <character key="_character_description_0">Escribir el Lore 1</character>
+        <_ key="_character_1"><!--Tabare Flare--></_>
+            <character key="_character_role_1">Runner</character>
+            <character key="_character_description_1">El Lore 2</character>
+        <_ key="_character_2"><!--Cole Megalos--></_>
+            <character key="_character_role_2">Tank</character>
+            <character key="_character_description_2">El 3</character>
+        <_ key="_character_3"><!--Akiyama Arata--></_>
+            <character key="_character_role_3">Assasin</character>
+            <character key="_character_description_3">4</character>
+        <_ key="_character_4"><!--X-F20--></_>
+            <character key="_character_role_4">Balanced</character>
+            <character key="_character_description_4">Bot</character>
+
+    <_ key="_buff"><!--MEJORAS--></_>
+        <_ key="_buff_0"><!--Enlai Ming--></_>
+            <buff key="buff_name_0">Heal Area</buff>
+            <buff key="buff_description_0">Restores the ally life and itself, the allies needs to be near.</buff>
+        <_ key="_buff_1"><!--Tabare Flare--></_>
+            <buff key="buff_name_1">Anti-Gravity Jump</buff>
+            <buff key="buff_description_1">Do a great Jump, don't take fall damage</buff>
+        <_ key="_buff_2"><!--Cole Megalos--></_>
+            <buff key="buff_name_2">Electro</buff>
+            <buff key="buff_description_2">Doubles the damage of your bullets</buff>
+        <_ key="_buff_3"><!--Akiyama Arata--></_>
+            <buff key="buff_name_3">Super Dash</buff>
+            <buff key="buff_description_3">Jumps forward and can stun your next foe with the katana</buff>
+        <_ key="_buff_4"><!--X-F20--></_>
+            <buff key="buff_name_4">Drone Rocket</buff>
+            <buff key="buff_description_4">Deploy rockets to follow the nearest enemy</buff>
+
+
+    <_ key="_weapon"><!--WEAPON--></_>
+        <_ key="_weapon_0"><!--Enlai Ming--></_>
+            <weapon key="weapon_name_0">Rifle</weapon>
+            <weapon key="weapon_appearence_0">Sniper rifle a long heavy rifle with a telescopic sight</weapon>
+        <_ key="_weapon_1"><!--Tabare Flare--></_>
+            <weapon key="weapon_name_1">Grenade launcher</weapon>
+            <weapon key="weapon_appearence_1">Short grenade launcher</weapon>
+        <_ key="_weapon_2"><!--Cole Megalos--></_>
+            <weapon key="weapon_name_2">AK 47 rifle</weapon>
+            <weapon key="weapon_appearence_2">Repeating rifle with the ability to electrify</weapon>
+        <_ key="_weapon_3"><!--Akiyama Arata--></_>
+            <weapon key="weapon_name_3">Katana</weapon>
+            <weapon key="weapon_appearence_3">Long katana made of an indestructible material that conducts electric current</weapon>
+        <_ key="_weapon_4"><!--X-F20--></_>
+            <weapon key="weapon_name_4">Machine gun</weapon>
+            <weapon key="weapon_appearence_4">Machine gun integrated in the left arm</weapon>
+
+
+    <_ key="_stat"><!--STATS--></_>
+        <stat key="stat_strength">Strength</stat>
+        <stat key="stat_defense">Defense</stat>
+        <stat key="stat_speed">Agility</stat>
 </main>

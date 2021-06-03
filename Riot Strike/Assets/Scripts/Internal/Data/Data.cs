@@ -47,7 +47,7 @@ namespace Environment
 
 
         //TODO los nuevos
-        public readonly static BuffData[] BUFFS = LoadData<BuffData>();
+        //TODO revisar BuffData public readonly static BuffData[] BUFFS = LoadData<BuffData>();
         public readonly static SpellData[] SPELLS = LoadData<SpellData>();
         public readonly static WeaponData[] WEAPONS = LoadData<WeaponData>();
         public readonly static CharacterData[] CHARACTERS = LoadData<CharacterData>();

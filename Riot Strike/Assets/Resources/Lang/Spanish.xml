@@ -28,7 +28,7 @@
         <menu key="menu_exit">Salir</menu>
 
     <_ key="_menu_selector"><!--SELECTOR--></_>
-
+        <selector key="selector_title">Elige tu personaje</selector>
 
     <_ key="_options"><!--OPTIONS--></_>
         <_options key="options_title">Opciones</_options>
@@ -44,21 +44,29 @@
 
     <_ key="_achievements"><!--ACHIEVEMENTS--></_>
         <_achievements key="achievements_title">Logros</_achievements>
-        <_achievements key="achievements_name_0">Novice</_achievements>
+        <_ key="_achievements_0"><!--0--></_>
+            <_achievements key="achievements_name_0">Novice</_achievements>
             <_achievements key="achievements_description_0">Completado el complejo tuto</_achievements>
-        <_achievements key="achievements_name_1">Malgasta-balas</_achievements>
+        <_ key="_achievements_1"><!--1--></_>
+            <_achievements key="achievements_name_1">Malgasta-balas</_achievements>
             <_achievements key="achievements_description_1">Igual se crean solas, no?</_achievements>
-        <_achievements key="achievements_name_2">Sucio</_achievements>
+        <_ key="_achievements_2"><!--2--></_>
+            <_achievements key="achievements_name_2">Sucio</_achievements>
             <_achievements key="achievements_description_2">No me gusta botar la basura</_achievements>
-        <_achievements key="achievements_name_3">Mala mia</_achievements>
+        <_ key="_achievements_3"><!--3--></_>
+            <_achievements key="achievements_name_3">Mala mia</_achievements>
             <_achievements key="achievements_description_3">Ese es tu héroe?</_achievements>
-        <_achievements key="achievements_name_4">Wiu wiu</_achievements>
+        <_ key="_achievements_4"><!--4--></_>
+            <_achievements key="achievements_name_4">Wiu wiu</_achievements>
             <_achievements key="achievements_description_4">Se la mejor ambulancia para tus compas</_achievements>
-        <_achievements key="achievements_name_5">Perico</_achievements>
+        <_ key="_achievements_5"><!--5--></_>
+            <_achievements key="achievements_name_5">Perico</_achievements>
             <_achievements key="achievements_description_5">¡Que esto no es una red social niño !</_achievements>
-        <_achievements key="achievements_name_6">Master</_achievements>
+        <_ key="_achievements_6"><!--6--></_>
+            <_achievements key="achievements_name_6">Master</_achievements>
             <_achievements key="achievements_description_6">Ya has tocado de todo un poco</_achievements>
-        <_achievements key="achievements_name_7">Escondidas</_achievements>
+        <_ key="_achievements_7"><!--7--></_>
+            <_achievements key="achievements_name_7">Escondidas</_achievements>
             <_achievements key="achievements_description_7">Encuentra el elemento misterioso</_achievements>
 
 
@@ -68,7 +76,7 @@
         <_credits key="_credits_text_1">Arte 2D</_credits>
         <_credits key="_credits_text_2">Arte 3D</_credits>
         <_credits key="_credits_text_3">Marketing</_credits>
-        <_credits key="_credits_text_4">Mensiónes Especiales</_credits>
+        <_credits key="_credits_text_4">Mensiones Especiales</_credits>
 
 
     <_ key="_tutorials"><!--TUTORIALS--></_>
@@ -100,5 +108,68 @@
         <_controls key="_controls_move_right">Mover Derecha</_controls>
         <_controls key="_controls_chat">Abrir Chat</_controls>
         <_controls key="_controls_pause">Pausa</_controls>
+
+
+
+
+
+    <_ key="_character"><!--PERSONAJES--></_>
+        <_ key="_character_0"><!--Enlai Ming--></_>
+            <character key="character_role_0">Sanador</character>
+            <character key="character_description_0">Escribir el Lore 1</character>
+        <_ key="_character_1"><!--Tabare Flare--></_>
+            <character key="character_role_1">Velocista</character>
+            <character key="character_description_1">El Lore 2</character>
+        <_ key="_character_2"><!--Cole Megalos--></_>
+            <character key="character_role_2">Tanque</character>
+            <character key="character_description_2">El 3</character>
+        <_ key="_character_3"><!--Akiyama Arata--></_>
+            <character key="character_role_3">Asesino</character>
+            <character key="character_description_3">4</character>
+        <_ key="_character_4"><!--X-F20--></_>
+            <character key="character_role_4">Equilibrado</character>
+            <character key="character_description_4">Bot</character>
+        
+
+    <_ key="_spell"><!--MEJORAS--></_>
+        <_ key="_spell_0"><!--Enlai Ming--></_>
+            <spell key="spell_name_0">Curación en área</spell>
+            <spell key="spell_description_0">Restauras la vida aliada y propia, los aliados deben estar cerca</spell>
+        <_ key="_spell_1"><!--Tabare Flare--></_>
+            <spell key="spell_name_1">Salto antigravitatorio</spell>
+            <spell key="spell_description_1">Obtienes un salto que te eleva por los cielos, anulas daño por caída</spell>
+        <_ key="_spell_2"><!--Cole Megalos--></_>
+            <spell key="spell_name_2">Electrización de proyectiles</spell>
+            <spell key="spell_description_2">Activas un estado que dobla el daño de tu arma por un tiempo</spell>
+        <_ key="_spell_3"><!--Akiyama Arata--></_>
+            <spell key="spell_name_3">Desplazamiento propulsado</spell>
+            <spell key="spell_description_3">Haces un salto hacia adelante, paralizando al próximo objetivo de tu katana</spell>
+        <_ key="_spell_4"><!--X-F20--></_>
+            <spell key="spell_name_4">Lanzamiento de cohetes teledirigidos</spell>
+            <spell key="spell_description_4">De tu espalda despliegas misiles que persiguen por el calor</spell>
+
+
+
+    <_ key="_weapon"><!--WEAPON--></_>
+        <_ key="_weapon_0"><!--Enlai Ming--></_>
+            <weapon key="weapon_name_0">Rifle</weapon>
+            <weapon key="weapon_appearence_0">Rifle de francotirador un rifle largo y pesado con una mirilla telescópica</weapon>
+        <_ key="_weapon_1"><!--Tabare Flare--></_>
+            <weapon key="weapon_name_1">Lanzagranadas</weapon>
+            <weapon key="weapon_appearence_1">Lanzagranadas corto</weapon>
+        <_ key="_weapon_2"><!--Cole Megalos--></_>
+            <weapon key="weapon_name_2">Fusil AK 47</weapon>
+            <weapon key="weapon_appearence_2">Fusil de repetición con capacidad de electrificarse</weapon>
+        <_ key="_weapon_3"><!--Akiyama Arata--></_>
+            <weapon key="weapon_name_3">Katana</weapon>
+            <weapon key="weapon_appearence_3">Katana larga  de un material indestructible y que conduce la corriente eléctrica</weapon>
+        <_ key="_weapon_4"><!--X-F20--></_>
+            <weapon key="weapon_name_4">Ametralladora</weapon>
+            <weapon key="weapon_appearence_4">Ametralladora integrada en el brazo izquierdo</weapon>
+
+    <_ key="_stat"><!--STATS--></_>
+        <stat key="stat_strength">Fuerza</stat>
+        <stat key="stat_defense">Defensa</stat>
+        <stat key="stat_speed">Agilidad</stat>
 
 </main>

@@ -36,18 +36,18 @@ public struct ControlData
     public string KEY;
     public string DEBUG_DESCRIPTION;
 }
-/// <summary>
-/// Json Structure of the Buffs
-/// </summary>
-[Serializable]
-public struct BuffData
-{
-    public string NAME;
-    public string ID;
-    public string DESCRIPTION;
-    public float COOLDOWN;
-    public string OWNER;
-}
+///// <summary>
+///// Json Structure of the Buffs
+///// </summary>
+//[Serializable]
+//public struct BuffData
+//{
+//    public string NAME;
+//    public string ID;
+//    public string DESCRIPTION;
+//    public float COOLDOWN;
+//    public string OWNER;
+//}
 /// <summary>
 /// Json Structure of the Character
 /// </summary>
@@ -97,51 +97,44 @@ public struct StatData
     public int DEFENSE;
     public int SPEED;
 
+    public StatData(string I, int STR, int DEF, int SPD)
+    {
+        ID=I;
+        STRENGHT=STR;
+        DEFENSE=DEF;
+        SPEED=SPD;
+    }
+
     /// <summary>
     /// Creates an array wih every stat value
     /// </summary>
     public int[] ToArray() => new int[3] {STRENGHT,DEFENSE,SPEED};
-    public void ToRealStat()
-    {
-        STRENGHT = RealStrength;
-        DEFENSE = RealHealth;
-        SPEED = RealSpeed;
-    }
+    public StatData RealStats => new StatData(ID,RealStrength, RealHealth, RealSpeed);
 
     /// <summary>
     /// Knows the real Strength
     /// </summary>
-    public int RealStrength =>
-        PercentOf(STRENGHT)
-        * CallBaseStat.STRENGHT
-    ;
+    public int RealStrength => PercentOf(STRENGHT).QtyOf(CallBaseStat.STRENGHT);
     /// <summary>
     /// Shows the real health
     /// </summary>
-    public int RealHealth =>
-        PercentOf(DEFENSE)
-        * CallBaseStat.DEFENSE
-    ;
+    public int RealHealth =>  PercentOf(DEFENSE).QtyOf(CallBaseStat.DEFENSE);
     /// <summary>
     /// Shows the real speed
     /// </summary>
-    public int RealSpeed =>
-        PercentOf(SPEED)
-        * CallBaseStat.SPEED
-    ;
+    public int RealSpeed => PercentOf(SPEED).QtyOf(CallBaseStat.SPEED);
 
 
 
     /// <summary>
     /// Check the percent based on the <seealso cref="Dat.STAT_MAX"/>
     /// which determines the limit of stats
-    /// FIXME sale siempre 0
     /// </summary>
-    private int PercentOf(int value) => value.PercentOf(Dat.STAT_MAX, true);
+    private int PercentOf(int value) => value.PercentOf(Dat.STAT_MAX);
 
     /// <summary>
     /// Calls the base of Stats, where it contains the real values,
-    /// not based on 0-5
+    /// not based on 0-<seealso cref="Dat.STAT_MAX"/>
     /// </summary>
     private StatData CallBaseStat => Dat.GetStatData(Dat.ID_BASE_STAT);
 }

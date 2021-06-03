@@ -1,39 +1,39 @@
 ﻿{
 	"DATA":[
 		{
-			"NAME":"Curación en área",
-			"ID":"0",
-			"DESCRIPTION":"Restauras la vida aliada y propia, los aliados deben estar cerca”",
-			"COOLDOWN":20,
-			"OWNER":"Enlai Ming"
+			"NAME": "spell_name_0",
+			"ID": "0",
+			"DESCRIPTION": "spell_description_0",
+			"COOLDOWN": 20,
+			"OWNER": "Enlai Ming"
 		},
 		{
-			"NAME":"Salto antigravitatorio",
-			"ID":"1",
-			"DESCRIPTION":"Obtienes un salto que te eleva por los cielos, anulas daño por caída",
-			"COOLDOWN":8,
-			"OWNER":"Tabare Flare"
+			"NAME": "spell_name_1",
+			"ID": "1",
+			"DESCRIPTION": "spell_description_1",
+			"COOLDOWN": 8,
+			"OWNER": "Tabare Flare"
 		},
 		{
-			"NAME":"Electrización de proyectiles",
-			"ID":"2",
-			"DESCRIPTION":"Activas un estado que dobla el daño de tu arma por un tiempo",
-			"COOLDOWN":10,
-			"OWNER":"Cole Megalos"
+			"NAME": "spell_name_2",
+			"ID": "2",
+			"DESCRIPTION": "spell_description_2",
+			"COOLDOWN": 10,
+			"OWNER": "Cole Megalos"
 		},
 		{
-			"NAME":"Desplazamiento propulsado",
-			"ID":"3",
-			"DESCRIPTION":"Haces un salto hacia adelante, paralizando al próximo objetivo de tu katana",
-			"COOLDOWN":3,
-			"OWNER":"Akiyama Arata"
+			"NAME": "spell_name_3",
+			"ID": "3",
+			"DESCRIPTION": "spell_description_3",
+			"COOLDOWN": 3,
+			"OWNER": "Akiyama Arata"
 		},
 		{
-			"NAME":"Lanzamiento de cohetes teledirigidos",
-			"ID":"4",
-			"DESCRIPTION":"De tu espalda despliegas misiles que persiguen por el calor",
-			"COOLDOWN":10,
-			"OWNER":"X-F20"
+			"NAME": "spell_name_4",
+			"ID": "4",
+			"DESCRIPTION": "spell_description_4",
+			"COOLDOWN": 10,
+			"OWNER": "X-F20"
 		}
 	]
 }
