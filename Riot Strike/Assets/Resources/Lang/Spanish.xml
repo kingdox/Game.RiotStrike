@@ -131,7 +131,7 @@
             <character key="character_description_4">Bot</character>
         
 
-    <_ key="_spell"><!--MEJORAS--></_>
+    <_ key="_spell"><!--HABILIDADES--></_>
         <_ key="_spell_0"><!--Enlai Ming--></_>
             <spell key="spell_name_0">Curación en área</spell>
             <spell key="spell_description_0">Restauras la vida aliada y propia, los aliados deben estar cerca</spell>

@@ -19,23 +19,31 @@ namespace TutorialScene
         private KeyCode skipCode;
         [Header("Tutorial Game Manager")]
         public RefreshController refresh_skip;
-
+        public GameObject obj_shotCursor; 
 
         #endregion
         #region Event
-        private void Awake()
+        private void OnEnable()
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            CursorSystem.OnCursor += DisplayShotCursor;
         }
         private void Start()
         {
+            CursorSystem.Hide();
             string KEY = DataSystem.Get.controlKeys[EControl.PAUSE.ToInt()];
 
+        }
+        private void OnDisable()
+        {
+            CursorSystem.OnCursor -= DisplayShotCursor;
         }
         #endregion
         #region Methods
 
+        /// <summary>
+        /// Displays the Cursor Shot or not
+        /// </summary>
+        public void DisplayShotCursor(bool condition) => obj_shotCursor.SetActive(condition);
 
 
         /// <summary>

@@ -28,9 +28,8 @@ namespace IntroScene
         #region Event
         private void Awake(){
             this.Singleton(ref _,false);
-            //Hides the cursor while is seeeing the animation inte
-            Cursor.visible = false;
 
+            CursorSystem.Hide();
         }
         private void Start()
         {
@@ -62,14 +61,10 @@ namespace IntroScene
         /// </summary>
         public static void UIAnimEnd() => _.animator_UI.SetTrigger(TRIGGER_KEY);
 
-            /// <summary>
-            /// Changes the scene to the menu
-            /// </summary>
-            public static void GoToMenu()
-            {
-                Environment.Scenes.MENU_SCENE.ToScene();
-                Cursor.visible = true;
-            }
+        /// <summary>
+        /// Changes the scene to the menu
+        /// </summary>
+        public static void GoToMenu() => Environment.Scenes.MENU_SCENE.ToScene();
         #endregion
     }
 }

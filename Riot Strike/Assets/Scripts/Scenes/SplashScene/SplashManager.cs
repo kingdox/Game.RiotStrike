@@ -40,6 +40,7 @@ namespace SplashScene
         #region Event
         private void Start()
         {
+            CursorSystem.Hide();
             langSelected = false;
             canvasGroup.alpha = 0;
             GenerateModalButtons();

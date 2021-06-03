@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
-
+        CursorSystem.Show();
     }
     #endregion
     #region Methods
