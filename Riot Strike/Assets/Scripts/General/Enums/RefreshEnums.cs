@@ -1,5 +1,7 @@
 ﻿#region Access
 using UnityEngine.UI;
+using Dat = Environment.Data;
+using Environment;
 #endregion
 #region Enums
 #region IntroScene
@@ -193,4 +195,31 @@ namespace SelectorRefresh
     }
 }
 #endregion
+
+namespace HUDRefresh
+{
+    /// <summary>
+    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in player HUD
+    /// <para> in <seealso cref="Scenes.TUTORIAL_SCENE"/> and <seealso cref="Scenes.GAME_SCENE"/></para>
+    /// </summary>
+    public enum Text
+    {
+        LIFE=0,
+        SPELL=1,
+        AMMO_MAX=2,
+        AMMO_CURRENT=3,
+    }
+    /// <summary>
+    /// Refresher enum in <see cref="RefreshController"/> of <see cref="Image"/> in player HUD
+    /// <para> in <seealso cref="Scenes.TUTORIAL_SCENE"/> and <seealso cref="Scenes.GAME_SCENE"/></para>
+    /// </summary>
+    public enum Image
+    {
+        LIFE=0,
+        SPELL=1,
+        SHOT_CURSOR=2,
+        BG_AMMO_CURRENT=3
+    }
+
+}
 #endregion

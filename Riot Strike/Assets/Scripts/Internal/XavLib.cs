@@ -81,7 +81,7 @@ namespace XavHelpTo
         /// </summary>
         /// <returns>El porcentaje de count sobre el max</returns>
         public static float PercentOf(this float count, float max, bool normalize = false) => count / max * (normalize ? 1 : 100);
-        public static int PercentOf(this int count, int max, bool normalize = false) => (int)((float)count).PercentOf(max, normalize);
+        public static int PercentOf(this int count, int max) => (int)((float)count).PercentOf(max, false);
         public static float PercentOf(this float[] c, bool normalize = false) => c[0].PercentOf(c[1], normalize);
         public static Vector2 PercentOf(this Vector2 count, Vector2 max, bool normalize = false) => count / max * (normalize ? 1 : 100);
         /// <summary>
@@ -898,6 +898,18 @@ namespace XavHelpTo
                 tagIndex[3] = tagIndex[2] + tagNameLength + 1;
 
                 return tagIndex;
+            }
+
+
+            /// <summary>
+            /// Based on a cooldown who difference the next step and a time to store the qty
+            /// <para>use the Timer</para>
+            /// </summary>
+            public static bool Timer(this float cooldown,ref float time)
+            {
+                bool condition = Time.time >= time;
+                if (condition) time = Time.time + cooldown;
+                return condition;
             }
 
             /// <summary>

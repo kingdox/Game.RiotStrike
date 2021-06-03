@@ -7,6 +7,7 @@ using XavHelpTo;
 using XavHelpTo.Change;
 using XavHelpTo.Set;
 using XavHelpTo.Get;
+using HUDRefresh;
 #endregion
 
 /// <summary>
@@ -21,6 +22,7 @@ public class PlayerBody : BodyBase
     private RotationController rotation;
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
+    public RefreshController refresh_HUD;
     [Header("Player Body")]
     public bool canMove = true;
     public bool canRotate = true;
@@ -30,6 +32,11 @@ public class PlayerBody : BodyBase
     public override void Awake() {
         base.Awake();
     }
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        
+    }
     private void Start()
     {
         this.Component(out movement);
@@ -38,6 +45,10 @@ public class PlayerBody : BodyBase
     private void Update()
     {
         Control();
+    }
+    public override void OnDisable()
+    {
+        base.OnDisable();
     }
     #endregion
     #region Methods
@@ -61,16 +72,16 @@ public class PlayerBody : BodyBase
         );
 
         //ATTACK
-        CheckPress(EControl.ATTACK, OnAttack);
+        CheckPress(EControl.ATTACK, character.OnAttack);
 
         //FOCUS
-        CheckPress(EControl.FOCUS, OnFocus);
+        CheckPress(EControl.AIM, character.OnAim);
 
         //RELOAD
-        CheckPress(EControl.RELOAD, OnReload);
+        CheckPressDown(EControl.RELOAD, character.OnReload);
 
         //SPELL
-        CheckPress(EControl.SPELL, OnSpell);
+        CheckPressDown(EControl.CAST, character.OnCast);
 
         //CHAT
         // TODO (Multiplayer) 
@@ -84,6 +95,25 @@ public class PlayerBody : BodyBase
     /// </summary>
     private void CheckPress(EControl e, Action a){
         if (e.IsPressed()) a?.Invoke();
+    }
+    /// <summary>
+    /// as <seealso cref="CheckPress(EControl, Action)"/> just in the frame
+    /// </summary>
+    private void CheckPressDown(EControl e, Action a)
+    {
+        if (e.IsPressedDown()) a?.Invoke();
+    }
+
+
+    /// <summary>
+    /// Do the base take damage and refresh the HUD of the player
+    /// </summary>
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        refresh_HUD.GetImg(Image.LIFE).fillAmount = (1f*life).PercentOf(stat.DEFENSE,true);
+        refresh_HUD.GetText(Text.LIFE).text = life.ToString();
+
     }
     #endregion
 

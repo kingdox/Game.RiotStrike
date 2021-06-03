@@ -21,14 +21,15 @@ public abstract class BodyBase : MonoBehaviour
     [Header("Body")]
     public int life;
     public bool isDead;
+    public Transform tr_head;
+    public Transform tr_visualWeapon;
+    public Transform tr_spells;
     [HideInInspector] public StatData stat;
     [Space]
     public Character character;
 
-    protected Action OnAttack;
-    protected Action OnFocus;
-    protected Action OnReload;
-    protected Action OnSpell;
+    
+    
     #endregion
     #region Event
     public virtual void Awake()
@@ -37,14 +38,18 @@ public abstract class BodyBase : MonoBehaviour
         stat = Dat.GetStatData(character.idStat).RealStats;
         life = stat.DEFENSE; //asign the max life
         this.Component(out gravity);
+
+        character.Init(this);
     }
     public virtual void OnEnable()
     {
         gravity.OnImpact += FallImpact;
+        character.Subscribes();
     }
     public virtual void OnDisable()
     {
         gravity.OnImpact -= FallImpact;
+        character.UnSubscribes();
     }
     #endregion
     #region Method

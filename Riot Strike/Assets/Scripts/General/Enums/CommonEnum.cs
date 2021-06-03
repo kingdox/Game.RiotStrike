@@ -8,9 +8,9 @@ using UnityEngine;
 public enum EControl
 {
     ATTACK=0,
-    FOCUS=1,
+    AIM = 1,
     RELOAD=2,
-    SPELL=3,
+    CAST=3,
     FORWARD=4,
     BACK=5,
     LEFT=6,
