@@ -7,7 +7,6 @@ using XavHelpTo;
 using XavHelpTo.Change;
 using XavHelpTo.Set;
 using XavHelpTo.Get;
-using HUDRefresh;
 #endregion
 
 /// <summary>
@@ -22,7 +21,7 @@ public class PlayerBody : BodyBase
     private RotationController rotation;
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
-    public RefreshController refresh_HUD;
+    public HUDController ctrl_HUD;
     [Header("Player Body")]
     public bool canMove = true;
     public bool canRotate = true;
@@ -35,7 +34,11 @@ public class PlayerBody : BodyBase
     public override void OnEnable()
     {
         base.OnEnable();
-        
+
+
+        character.spell.OnTimer += ctrl_HUD.RefreshSpell;
+        character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
+
     }
     private void Start()
     {
@@ -49,6 +52,11 @@ public class PlayerBody : BodyBase
     public override void OnDisable()
     {
         base.OnDisable();
+
+        character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
+        character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
+
+
     }
     #endregion
     #region Methods
@@ -111,9 +119,8 @@ public class PlayerBody : BodyBase
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        refresh_HUD.GetImg(Image.LIFE).fillAmount = (1f*life).PercentOf(stat.DEFENSE,true);
-        refresh_HUD.GetText(Text.LIFE).text = life.ToString();
 
+        ctrl_HUD.RefreshLife(life, stat.DEFENSE);
     }
     #endregion
 

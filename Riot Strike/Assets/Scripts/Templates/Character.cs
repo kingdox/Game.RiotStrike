@@ -11,14 +11,12 @@ using XavHelpTo.Set;
 /// Information of a character and their own elements
 /// </summary>
 [CreateAssetMenu(menuName = "Template/Character")]
-//[RequireComponent(typeof(BodyBase))]
+[RequireComponent(typeof(BodyBase))]
 public class Character : ScriptableObject
 {
     #region Variable
     [HideInInspector] public Weapon weapon;
     [HideInInspector] public Spell spell;
-    [HideInInspector] public Transform tr_weapon;
-    [HideInInspector] public Transform tr_spell;
     [Header("Character")]
     public string idStat;
     public GameObject pref_weapon;
@@ -35,13 +33,12 @@ public class Character : ScriptableObject
     /// </summary>
     public void Init(BodyBase body)
     {
-        //Creates the prefabs
-        tr_spell = Instantiate(pref_spell, body.tr_spells).transform;
-        tr_weapon = Instantiate(pref_weapon, body.tr_visualWeapon).transform;
-
-        //Loads the components of each one
-        tr_spell.Component(out spell);
-        tr_weapon.Component(out weapon);
+        Instantiate(pref_spell, body.tr_spells).transform
+            .Component(out spell)
+        ;
+        Instantiate(pref_weapon, body.tr_visualWeapon).transform
+            .Component(out weapon)
+        ;
     }
     /// <summary>
     /// Do the subscriptions

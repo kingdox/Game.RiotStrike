@@ -667,6 +667,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982790873}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1034415217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5376688503770910268, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
+  m_PrefabInstance: {fileID: 5376688504620777944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1034415218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034415217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f245648f67372436ca1f09a9ea10aceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refresh: {fileID: 1323831270}
 --- !u!1001 &1200416407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1331,7 +1349,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5376688503770910270, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
   m_PrefabInstance: {fileID: 5376688504620777944}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1034415217}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1bc36b34dc442b4ae146f85e555a14, type: 3}
@@ -1849,7 +1867,7 @@ MonoBehaviour:
     DEFENSE: 0
     SPEED: 0
   character: {fileID: 11400000, guid: 80437cc26ff264f0ea029f34ae9787d5, type: 2}
-  refresh_HUD: {fileID: 1323831270}
+  ctrl_HUD: {fileID: 1034415218}
   canMove: 1
   canRotate: 1
 --- !u!1 &1995703435
@@ -2269,6 +2287,22 @@ PrefabInstance:
     - target: {fileID: 5376688503770910269, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376688504307412713, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376688504307412713, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
+      propertyPath: m_FillClockwise
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376688504307412713, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376688504307412713, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}

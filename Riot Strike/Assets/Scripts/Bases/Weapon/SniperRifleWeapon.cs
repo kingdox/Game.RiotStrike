@@ -16,9 +16,10 @@ public class SniperRifleWeapon : Weapon
 
     #endregion
     #region Methods
-    public override void Attack()
-    {
+    public override void Attack(){
+        if (!CanAtack()) return; // 🛡
         base.Attack();
+
         "ATTACK".Print("red");
     }
     public override void Aim()

@@ -20,8 +20,8 @@ public class HealSpell : Spell
     /// Do the heal cast
     /// </summary>
     public override void Cast(){
-        if (!CanCast) return; // 🛡
-        "CAST!".Print();
+        if (!CanCast()) return; // 🛡
+        "CAST!".Print("blue");
     }
     #endregion
 }
