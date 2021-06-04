@@ -11,7 +11,7 @@ using XavHelpTo.Set;
 /// Information of a character and their own elements
 /// </summary>
 [CreateAssetMenu(menuName = "Template/Character")]
-[RequireComponent(typeof(BodyBase))]
+[RequireComponent(typeof(Body))]
 public class Character : ScriptableObject
 {
     #region Variable
@@ -19,6 +19,7 @@ public class Character : ScriptableObject
     [HideInInspector] public Spell spell;
     [Header("Character")]
     public string idStat;
+    public GameObject pref_body;
     public GameObject pref_weapon;
     public GameObject pref_spell;
 
@@ -31,14 +32,17 @@ public class Character : ScriptableObject
     /// <summary>
     /// Do an initialization to get the components
     /// </summary>
-    public void Init(BodyBase body)
+    public void Init(Body body)
     {
         Instantiate(pref_spell, body.tr_spells).transform
             .Component(out spell)
         ;
+
         Instantiate(pref_weapon, body.tr_visualWeapon).transform
             .Component(out weapon)
         ;
+
+        Instantiate(pref_body, body.tr_body);
     }
     /// <summary>
     /// Do the subscriptions

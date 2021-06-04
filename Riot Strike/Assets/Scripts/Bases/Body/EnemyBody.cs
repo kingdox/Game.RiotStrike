@@ -8,7 +8,7 @@ using XavHelpTo;
 /// <summary>
 /// Body who manages the Enemy States by itself with their own IA
 /// </summary>
-public class EnemyBody : BodyBase
+public class EnemyBody : Body
 {
     #region Variables
     /*

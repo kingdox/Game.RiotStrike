@@ -218,7 +218,8 @@ namespace HUDRefresh
         LIFE=0,
         SPELL=1,
         SHOT_CURSOR=2,
-        BG_AMMO_CURRENT=3
+        AMMO_CURRENT=3,
+        RELOAD=4,
     }
 
 }

@@ -12,7 +12,7 @@ using XavHelpTo.Get;
 /// <summary>
 /// Base of every body base (ally or enemy) in game
 /// </summary>
-public abstract class BodyBase : MonoBehaviour
+public abstract class Body : MonoBehaviour
 {
     #region Variables
 
@@ -20,8 +20,9 @@ public abstract class BodyBase : MonoBehaviour
     private const float BODY_MASS = 10f;
     [Header("Body")]
     public int life;
-    public bool isDead;
-    public Transform tr_head;
+    public bool isDead=false;
+    public bool isInmune=false;
+    public Transform tr_body;
     public Transform tr_visualWeapon;
     public Transform tr_spells;
     [HideInInspector] public StatData stat;
@@ -57,8 +58,8 @@ public abstract class BodyBase : MonoBehaviour
     /// <summary>
     /// Do the damage to the body
     /// </summary>
-    public virtual void TakeDamage(int damage)
-    {
+    public virtual void TakeDamage(int damage){
+        if (isInmune) return; 
         life = (life - damage).Min(0);
         if (life.Equals(0)) Death();
     }

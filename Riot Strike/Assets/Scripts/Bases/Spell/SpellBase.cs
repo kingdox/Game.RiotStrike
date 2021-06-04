@@ -14,11 +14,10 @@ public abstract class Spell : MonoBehaviour
 {
     #region Variables
     private SpellData spellData;
-    //[HideInInspector] public float cooldown;
+    private float timer;
+    private bool flagReady;
     [Header("Spell")]
     public string ID;
-    [HideInInspector] public float timer;
-    public bool flagReady;
 
     public Action<float, float> OnTimer;
     public Action OnFireCast;

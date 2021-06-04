@@ -13,19 +13,17 @@ using XavHelpTo.Get;
 /// Management of the body who player can `play`
 /// </summary>
 [RequireComponent(typeof(MovementController), typeof(RotationController), typeof(GravityController))]
-public class PlayerBody : BodyBase
+public class PlayerBody : Body
 {
     #region Variable
-
     private MovementController movement;
     private RotationController rotation;
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
-    public HUDController ctrl_HUD;
     [Header("Player Body")]
+    public HUDController ctrl_HUD;
     public bool canMove = true;
     public bool canRotate = true;
-
     #endregion
     #region Event
     public override void Awake() {
@@ -34,16 +32,14 @@ public class PlayerBody : BodyBase
     public override void OnEnable()
     {
         base.OnEnable();
-
-
-        character.spell.OnTimer += ctrl_HUD.RefreshSpell;
-        character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
-
+        Subscribes();
     }
     private void Start()
     {
         this.Component(out movement);
         this.Component(out rotation);
+        EmitLife();
+        ctrl_HUD.RefreshShotCursor(character.weapon.ID);
     }
     private void Update()
     {
@@ -52,14 +48,32 @@ public class PlayerBody : BodyBase
     public override void OnDisable()
     {
         base.OnDisable();
-
-        character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
-        character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
-
-
+        UnSubscribes();
     }
     #endregion
     #region Methods
+    /// <summary>
+    /// Do the subscriptions
+    /// </summary>
+    public void Subscribes()
+    {
+        character.spell.OnTimer += ctrl_HUD.RefreshSpell;
+        character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
+        character.weapon.OnReload += ctrl_HUD.RefreshReload;
+    }
+    /// <summary>
+    /// Do the UnSubscriptions
+    /// </summary>
+    public void UnSubscribes()
+    {
+        character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
+        character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
+        character.weapon.OnReload -= ctrl_HUD.RefreshReload;
+    }
+    /// <summary>
+    /// Emit the Life status
+    /// </summary>
+    private void EmitLife() => ctrl_HUD.RefreshLife(life, stat.DEFENSE);
 
     /// <summary>
     /// Controls the actions of the player
@@ -83,7 +97,7 @@ public class PlayerBody : BodyBase
         CheckPress(EControl.ATTACK, character.OnAttack);
 
         //FOCUS
-        CheckPress(EControl.AIM, character.OnAim);
+        CheckPress(EControl.AIM, character.OnAim);//TODO FIXME
 
         //RELOAD
         CheckPressDown(EControl.RELOAD, character.OnReload);
@@ -119,9 +133,10 @@ public class PlayerBody : BodyBase
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-
-        ctrl_HUD.RefreshLife(life, stat.DEFENSE);
+        EmitLife();
     }
+
+
     #endregion
 
 }

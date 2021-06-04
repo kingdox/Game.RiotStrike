@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3499500639817998387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115781273094520972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55664e34f6d5479a9e71265cfee1e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
+--- !u!1001 &2010409720712870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9117228146858692138, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_Name
+      value: 1. Spell (Anti Gravity Jump)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146858692149, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+--- !u!1 &9115781273094520972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9117228146858692138, guid: 03bacb045b74a4254867af199db61dd9, type: 3}
+  m_PrefabInstance: {fileID: 2010409720712870}
+  m_PrefabAsset: {fileID: 0}
