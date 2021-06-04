@@ -19,7 +19,7 @@ public class AntiGravityJumpSpell : Spell
     /// <summary>
     /// Do the heal cast
     /// </summary>
-    public override void Cast()
+    public override void Cast(Body body)
     {
         if (!CanCast()) return; // 🛡
         "CAST!".Print("blue");

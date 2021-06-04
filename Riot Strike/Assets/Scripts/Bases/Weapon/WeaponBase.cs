@@ -20,7 +20,7 @@ public abstract class Weapon : MonoBehaviour
     private bool flag_canAttack = false;
     private int currentAmmo;
     [Header("Weapon")]
-    public string ID;
+    public string ID = "0";
     public Action<int,int> OnFireAttack;
     public Action<float, float> OnReload;
     #endregion

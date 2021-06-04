@@ -11,72 +11,71 @@ using XavHelpTo.Get;
 
 /// <summary>
 /// Base of every body base (ally or enemy) in game
+/// dependency with <seealso cref="GravityController"/>
 /// </summary>
+[RequireComponent(typeof(GravityController))]
 public abstract class Body : MonoBehaviour
 {
     #region Variables
-
     private GravityController gravity;
     private const float BODY_MASS = 10f;
+    //protected Body body;
     [Header("Body")]
-    public int life;
-    public bool isDead=false;
-    public bool isInmune=false;
+    [SerializeField] protected int life;
+    [SerializeField] protected bool isDead=false;
+    [SerializeField] protected bool isInmune=false;
     public Transform tr_body;
     public Transform tr_visualWeapon;
     public Transform tr_spells;
     [HideInInspector] public StatData stat;
     [Space]
     public Character character;
-
-    
-    
+    public Action OnChangeLife;
     #endregion
     #region Event
     public virtual void Awake()
     {
-
+        //body = this;
         stat = Dat.GetStatData(character.idStat).RealStats;
         life = stat.DEFENSE; //asign the max life
         this.Component(out gravity);
-
         character.Init(this);
     }
     public virtual void OnEnable()
     {
         gravity.OnImpact += FallImpact;
-        character.Subscribes();
+        character.Subscribes(this);
     }
     public virtual void OnDisable()
     {
         gravity.OnImpact -= FallImpact;
-        character.UnSubscribes();
+        character.UnSubscribes(this);
     }
     #endregion
     #region Method
-
     /// <summary>
     /// Do the damage to the body
     /// </summary>
-    public virtual void TakeDamage(int damage){
-        if (isInmune) return; 
-        life = (life - damage).Min(0);
+    public virtual void AddLife(int value){
+        if (value < 0 && isInmune) return; // no damage, only health if is invincible
+        life += value;
+        life = life.Min(0).Max(stat.DEFENSE);
+        OnChangeLife?.Invoke();
         if (life.Equals(0)) Death();
     }
-    public virtual void TakeDamage(float damage) => TakeDamage(damage.ToInt());
+    public virtual void AddLife(float value) => AddLife(value.ToInt());
 
     /// <summary>
     /// Set the adjustement to death state
     /// </summary>
     protected virtual void Death() {
         isDead = true;
+        //TODO
     }
-
-
     /// <summary>
     /// Makes the damage of a impact by a <seealso cref="GravityController"/>
     /// where <seealso cref="BODY_MASS"/> represent the mass
     /// </summary>
-    private void FallImpact(float aceleration) => TakeDamage(BODY_MASS * aceleration);
+    private void FallImpact(float aceleration) => AddLife(BODY_MASS * aceleration);
     #endregion
 }

@@ -18,7 +18,10 @@ public class HUDController : MonoBehaviour
 {
     #region Variables
     private const string PATH_SHOT_CURSOR = "ShotCursor/shot_";
+    [Header("HUDController")]
     public RefreshController refresh;
+    public PlayerBody body;
+
     #endregion
     #region Events
     private void Start()

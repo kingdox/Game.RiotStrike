@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beafdd239d9b34c6687ed2d8314fc4fc, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: b1e9b20f719614004a9ac7287321eb86, type: 2}
+  weapon: {fileID: 0}
+  spell: {fileID: 0}
   idStat: Enemy_1
-  idWeapon: 4
-  idSpell: 4
+  pref_body: {fileID: 629176062533846435, guid: 430d1b908b4a24a0eb700b7aa71551c0, type: 3}
+  pref_weapon: {fileID: 7222415281084686964, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+  pref_spell: {fileID: 6137629943512318233, guid: 11a6876e961d94918b8d3854f1d11d5c, type: 3}

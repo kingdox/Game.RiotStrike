@@ -55,26 +55,27 @@ public class PlayerBody : Body
     /// <summary>
     /// Do the subscriptions
     /// </summary>
-    public void Subscribes()
+    private void Subscribes()
     {
         character.spell.OnTimer += ctrl_HUD.RefreshSpell;
         character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload += ctrl_HUD.RefreshReload;
+        OnChangeLife += EmitLife;
     }
     /// <summary>
     /// Do the UnSubscriptions
     /// </summary>
-    public void UnSubscribes()
+    private void UnSubscribes()
     {
         character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
         character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload -= ctrl_HUD.RefreshReload;
+        OnChangeLife -= EmitLife;
     }
     /// <summary>
     /// Emit the Life status
     /// </summary>
     private void EmitLife() => ctrl_HUD.RefreshLife(life, stat.DEFENSE);
-
     /// <summary>
     /// Controls the actions of the player
     /// </summary>
@@ -103,7 +104,7 @@ public class PlayerBody : Body
         CheckPressDown(EControl.RELOAD, character.OnReload);
 
         //SPELL
-        CheckPressDown(EControl.CAST, character.OnCast);
+        CheckPressDown(EControl.CAST, character.OnCast, this);
 
         //CHAT
         // TODO (Multiplayer) 
@@ -115,27 +116,31 @@ public class PlayerBody : Body
     /// <summary>
     /// fire the <seealso cref="Action"/> if <seealso cref="EControl"/> is pressed
     /// </summary>
-    private void CheckPress(EControl e, Action a){
-        if (e.IsPressed()) a?.Invoke();
-    }
+    private void CheckPress(EControl e, Action a){if (e.IsPressed()) a?.Invoke();}
+    /// <summary>
+    /// Check if the <seealso cref="EControl"/> is pressing and send the <seealso cref="Action"/>
+    /// </summary>
+    private void CheckPress<T>(EControl e, Action<T> a, T val){if (e.IsPressed()) a?.Invoke(val);}
     /// <summary>
     /// as <seealso cref="CheckPress(EControl, Action)"/> just in the frame
     /// </summary>
-    private void CheckPressDown(EControl e, Action a)
-    {
-        if (e.IsPressedDown()) a?.Invoke();
-    }
+    private void CheckPressDown(EControl e, Action a){if (e.IsPressedDown()) a?.Invoke();}
+    /// <summary>
+    /// as <seealso cref="CheckPress(EControl, Action)"/> just in the frame
+    /// Check if the <seealso cref="EControl"/> was pressed and send the <seealso cref="Action"/>
+    /// </summary>
+    private void CheckPressDown<T>(EControl e, Action<T> a, T val){ if (e.IsPressedDown()) a?.Invoke(val);}
 
 
     /// <summary>
-    /// Do the base take damage and refresh the HUD of the player
+    /// Adds positive or negative life
     /// </summary>
-    public override void TakeDamage(int damage)
+    public override void AddLife(int value)
     {
-        base.TakeDamage(damage);
+        base.AddLife(value);
         EmitLife();
     }
-
+    
 
     #endregion
 

@@ -3,8 +3,7 @@ using UnityEngine;
 using XavHelpTo;
 #endregion
 /// <summary>
-/// Controller of the movement based on the saved inputs
-/// dependency with <seealso cref="CharacterController"/>
+/// Controller of the movement
 /// </summary>
 [RequireComponent(typeof(CharacterController))]
 public class MovementController : MonoBehaviour

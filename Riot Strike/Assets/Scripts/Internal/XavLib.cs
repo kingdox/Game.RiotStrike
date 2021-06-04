@@ -578,67 +578,67 @@ namespace XavHelpTo
     public static class Change{
 
 
-            /// <summary>
-            /// Cambiamos a la escena indicada en numerico
-            /// </summary>
-            /// <param name="index"></param>
-            public static void SceneTo(int index) => SceneManager.LoadScene(index);
-            public static void SceneTo(string name) => SceneManager.LoadScene(name);
-            public static void ToScene(this int i) => Change.SceneTo(i);
-            public static void ToScene(this string i) => Change.SceneTo(i);
-            public static void ToScene<T>(this T i)
-            {
-                if (Know.Know.IsEnum(i)) Change.SceneTo(i.ToInt());
-            }
-            /// <summary>
-            /// Activa o desactiva el <seealso cref="GameObject"/> basado en una condición
-            /// <para>Dependencia con <seealso cref="GameObject"/> </para>
-            /// </summary>
-            public static void ActiveObject(in GameObject obj, bool condition) => obj.SetActive(condition);
-            /// <summary>
-            /// Activa unicamente el objeto indicado del arreglo
-            /// <para>Por defecto el indice es el primero del arreglo</para>
-            /// <para>Dependencia con <seealso cref="ObjOnOff(GameObject, bool)"/> </para>
-            /// </summary>
-            public static void ActiveObjectsExcept(in GameObject[] arr, int index = 0) { for (int x = 0; x < arr.Length; x++) ActiveObject(arr[x], x == index); }
-            public static void ActiveObjectsExcept(int index, params GameObject[] arr) { for (int x = 0; x < arr.Length; x++) ActiveObject(arr[x], x == index); }
-            /// <summary>
-            /// Active o Disable all the objects
-            /// </summary>
-            public static void ActiveObjects<T>(this T[] arr, bool val) where T : Component { for (int x = 0; x < arr.Length; x++) ActiveObject(arr[x].gameObject, val); }
-            public static void ActiveObjects(this GameObject[] objects, bool condition) { foreach (GameObject o in objects) o.SetActive(condition); } 
+        /// <summary>
+        /// Cambiamos a la escena indicada en numerico
+        /// </summary>
+        /// <param name="index"></param>
+        public static void SceneTo(int index) => SceneManager.LoadScene(index);
+        public static void SceneTo(string name) => SceneManager.LoadScene(name);
+        public static void ToScene(this int i) => Change.SceneTo(i);
+        public static void ToScene(this string i) => Change.SceneTo(i);
+        public static void ToScene<T>(this T i)
+        {
+            if (Know.Know.IsEnum(i)) Change.SceneTo(i.ToInt());
+        }
+        /// <summary>
+        /// Activa o desactiva el <seealso cref="GameObject"/> basado en una condición
+        /// <para>Dependencia con <seealso cref="GameObject"/> </para>
+        /// </summary>
+        public static void ActiveObject(in GameObject obj, bool condition) => obj.SetActive(condition);
+        /// <summary>
+        /// Activa unicamente el objeto indicado del arreglo
+        /// <para>Por defecto el indice es el primero del arreglo</para>
+        /// <para>Dependencia con <seealso cref="ObjOnOff(GameObject, bool)"/> </para>
+        /// </summary>
+        public static void ActiveObjectsExcept(in GameObject[] arr, int index = 0) { for (int x = 0; x < arr.Length; x++) ActiveObject(arr[x], x == index); }
+        public static void ActiveObjectsExcept(int index, params GameObject[] arr) { for (int x = 0; x < arr.Length; x++) ActiveObject(arr[x], x == index); }
+        /// <summary>
+        /// Active o Disable all the objects
+        /// </summary>
+        public static void ActiveObjects<T>(this T[] arr, bool val) where T : Component { for (int x = 0; x < arr.Length; x++) ActiveObject(arr[x].gameObject, val); }
+        public static void ActiveObjects(this GameObject[] objects, bool condition) { foreach (GameObject o in objects) o.SetActive(condition); } 
         /// <summary>
         /// Dependiendo de la condición determinamos si iniciar o apagar la animación
         /// <para>Dependencia con <seealso cref="ParticleSystem"/> </para>
         /// </summary>
         public static void ActiveParticle(this ParticleSystem particle, bool condition)
-            {
-                if (condition && particle.isStopped) particle.Play();
-                else if (!condition && particle.isPlaying) particle.Stop();
-            }
+        {
+            if (condition && particle.isStopped) particle.Play();
+            else if (!condition && particle.isPlaying) particle.Stop();
+        }
 
-            public static void ActiveAudioSource(this AudioSource audio,bool condition)
-            {
-                //si está sonando y se quiera desactivar
-                if (audio.isPlaying && !condition) audio.Stop();
-                //sino si NO esta sonando y se quiere encender...
-                else if (!audio.isPlaying && condition) audio.Play();
+        public static void ActiveAudioSource(this AudioSource audio,bool condition)
+        {
+            //si está sonando y se quiera desactivar
+            if (audio.isPlaying && !condition) audio.Stop();
+            //sino si NO esta sonando y se quiere encender...
+            else if (!audio.isPlaying && condition) audio.Play();
 
-            }
+        }
 
                 
-            /// <summary>
-            /// Cambia a un arreglo
-            /// </summary>
-            public static T[] ToArray<T>(params T[] t) => t;
-            public static float[] ToArray(this Vector2 v) => new float[] {v[0], v[1]};
-            public static float[] ToArray(this Vector3 v) => new float[] {v[0], v[1], v[2] };
-            public static float[] ToArray(this Color c) => ToArray(c.r, c.g, c.b, c.a);
+        /// <summary>
+        /// Cambia a un arreglo
+        /// </summary>
+        public static T[] ToArray<T>(params T[] t) => t;
+        public static float[] ToArray(this Vector2 v) => new float[] {v[0], v[1]};
+        public static float[] ToArray(this Vector3 v) => new float[] {v[0], v[1], v[2] };
+        public static float[] ToArray(this Color c) => ToArray(c.r, c.g, c.b, c.a);
 
-            /// <summary>
-            /// Transform The string in keycode
-            /// </summary>
-            public static KeyCode ToKeyCode(this string key, bool ignoreCase =true) => (KeyCode)S.Enum.Parse(typeof(KeyCode), key, ignoreCase);
+        /// <summary>
+        /// Transform The string in keycode
+        /// </summary>
+        public static KeyCode ToKeyCode(this string key, bool ignoreCase =true) => (KeyCode)S.Enum.Parse(typeof(KeyCode), key, ignoreCase);
         public static KeyCode ToKeyCode(this Event e , out KeyCode k) => k = (e.isMouse ? $"mouse{Event.current.button}".ToKeyCode() : e.keyCode);
 
         /// <summary>
@@ -692,6 +692,7 @@ namespace XavHelpTo
             /// <summary>
             /// change the value to a binary result
             /// </summary>
+            public static int ToInt(this int val) => val;
             public static int ToInt(this bool condition) => condition ? 1 : 0;
             public static int ToInt(this float val) => (int)val;
             public static int ToInt(this S.Enum @enum) => S.Convert.ToInt32(@enum);

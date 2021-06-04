@@ -223,4 +223,18 @@ namespace HUDRefresh
     }
 
 }
+
+namespace SpellsRefresh
+{
+    namespace HealSpell{
+        /// <summary>
+        /// Refresher of the particle for <seealso cref="HealSpell"/>
+        /// </summary>
+        public enum Particle
+        {
+            HEAL=0
+        }
+    }
+}
+
 #endregion

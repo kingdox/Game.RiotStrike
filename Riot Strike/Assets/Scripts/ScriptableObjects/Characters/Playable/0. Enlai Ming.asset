@@ -15,6 +15,6 @@ MonoBehaviour:
   weapon: {fileID: 0}
   spell: {fileID: 0}
   idStat: 0
-  pref_body: {fileID: 7414032130545228794, guid: ece5f7cf183b749dbb2a63fb011b4d9e, type: 3}
-  pref_weapon: {fileID: 4290652902840869741, guid: 6bb7c822089474063b160e4c20ac8ac3, type: 3}
-  pref_spell: {fileID: 6046221526122190106, guid: 8b125a066c88d4554a8311f11d5ff9bf, type: 3}
+  pref_body: {fileID: 5127883285007724805, guid: 6d63e0b87a88e4cdeac3ddf5e5f49624, type: 3}
+  pref_weapon: {fileID: 3262014460587620848, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+  pref_spell: {fileID: 8318115534992320462, guid: b47a60419d6b84e5dbfa83dff22a3313, type: 3}

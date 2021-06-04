@@ -36,6 +36,8 @@ public class GravityController : MonoBehaviour
     /// </summary>
     private void ApplyGravity()
     {
+        //Physics.gravity
+
         //apply the fall
         player.Move(transform.up * GRAVITY_EARTH * gravityAcelerator * Time.deltaTime);
         CheckDistance();
@@ -48,7 +50,7 @@ public class GravityController : MonoBehaviour
         if (player.velocity.y < -0.5f) gravityAcelerator += (-GRAVITY_EARTH/2) * Time.deltaTime;
         else
         {
-            if (!gravityAcelerator.ToInt().Equals(1)) OnImpact?.Invoke(gravityAcelerator);
+            if (!gravityAcelerator.ToInt().Equals(1)) OnImpact?.Invoke(-gravityAcelerator);
             gravityAcelerator = 1;
         }
     }

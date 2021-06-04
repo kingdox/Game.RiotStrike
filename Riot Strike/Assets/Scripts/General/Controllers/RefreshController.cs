@@ -3,9 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo.Change;
 using XavHelpTo;
+using XavHelpTo.Set;
+using XavHelpTo.Get;
 #endregion
 /// <summary>
 /// Controls the information an refresh it if is required
+/// Mostly Ui like <seealso cref="Image"/>, <seealso cref="Button"/> or <seealso cref="Text"/> elements but can also look for <seealso cref="ParticleSystem"/>
 /// </summary>
 public class RefreshController : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class RefreshController : MonoBehaviour
     [SerializeField] private Image[] imgs = new Image[0];
     [SerializeField] private Text[] txts = new Text[0];
     [SerializeField] private Button[] btns = new Button[0];
+    [SerializeField] private ParticleSystem[] parts = new ParticleSystem[0];
 
     #endregion
     #region Event
@@ -33,29 +37,40 @@ public class RefreshController : MonoBehaviour
     /// Changes the information of the text
     /// </summary>
     public void RefreshText<T>(T index, in string value) => txts[index.ToInt()].text = value;
-
-
     /// <summary>
     /// Sets the interaction of the button
     /// </summary>
     public void RefreshButtonInteraction<T>(T index, bool condition) => btns[index.ToInt()].interactable = condition;
 
 
+    /// <summary>
+    /// Plays the particle if it can
+    /// </summary>
+    public void RefreshPlayParticle<T>(T index) => parts[index.ToInt()].ActiveParticle(true);
+
+
+    /// <summary>
+    /// Get the <seealso cref="ParticleSystem"/>
+    /// </summary>
+    public ParticleSystem GetParticle<T>(T index) => parts[index.ToInt()];
+    /// <summary>
+    /// Get the <seealso cref="Button"/>
+    /// </summary>
     public Button GetButton<T>(T index) => btns[index.ToInt()];
     /// <summary>
-    /// Gets the image
+    /// Gets the <seealso cref="Image"/>
     /// </summary>
     public Image GetImg<T>(T index) => imgs[index.ToInt()];
     /// <summary>
-    /// Sets the new image
+    /// Sets the new <seealso cref="Image"/>
     /// </summary>
     public void SetImg<T>(T index, Image img) => imgs[index.ToInt()] =img;
     /// <summary>
-    /// Gets the text info
+    /// Gets the <seealso cref="Text"/> info
     /// </summary>
     public Text GetText<T>(T index) => txts[index.ToInt()];
     /// <summary>
-    /// Sets the new text info
+    /// Sets the new <seealso cref="Text"/> info
     /// </summary>
     public void SetText<T>(T index, Text txt) => txts[index.ToInt()] = txt;
 

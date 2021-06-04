@@ -13,17 +13,16 @@ using Dat = Environment.Data;
 public abstract class Spell : MonoBehaviour
 {
     #region Variables
-    private SpellData spellData;
+    protected SpellData spellData;
     private float timer;
     private bool flagReady;
     [Header("Spell")]
-    public string ID;
-
+    public string ID = "0";
     public Action<float, float> OnTimer;
     public Action OnFireCast;
     #endregion
     #region Event
-    private void Start()
+    protected virtual void Start()
     {
         spellData = Dat.GetSpellData(ID);
         timer = spellData.COOLDOWN;
@@ -54,6 +53,6 @@ public abstract class Spell : MonoBehaviour
     /// <summary>
     /// Do the cast of the spell
     /// </summary>
-    public abstract void Cast();
+    public abstract void Cast(Body body);
     #endregion
 }

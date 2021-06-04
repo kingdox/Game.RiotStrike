@@ -26,7 +26,7 @@ public class Character : ScriptableObject
     public Action OnAttack;
     public Action OnAim;
     public Action OnReload;
-    public Action OnCast;
+    public Action<Body> OnCast;
     #endregion
     #region Method
     /// <summary>
@@ -47,7 +47,7 @@ public class Character : ScriptableObject
     /// <summary>
     /// Do the subscriptions
     /// </summary>
-    public void Subscribes(){
+    public void Subscribes(Body body){
         OnAttack += weapon.Attack;
         OnAim += weapon.Aim;
         OnReload += weapon.Reload;
@@ -57,7 +57,7 @@ public class Character : ScriptableObject
     /// <summary>
     /// Do the unsubscriptions
     /// </summary>
-    public void UnSubscribes()
+    public void UnSubscribes(Body body)
     {
         OnAttack -= weapon.Attack;
         OnAim -= weapon.Aim;
