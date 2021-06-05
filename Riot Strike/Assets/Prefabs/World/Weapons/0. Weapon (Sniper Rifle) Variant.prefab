@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &605374195000210662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984018536810394631}
+  m_Layer: 0
+  m_Name: HotSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1984018536810394631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605374195000210662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3262014459220966246}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2086416291693255638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,6 +43,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  pref_bullet: {fileID: 3101680606432361369, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
+  tr_hotSpot: {fileID: 1984018536810394631}
 --- !u!1001 &6035921293012350938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22,7 +54,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_Name
-      value: 0. Weapon (Sniper Rifle)
+      value: 0. Weapon (Sniper Rifle) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692149, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_LocalPosition.x
@@ -73,5 +105,10 @@ PrefabInstance:
 --- !u!1 &3262014460587620848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+  m_PrefabInstance: {fileID: 6035921293012350938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3262014459220966246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9117228146028580028, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
   m_PrefabInstance: {fileID: 6035921293012350938}
   m_PrefabAsset: {fileID: 0}

@@ -5,9 +5,9 @@ using UnityEngine;
 using XavHelpTo;
 #endregion
 /// <summary>
-/// Weapon Katana, CaC combat style
+/// Rifle who strikes faster
 /// </summary>
-public class KatanaWeapon : Weapon
+public class AK47RifleRangedWeapon : RangedWeapon
 {
     #region Variables
 
@@ -16,10 +16,10 @@ public class KatanaWeapon : Weapon
 
     #endregion
     #region Methods
-    public override void Attack()
+    public override void Attack(int damage)
     {
         if (!CanAtack()) return; // 🛡
-        base.Attack();
+        base.Attack(damage);
 
         "ATTACK".Print("red");
     }

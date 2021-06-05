@@ -10,6 +10,7 @@ using Dat = Environment.Data;
 /// <summary>
 /// Get the info of the general spells
 /// </summary>
+[DisallowMultipleComponent]
 public abstract class Spell : MonoBehaviour
 {
     #region Variables

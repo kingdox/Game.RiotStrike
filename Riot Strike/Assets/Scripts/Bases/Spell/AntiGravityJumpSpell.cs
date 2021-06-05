@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using XavHelpTo;
 using XavHelpTo.Change;
+using XavHelpTo.Know;
 using SpellsRefresh.AntiGravityJumpSpell;
 #endregion
 /// <summary>
@@ -17,6 +18,8 @@ public class AntiGravityJumpSpell : Spell
     private float lastMagnitude;
     [Header("Anti Gravity Jump Spell")]
     public Vector3 movement = new Vector3(0, 2, 0);
+    [Range(0.1f, 5)]
+    public float duration = 1f;
     public Action<Body> ac;
     #endregion
     #region Event
@@ -27,13 +30,31 @@ public class AntiGravityJumpSpell : Spell
     }
     #endregion
     #region Method
-
+    /// <summary>
+    /// DO the dash without moving to any side
+    /// </summary>
+    private IEnumerator Jump(Body body)
+    {
+        //Move the body
+        float count = 0;
+        body.gravity.IgnoreFollowingImpact();
+        body.gravity.enabled = false;
+        while (!duration.TimerIn(ref count))
+        {
+            body.controller.Move(movement * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        body.gravity.enabled = true;
+    }
     /// <summary>
     /// When the user reach the ground were he was jumped by the <seealso cref="Cast(Body)"/>
     /// <para> <paramref name="magnitude"/> Represents the qty of elements by the jump</para>
     /// </summary>
     private IEnumerator FallImpact(Body body)
     {
+        waitFallImpact = true;
+        body.gravity.IgnoreFollowingImpact();
+        body.gravity.OnImpact += EndWaitImpact;
         while (waitFallImpact) yield return new WaitForEndOfFrame();
         refresh.GetParticle(Particle.FALL).Emit(lastMagnitude.ToInt());
         refresh.RefreshPlayParticle(Particle.FALL);
@@ -51,17 +72,12 @@ public class AntiGravityJumpSpell : Spell
     /// </summary>
     public override void Cast(Body body){
         if (!CanCast()) return; // 🛡
-        //Moves
-        //body.controller.SimpleMove(movement);
-        body.controller.Move(movement);
+        //Jump
         refresh.RefreshPlayParticle(Particle.JUMP);
+        StartCoroutine(Jump(body));
 
-        //Set fall protection
-        body.gravity.IgnoreFollowingImpact();
-        waitFallImpact = true;
+        //Fall
         StartCoroutine(FallImpact(body));
-
-        body.gravity.OnImpact += EndWaitImpact;
     }
     #endregion
 }

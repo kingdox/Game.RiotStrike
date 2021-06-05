@@ -195,7 +195,7 @@ namespace SelectorRefresh
     }
 }
 #endregion
-
+#region inGame
 namespace HUDRefresh
 {
     /// <summary>
@@ -259,4 +259,23 @@ namespace SpellsRefresh
         }
     }
 }
+namespace WeaponRefresh
+{
+    namespace Ranged
+    {
+        /// <summary>
+        /// Refresher of the particle for <seealso cref="SniperRifleRangedWeapon"/>
+        /// </summary>
+        public enum Particle
+        {
+            LINE=0,
+            IMPACT=1,
+            //SPLAT=2
+        }
+    }
+    namespace Near{
+
+    }
+}
+#endregion
 #endregion

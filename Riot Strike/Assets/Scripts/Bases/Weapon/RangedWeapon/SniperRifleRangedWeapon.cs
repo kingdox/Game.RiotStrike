@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
-#endregion
+# endregion
 /// <summary>
-/// Rifle who strikes faster
+/// Sniper weapon
 /// </summary>
-public class AK47RifleWeapon : Weapon
+public class SniperRifleRangedWeapon : RangedWeapon
 {
     #region Variables
 
@@ -16,10 +16,10 @@ public class AK47RifleWeapon : Weapon
 
     #endregion
     #region Methods
-    public override void Attack()
+    public override void Attack(int damage)
     {
         if (!CanAtack()) return; // 🛡
-        base.Attack();
+        base.Attack(damage);
 
         "ATTACK".Print("red");
     }

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
-# endregion
+#endregion
 /// <summary>
-/// Sniper weapon
+/// Weapon Katana, 
 /// </summary>
-public class SniperRifleWeapon : Weapon
+public class KatanaWeapon : NearWeapon
 {
     #region Variables
 
@@ -16,9 +16,10 @@ public class SniperRifleWeapon : Weapon
 
     #endregion
     #region Methods
-    public override void Attack(){
+    public override void Attack(int damage)
+    {
         if (!CanAtack()) return; // 🛡
-        base.Attack();
+        base.Attack(damage);
 
         "ATTACK".Print("red");
     }

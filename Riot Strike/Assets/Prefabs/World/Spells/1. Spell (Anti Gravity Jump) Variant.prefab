@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   movement: {x: 0, y: 20, z: 0}
+  duration: 2
 --- !u!114 &4493694341767192022
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,17 +7,15 @@ using XavHelpTo;
 using XavHelpTo.Change;
 using XavHelpTo.Set;
 using XavHelpTo.Get;
+using Dat = Environment.Data;
 #endregion
 
 /// <summary>
 /// Management of the body who player can `play`
 /// </summary>
-[RequireComponent(typeof(MovementController), typeof(RotationController), typeof(GravityController))]
 public class PlayerBody : Body
 {
     #region Variable
-    private MovementController movement;
-    private RotationController rotation;
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
     [Header("Player Body")]
@@ -34,12 +32,11 @@ public class PlayerBody : Body
         base.OnEnable();
         Subscribes();
     }
-    private void Start()
+    public override void Start()
     {
-        this.Component(out movement);
-        this.Component(out rotation);
+        base.Start();
         EmitLife();
-        ctrl_HUD.RefreshShotCursor(character.weapon.ID);
+        EmitShotCursor();
     }
     private void Update()
     {
@@ -73,9 +70,13 @@ public class PlayerBody : Body
         OnChangeLife -= EmitLife;
     }
     /// <summary>
-    /// Emit the Life status
+    /// Emit the Life status in UI
     /// </summary>
     private void EmitLife() => ctrl_HUD.RefreshLife(life, stat.DEFENSE);
+    /// <summary>
+    /// Emit the new shot cursor in UI
+    /// </summary>
+    private void EmitShotCursor() => ctrl_HUD.RefreshShotCursor(character.weapon.ID);
     /// <summary>
     /// Controls the actions of the player
     /// </summary>
@@ -95,7 +96,7 @@ public class PlayerBody : Body
         );
 
         //ATTACK
-        CheckPress(EControl.ATTACK, character.OnAttack);
+        CheckPress(EControl.ATTACK, character.OnAttack, stat.STRENGHT);
 
         //FOCUS
         CheckPress(EControl.AIM, character.OnAim);//TODO FIXME
@@ -140,8 +141,6 @@ public class PlayerBody : Body
         base.AddLife(value);
         EmitLife();
     }
-    
-
     #endregion
 
 }

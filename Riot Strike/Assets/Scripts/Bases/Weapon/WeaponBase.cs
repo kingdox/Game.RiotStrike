@@ -11,6 +11,7 @@ using Dat = Environment.Data;
 /// <summary>
 /// Information of the weapon
 /// </summary>
+[DisallowMultipleComponent]
 public abstract class Weapon : MonoBehaviour
 {
     #region Variable
@@ -73,8 +74,8 @@ public abstract class Weapon : MonoBehaviour
 
     /// <summary>
     /// Do the attack if it have ammo
-    /// </summary>
-    public virtual void Attack() {
+    /// </summary>a
+    public virtual void Attack(int damage) {
         flag_canAttack = false;
         currentAmmo--;
         EmitWeapon();
@@ -83,6 +84,8 @@ public abstract class Weapon : MonoBehaviour
     /// Do the aim
     /// </summary>
     public virtual void Aim() {
+        //TODO
+        // enfocar con el FOV una cantidad y quitarla cuando ya no se encuentra
 
     }
     /// <summary>

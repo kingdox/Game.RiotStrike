@@ -7,7 +7,7 @@ using XavHelpTo;
 /// <summary>
 /// Weapon who throws grenades
 /// </summary>
-public class GrenadeLauncherWeapon : Weapon
+public class GrenadeLauncherRangedWeapon : RangedWeapon
 {
     #region Variables
 
@@ -16,10 +16,10 @@ public class GrenadeLauncherWeapon : Weapon
 
     #endregion
     #region Methods
-    public override void Attack()
+    public override void Attack(int damage)
     {
         if (!CanAtack()) return; // 🛡
-        base.Attack();
+        base.Attack(damage);
 
         "ATTACK".Print("red");
     }

@@ -3913,6 +3913,7 @@ MonoBehaviour:
   - {fileID: 28854278}
   - {fileID: 2034148495}
   btns: []
+  parts: []
 --- !u!43 &256376734
 Mesh:
   m_ObjectHideFlags: 0
@@ -11268,6 +11269,7 @@ MonoBehaviour:
   txts:
   - {fileID: 647548747}
   btns: []
+  parts: []
 --- !u!43 &639587195
 Mesh:
   m_ObjectHideFlags: 0
@@ -14077,6 +14079,7 @@ MonoBehaviour:
   - {fileID: 1183030760}
   - {fileID: 2142775832}
   btns: []
+  parts: []
 --- !u!224 &807759429 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3122303685818936915, guid: 4c2d37b542224499c91a89dd7335b797, type: 3}
@@ -20277,6 +20280,7 @@ MonoBehaviour:
   txts:
   - {fileID: 289664803}
   btns: []
+  parts: []
 --- !u!43 &1141142380
 Mesh:
   m_ObjectHideFlags: 0

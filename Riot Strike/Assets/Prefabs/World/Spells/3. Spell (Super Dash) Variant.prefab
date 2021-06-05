@@ -5008,7 +5008,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
-  movement: {x: 0, y: 10, z: 10}
+  movement: {x: 0, y: 20, z: 20}
+  duration: 1
 --- !u!1001 &4367003622880509771
 PrefabInstance:
   m_ObjectHideFlags: 0

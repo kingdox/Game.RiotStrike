@@ -7,7 +7,7 @@ using XavHelpTo;
 /// <summary>
 /// Gun who strikes faster but randomly
 /// </summary>
-public class MachineGunWeapon : Weapon
+public class MachineGunRangedWeapon : RangedWeapon
 {
     #region Variables
 
@@ -16,10 +16,10 @@ public class MachineGunWeapon : Weapon
 
     #endregion
     #region Methods
-    public override void Attack()
+    public override void Attack(int damage)
     {
         if (!CanAtack()) return; // 🛡
-        base.Attack();
+        base.Attack(damage);
 
         "ATTACK".Print("red");
     }

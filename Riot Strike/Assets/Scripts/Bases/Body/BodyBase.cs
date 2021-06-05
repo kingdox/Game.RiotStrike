@@ -11,10 +11,13 @@ using XavHelpTo.Get;
 
 /// <summary>
 /// Base of every body base (ally or enemy) in game
-/// dependency with <seealso cref="GravityController"/> and <seealso cref="CharacterController"/>
+/// dependency with <seealso cref="GravityController"/>, <seealso cref="CharacterController"/>, <seealso cref="MovementController"/>
 /// </summary>
 [RequireComponent(typeof(GravityController))]
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(MovementController))]
+[RequireComponent(typeof(RotationController))]
+[DisallowMultipleComponent]
 public abstract class Body : MonoBehaviour
 {
     #region Variables
@@ -27,9 +30,12 @@ public abstract class Body : MonoBehaviour
     public Transform tr_body;
     public Transform tr_visualWeapon;
     public Transform tr_spells;
-    [HideInInspector] public GravityController gravity;
-    [HideInInspector] public CharacterController controller;
     [HideInInspector] public StatData stat;
+    [HideInInspector] public CharacterController controller;
+    [HideInInspector] public MovementController movement;
+    [HideInInspector] public RotationController rotation;
+    [HideInInspector] public GravityController gravity;
+    
     [Space]
     public Character character;
     public Action OnChangeLife;
@@ -42,7 +48,13 @@ public abstract class Body : MonoBehaviour
         life = stat.DEFENSE; //asign the max life
         this.Component(out gravity);
         this.Component(out controller);
+        this.Component(out movement);
+        this.Component(out rotation);
         character.Init(this);
+    }
+    public virtual void Start()
+    {
+
     }
     public virtual void OnEnable()
     {
@@ -57,6 +69,19 @@ public abstract class Body : MonoBehaviour
     #endregion
     #region Method
     /// <summary>
+    /// Makes the damage of a impact by a <seealso cref="GravityController"/>
+    /// where <seealso cref="BODY_MASS"/> represent the mass
+    /// </summary>
+    private void FallImpact(float aceleration) => AddLife(BODY_MASS * aceleration);
+    /// <summary>
+    /// Set the adjustement to death state
+    /// </summary>
+    protected virtual void Death()
+    {
+        isDead = true;
+        //TODO
+    }
+    /// <summary>
     /// Do the damage to the body
     /// </summary>
     public virtual void AddLife(int value){
@@ -67,18 +92,5 @@ public abstract class Body : MonoBehaviour
         if (life.Equals(0)) Death();
     }
     public virtual void AddLife(float value) => AddLife(value.ToInt());
-
-    /// <summary>
-    /// Set the adjustement to death state
-    /// </summary>
-    protected virtual void Death() {
-        isDead = true;
-        //TODO
-    }
-    /// <summary>
-    /// Makes the damage of a impact by a <seealso cref="GravityController"/>
-    /// where <seealso cref="BODY_MASS"/> represent the mass
-    /// </summary>
-    private void FallImpact(float aceleration) => AddLife(BODY_MASS * aceleration);
     #endregion
 }

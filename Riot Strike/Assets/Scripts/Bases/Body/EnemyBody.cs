@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
+using Dat = Environment.Data;
 # endregion
 
 /// <summary>
@@ -21,6 +22,5 @@ public class EnemyBody : Body
 
     #endregion
     #region Methods
-
     #endregion
 }
