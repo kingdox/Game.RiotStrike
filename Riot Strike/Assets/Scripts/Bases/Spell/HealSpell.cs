@@ -1,6 +1,4 @@
 ﻿#region Access
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
 using SpellsRefresh.HealSpell;
@@ -19,7 +17,6 @@ public class HealSpell : Spell
     protected override void Start()
     {
         base.Start();
-
         this.Component(out refresh);
     }
     #endregion
@@ -31,6 +28,7 @@ public class HealSpell : Spell
         if (!CanCast()) return; // 🛡
         body.AddLife(healQty);
         refresh.RefreshPlayParticle(Particle.HEAL);
+        refresh.RefreshPlayParticle(Particle.HEAL_AREA);
     }
     #endregion
 }

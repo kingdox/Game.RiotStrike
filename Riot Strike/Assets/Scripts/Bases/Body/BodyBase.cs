@@ -11,13 +11,13 @@ using XavHelpTo.Get;
 
 /// <summary>
 /// Base of every body base (ally or enemy) in game
-/// dependency with <seealso cref="GravityController"/>
+/// dependency with <seealso cref="GravityController"/> and <seealso cref="CharacterController"/>
 /// </summary>
 [RequireComponent(typeof(GravityController))]
+[RequireComponent(typeof(CharacterController))]
 public abstract class Body : MonoBehaviour
 {
     #region Variables
-    private GravityController gravity;
     private const float BODY_MASS = 10f;
     //protected Body body;
     [Header("Body")]
@@ -27,6 +27,8 @@ public abstract class Body : MonoBehaviour
     public Transform tr_body;
     public Transform tr_visualWeapon;
     public Transform tr_spells;
+    [HideInInspector] public GravityController gravity;
+    [HideInInspector] public CharacterController controller;
     [HideInInspector] public StatData stat;
     [Space]
     public Character character;
@@ -39,6 +41,7 @@ public abstract class Body : MonoBehaviour
         stat = Dat.GetStatData(character.idStat).RealStats;
         life = stat.DEFENSE; //asign the max life
         this.Component(out gravity);
+        this.Component(out controller);
         character.Init(this);
     }
     public virtual void OnEnable()

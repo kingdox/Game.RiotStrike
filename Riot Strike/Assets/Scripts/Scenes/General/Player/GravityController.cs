@@ -14,6 +14,7 @@ public class GravityController : MonoBehaviour
     #region Variable
     private CharacterController player;
     private float gravityAcelerator;
+    private bool ignorefollowingImpact=false;
     [Header("Gravity Controller")]
     public const float GRAVITY_EARTH= -9.807f;//9,807 m/s²
     public Action<float> OnImpact;
@@ -47,12 +48,34 @@ public class GravityController : MonoBehaviour
     /// Check the distance and amplify the <seealso cref="gravityAcelerator"/>
     /// </summary>
     private void CheckDistance(){
-        if (player.velocity.y < -0.5f) gravityAcelerator += (-GRAVITY_EARTH/2) * Time.deltaTime;
-        else
+
+        // if is semi-grounded / grounded
+        if (player.velocity.y < -0.5f)
         {
-            if (!gravityAcelerator.ToInt().Equals(1)) OnImpact?.Invoke(-gravityAcelerator);
+            gravityAcelerator += (-GRAVITY_EARTH / 2) * Time.deltaTime;
+        }
+        else // if falling
+        {
+            if (!ignorefollowingImpact)
+            {
+                // if aceleration reach the min damage then emits the impact
+                if (!gravityAcelerator.ToInt().Equals(1))
+                {
+                    OnImpact?.Invoke(-gravityAcelerator);
+                }
+            }
+            else
+            {
+                OnImpact?.Invoke(0);
+                ignorefollowingImpact = false;
+            }
             gravityAcelerator = 1;
         }
     }
+
+    /// <summary>
+    /// Ignores the following impact
+    /// </summary>
+    public void IgnoreFollowingImpact() => ignorefollowingImpact = true;
     #endregion
 }

@@ -226,15 +226,37 @@ namespace HUDRefresh
 
 namespace SpellsRefresh
 {
-    namespace HealSpell{
+    namespace HealSpell
+    {
         /// <summary>
         /// Refresher of the particle for <seealso cref="HealSpell"/>
         /// </summary>
         public enum Particle
         {
-            HEAL=0
+            HEAL = 0,
+            HEAL_AREA = 1
+        }
+    }
+    namespace AntiGravityJumpSpell
+    {
+        /// <summary>
+        /// Refresher of the particle for <seealso cref="AntiGravityJumpSpell"/>
+        /// </summary>
+        public enum Particle
+        {
+            JUMP=0,
+            FALL=1
+        }
+    }
+    namespace ElectroSpell
+    {
+        /// <summary>
+        /// Refresher of the particle for <seealso cref="ElectroSpell"/>
+        /// </summary>
+        public enum Particle
+        {
+            ELECTRO = 0,
         }
     }
 }
-
 #endregion
