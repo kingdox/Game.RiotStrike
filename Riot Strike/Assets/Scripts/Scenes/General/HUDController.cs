@@ -120,7 +120,8 @@ public class HUDController : MonoBehaviour
     /// the status is represented by the color
     /// </summary>
     public void CreateDamageText(int damage,int life,int max ){
-        Color color = Get.RandomColor();// Color.white;
+        Color color = Color.white;//Get.RandomColor();
+        color.ColorParam(ColorType.RGB.ToInt(), (1f*life).PercentOf(max, true));
 
         int valueToShow = life > damage
             ? damage
@@ -139,8 +140,10 @@ public class HUDController : MonoBehaviour
 
         txt.color = color;
         txt.text = valueToShow.ToString();
-
         StartCoroutine(FadeDamageText(txt));
+
+        //Text FUnnny
+        //txt.text = Set.ToArray("POW","SMACK", "WOW").Any();// valueToShow.ToString();
     }
     /// <summary>
     /// Do the fade of the text and then destroy it

@@ -16,14 +16,12 @@ public class RotationController : MonoBehaviour
     private Vector3 rotation = Vector3.zero;
     private float rotationVertical = 0f;
     private const float MAX_ANGLE_Y = 90;
-    [Header("Rotation Controller")]
-    public Transform tr_head;
     #endregion
     #region Methods
     /// <summary>
     /// Do the rotation
     /// </summary>
-    public void Rotate(float horizontal, float vertical)
+    public void Rotate(float horizontal, float vertical, Transform tr_head)
     {
         //Body
         this.transform.Rotate(0f, horizontal, 0f);

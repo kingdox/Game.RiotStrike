@@ -56,6 +56,11 @@ public  class RangedWeapon : Weapon
         // emits the init of the shot
         OnShot?.Invoke(bullet);
     }
+
+    /// <summary>
+    /// Returns the reference of the bullet
+    /// </summary>
+    //public GameObject ReferencePrefabBullet => pref_bullet;
     #endregion
 }
  

@@ -70,11 +70,12 @@ public class NearWeapon : Weapon, ITargetImpact
         //DO DAMAGE
         if (isValidTarget)
         {
-            targetBody.name.Print("red");
             collide.enabled = false;
             isImpactingTarget = true;
+
+            OnImpact?.Invoke(targetBody, lastDamage);//targetBody.Life > lastDamage ? lastDamage : targetBody.Life
             targetBody.AddLife(-lastDamage);
-            OnImpact?.Invoke(targetBody, lastDamage);
+
             OnImpact -= EmitTargetImpactWeapon;
 
         }

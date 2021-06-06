@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour, ITargetImpact
     private RefreshController refresh;
     private Rigidbody body;
     private Vector3 movement;
+    private Vector3 initPosition;
     private bool isImpacted=false;
     [Header("Bullet Base")]
     [HideInInspector] public float damage;
@@ -36,6 +37,7 @@ public class Bullet : MonoBehaviour, ITargetImpact
     public Action<Body, int> OnImpact;
     public void Start()
     {
+        initPosition = transform.position;
         this.Component(out body);
         this.Component(out refresh);
 
@@ -96,6 +98,11 @@ public class Bullet : MonoBehaviour, ITargetImpact
         movement.z = speed * Time.deltaTime; // metters per second
         Vector3 forward = transform.TransformDirection(movement);
         body.velocity = forward;
+
+        //si nos pasamos del recorrido limite que peude llegar nuestra bala
+        if (Vector3.Distance(initPosition,transform.position) > speed){
+            DestroyBullet();
+        }
     }
     /// <summary>
     /// Move instantaneously fetching a target 'til end
@@ -128,8 +135,9 @@ public class Bullet : MonoBehaviour, ITargetImpact
         //DO DAMAGE
         if (isValidTarget)
         {
-            targetBody.AddLife(-damage);
+            //Invoke first, next the calc
             OnImpact?.Invoke(targetBody, damage.ToInt());
+            targetBody.AddLife(-damage);
         }
     }
     /// <summary>

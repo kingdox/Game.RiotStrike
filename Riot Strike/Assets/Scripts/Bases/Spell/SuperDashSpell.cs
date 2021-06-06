@@ -14,7 +14,7 @@ public class SuperDashSpell : Spell
 {
     #region Variable
     private RefreshController refresh;
-    private bool isWaitForReset = false;
+    private bool isWaitImpact = false;
     [Header("Super Dash Spell")]
     public Vector3 movement = new Vector3(0, 10, 5);
     [Range(0.1f,5)]
@@ -29,75 +29,111 @@ public class SuperDashSpell : Spell
     #endregion
     #region Method
     /// <summary>
-    /// DO the dash without moving to any side
-    /// </summary>
-    private IEnumerator Dashing(Body body)
-    {
-        //Move the body
-        float count = 0;
-        Vector3 forward = body.transform.TransformDirection(Vector3.forward);
-        Vector3 plus = body.transform.TransformDirection(movement);
-        body.movement.enabled = false;
-        body.gravity.IgnoreFollowingImpact();
-        while (!duration.TimerIn(ref count))
-        {
-            body.controller.Move( (forward+plus) *Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-        body.movement.enabled = true;
-
-    }
-    /// <summary>
-    /// Reset the effects of the body when it finishes t
-    /// </summary>
-    private void ResetBuffDamage(Body targetBody, int damage){
-
-        targetBody.character.weapon.canUseWeapon =true ;
-        isWaitForReset = false;
-    }
-    /// <summary>
     /// Do the dash cast
+    /// When is Dashing disables rotation and movement
     /// </summary>
     public override void Cast(Body body)
     {
         if (!CanCast()) return; // 🛡
 
-        //Moves
-        //body.controller.SimpleMove(movement);
+        //EFFECT
         refresh.RefreshPlayParticle(Particle.ELECTRO);
 
-        //Enviar estadod e paralizis al arma
-        //HAcer daño x2 Y quitarlo trás hacer el ataque
-
-        //if is not used the spell and waits for the next it cant do that
-        if (isWaitForReset)
-        {
-            body.character.weapon.canUseWeapon = false;
-
-            isWaitForReset = true;
-            StartCoroutine(WaitForSpellReset(body, body.stat.STRENGHT));
-            body.stat.STRENGHT *= 2;
-            body.character.weapon.OnTargetImpactWeapon += ResetBuffDamage;
-        }
-
-
-        //Start the dash
-        StartCoroutine(Dashing(body));
+        //START BUFF AND SPELLS EFFECTS
+        StartCoroutine(SetSpells(body));
     }
 
     /// <summary>
-    /// Wait the end of the second part of the effect, stores the init Strenght
+    /// Manages the buffs
+    ///  - Adds the x2 strenght buff
+    ///  - Start the dash effect
     /// </summary>
-    IEnumerator WaitForSpellReset(Body body, int initStrenght)
+    private IEnumerator SetSpells(Body body)
     {
+        // START DASH
+        StartCoroutine(SpellDash(body));
 
-        //wait until the impact was done
-        while (isWaitForReset) yield return new WaitForEndOfFrame();
+        // If is waiting to impact, stays
+        if (!isWaitImpact){
+            isWaitImpact = true;
 
-        body.stat.STRENGHT -= initStrenght;
+            // START STRENGHT
+            StartCoroutine(SpellStrenght(body));
 
-        body.character.weapon.OnTargetImpactWeapon -= ResetBuffDamage;
+            // SUSCRIBE IMPACT 
+            //"SUBSCRIBE".Print();
+            body.character.weapon.OnTargetImpactWeapon += ResolveImpactEffects;
+            yield return new WaitUntil(IsImpact);
+            //"UNSUBSCRIBE".Print();
+            body.character.weapon.OnTargetImpactWeapon -= ResolveImpactEffects;
+            isWaitImpact = false;
+        }
     }
+    /// <summary>
+    /// DO the dash without moving to any side
+    /// </summary>
+    private IEnumerator SpellDash(Body body)
+    {
+        //DISABLE MOVEMENT, IGNORE NEXT GRAVITY IMPACT
+        Vector3 forward = body.transform.TransformDirection(Vector3.forward);
+        Vector3 aditionalMotion = body.transform.TransformDirection(movement);
+        body.movement.enabled = false;
+        body.gravity.IgnoreFollowingImpact();
 
+        // MOVE
+        float count = 0;
+        while (!duration.TimerIn(ref count))
+        {
+            body.controller.Move((forward + aditionalMotion) * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        // ENABLE MOVEMENT
+        body.movement.enabled = true;
+    }
+    /// <summary>
+    /// Do the manages of the Strenght and returns to normality when is usedAttack 
+    /// </summary>
+    private IEnumerator SpellStrenght(Body body)
+    {
+        //  ADD STRENGHT
+        int savedStrenght = body.stat.STRENGHT; // Stores the last strenght
+        body.stat.STRENGHT += savedStrenght; // set the x2 damage of the buff
+
+        // SUSCRIBE TO Remove Buff when Impact
+        yield return new WaitUntil(IsImpact);
+
+        body.stat.STRENGHT -= savedStrenght;
+    }
+    /// <summary>
+    /// Resolve the extra behaviours of the spell
+    /// - Stun target for 3 seconds
+    /// </summary>
+    private void ResolveImpactEffects(Body targetBody, int damage)
+    {
+        //"RESOLVE".Print("green");
+
+        // START STUN
+        StartCoroutine(SpellStun(targetBody));
+
+        //end wait impact
+        isWaitImpact = false;
+    }
+    /// <summary>
+    /// Do the management of the target stun
+    /// </summary>
+    private IEnumerator SpellStun(Body targetBody){
+        void TargetStop(bool condition){
+            targetBody.movement.enabled = condition;
+            targetBody.rotation.enabled = condition;
+        }
+        TargetStop(false);
+        yield return new WaitForSeconds(3);
+        TargetStop(true);
+    }
+    /// <summary>
+    /// Returns if is waiting for the impact
+    /// </summary>
+    private bool IsImpact() => !isWaitImpact;
     #endregion
 }

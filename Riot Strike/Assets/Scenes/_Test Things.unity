@@ -2616,7 +2616,7 @@ PrefabInstance:
     - target: {fileID: 1063663620236050311, guid: 7657e99121cd54625af053d83e055610, type: 3}
       propertyPath: character
       value: 
-      objectReference: {fileID: 11400000, guid: 80437cc26ff264f0ea029f34ae9787d5, type: 2}
+      objectReference: {fileID: 11400000, guid: fee60895f1ff44b2ea31964dc17547f5, type: 2}
     - target: {fileID: 1063663620236050311, guid: 7657e99121cd54625af053d83e055610, type: 3}
       propertyPath: tr_head
       value: 

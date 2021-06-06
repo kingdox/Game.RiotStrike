@@ -12,7 +12,6 @@ using Dat = Environment.Data;
 # endregion
 /// <summary>
 /// Information of the weapon
-/// FIXME hacer que funcione el smooth 
 /// </summary>
 [DisallowMultipleComponent]
 public abstract class Weapon : MonoBehaviour
@@ -30,7 +29,7 @@ public abstract class Weapon : MonoBehaviour
     [Range(0, 1)] public float aimZoomPercent = 1;
     public Action<int,int>      OnFireAttack;
     public Action<float, float> OnReload;
-    public Action<Body, int>    OnTargetImpactWeapon; // target life and max target life
+    public Action<Body, int>    OnTargetImpactWeapon; 
     public Action<float>        OnZoom;
     #endregion
     #region Events

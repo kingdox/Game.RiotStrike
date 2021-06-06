@@ -24,7 +24,22 @@ public class ElectroSpell : Spell
     }
     #endregion
     #region Method
-    IEnumerator BuffDuration(Body body)
+
+    /// <summary>
+    /// Do the eltro spell cast, doubles in x2
+    /// </summary>
+    public override void Cast(Body body)
+    {
+        if (!CanCast()) return; // 🛡
+
+        //Set the buff and manages itself
+        StartCoroutine(SpellStrenght(body));
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    IEnumerator SpellStrenght(Body body)
     {
         refresh.RefreshPlayParticle(Particle.ELECTRO);
         //set the augments
@@ -37,28 +52,5 @@ public class ElectroSpell : Spell
         body.stat.STRENGHT -= amt;
 
     }
-    /// <summary>
-    /// Do the eltro spell cast, doubles in x2
-    /// </summary>
-    public override void Cast(Body body)
-    {
-        if (!CanCast()) return; // 🛡
-
-        //TODO Hacer un Action en Weapon de cuando Hace contacto con un objetivo
-        // nos suscribimos aquí y podremos pintar por separado las lineas
-        //body.character.weapon.OnShooted += DrawLinerr(Vector3)
-
-        /**
-         * 1. colocar en el weapon /o seguir las balas que hagan un LineTrail para mostrar un efecto de bala de rayo o zap
-         * 2. Aumentar la fuerza del usuario por 2 segundos
-         */
-
-        //Set the buff and manages itself
-        StartCoroutine(BuffDuration(body));
-    }
-
-
-    
-
     #endregion
 }

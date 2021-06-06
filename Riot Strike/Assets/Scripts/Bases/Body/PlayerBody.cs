@@ -115,7 +115,8 @@ public class PlayerBody : Body
             //ROTATION
             if (canRotate) rotation.Rotate(
                 Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.SPEED),
-                Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.SPEED)
+                Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.SPEED),
+                tr_head
             );
 
             //ATTACK
