@@ -68,7 +68,7 @@ public class AntiGravityJumpSpell : Spell
         waitFallImpact = false;
     }
     /// <summary>
-    /// Do the heal cast
+    /// Do the gravity cast, invert it
     /// </summary>
     public override void Cast(Body body){
         if (!CanCast()) return; // 🛡

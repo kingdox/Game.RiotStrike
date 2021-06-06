@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
     public bool effectImpact = true;
     public bool effectMoving = true;
     public float destroyDelay = 5;
-    public Action<int, int> OnImpact;
+    public Action<Body, int> OnImpact;
     public void Start()
     {
         this.Component(out body);
@@ -127,7 +127,7 @@ public class Bullet : MonoBehaviour
         if (isValidTarget)
         {
             targetBody.AddLife(-damage);
-            OnImpact?.Invoke(damage.ToInt(), targetBody.stat.DEFENSE);
+            OnImpact?.Invoke(targetBody, damage.ToInt());
         }
     }
     /// <summary>

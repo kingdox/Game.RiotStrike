@@ -58,7 +58,7 @@ public class PlayerBody : Body
         character.spell.OnTimer += ctrl_HUD.RefreshSpell;
         character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload += ctrl_HUD.RefreshReload;
-        character.weapon.OnTargetImpactWeapon += ctrl_HUD.CreateDamageText;
+        character.weapon.OnTargetImpactWeapon += EmitAttackImpact;
         OnChangeLife += EmitLife;
     }
     /// <summary>
@@ -69,7 +69,7 @@ public class PlayerBody : Body
         character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
         character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload -= ctrl_HUD.RefreshReload;
-        character.weapon.OnTargetImpactWeapon -= ctrl_HUD.CreateDamageText;
+        character.weapon.OnTargetImpactWeapon -= EmitAttackImpact;
         OnChangeLife -= EmitLife;
     }
     /// <summary>
@@ -80,6 +80,7 @@ public class PlayerBody : Body
     /// Emit the new shot cursor in UI
     /// </summary>
     private void EmitShotCursor() => ctrl_HUD.RefreshShotCursor(character.weapon.ID);
+    private void EmitAttackImpact(Body targetBody, int damage) => ctrl_HUD.CreateDamageText(damage, targetBody.stat.DEFENSE);
     /// <summary>
     /// Controls the actions of the player
     /// </summary>

@@ -38,7 +38,7 @@ public class ElectroSpell : Spell
 
     }
     /// <summary>
-    /// Do the heal cast
+    /// Do the eltro spell cast, doubles in x2
     /// </summary>
     public override void Cast(Body body)
     {

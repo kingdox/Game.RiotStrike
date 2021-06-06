@@ -17,7 +17,7 @@ public class DroneRocketSpell : Spell
     #endregion
     #region Method
     /// <summary>
-    /// Do the heal cast
+    /// Send their rockets from the shoulder
     /// </summary>
     public override void Cast(Body body)
     {

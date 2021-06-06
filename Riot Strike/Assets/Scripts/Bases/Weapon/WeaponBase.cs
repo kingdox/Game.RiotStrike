@@ -21,16 +21,19 @@ public abstract class Weapon : MonoBehaviour
     private float cadenceCount = 0;
     private bool flag_canAttack = false;
     private int currentAmmo;
+
     [Header("Weapon")]
+    [HideInInspector] public bool canUseWeapon=true;
     public string ID = "0";
     public Action<int,int> OnFireAttack;
     public Action<float, float> OnReload;
-    public Action<int, int> OnTargetImpactWeapon; // target life and max target life
+    public Action<Body, int> OnTargetImpactWeapon; // target life and max target life
 
     #endregion
     #region Events
     private void Start()
     {
+        canUseWeapon = true;
         weaponData = Dat.GetWeaponData(ID);
         currentAmmo = weaponData.AMMO;
         EmitWeapon();
@@ -69,13 +72,17 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// returns values of the target and then shows the qty of life and max life
     /// </summary>
-    protected void EmitTargetImpactWeapon(int life, int max) => OnTargetImpactWeapon?.Invoke(life, max);//TODO
+    protected void EmitTargetImpactWeapon(Body target, int damage) => OnTargetImpactWeapon?.Invoke(target, damage);
     /// <summary>
     /// Check if the weapon can attack
     /// </summary>
     /// <returns></returns>
     protected bool CanAtack(){
-        if (!flag_canAttack || currentAmmo.Equals(0) || isReloading) return false; // 🛡
+        if (!canUseWeapon
+            || !flag_canAttack
+            || currentAmmo.Equals(0)
+            || isReloading)
+            return false; // 🛡
         return true;
     }
     
