@@ -28,6 +28,7 @@ public abstract class Body : MonoBehaviour
     [SerializeField] protected bool isDead=false;
     [SerializeField] protected bool isInmune=false;
     public Transform tr_head;
+    public Transform tr_eyes;
     public Transform tr_body;
     public Transform tr_visualWeapon;
     public Transform tr_spells;

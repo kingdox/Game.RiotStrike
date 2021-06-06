@@ -49,6 +49,14 @@ PrefabInstance:
       propertyPath: pref_bullet
       value: 
       objectReference: {fileID: 446359141724961766, guid: fe57f39c2a309450baaed3194d65e488, type: 3}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: aimZoom
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: aimZoomPercent
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_Name
       value: 2. Weapon (AK 47 Rifle) Variant

@@ -5,30 +5,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Change;
 using XavHelpTo.Know;
 using XavHelpTo.Set;
 using Dat = Environment.Data;
 # endregion
 /// <summary>
 /// Information of the weapon
+/// FIXME hacer que funcione el smooth 
 /// </summary>
 [DisallowMultipleComponent]
 public abstract class Weapon : MonoBehaviour
 {
     #region Variable
-    private WeaponData weaponData;
     private bool isReloading = false;
+    private bool isAiming = false;
     private float cadenceCount = 0;
     private bool flag_canAttack = false;
-    private int currentAmmo;
-
     [Header("Weapon")]
+    protected WeaponData weaponData;
+    protected int currentAmmo;
     [HideInInspector] public bool canUseWeapon=true;
     public string ID = "0";
-    public Action<int,int> OnFireAttack;
+    [Range(0, 1)] public float aimZoomPercent = 1;
+    public Action<int,int>      OnFireAttack;
     public Action<float, float> OnReload;
-    public Action<Body, int> OnTargetImpactWeapon; // target life and max target life
-
+    public Action<Body, int>    OnTargetImpactWeapon; // target life and max target life
+    public Action<float>        OnZoom;
     #endregion
     #region Events
     private void Start()
@@ -39,7 +42,7 @@ public abstract class Weapon : MonoBehaviour
         EmitWeapon();
         EmitReload(0);
     }
-    private void Update()
+    protected virtual void Update()
     {
         weaponData.CADENCE.TimerFlag(ref flag_canAttack, ref cadenceCount);
     }
@@ -69,15 +72,16 @@ public abstract class Weapon : MonoBehaviour
         isReloading = false;
         EmitWeapon();
     }
+
     /// <summary>
-    /// returns values of the target and then shows the qty of life and max life
+    /// returns values of the target and then shows the qty of life and the body of the target
     /// </summary>
     protected void EmitTargetImpactWeapon(Body target, int damage) => OnTargetImpactWeapon?.Invoke(target, damage);
     /// <summary>
     /// Check if the weapon can attack
     /// </summary>
     /// <returns></returns>
-    protected bool CanAtack(){
+    public bool CanAtack(){
         if (!canUseWeapon
             || !flag_canAttack
             || currentAmmo.Equals(0)
@@ -98,21 +102,25 @@ public abstract class Weapon : MonoBehaviour
     /// Do the aim
     /// </summary>
     public virtual void Aim(Body body) {
-        "aim".Print("yellow");
-        //TODO
-        // enfocar con el FOV una cantidad y quitarla cuando ya no se encuentra
+        if (isReloading || isAiming) return; // 🛡
+        //"aim".Print("yellow");
+        OnZoom.Invoke(-aimZoomPercent);
+        isAiming = true;
     }
     /// <summary>
     /// Do the disAim
     /// </summary>
     public virtual void DisAim(Body body) {
-        "disaim".Print("yellow");
+        if (!isAiming) return; // 🛡
+        //"disaim".Print("yellow");
+        OnZoom.Invoke(aimZoomPercent);
+        isAiming = false;
     }
     /// <summary>
     /// Starts to reload the weapon
     /// </summary>
     public virtual void Reload() {
-        if (isReloading || currentAmmo.Equals(weaponData.AMMO)) return; // 🛡
+        if (isReloading || isAiming || currentAmmo.Equals(weaponData.AMMO)) return; // 🛡
         StartCoroutine(Reloading());
     }
     #endregion

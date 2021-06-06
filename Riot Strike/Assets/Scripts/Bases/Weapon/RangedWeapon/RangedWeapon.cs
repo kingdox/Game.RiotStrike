@@ -31,24 +31,31 @@ public  class RangedWeapon : Weapon
         if (!CanAtack()) return; // 🛡
         base.Attack(body);
 
-        
+        Shot(body);
+    }
+
+    /// <summary>
+    /// Do a shot
+    /// </summary>
+    private void Shot(Body body)
+    {
         //takes the bullet
-         Instantiate(pref_bullet, tr_hotSpot)
-            .transform
-            .Component(out Bullet bullet);
-
+        Instantiate(pref_bullet, tr_hotSpot)
+           .transform
+           .Component(out Bullet bullet);
         bullet.transform.forward = body.tr_head.forward;
+        bullet.transform.SetParent(null); // todo no dejar fuera en la jerarquía
 
-        bullet.transform.SetParent(null);
 
+        //Settings data
         bullet.damage = body.stat.STRENGHT;
         bullet.tag = tag;
 
-        OnShot?.Invoke(bullet);
-
         bullet.OnImpact += EmitTargetImpactWeapon;
 
+        // emits the init of the shot
+        OnShot?.Invoke(bullet);
     }
-
     #endregion
 }
+ 

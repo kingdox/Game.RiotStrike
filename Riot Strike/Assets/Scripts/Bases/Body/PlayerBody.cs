@@ -18,6 +18,9 @@ public class PlayerBody : Body
     #region Variable
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
+    private Camera cam;
+    private float baseFOV;
+         
     [Header("Player Body")]
     public HUDController ctrl_HUD;
     public bool canMove = true;
@@ -27,6 +30,8 @@ public class PlayerBody : Body
     #region Event
     public override void Awake() {
         base.Awake();
+        cam = Camera.main;
+        baseFOV = cam.fieldOfView;
     }
     public override void OnEnable()
     {
@@ -59,6 +64,7 @@ public class PlayerBody : Body
         character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload += ctrl_HUD.RefreshReload;
         character.weapon.OnTargetImpactWeapon += EmitAttackImpact;
+        character.weapon.OnZoom += CameraZoom;
         OnChangeLife += EmitLife;
     }
     /// <summary>
@@ -70,6 +76,7 @@ public class PlayerBody : Body
         character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload -= ctrl_HUD.RefreshReload;
         character.weapon.OnTargetImpactWeapon -= EmitAttackImpact;
+        character.weapon.OnZoom -= CameraZoom;
         OnChangeLife -= EmitLife;
     }
     /// <summary>
@@ -80,38 +87,51 @@ public class PlayerBody : Body
     /// Emit the new shot cursor in UI
     /// </summary>
     private void EmitShotCursor() => ctrl_HUD.RefreshShotCursor(character.weapon.ID);
-    private void EmitAttackImpact(Body targetBody, int damage) => ctrl_HUD.CreateDamageText(damage, targetBody.stat.DEFENSE);
+    /// <summary>
+    /// Emits the target and the damage dealed
+    /// </summary>
+    private void EmitAttackImpact(Body targetBody, int damage) => ctrl_HUD.CreateDamageText(damage, targetBody.Life, targetBody.stat.DEFENSE);
+    /// <summary>
+    /// Adds the zoom percent based on the actual saved base FOV
+    /// </summary>
+    private void CameraZoom(float aimZoomPercent)
+    {
+        cam.fieldOfView += aimZoomPercent.QtyOf(baseFOV, true);// + or -
+    }
     /// <summary>
     /// Controls the actions of the player
     /// </summary>
     private void Control()
     {
-        //MOVEMENT
-        if (canMove) movement.Move(stat.SPEED,
-            Utils.Axis(EControl.RIGHT, EControl.LEFT),
-            0f,
-            Utils.Axis(EControl.FORWARD, EControl.BACK)
-        );
+        if (!isDead)
+        {
+            //MOVEMENT
+            if (canMove) movement.Move(stat.SPEED,
+                Utils.Axis(EControl.RIGHT, EControl.LEFT),
+                0f,
+                Utils.Axis(EControl.FORWARD, EControl.BACK)
+            );
 
-        //ROTATION
-        if (canRotate) rotation.Rotate(
-            Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.SPEED),
-            Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.SPEED)
-        );
+            //ROTATION
+            if (canRotate) rotation.Rotate(
+                Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.SPEED),
+                Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.SPEED)
+            );
 
-        //ATTACK
-        CheckPress(EControl.ATTACK, character.OnAttack, this);
+            //ATTACK
+            CheckPress(EControl.ATTACK, character.OnAttack, this);
 
-        //FOCUS
-        CheckPress(EControl.AIM, character.OnAim, this);
-        //DISFOCUS
-        CheckPressUp(EControl.AIM, character.OnAim, this);
+            //FOCUS
+            CheckPressDown(EControl.AIM, character.OnAim, this);
+            //DISFOCUS
+            CheckPressUp(EControl.AIM, character.OnDisAim, this);
 
-        //RELOAD
-        CheckPressDown(EControl.RELOAD, character.OnReload);
+            //RELOAD
+            CheckPressDown(EControl.RELOAD, character.OnReload);
 
-        //SPELL
-        CheckPressDown(EControl.CAST, character.OnCast, this);
+            //SPELL
+            CheckPressDown(EControl.CAST, character.OnCast, this);
+        }
 
         //CHAT
         // TODO (Multiplayer) 

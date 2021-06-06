@@ -18,7 +18,7 @@ using WeaponRefresh.Ranged;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(RefreshController))]
 [DisallowMultipleComponent]
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, ITargetImpact
 {
     #region Variables
     private RefreshController refresh;
@@ -83,7 +83,8 @@ public class Bullet : MonoBehaviour
                 if (firstTime)
                 {
                     body.useGravity = false;
-                    InstantMove();
+                    StartCoroutine(InstantMove());
+                    
                 }
                 break;
         }
@@ -99,8 +100,9 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Move instantaneously fetching a target 'til end
     /// </summary>
-    private void InstantMove()
+    IEnumerator InstantMove()
     {
+        yield return new WaitForEndOfFrame();
         //where speed represent the max distance
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, speed))
         {
@@ -118,7 +120,7 @@ public class Bullet : MonoBehaviour
     /// the qty of damage
     /// </summary>
     /// <param name="tr_target"></param>
-    private void CheckTarget(Transform tr_target)
+    public void CheckTarget(Transform tr_target)
     {
         //CHECK if is Target
         tr_target.Component(out Body targetBody, false);

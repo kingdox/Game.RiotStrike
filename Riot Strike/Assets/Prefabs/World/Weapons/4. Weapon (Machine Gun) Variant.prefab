@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: pref_bullet
       value: 
       objectReference: {fileID: 46132507728182502, guid: f6235e278eb9e4eb9b6d5ddcd782226d, type: 3}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: aimZoom
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: aimZoomPercent
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_Name
       value: 4. Weapon (Machine Gun) Variant

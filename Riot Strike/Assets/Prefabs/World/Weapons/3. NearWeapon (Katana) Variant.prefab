@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &3522497627760058398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326498127741993740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 1}
 --- !u!1001 &4795253531026181414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,6 +24,14 @@ PrefabInstance:
       propertyPath: ID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3224759336410056514, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+      propertyPath: aimZoomPercent
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224759336410056514, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 3522497627760058398}
     - target: {fileID: 9117228146858692138, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
       propertyPath: m_Name
       value: 3. NearWeapon (Katana) Variant
@@ -59,5 +80,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6097728536952810422, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+--- !u!1 &4326498127741993740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9117228146858692138, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+  m_PrefabInstance: {fileID: 4795253531026181414}
+  m_PrefabAsset: {fileID: 0}

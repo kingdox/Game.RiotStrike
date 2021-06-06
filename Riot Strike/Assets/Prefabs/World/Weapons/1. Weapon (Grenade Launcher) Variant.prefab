@@ -19,6 +19,14 @@ PrefabInstance:
       propertyPath: pref_bullet
       value: 
       objectReference: {fileID: 6313074210924391248, guid: 91287ec03eef14b3799e6778065864e2, type: 3}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: aimZoom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: aimZoomPercent
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_Name
       value: 1. Weapon (Grenade Launcher) Variant

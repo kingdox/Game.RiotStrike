@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 1063663620236050310}
   - component: {fileID: 1063663620236050311}
   m_Layer: 0
-  m_Name: _Character
+  m_Name: Character (Player)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,6 +367,8 @@ MonoBehaviour:
   life: 0
   isDead: 0
   isInmune: 0
+  tr_head: {fileID: 1063663620131956827}
+  tr_eyes: {fileID: 1063663619663763567}
   tr_body: {fileID: 1063663618843133089}
   tr_visualWeapon: {fileID: 1063663619869225186}
   tr_spells: {fileID: 1063663620202712234}
@@ -375,6 +377,10 @@ MonoBehaviour:
     STRENGHT: 0
     DEFENSE: 0
     SPEED: 0
+  controller: {fileID: 0}
+  movement: {fileID: 0}
+  rotation: {fileID: 0}
+  gravity: {fileID: 0}
   character: {fileID: 0}
   ctrl_HUD: {fileID: 0}
   canMove: 1

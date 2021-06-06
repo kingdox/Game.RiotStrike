@@ -87,8 +87,8 @@ namespace XavHelpTo
         /// <summary>
         /// Basado en el porcentaje obtienes el valor mediante un maximo establecido
         /// </summary>
-        public static int QtyOf(this int percent, float max) => Change.Change.ToInt((max / 100) * percent);
-        public static float QtyOf(this float percent, float max) => (max / 100) * percent;
+        public static int QtyOf(this int percent, float max, bool isNormalized = false) => Change.Change.ToInt((max / 100) * percent * (isNormalized ? 100 : 1));
+        public static float QtyOf(this float percent, float max, bool isNormalized = false) => (max / 100) * percent * (isNormalized ? 100 : 1);
         public static Vector2 QtyOf(this Vector2 percent, Vector2 max) => (max / 100) * percent;
 
 

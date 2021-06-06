@@ -113,14 +113,20 @@ public class HUDController : MonoBehaviour
     /// in Inspector can create a Damage Text
     /// </summary>
     [ContextMenu("_CreateDamageText")]
-    public void _Test_CreateDamageText() => CreateDamageText(99.ZeroMax(),300);
+    public void _Test_CreateDamageText() => CreateDamageText(99.ZeroMax(), 300, 300);
 
     /// <summary>
     /// Creates a damage in front of the overlay to give feedback to the enemy status
     /// the status is represented by the color
     /// </summary>
-    public void CreateDamageText(int damage,int max ){
+    public void CreateDamageText(int damage,int life,int max ){
         Color color = Get.RandomColor();// Color.white;
+
+        int valueToShow = life > damage
+            ? damage
+            :  life
+        ;
+
 
         Vector3 variation = new Vector3(1,1,0) * (Random.insideUnitCircle * lenghtRandomDamage);
         Instantiate(
@@ -132,7 +138,7 @@ public class HUDController : MonoBehaviour
         .Component(out UI.Text txt);
 
         txt.color = color;
-        txt.text = damage.ToString();
+        txt.text = valueToShow.ToString();
 
         StartCoroutine(FadeDamageText(txt));
     }
