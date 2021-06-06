@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1747948471908305281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7222415281084686964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e4a5216f0204069b411a7a4118a543, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 4
 --- !u!1001 &1926919276402535518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3121846999292772998, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: ID
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: pref_bullet
+      value: 
+      objectReference: {fileID: 46132507728182502, guid: f6235e278eb9e4eb9b6d5ddcd782226d, type: 3}
     - target: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_Name
-      value: 4. Weapon (Machine Gun)
+      value: 4. Weapon (Machine Gun) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692149, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,8 +69,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
---- !u!1 &7222415281084686964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
-  m_PrefabInstance: {fileID: 1926919276402535518}
-  m_PrefabAsset: {fileID: 0}

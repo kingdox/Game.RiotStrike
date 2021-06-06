@@ -28,56 +28,111 @@ public class Bullet : MonoBehaviour
     [Header("Bullet Base")]
     [HideInInspector] public float damage;
     public float speed;
-    [Space]
-    public bool constantSpeed = false;
+    [SerializeField] private EBulletBehaviour behaviour = EBulletBehaviour.CONSTANT;
     [Space]
     public bool effectImpact = true;
     public bool effectMoving = true;
-    //public bool SetSplatter = false; //TODO
-
-    public Action<bool> OnImpact;
+    public float destroyDelay = 5;
+    public Action<int, int> OnImpact;
     public void Start()
     {
         this.Component(out body);
         this.Component(out refresh);
 
         refresh.GetParticle(Particle.LINE).ActiveParticle(effectMoving);
-        Move(true);
+
+        ActionBehaviour(true);
     }
-    private void Update() =>Move();
+    private void Update()
+    {
+        ActionBehaviour();
+    }
     private void OnCollisionEnter(Collision collision){
         if (isImpacted) return;// 🛡
         isImpacted = true;
         if (effectImpact) refresh.RefreshPlayParticle(Particle.IMPACT);
         refresh.GetParticle(Particle.LINE).ActiveParticle(false);
 
-        //CHECK if is Target
-        collision.transform.Component(out Body targetBody, false);
-        bool isValidTarget = !targetBody.IsNull() && !gameObject.CompareTag(targetBody.tag);
-        OnImpact?.Invoke(isValidTarget);
 
-        //DO DAMAGE
-        if (isValidTarget)
-        {
-            targetBody.AddLife(-damage);
-        }
+        CheckTarget(collision.transform);
+        
 
-        Destroy(gameObject, 10);
+        DestroyBullet();
     }
     #endregion
     #region Methods
     /// <summary>
-    /// Check if the bullet can move forward if is enable the <seealso cref="constantSpeed"/> in true
+    /// Do the action based on the <seealso cref="behaviour"/>
     /// </summary>
-    private bool CanMove => !isImpacted && constantSpeed;
+    private void ActionBehaviour(bool firstTime = false){
+        if (isImpacted) return; // 🛡
+
+        // mejorable....
+        switch (behaviour){
+            case EBulletBehaviour.IMPULSE:
+                if (firstTime){
+                    body.useGravity = true;
+                    Move();
+                }
+                return;
+            case EBulletBehaviour.CONSTANT:
+                if (firstTime) body.useGravity = false;
+                Move();
+                break;
+            case EBulletBehaviour.INSTANT:
+                if (firstTime)
+                {
+                    body.useGravity = false;
+                    InstantMove();
+                }
+                break;
+        }
+    }
     /// <summary>
     /// Moves the bullet forward
     /// </summary>
-    private void Move(bool ignoreCheck=false){
-        if (!ignoreCheck && !CanMove) return;
+    private void Move(){
         movement.z = speed * Time.deltaTime; // metters per second
         Vector3 forward = transform.TransformDirection(movement);
         body.velocity = forward;
     }
+    /// <summary>
+    /// Move instantaneously fetching a target 'til end
+    /// </summary>
+    private void InstantMove()
+    {
+        //where speed represent the max distance
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, speed))
+        {
+            transform.position = hit.point;
+            //CheckTarget(hit.transform);
+        }
+        else
+        {
+            transform.position = transform.forward * speed;
+        }
+            DestroyBullet();
+    }
+    /// <summary>
+    /// Do the comprobation if is a valid target, if is right then do the damage and it shows
+    /// the qty of damage
+    /// </summary>
+    /// <param name="tr_target"></param>
+    private void CheckTarget(Transform tr_target)
+    {
+        //CHECK if is Target
+        tr_target.Component(out Body targetBody, false);
+        bool isValidTarget = !targetBody.IsNull() && !gameObject.CompareTag(targetBody.tag);
+        //DO DAMAGE
+        if (isValidTarget)
+        {
+            targetBody.AddLife(-damage);
+            OnImpact?.Invoke(damage.ToInt(), targetBody.stat.DEFENSE);
+        }
+    }
+    /// <summary>
+    /// Destroys the bullet
+    /// </summary>
+    private void DestroyBullet() => Destroy(gameObject, destroyDelay);
     #endregion
 }

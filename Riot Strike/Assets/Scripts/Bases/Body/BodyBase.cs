@@ -27,6 +27,7 @@ public abstract class Body : MonoBehaviour
     [SerializeField] protected int life;
     [SerializeField] protected bool isDead=false;
     [SerializeField] protected bool isInmune=false;
+    public Transform tr_head;
     public Transform tr_body;
     public Transform tr_visualWeapon;
     public Transform tr_spells;
@@ -92,5 +93,9 @@ public abstract class Body : MonoBehaviour
         if (life.Equals(0)) Death();
     }
     public virtual void AddLife(float value) => AddLife(value.ToInt());
+    /// <summary>
+    /// Shows the Qty of life
+    /// </summary>
+    public int Life => life;
     #endregion
 }

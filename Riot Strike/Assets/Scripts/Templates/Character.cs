@@ -25,9 +25,9 @@ public class Character : ScriptableObject
     public GameObject pref_body;
     public GameObject pref_weapon;
     public GameObject pref_spell;
-
-    public Action<int> OnAttack;
-    public Action OnAim;
+    public Action<Body> OnAttack;
+    public Action<Body> OnAim;
+    public Action<Body> OnDisAim;
     public Action OnReload;
     public Action<Body> OnCast;
     #endregion
@@ -63,6 +63,7 @@ public class Character : ScriptableObject
     public void Subscribes(Body body){
         OnAttack += weapon.Attack;
         OnAim += weapon.Aim;
+        OnDisAim += weapon.DisAim;
         OnReload += weapon.Reload;
         OnCast += spell.Cast;
 
@@ -74,6 +75,7 @@ public class Character : ScriptableObject
     {
         OnAttack -= weapon.Attack;
         OnAim -= weapon.Aim;
+        OnDisAim += weapon.DisAim;
         OnReload -= weapon.Reload;
         OnCast -= spell.Cast;
     }

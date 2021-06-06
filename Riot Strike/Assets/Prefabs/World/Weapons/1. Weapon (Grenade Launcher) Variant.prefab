@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1251732242893332101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2761889475704472283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f592369baa42a45188fc9cb7879be358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 1
 --- !u!1001 &6400412669843983601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3121846999292772998, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: pref_bullet
+      value: 
+      objectReference: {fileID: 6313074210924391248, guid: 91287ec03eef14b3799e6778065864e2, type: 3}
     - target: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_Name
-      value: 1. Weapon (Grenade Launcher)
+      value: 1. Weapon (Grenade Launcher) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692149, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,8 +69,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
---- !u!1 &2761889475704472283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9117228146858692138, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
-  m_PrefabInstance: {fileID: 6400412669843983601}
-  m_PrefabAsset: {fileID: 0}

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Know;
 using XavHelpTo.Set;
@@ -24,6 +25,8 @@ public abstract class Weapon : MonoBehaviour
     public string ID = "0";
     public Action<int,int> OnFireAttack;
     public Action<float, float> OnReload;
+    public Action<int, int> OnTargetImpactWeapon; // target life and max target life
+
     #endregion
     #region Events
     private void Start()
@@ -64,6 +67,10 @@ public abstract class Weapon : MonoBehaviour
         EmitWeapon();
     }
     /// <summary>
+    /// returns values of the target and then shows the qty of life and max life
+    /// </summary>
+    protected void EmitTargetImpactWeapon(int life, int max) => OnTargetImpactWeapon?.Invoke(life, max);//TODO
+    /// <summary>
     /// Check if the weapon can attack
     /// </summary>
     /// <returns></returns>
@@ -71,11 +78,11 @@ public abstract class Weapon : MonoBehaviour
         if (!flag_canAttack || currentAmmo.Equals(0) || isReloading) return false; // 🛡
         return true;
     }
-
+    
     /// <summary>
     /// Do the attack if it have ammo
     /// </summary>a
-    public virtual void Attack(int damage) {
+    public virtual void Attack(Body body) {
         flag_canAttack = false;
         currentAmmo--;
         EmitWeapon();
@@ -83,10 +90,16 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// Do the aim
     /// </summary>
-    public virtual void Aim() {
+    public virtual void Aim(Body body) {
+        "aim".Print("yellow");
         //TODO
         // enfocar con el FOV una cantidad y quitarla cuando ya no se encuentra
-
+    }
+    /// <summary>
+    /// Do the disAim
+    /// </summary>
+    public virtual void DisAim(Body body) {
+        "disaim".Print("yellow");
     }
     /// <summary>
     /// Starts to reload the weapon

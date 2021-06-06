@@ -43,6 +43,10 @@ public static class Utils
     /// </summary>
     public static bool IsPressedDown(this EControl e) => Input.GetKeyDown(e.ToKeyCode());
     /// <summary>
+    /// Check if stop holding in the frame
+    /// </summary>
+    public static bool IsPressedUp(this EControl e) => Input.GetKeyUp(e.ToKeyCode());
+    /// <summary>
     /// Check if is pressed, returning 1 if is true or else 0
     /// </summary>
     public static int Pressed(this EControl e) => e.IsPressed().ToInt();

@@ -4890,12 +4890,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450de1fa0f6e84b86b15c0f80154befe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: 
   damage: 0
   speed: 900
-  constantSpeed: 1
+  behaviour: 1
   effectImpact: 1
   effectMoving: 1
+  destroyDelay: 5
 --- !u!114 &1290964444672829882
 MonoBehaviour:
   m_ObjectHideFlags: 0

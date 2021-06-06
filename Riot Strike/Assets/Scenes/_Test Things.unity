@@ -219,6 +219,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216940204}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &221450809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1063663620131956827, guid: 7657e99121cd54625af053d83e055610, type: 3}
+  m_PrefabInstance: {fileID: 1063663619363818956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &435968372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1918,7 @@ MonoBehaviour:
   life: 0
   isDead: 0
   isInmune: 0
+  tr_head: {fileID: 0}
   tr_body: {fileID: 1750926249}
   tr_visualWeapon: {fileID: 1750926250}
   tr_spells: {fileID: 1750926248}
@@ -2014,6 +2020,17 @@ Transform:
   m_Father: {fileID: 1332848895}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1876900671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1063663620236050311, guid: 7657e99121cd54625af053d83e055610, type: 3}
+  m_PrefabInstance: {fileID: 1063663619363818956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f826dd152cc74876b96b784e65918d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1895756253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,6 +2474,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1063663619663763567, guid: 7657e99121cd54625af053d83e055610, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063663619840877576, guid: 7657e99121cd54625af053d83e055610, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.192
+      objectReference: {fileID: 0}
     - target: {fileID: 1063663619869225185, guid: 7657e99121cd54625af053d83e055610, type: 3}
       propertyPath: m_Name
       value: Weapon
@@ -2473,6 +2498,14 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 11400000, guid: 80437cc26ff264f0ea029f34ae9787d5, type: 2}
+    - target: {fileID: 1063663620236050311, guid: 7657e99121cd54625af053d83e055610, type: 3}
+      propertyPath: tr_head
+      value: 
+      objectReference: {fileID: 221450809}
+    - target: {fileID: 1063663620236050311, guid: 7657e99121cd54625af053d83e055610, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1063663620236050313, guid: 7657e99121cd54625af053d83e055610, type: 3}
       propertyPath: m_Name
       value: '*Character'
@@ -2591,6 +2624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1441675221}
     m_Modifications:
+    - target: {fileID: 1034415218, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 1876900671}
     - target: {fileID: 5376688503770910268, guid: 0a7d6df3e65a04015b77383fe10b92a5, type: 3}
       propertyPath: m_Name
       value: HUD

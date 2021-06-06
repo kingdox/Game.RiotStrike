@@ -5,8 +5,8 @@ using UnityEngine;
 # endregion
 /// <summary>
 /// Physical Weapon, with near attacks behaviour
-/// </summary>
-public abstract class NearWeapon : Weapon
+/// </summary> 
+public class NearWeapon : Weapon
 {
     #region Variables
     #endregion

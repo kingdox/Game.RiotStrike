@@ -22,6 +22,7 @@ public class PlayerBody : Body
     public HUDController ctrl_HUD;
     public bool canMove = true;
     public bool canRotate = true;
+
     #endregion
     #region Event
     public override void Awake() {
@@ -57,6 +58,7 @@ public class PlayerBody : Body
         character.spell.OnTimer += ctrl_HUD.RefreshSpell;
         character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload += ctrl_HUD.RefreshReload;
+        character.weapon.OnTargetImpactWeapon += ctrl_HUD.CreateDamageText;
         OnChangeLife += EmitLife;
     }
     /// <summary>
@@ -67,6 +69,7 @@ public class PlayerBody : Body
         character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
         character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
         character.weapon.OnReload -= ctrl_HUD.RefreshReload;
+        character.weapon.OnTargetImpactWeapon -= ctrl_HUD.CreateDamageText;
         OnChangeLife -= EmitLife;
     }
     /// <summary>
@@ -96,10 +99,12 @@ public class PlayerBody : Body
         );
 
         //ATTACK
-        CheckPress(EControl.ATTACK, character.OnAttack, stat.STRENGHT);
+        CheckPress(EControl.ATTACK, character.OnAttack, this);
 
         //FOCUS
-        CheckPress(EControl.AIM, character.OnAim);//TODO FIXME
+        CheckPress(EControl.AIM, character.OnAim, this);
+        //DISFOCUS
+        CheckPressUp(EControl.AIM, character.OnAim, this);
 
         //RELOAD
         CheckPressDown(EControl.RELOAD, character.OnReload);
@@ -131,7 +136,11 @@ public class PlayerBody : Body
     /// Check if the <seealso cref="EControl"/> was pressed and send the <seealso cref="Action"/>
     /// </summary>
     private void CheckPressDown<T>(EControl e, Action<T> a, T val){ if (e.IsPressedDown()) a?.Invoke(val);}
-
+    /// <summary>
+    /// as <seealso cref="CheckPress(EControl, Action)"/> just in the frame
+    /// Check if the <seealso cref="EControl"/> was pressed and send the <seealso cref="Action"/>
+    /// </summary>
+    private void CheckPressUp<T>(EControl e, Action<T> a, T val) { if (e.IsPressedUp()) a?.Invoke(val); }
 
     /// <summary>
     /// Adds positive or negative life

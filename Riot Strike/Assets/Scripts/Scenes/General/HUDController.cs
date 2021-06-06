@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UI = UnityEngine.UI;
 using HUDRefresh;
 using XavHelpTo;
 using XavHelpTo.Change;
+using XavHelpTo.Know;
 using XavHelpTo.Set;
 using XavHelpTo.Get;
 using Dat = Environment.Data;
@@ -21,7 +23,12 @@ public class HUDController : MonoBehaviour
     [Header("HUDController")]
     public RefreshController refresh;
     public PlayerBody body;
-
+    [Space]
+    public Transform tr_parent_damageTexts;
+    public GameObject pref_damageText;
+    public float lenghtRandomDamage = 10;
+    public float durationDamage = 2f;
+    public float durationFadeDamage = 1f;
     #endregion
     #region Events
     private void Start()
@@ -99,6 +106,49 @@ public class HUDController : MonoBehaviour
         // size
         refresh.GetImg(Image.RELOAD).fillAmount = fill;
 
+    }
+
+
+    /// <summary>
+    /// in Inspector can create a Damage Text
+    /// </summary>
+    [ContextMenu("_CreateDamageText")]
+    public void _Test_CreateDamageText() => CreateDamageText(99.ZeroMax(),300);
+
+    /// <summary>
+    /// Creates a damage in front of the overlay to give feedback to the enemy status
+    /// the status is represented by the color
+    /// </summary>
+    public void CreateDamageText(int damage,int max ){
+        Color color = Get.RandomColor();// Color.white;
+
+        Vector3 variation = new Vector3(1,1,0) * (Random.insideUnitCircle * lenghtRandomDamage);
+        Instantiate(
+            pref_damageText,
+            tr_parent_damageTexts.position + variation,
+            Quaternion.identity,
+            tr_parent_damageTexts
+        ).transform
+        .Component(out UI.Text txt);
+
+        txt.color = color;
+        txt.text = damage.ToString();
+
+        StartCoroutine(FadeDamageText(txt));
+    }
+    /// <summary>
+    /// Do the fade of the text and then destroy it
+    /// </summary>
+    IEnumerator FadeDamageText(UI.Text txt)
+    {
+        yield return new WaitForSeconds(durationDamage);
+
+        float count = 0;
+        while (!durationFadeDamage.TimerIn(ref count)){
+            txt.CrossFadeAlpha(0, durationFadeDamage, false);
+            yield return new WaitForEndOfFrame();
+        }
+        Destroy(txt.gameObject);
     }
     #endregion
 }

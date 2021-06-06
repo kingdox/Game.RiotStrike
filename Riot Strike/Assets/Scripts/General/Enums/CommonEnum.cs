@@ -71,4 +71,13 @@ public enum ESwitchOpt
     INVERT_AXIS_X = 1,
     INVERT_AXIS_Y = 2,
 }
+/// <summary>
+/// List of type <seealso cref="Bullet"/> Movements
+/// </summary>
+public enum EBulletBehaviour
+{
+    [InspectorName("Constante")] CONSTANT=0,
+    [InspectorName("Instantánea")] INSTANT=1,
+    [InspectorName("Por Impulso (Parabola)")] IMPULSE=2
+}
 #endregion
