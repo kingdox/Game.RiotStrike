@@ -87,12 +87,14 @@
         <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
             <_tutorials key="_tutorials_game_"></_tutorials>
         <_ key="_tutorials_menu"><!--TUTORIALS MENU--></_>
-            <_tutorials key="_tutorials_menu_0">    the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</_tutorials>
-            <_tutorials key="_tutorials_menu_1"> Parrafo 2</_tutorials>
-            <_tutorials key="_tutorials_menu_2"> Parrafo 3</_tutorials>
+            <_tutorials key="_tutorials_menu_0">El jugador poseerá un personajes que será el encargado de representarte, el personaje poseerá unas estadísticas que influirán en su método de juego, así como también posee una habilidad y un arma.
+Para jugar se requerirá del mouse para apuntar a los enemigos y dispararles. 
+El jugador poseerá controles para moverse, Recargar arma (en caso de quedarte sin munición guardada) y usar la habilidad especial del personaje escogido</_tutorials>
+            <_tutorials key="_tutorials_menu_1">Los jugador poseera estadisticas que le permiten alterar su daño, la vida que poseen y la velocidad con la que se mueven</_tutorials>
+            <_tutorials key="_tutorials_menu_2">Al jugar poseerá una mira y se les mostrará su arma, pudiendo estimar la dirección del disparo</_tutorials>
         <_ key="_tutorials_goal"><!--TUTORIALS GOAL--></_>
-            <_tutorials key="_tutorials_goal_0">Parrafo goal1</_tutorials>
-            <_tutorials key="_tutorials_goal_1">2</_tutorials>
+            <_tutorials key="_tutorials_goal_0">Estas encerrado en un centro muy importante, y para que los refuerzos lleguen a salvarte deberás aguantar 10 minutos y elimnar a los restantes que sabían que estabas ahí</_tutorials>
+            <_tutorials key="_tutorials_goal_1">El jugador deberá ir eliminado a los enemigos mientras recoge mejoras que te puedan sanar ó mejorar tus estadisticas </_tutorials>
 
 
     <_ key="_controls"><!--CONTROLS--></_>
@@ -116,19 +118,56 @@
     <_ key="_character"><!--PERSONAJES--></_>
         <_ key="_character_0"><!--Enlai Ming--></_>
             <character key="character_role_0">Sanador</character>
-            <character key="character_description_0">Escribir el Lore 1</character>
+            <character key="character_description_0">Enlai ha estudiado las artes de curación chinas desde que tiene uso de razón y siempre ha estado en la corte junto con su mejor amigo el emperador, sus aptitudes curativas trascienden el imperio y llegan a todas las regiones limítrofes, incluso se dice que Enlai es capaz de resucitar a los muertos.
+
+En su camino, Enlai sufre una gran tormenta cerca de la ladera del Everest que le hace refugiarse en una cueva profunda, La tormenta arrecia y el frío hacer que Enlai avance hacia el interior de la misma hasta que llega a una sala alejada del exterior , allí enciende una hoguera y logra conciliar el sueño, sin embargo al poco tiempo el suelo bajo sus pies cede y enlai cae por las grietas rápidamente. 
+Enlai se encuentra en un sitio más desarrollado que la que ella creía.
+
+Durante mucho tiempo Enlai actúa como médico en numerosos conflictos bélicos, sanando a toda la gente posible sin embargo en el año 2010 una organización le logra encontrar para que se una a una misión que cambiará el destino del mundo.</character>
         <_ key="_character_1"><!--Tabare Flare--></_>
             <character key="character_role_1">Velocista</character>
-            <character key="character_description_1">El Lore 2</character>
+            <character key="character_description_1">Tabare pertenece a una dinastía que desciende de antiguos esquimales asentados en Alaska.
+Durante una de sus incursiones en solitario por las montañas de Alaska Tabare es
+sorprendida por una tormenta eléctrica de gran potencia,curiosamente las nubes tienen un tono morado y los rayos que salen de ella son rojos, algo que a lo largo de su vida no había visto nunca.
+
+Tabare llega a quedarse acorralada en un borde con una alta caída, da un salto que estaba desafiando la gravedad.
+Tabare flexiona las piernas y salta con todas sus fuerzas, superando el acantilado y avanzando en el aire.
+Desde ese momento consciente de su situación Tabare entra formar parte de una unidad especial de custodia y protección del ejército.
+</character>
         <_ key="_character_2"><!--Cole Megalos--></_>
             <character key="character_role_2">Tanque</character>
-            <character key="character_description_2">El 3</character>
+            <character key="character_description_2">
+Cole es un soldado del ejército griego el cual ha dedicado casi la toda su vida a servir a su país, toda su familia tiene una gran ascendencia de gloria militar y Cole es uno de lo más destacados miembros de su escuadrón, el cual se encarga de realizar incursiones armadas en las zonas más conflictivas del mundo.
+
+Cole una vez estuvo cerca de morir, en una obra uno de los cables se soltó, liberando electricidad al agua, sin embargo al ser alcanzado por el rayo Cole siente como sus fuerzas se restablecen mejor que nunca. 
+
+Avanza y ve cómo entre sus dedos chisporrotea la electricidad, se ha transformado en una batería humana, un ser de energía, sin embargo algo ha cambiado ha perdido. 
+Todo el pelo de su cabeza y es completamente calvo.
+</character>
         <_ key="_character_3"><!--Akiyama Arata--></_>
             <character key="character_role_3">Asesino</character>
-            <character key="character_description_3">4</character>
+            <character key="character_description_3">
+La familia Arata siempre ha tenido una gran relación con el mundo de la espada, no en vano
+provienen de una larga estirpe de samuráis del norte de Japón.
+
+Akiyama es el segundo hijo de un acaudalado empresario japonés que dirige un conglomerado de empresas dedicadas
+a la venta y exportación de armamento tecnológico.
+
+Durante años realiza numerosas mejoras en su cuerpo
+sustituyendo numerosas partes por implantes, hasta casi automatizar sus acciones.
+</character>
         <_ key="_character_4"><!--X-F20--></_>
             <character key="character_role_4">Equilibrado</character>
-            <character key="character_description_4">Bot</character>
+            <character key="character_description_4">
+    El patrullero X-F20 es un robot creado por la compañía ConCrete para la defensa y
+pacificación de masas.
+
+Su principal finalidad es patrullar zonas y evitar el asalto a
+determinadas instalaciones.
+
+Para cumplir su función está autorizado a usar métodos disuasivos y fuerza de grado
+mortal, para ello tiene integrado en su cuerpo armas variadas.
+</character>
         
 
     <_ key="_spell"><!--HABILIDADES--></_>

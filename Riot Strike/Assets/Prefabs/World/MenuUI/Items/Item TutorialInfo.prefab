@@ -104,6 +104,7 @@ MonoBehaviour:
   txts:
   - {fileID: 8030851263955048450}
   btns: []
+  parts: []
 --- !u!1001 &4728879322075238173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3374051664191657759, guid: 5d41d63b9bb974b4194610c3f71b14c6, type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3374051664191657759, guid: 5d41d63b9bb974b4194610c3f71b14c6, type: 3}
       propertyPath: m_FontData.m_Alignment

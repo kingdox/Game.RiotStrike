@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour, ITargetImpact
     [HideInInspector] public float damage;
     public float speed;
     [SerializeField] private EBulletBehaviour behaviour = EBulletBehaviour.CONSTANT;
+    public Transform tr_target; // actualmente usado solo para la buscqueda, pero puede extenderse a especificaciones de las demás
     [Space]
     public bool effectImpact = true;
     public bool effectMoving = true;
@@ -86,8 +87,12 @@ public class Bullet : MonoBehaviour, ITargetImpact
                 {
                     body.useGravity = false;
                     StartCoroutine(InstantMove());
-                    
                 }
+                break;
+            case EBulletBehaviour.FOLLOW:
+                if (firstTime) body.useGravity = false;
+                Orientate();
+                Move();
                 break;
         }
     }
@@ -121,6 +126,15 @@ public class Bullet : MonoBehaviour, ITargetImpact
             transform.position = transform.forward * speed;
         }
             DestroyBullet();
+    }
+    /// <summary>
+    /// Orientate the forward of the bullet to the target position
+    /// </summary>
+    private void Orientate(){
+        if (!tr_target) return;//🛡
+
+        transform.rotation = Quaternion.LookRotation(tr_target.position - transform.position);
+        //transform.rotation.SetLookRotation(tr_target.position);
     }
     /// <summary>
     /// Do the comprobation if is a valid target, if is right then do the damage and it shows

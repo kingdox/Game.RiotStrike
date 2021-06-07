@@ -78,6 +78,7 @@ public enum EBulletBehaviour
 {
     [InspectorName("Constante")] CONSTANT=0,
     [InspectorName("Instantánea")] INSTANT=1,
-    [InspectorName("Por Impulso (Parabola)")] IMPULSE=2
+    [InspectorName("Por Impulso (Parabola)")] IMPULSE=2,
+    [InspectorName("Perseguidora")] FOLLOW= 3
 }
 #endregion

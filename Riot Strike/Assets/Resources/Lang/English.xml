@@ -79,12 +79,16 @@
         <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
             <_tutorials key="_tutorials_game_"></_tutorials>
         <_ key="_tutorials_menu"><!--TUTORIALS MENU--></_>
-            <_tutorials key="_tutorials_menu_0">    the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</_tutorials>
-            <_tutorials key="_tutorials_menu_1"> Parrafo 2</_tutorials>
-            <_tutorials key="_tutorials_menu_2"> Parrafo 3</_tutorials>
+            <_tutorials key="_tutorials_menu_0">The player will have a character who will be in charge of representing you, the character will have statistics that will influence their playing method, as well as an ability and a weapon.
+
+To play, the mouse will be required to aim at the enemies and shoot them.
+The player will have controls to move, Reload weapon (in case of running out of stored ammunition) and use the special ability of the chosen character
+</_tutorials>
+            <_tutorials key="_tutorials_menu_1">The players will have statistics that allow them to alter their damage, the life they have and the speed with which they move</_tutorials>
+            <_tutorials key="_tutorials_menu_2">When playing, they will have a sight and their weapon will be shown to them, being able to estimate the direction of the shot</_tutorials>
         <_ key="_tutorials_goal"><!--TUTORIALS GOAL--></_>
-            <_tutorials key="_tutorials_goal_0">Parrafo goal1</_tutorials>
-            <_tutorials key="_tutorials_goal_1">2</_tutorials>
+            <_tutorials key="_tutorials_goal_0">You are locked in a very important center, and for the reinforcements to save you, you will have to hold out for 10 minutes and eliminate the rest who knew you were there.</_tutorials>
+            <_tutorials key="_tutorials_goal_1">The player must eliminate the enemies while collecting improvements that can heal you or improve your statistics</_tutorials>
 
 
     <_ key="_controls"><!--CONTROLS--></_>
@@ -104,19 +108,55 @@
     <_ key="_character"><!--PERSONAJES--></_>
         <_ key="_character_0"><!--Enlai Ming--></_>
             <character key="character_role_0">Healer</character>
-            <character key="character_description_0">Escribir el Lore 1</character>
+            <character key="character_description_0">Enlai has studied the Chinese healing arts since he can remember and has always been at court together with his best friend the emperor, his healing abilities transcend the empire and reach all the bordering regions, it is even said that Enlai is capable to raise the dead.
+
+On his way, Enlai suffers a great storm near the slope of Everest that makes him take refuge in a deep cave, The storm rages and the cold makes Enlai advance towards the interior of it until he reaches a room far from the outside, There he lights a bonfire and manages to fall asleep, however in a short time the ground under his feet gives way and he falls through the cracks quickly.
+Enlai is in a more developed place than she thought.
+
+For a long time Enlai acts as a doctor in numerous war conflicts, healing as many people as possible, however in 2010 an organization manages to find her for her to join a mission that will change the destiny of the world.</character>
         <_ key="_character_1"><!--Tabare Flare--></_>
             <character key="character_role_1">Runner</character>
-            <character key="character_description_1">El Lore 2</character>
+            <character key="character_description_1">Tabare belongs to a dynasty that descends from ancient Eskimos settled in Alaska.
+During one of his solo forays through the Alaskan mountains, Tabare is
+Surprised by a powerful electrical storm, curiously the clouds have a purple hue and the rays that come out of it are red, something that she had never seen throughout her life.
+
+Tabare becomes cornered on an edge with a high drop, she takes a jump that was defying gravity.
+Tabare flexes his legs and leaps with all of her strength, clearing the cliff and moving into the air.
+From that moment on, aware of her situation, Tabare became part of a special unit for the custody and protection of the army.</character>
+
         <_ key="_character_2"><!--Cole Megalos--></_>
             <character key="character_role_2">Tank</character>
-            <character key="character_description_2">El 3</character>
+            <character key="character_description_2">
+Cole is a soldier in the Greek army who has dedicated almost his entire life to serving his country, his entire family has a great ancestry of military glory and Cole is one of the most prominent members of his squad, which is in charge of carry out armed incursions in the most conflictive areas of the world.
+
+Cole once was close to dying, in a construction site one of the cables came loose, releasing electricity to the water, however when struck by the lightning Cole feels how his forces are restored better than never.
+
+He advances and sees how electricity sizzles between his fingers, he has transformed into a human battery, a being of energy, however something has changed he has lost.
+All the hair on his head and he's completely bald.
+</character>
         <_ key="_character_3"><!--Akiyama Arata--></_>
             <character key="character_role_3">Assasin</character>
-            <character key="character_description_3">4</character>
+            <character key="character_description_3">
+    The Arata family has always had a great relationship with the world of the sword, not in vain
+They come from a long line of samurai from northern Japan.
+
+Akiyama is the second son of a wealthy Japanese businessman who runs a conglomerate of dedicated companies.
+for the sale and export of technological weapons.
+
+Over the years he makes numerous improvements to his body
+replacing numerous parts with implants, almost automating his actions.</character>
         <_ key="_character_4"><!--X-F20--></_>
             <character key="character_role_4">Balanced</character>
-            <character key="character_description_4">Bot</character>
+            <character key="character_description_4">
+    The X-F20 patrol boat is a robot created by the ConCrete company for the defense and
+mass pacification.
+
+Its main purpose is to patrol areas and prevent the assault on
+certain facilities.
+
+To fulfill his function he is authorized to use dissuasive methods and force of degree
+mortal, for this he has a variety of weapons integrated into his body.
+</character>
 
     <_ key="_spell"><!--HABILIDADES--></_>
         <_ key="_spell_0"><!--Enlai Ming--></_>
