@@ -1,7 +1,9 @@
 ﻿#region Access
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using XavHelpTo.Know;
+using XavHelpTo;
 using Environment;
 using Dat = Environment.Data;
 using XavHelpTo.Change;
@@ -34,6 +36,8 @@ namespace SplashScene
         public GameObject pref_button;
         public Transform tr_parent_buttons;
         public CanvasGroup canvasGroup;
+        public Button btn_acceptLang;
+
         //[Range(0.1f,5f)]
         //public float speed=.5f;
         #endregion
@@ -44,6 +48,11 @@ namespace SplashScene
             langSelected = false;
             canvasGroup.alpha = 0;
             GenerateModalButtons();
+
+            btn_acceptLang.onClick.AddListener(delegate { 
+                langSelected = true;
+                //TODO Hacer que sea aceptado y se guarde los elementos, aprovecha y desactiva el botón
+            });
         }
         private void Update()
         {
@@ -105,7 +114,6 @@ namespace SplashScene
             // if is a new user
             if (!saved.isOld)
             {
-
                 saved.achievementsPoints = new int[Dat.ACHIEVEMENTS.Length];
                 saved.musicPercent = 0.5f;
                 saved.soundPercent = 0.5f;
@@ -119,27 +127,30 @@ namespace SplashScene
             else GoTo(saved.tutorialDone);
         
         }
+        /// <summary>
+        /// Ask if the lang was accepted
+        /// </summary>
+        private bool IsAcceptedLang() => langSelected;
 
         /// <summary>
-        /// Indice that the lang was selected
+        /// Displays the modal of language
         /// </summary>
-        public void AcceptLang() => langSelected = !langSelected;
-
-        /// <summary>
-        /// Displays
-        /// </summary>
-        /// <returns></returns>
         private IEnumerator DisplayLanguageModal()
         {
             CursorSystem.Show();
 
             //Mostramos el canvas
             yield return Utils.Fade(false, canvasGroup);
+
             //esperamos que le de aceptar y esto cambiará con el tiempo a invisible
-            while (!langSelected){yield return new WaitForEndOfFrame();}
+            yield return new WaitUntil(IsAcceptedLang); // where false == while runninng
+            "IS ACCEPTED".Print("yellow");
+
+            //while (!langSelected){yield return new WaitForEndOfFrame();}
             yield return Utils.Fade(true, canvasGroup);
+            "END FADE".Print("yellow");
 
-
+            "Saving.....".Print("green");
             SavedData saved = DataSystem.Get;
             saved.isOld = true;
             if (saved.currentLang.Equals("")) saved.currentLang = TranslateSystem.DEFAULT_LANG;

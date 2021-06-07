@@ -19,6 +19,8 @@ public class MovementController : MonoBehaviour
     /// Move the player in X and Z based on the orientation of the transform in Z axis (forward)
     /// </summary>
     public void Move(float speed, float x, float y=0, float z=0){
+        if (Time.timeScale.Equals(0)) return; //🛡
+
         if (!player) this.Component(out player);
 
         movement.Set(x,y,z);

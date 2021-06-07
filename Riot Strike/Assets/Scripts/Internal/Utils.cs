@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Know;
 using XavHelpTo.Change;
 #endregion
 
@@ -71,14 +72,44 @@ public static class Utils
         * (DataSystem.Get.switch_configs[invert.ToInt()] ? 1 : -1);
 
 
-    public static IEnumerator Fade(bool fade, CanvasGroup canvasGroup)
+    /// <summary>
+    /// Modify the <seealso cref="CanvasGroup"/> of a modal to then display or not itself
+    /// </summary>
+    public static IEnumerator Fade(bool fade, CanvasGroup canvasGroup, float duration = 0.5f)
     {
+        //only if the canvas is starting to fade
+        if (fade) canvasGroup.CanvasInteract(false);
+
+
         float end = (!fade).ToInt();
-        while (!canvasGroup.alpha.Equals(end))
+        float init = canvasGroup.alpha;
+        float count = 0;
+        float deltaTime;
+        while (!duration.TimerIn(ref count))
         {
-            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, end, (Time.time * Time.deltaTime));
+            deltaTime = count.PercentOf(duration, true);
+
+            canvasGroup.alpha = Mathf.Lerp(
+                init, 
+                end, 
+                deltaTime
+            );
             yield return new WaitForEndOfFrame();
         }
+
+        //only if the canvas is ended the display
+        if (!fade) canvasGroup.CanvasInteract(true);
     }
+
+
+    /// <summary>
+    /// Decide if the canvas is interactable or not
+    /// also decide wether is the canvas can block raycast
+    /// </summary>
+    public static void CanvasInteract(this CanvasGroup canvas ,bool canInteract) {
+        canvas.interactable = canInteract;
+        canvas.blocksRaycasts = canInteract;
+    }
+         
     #endregion
 }

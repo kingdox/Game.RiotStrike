@@ -3,6 +3,14 @@ using UnityEngine;
 #endregion
 #region Enums
 /// <summary>
+/// Status of the game based on the actual behaviour
+/// </summary>
+ public enum EState{
+     Pause, 
+     Play,
+     End
+ }
+/// <summary>
 /// Identification of the player controller
 /// </summary>
 public enum EControl

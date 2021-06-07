@@ -21,10 +21,11 @@ public class RotationController : MonoBehaviour
     /// <summary>
     /// Do the rotation
     /// </summary>
-    public void Rotate(float horizontal, float vertical, Transform tr_head)
-    {
+    public void Rotate(float horizontal, float vertical, Transform tr_head){
+        if (Time.timeScale.Equals(0)) return; //🛡
+
         //Body
-        this.transform.Rotate(0f, horizontal, 0f);
+        transform.Rotate(0f, horizontal, 0f);
         //Head
         rotationVertical += vertical;
         rotationVertical = rotationVertical.Limit(MAX_ANGLE_Y);

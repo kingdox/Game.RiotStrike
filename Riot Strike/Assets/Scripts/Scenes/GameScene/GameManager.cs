@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Get;
 using XavHelpTo.Change;
 using Environment;
 # endregion
@@ -14,20 +16,11 @@ namespace GameScene
     public class GameManager : MonoBehaviour
     {
         #region Variables
-        [SerializeField]
-        public enum GameManagerModal
-        {
-            HUD=0,
-            PAUSE=1,
-            END=2,
-            CHEAT=3 // esta se cuenta por separado
-        }
+        private CanvasGroup[] canvaScreens;
         [Header("Game Manager")]
-        public Transform tr_parent_screens;
         public GameManagerModal currentModal = GameManagerModal.HUD;
+        public Transform tr_parent_screens;
         public PlayerBody player;
-        [Space]
-        public bool isPause;
         #endregion
         #region Events
         private void Awake()
@@ -35,13 +28,12 @@ namespace GameScene
             Time.timeScale = 1;
             CursorSystem.Hide();
         }
+        private void Start() {
+            tr_parent_screens.Components(out canvaScreens);
+        }
         private void OnEnable()
         {
             Subscribe();
-        }
-        private void Start()
-        {
-            
         }
         private void OnDisable()
         {
@@ -68,20 +60,20 @@ namespace GameScene
         /// Pause the game or not
         /// </summary>
         public void Pause(){
-            isPause = !isPause;
+            //isPause = !isPause;
 
             //TIME
-            Time.timeScale = (!isPause).ToInt();
+            //Time.timeScale = (!isPause).ToInt();
 
             //DISPLAY
-            tr_parent_screens
-                .GetChild(GameManagerModal.PAUSE.ToInt())
+            /*
+            canvaScreens[GameManagerModal.PAUSE.ToInt()]
                 .gameObject
                 .SetActive(isPause);
 
             if (isPause) CursorSystem.Show();
             else CursorSystem.Hide();
-
+            */
 
             //    //si hay pausa retorna a la anterior
             //if (currentModal.Equals(GameManagerModal.PAUSE))
@@ -135,5 +127,16 @@ namespace GameScene
 }
 
 
+/// <summary>
+/// TODO MOVER A UN SCRIPT COMMON
+/// </summary>
+[SerializeField]
+public enum GameManagerModal
+{
+    HUD=0,
+    PAUSE=1,
+    END=2,
+    CHEAT=3 // esta se cuenta por separado
+}
 
 //!Time.timeScale.Equals(0)
