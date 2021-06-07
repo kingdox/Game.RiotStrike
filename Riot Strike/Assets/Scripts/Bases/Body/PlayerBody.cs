@@ -26,6 +26,7 @@ public class PlayerBody : Body
     public bool canMove = true;
     public bool canRotate = true;
 
+    public Action OnPause;
     #endregion
     #region Event
     public override void Awake() {
@@ -44,8 +45,7 @@ public class PlayerBody : Body
         EmitLife();
         EmitShotCursor();
     }
-    private void Update()
-    {
+    private void Update(){
         Control();
     }
     public override void OnDisable()
@@ -103,7 +103,7 @@ public class PlayerBody : Body
     /// </summary>
     private void Control()
     {
-        if (!isDead)
+        if (!isDead) //&& !Time.timeScale.Equals(0)
         {
             //MOVEMENT
             if (canMove) movement.Move(stat.SPEED,
@@ -138,7 +138,8 @@ public class PlayerBody : Body
         // TODO (Multiplayer) 
 
         //PAUSE
-        // TODO
+        CheckPressDown(EControl.PAUSE, OnPause);
+        
     }
 
     /// <summary>

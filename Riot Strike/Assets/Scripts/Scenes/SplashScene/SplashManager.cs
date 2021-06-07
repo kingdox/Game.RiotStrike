@@ -105,6 +105,7 @@ namespace SplashScene
             // if is a new user
             if (!saved.isOld)
             {
+
                 saved.achievementsPoints = new int[Dat.ACHIEVEMENTS.Length];
                 saved.musicPercent = 0.5f;
                 saved.soundPercent = 0.5f;
@@ -130,11 +131,13 @@ namespace SplashScene
         /// <returns></returns>
         private IEnumerator DisplayLanguageModal()
         {
+            CursorSystem.Show();
+
             //Mostramos el canvas
-            yield return Fade(false, canvasGroup);
+            yield return Utils.Fade(false, canvasGroup);
             //esperamos que le de aceptar y esto cambiará con el tiempo a invisible
             while (!langSelected){yield return new WaitForEndOfFrame();}
-            yield return Fade(true, canvasGroup);
+            yield return Utils.Fade(true, canvasGroup);
 
 
             SavedData saved = DataSystem.Get;
@@ -146,15 +149,7 @@ namespace SplashScene
             GoTo(false);
         }
 
-        private IEnumerator Fade(bool fade, CanvasGroup canvasGroup)
-        {
-            float end = (!fade).ToInt();
-            while (!canvasGroup.alpha.Equals(end))
-            {
-                canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, end, (Time.time*Time.deltaTime));
-                yield return new WaitForEndOfFrame();
-            }
-        }
+
 
         /// <summary>
         /// Change the scene to the intro video or to the tutorial if is first time

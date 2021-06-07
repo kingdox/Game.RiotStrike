@@ -70,5 +70,15 @@ public static class Utils
         * (DataSystem.Get.sensibilityPercent * aimSpeed)
         * (DataSystem.Get.switch_configs[invert.ToInt()] ? 1 : -1);
 
+
+    public static IEnumerator Fade(bool fade, CanvasGroup canvasGroup)
+    {
+        float end = (!fade).ToInt();
+        while (!canvasGroup.alpha.Equals(end))
+        {
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, end, (Time.time * Time.deltaTime));
+            yield return new WaitForEndOfFrame();
+        }
+    }
     #endregion
 }

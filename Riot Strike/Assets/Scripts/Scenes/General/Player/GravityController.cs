@@ -25,8 +25,8 @@ public class GravityController : MonoBehaviour
         this.Component(out player);
         gravityAcelerator = 1;
     }
-    private void Update()
-    {
+    private void Update(){
+        //if (Time.timeScale == 0) return; FIXME recibe daño al caer
 
         ApplyGravity();
     }
@@ -50,7 +50,7 @@ public class GravityController : MonoBehaviour
     private void CheckDistance(){
 
         // if is semi-grounded / grounded
-        if (player.velocity.y < -0.5f)
+        if (player.velocity.y.Print() < -0.5f)
         {
             gravityAcelerator += (-GRAVITY_EARTH / 2) * Time.deltaTime;
         }

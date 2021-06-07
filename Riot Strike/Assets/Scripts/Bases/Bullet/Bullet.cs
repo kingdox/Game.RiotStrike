@@ -46,8 +46,8 @@ public class Bullet : MonoBehaviour, ITargetImpact
 
         ActionBehaviour(true);
     }
-    private void Update()
-    {
+    private void Update(){
+        if (Time.timeScale == 0) return;
         ActionBehaviour();
     }
     private void OnCollisionEnter(Collision collision){
