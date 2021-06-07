@@ -1,3 +1,24 @@
 ﻿{
-	"DATA":[]
+	"DATA": [
+		{
+			"TYPE": "ATTACK",
+			"TITLE": "buff_title_0",
+			"MESSAGE": "buff_message_0"
+		},
+		{
+			"TYPE": "DEFENSE",
+			"TITLE": "buff_title_1",
+			"MESSAGE": "buff_message_1"
+		},
+		{
+			"TYPE": "SPEED",
+			"TITLE": "buff_title_2",
+			"MESSAGE": "buff_message_2"
+		},
+		{
+			"TYPE": "HEALTH",
+			"TITLE": "buff_title_3",
+			"MESSAGE": "buff_message_3"
+		}
+	]
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 using XavHelpTo;
 using XavHelpTo.Change;
 using Environment;
-# endregion
+using TutorialGameRefresh;
+#endregion
 
 namespace TutorialScene
 {
@@ -16,35 +17,51 @@ namespace TutorialScene
     public class TutorialGameManager : MonoBehaviour
     {
         #region Variables
-        private KeyCode skipCode;
+        private const int QTY_GAME_TUTORIALS = 4; // TODO multiplayer
         [Header("Tutorial Game Manager")]
         public RefreshController refresh_skip;
-        public GameObject obj_shotCursor; 
+        public PlayerBody player;
+        private Tutorial tutorialGame = new Tutorial("_tutorials_title", "_tutorials_menu", QTY_GAME_TUTORIALS);
 
         #endregion
         #region Event
+        private void Awake()
+        {
+            CursorSystem.Hide();
+        }
         private void OnEnable()
         {
-            CursorSystem.OnCursor += DisplayShotCursor;
+            Subscribe();
         }
         private void Start()
         {
-            CursorSystem.Hide();
+            string MSG_1 = "_intro_skip_0".Translate();
             string KEY = DataSystem.Get.controlKeys[EControl.PAUSE.ToInt()];
+            string MSG_2 = "_intro_skip_1".Translate();
+
+            refresh_skip.RefreshText(Text.SKIP, $"{MSG_1} {KEY} {MSG_2}");
 
         }
         private void OnDisable()
         {
-            CursorSystem.OnCursor -= DisplayShotCursor;
+            UnSuscribe();
         }
         #endregion
         #region Methods
-
         /// <summary>
-        /// Displays the Cursor Shot or not
+        /// Do the subscriptions of the actions
         /// </summary>
-        public void DisplayShotCursor(bool condition) => obj_shotCursor.SetActive(condition);
-
+        private void Subscribe()
+        {
+            player.OnPause += GoToMenu;
+        }
+        /// <summary>
+        /// Do the unsuscriptions of the actions
+        /// </summary>
+        private void UnSuscribe()
+        {
+            player.OnPause -= GoToMenu;
+        }
 
         /// <summary>
         /// Go to the menu
@@ -54,13 +71,3 @@ namespace TutorialScene
     }
 }
 
-/*TODO
- * - Script Base de requerimiento
- * - Script de contacto
- * - Script de Input tecleado
- * 
- * 
- * 
- * 
- * 
- */

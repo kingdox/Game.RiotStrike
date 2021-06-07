@@ -28,12 +28,16 @@ namespace GameScene
             Time.timeScale = 1;
             CursorSystem.Hide();
         }
-        private void Start() {
-            tr_parent_screens.Components(out canvaScreens);
-        }
         private void OnEnable()
         {
             Subscribe();
+        }
+        private void Start() {
+            tr_parent_screens.Components(out canvaScreens);
+        }
+        private void Update()
+        {
+            
         }
         private void OnDisable()
         {

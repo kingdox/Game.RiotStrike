@@ -77,7 +77,11 @@
         <_tutorials key="_tutorials_opt_goal">Goals</_tutorials>
         <_tutorials key="_tutorials_opt_play">Play Tutorial</_tutorials>
         <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
-            <_tutorials key="_tutorials_game_"></_tutorials>
+            <_tutorials key="_tutorials_game_0">Use WASD to move and use the mouse to rotate</_tutorials>
+            <_tutorials key="_tutorials_game_1">Falls can cause injury that can be lethal</_tutorials>
+            <_tutorials key="_tutorials_game_2">Use R to Reload and Left Click to shoot, Aim with Right Click.</_tutorials>
+            <_tutorials key="_tutorials_game_3">The orbs provide improvements for the game, they can heal you or improve your statistics. Try to take them when they come out.</_tutorials>
+
         <_ key="_tutorials_menu"><!--TUTORIALS MENU--></_>
             <_tutorials key="_tutorials_menu_0">The player will have a character who will be in charge of representing you, the character will have statistics that will influence their playing method, as well as an ability and a weapon.
 

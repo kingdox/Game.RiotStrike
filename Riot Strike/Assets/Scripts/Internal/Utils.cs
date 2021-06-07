@@ -13,7 +13,14 @@ using XavHelpTo.Change;
 /// </summary>
 public static class Utils 
 {
-#region Utils Methods
+    #region Utils Methods
+
+
+    /// <summary>
+    /// Extension of Translate
+    /// </summary>
+    public static string Translate(this string key) => TranslateSystem.Translate(in key);
+
     /// <summary>
     /// Allows to translate and set the information
     /// can create a <seealso cref="TranslateController"/> in the obj

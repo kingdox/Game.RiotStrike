@@ -98,18 +98,5 @@ namespace MenuScene
     }
 }
 
-[Serializable]
-public struct Tutorial
-{
-    public string titleKey;
-    public string infoKey;
-    public int qty;
 
-    public Tutorial(string titleKey,string infoKey, int qty)
-    {
-        this.titleKey = titleKey;
-        this.infoKey = infoKey;
-        this.qty = qty;
-    }
-}
 

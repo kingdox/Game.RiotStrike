@@ -274,7 +274,7 @@ namespace WeaponRefresh
         }
     }
     namespace Near{
-
+        //.... TODO (to new version)
     }
 }
 #endregion

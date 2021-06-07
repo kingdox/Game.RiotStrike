@@ -85,7 +85,10 @@
         <_tutorials key="_tutorials_opt_goal">Objetivos</_tutorials>
         <_tutorials key="_tutorials_opt_play">Jugar Tutorial</_tutorials>
         <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
-            <_tutorials key="_tutorials_game_"></_tutorials>
+            <_tutorials key="_tutorials_game_0">Usa las teclas WASD para moverte y el mouse girar</_tutorials>
+            <_tutorials key="_tutorials_game_1">Las caídas pueden hacer daño que pueden ser letales.</_tutorials>
+            <_tutorials key="_tutorials_game_2">Usa R para Recargar y Click Izquierdo para disparar, Apuntas con Click Derecho.</_tutorials>
+            <_tutorials key="_tutorials_game_3">Los orbes proporcionan mejoras para la partida, pueden curarte o mejorar tus estadisticas. Intenta tomarlos cuando salgan.</_tutorials>
         <_ key="_tutorials_menu"><!--TUTORIALS MENU--></_>
             <_tutorials key="_tutorials_menu_0">El jugador poseerá un personajes que será el encargado de representarte, el personaje poseerá unas estadísticas que influirán en su método de juego, así como también posee una habilidad y un arma.
 Para jugar se requerirá del mouse para apuntar a los enemigos y dispararles. 
@@ -210,5 +213,9 @@ mortal, para ello tiene integrado en su cuerpo armas variadas.
         <stat key="stat_strength">Fuerza</stat>
         <stat key="stat_defense">Defensa</stat>
         <stat key="stat_speed">Agilidad</stat>
+
+    <_ key="_buff"><!--BUFFS--></_>
+        <stat key="buff_message_0">Fuerza</stat>
+
 
 </main>

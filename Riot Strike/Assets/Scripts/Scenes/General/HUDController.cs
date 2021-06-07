@@ -22,7 +22,6 @@ public class HUDController : MonoBehaviour
     private const string PATH_SHOT_CURSOR = "ShotCursor/shot_";
     [Header("HUDController")]
     public RefreshController refresh;
-    public PlayerBody body;
     [Space]
     public Transform tr_parent_damageTexts;
     public GameObject pref_damageText;

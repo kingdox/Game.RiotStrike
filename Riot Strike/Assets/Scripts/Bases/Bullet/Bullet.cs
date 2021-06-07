@@ -100,9 +100,9 @@ public class Bullet : MonoBehaviour, ITargetImpact
     /// Moves the bullet forward
     /// </summary>
     private void Move(){
-        movement.z = speed * Time.deltaTime; // metters per second
+        movement.z = speed; // metters per second
         Vector3 forward = transform.TransformDirection(movement);
-        body.velocity = forward;
+        body.velocity = forward * Time.deltaTime;
 
         //si nos pasamos del recorrido limite que peude llegar nuestra bala
         if (Vector3.Distance(initPosition,transform.position) > speed){

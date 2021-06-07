@@ -15,7 +15,6 @@ namespace IntroScene
         #region Variable
         private static IntroManager _;
         public const string TRIGGER_KEY = "Shot";
-        private KeyCode skipCode;
         [Tooltip("Usado para animar el movimiento del arma y ejecucion")]
         public Animator animator_gun;
         [Space]
@@ -37,16 +36,10 @@ namespace IntroScene
             string KEY = DataSystem.Get.controlKeys[EControl.PAUSE.ToInt()];
             string MSG_2 = TranslateSystem.Translate("_intro_skip_1");
             refresh_skip.RefreshText(SkipText.SKIP, $"{MSG_1} {KEY} {MSG_2}");
-
-            skipCode = KEY.ToKeyCode();
         }
         private void Update()
         {
-            if (Input.GetKey(skipCode))
-            {
-                "Funciona".Print();
-                GoToMenu();
-            }
+            if (EControl.PAUSE.IsPressedDown()) GoToMenu();
         }
         #endregion
         #region Method

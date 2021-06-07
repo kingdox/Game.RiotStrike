@@ -17,7 +17,6 @@ namespace Requirement
         [Tooltip("Tag usado para comprobar si ha sido checkeado")]
         public string tagToCheck = Dat.TAG_PLAYER;
         //public Transform target
-        //    p
 
         #endregion
         #region Event

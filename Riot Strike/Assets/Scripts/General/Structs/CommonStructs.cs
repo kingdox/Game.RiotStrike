@@ -138,4 +138,33 @@ public struct StatData
     /// </summary>
     private StatData CallBaseStat => Dat.GetStatData(Dat.ID_BASE_STAT);
 }
+/// <summary>
+/// Shows the information of the buff selected
+/// </summary>
+[Serializable]
+public struct BuffData
+{
+    public string TYPE;
+    public string TITLE;
+    public string MESSAGE;
+
+}
+/// <summary>
+/// Shows the information in key,
+/// where the qty represent the lenght of the tutorial parts
+/// </summary>
+[Serializable]
+public struct Tutorial
+{
+    public string titleKey;
+    public string infoKey;
+    public int qty;
+
+    public Tutorial(string titleKey, string infoKey, int qty)
+    {
+        this.titleKey = titleKey;
+        this.infoKey = infoKey;
+        this.qty = qty;
+    }
+}
 #endregion
