@@ -11,7 +11,7 @@ namespace IntroRefresh
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in Intro item
     /// in <see cref="IntroScene.IntroManager"/>
     /// </summary>
-    enum SkipText
+    public enum SkipText
     {
         SKIP=0
     }
@@ -24,7 +24,7 @@ namespace TutorialGameRefresh
     /// Refresher enum in <see cref="RefreshController"/> of <see cref="Text"/> in tutorial game skip item
     /// in <see cref="TutorialScene.TutorialGameManager"/>
     /// </summary>
-    enum Text
+    public enum Text
     {
         SKIP=0
     }

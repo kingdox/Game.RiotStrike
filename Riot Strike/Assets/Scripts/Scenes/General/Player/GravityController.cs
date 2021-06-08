@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Get;
 using XavHelpTo.Change;
 #endregion
 /// <summary>
@@ -28,7 +29,8 @@ public class GravityController : MonoBehaviour
     private void Update(){
         if (Time.timeScale == 0) {
             IgnoreFollowingImpact();
-            return; // FIXME recibe daño al caer
+            return; // FIXME recibe daño al caer, esto lo repara,
+                    //  pero que pasaría si uno pausa mientras cae?
         }
 
 
@@ -44,7 +46,7 @@ public class GravityController : MonoBehaviour
         //Physics.gravity
 
         //apply the fall
-        player.Move(transform.up * GRAVITY_EARTH * gravityAcelerator * Time.deltaTime);
+        player.Move( (transform.up * GRAVITY_EARTH * gravityAcelerator * Time.deltaTime).Max(55f) );
         CheckDistance();
     }
 
