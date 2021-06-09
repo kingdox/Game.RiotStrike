@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour, ITargetImpact
 
         ActionBehaviour(true);
     }
-    private void Update(){
+    private void FixedUpdate() {
         if (Time.timeScale == 0) return;
         ActionBehaviour();
     }

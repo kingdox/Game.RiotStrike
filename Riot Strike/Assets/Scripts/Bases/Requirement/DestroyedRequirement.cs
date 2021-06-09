@@ -15,10 +15,11 @@ public class DestroyedRequirement : Requirement.Requirement
     #region Event
     private void OnDestroy()
     {
-        "Hola".Print();
         if (!isComplete) return; // 🛡
+        OnComplete?.Invoke();
         isComplete = true;
         Comprobation();
+        
     }
     #endregion
     #region Methods

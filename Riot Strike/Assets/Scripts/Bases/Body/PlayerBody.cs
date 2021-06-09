@@ -45,7 +45,7 @@ public class PlayerBody : Body
         EmitLife();
         EmitShotCursor();
     }
-    private void Update(){
+    private void Update() {
         Control();
     }
     public override void OnDisable()
