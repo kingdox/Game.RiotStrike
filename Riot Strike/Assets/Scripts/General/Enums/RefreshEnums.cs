@@ -305,5 +305,20 @@ namespace WeaponRefresh
         //.... TODO (to new version)
     }
 }
+namespace BuffRefresh
+{
+    namespace StatBuff
+    {
+        /// <summary>
+        /// Refresher of the effects
+        /// </summary>
+        public enum Particle
+        {
+            CREATION = 0,
+            DESTRUCTION = 1,
+            CONSTANT = 2
+        }
+    }
+}
 #endregion
 #endregion

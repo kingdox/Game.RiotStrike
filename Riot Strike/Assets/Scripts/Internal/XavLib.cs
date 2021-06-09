@@ -26,6 +26,7 @@ namespace XavHelpTo
 
         /// <summary>
         /// Get the type of the gameobject selected
+        /// TODO hacer que el retorno sea booleano si consiguio asignar o no
         /// </summary>
         public static void Component<C, T>(this C gameobj, out T t, bool canAdd = true)
             where C : Component

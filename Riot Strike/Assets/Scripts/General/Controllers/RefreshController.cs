@@ -48,7 +48,7 @@ public class RefreshController : MonoBehaviour
     /// <summary>
     /// Plays the particle if it can
     /// </summary>
-    public void RefreshPlayParticle<T>(T index) => parts[index.ToInt()].ActiveParticle(true);
+    public void RefreshPlayParticle<T>(T index, bool play=true) => parts[index.ToInt()].ActiveParticle(play);
 
 
     /// <summary>

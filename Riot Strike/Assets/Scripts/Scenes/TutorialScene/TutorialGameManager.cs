@@ -18,16 +18,18 @@ namespace TutorialScene
     {
         #region Variables
         private const int QTY_GAME_TUTORIALS = 4; // TODO multiplayer
+        //private Tutorial tutorialGame = new Tutorial("_tutorials_title", "_tutorials_menu", QTY_GAME_TUTORIALS);
         [Header("Tutorial Game Manager")]
         public RefreshController refresh_skip;
         public PlayerBody player;
-        private Tutorial tutorialGame = new Tutorial("_tutorials_title", "_tutorials_menu", QTY_GAME_TUTORIALS);
+        public ImageController imgCtrl_curtain;
 
         #endregion
         #region Event
         private void Awake()
         {
             CursorSystem.Hide();
+            imgCtrl_curtain.gameObject.SetActive(true);
         }
         private void OnEnable()
         {
