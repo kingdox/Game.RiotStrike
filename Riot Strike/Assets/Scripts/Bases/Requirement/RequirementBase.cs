@@ -1,19 +1,21 @@
 ﻿#region Access
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using XavHelpTo;
 #endregion
 namespace Requirement
 {
     /// <summary>
     /// Base class to creation of types of Requirements
     /// </summary>
-    public abstract class RequirementBase : MonoBehaviour
+    public abstract class Requirement : MonoBehaviour
     {
         #region Variables
         [Header("Requirement Base")]
         public bool isComplete = false;
+        public Action OnComplete;
         #endregion
         #region Events
 
