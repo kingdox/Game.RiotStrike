@@ -9,6 +9,9 @@ using OWOInput = OWORefresh.Input;
 using OWOText = OWORefresh.Text;
 using OWO;
 using XavHelpTo;
+using XavHelpTo.Know;
+using XavHelpTo.Change;
+using XavHelpTo.Get;
 # endregion
 namespace MenuScene
 {
@@ -33,7 +36,8 @@ namespace MenuScene
         }
         private void Start()
         {
-            refresh.GetInput(OWOInput.IP).text.Print();
+            //refresh.GetInput(OWOInput.IP).text;
+
             refresh
                 .GetButton(OWOButton.CONNECT)
                 .onClick
@@ -83,8 +87,16 @@ namespace MenuScene
                 ? KEY_SUCCESS
                 : KEY_FAILED
             );
+        }
 
-
+        /// <summary>
+        /// Test the OWO jacket with any muscle
+        /// </summary>
+        public void Test() {
+            OWOSytem.SendSensation((ushort)10.ZeroMax(), (OWOMuscles)OWOMuscles.Lumbar_L
+                .ToInt()
+                .ZeroMax()
+            );
         }
 
         #endregion

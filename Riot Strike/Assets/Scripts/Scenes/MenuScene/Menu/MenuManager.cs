@@ -36,7 +36,7 @@ public class MenuManager : MonoBehaviour
     }
     private void Start()
     {
-        $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
+       // $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
         CursorSystem.Show();
     }
     #endregion
@@ -58,7 +58,7 @@ public class MenuManager : MonoBehaviour
     IEnumerator WaitToExit()
     {
         yield return new WaitForSeconds(timeToExit);
-        "Adiós !".Print("magenta");
+        //"Adiós !".Print("magenta");
         Application.Quit();
     }
     #endregion

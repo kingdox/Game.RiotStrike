@@ -24,7 +24,6 @@ public class OWOSytem : MonoBehaviour
     private void Awake()
     {
         this.Singleton(ref _);
-
     }
     private void Start()
     {
@@ -75,10 +74,9 @@ public class OWOSytem : MonoBehaviour
     /// <summary>
     /// Send the sensation
     /// </summary>
-    public static void SendSensation(ushort id, OWOMuscles muscle)
-    {
-        $"Enviando {id} en {muscle}".Print("gray");
+    public static void SendSensation(ushort id, OWOMuscles muscle){
         if (!_.IsConnected) return;// 🛡
+        $"Enviando {id} en {muscle}".Print("gray");
             
         _.client.SendSensation(id, muscle);
     }
