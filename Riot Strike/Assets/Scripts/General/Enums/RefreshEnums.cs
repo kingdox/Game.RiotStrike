@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using Dat = Environment.Data;
 using Environment;
+using UnityEngine;
 #endregion
 #region Enums
 #region IntroScene
@@ -52,6 +53,33 @@ namespace LangRefresh
 }
 #endregion
 #region MenuScene
+namespace OWORefresh
+{
+    /// <summary>
+    /// Refresher of <seealso cref="RefreshController"/> of <seealso cref="InputField"/>
+    /// in <seealso cref="MenuScene.OWOManager"/>
+    /// </summary>
+    public enum Input
+    {
+        IP=0
+    }
+    /// <summary>
+    /// Refresher of <seealso cref="RefreshController"/> of <seealso cref="Button"/>
+    /// in <seealso cref="MenuScene.OWOManager"/>
+    /// </summary>
+    public enum Button
+    {
+        CONNECT = 0
+    }
+    /// <summary>
+    /// Refresher of <seealso cref="RefreshController"/> of <seealso cref="Text"/>
+    /// in <seealso cref="MenuScene.OWOManager"/>
+    /// </summary>
+    public enum Text
+    {
+        [InspectorName("Resultado de conexión")] RESULT_CONECTION = 0
+    }
+}
 namespace CreditRefresh
 {
     /// <summary>

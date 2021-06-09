@@ -13,7 +13,13 @@
         <general key="disabled">Desactivado</general>
         <general key="accept">Aceptar</general>
         <general key="cancel">Cancelar</general>
+        <general key="connect">Conectar</general>
 
+        <_ key="_owo"><!--OWO--></_>
+        <_owo key="owo_insert_ip">Ingresa tu IP</_owo>
+        <_owo key="owo_feel">~Siente el juego~</_owo>
+        <_owo key="owo_connection_success">Conexión completada</_owo>
+        <_owo key="owo_connection_failed">Conexión fallida</_owo>
 
     <_ key="_intro"><!--INTRO--></_>
         <intro key="_intro_skip_0">Presiona</intro>

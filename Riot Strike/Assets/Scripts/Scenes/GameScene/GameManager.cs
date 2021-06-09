@@ -21,10 +21,13 @@ namespace GameScene
         public GameManagerModal currentModal = GameManagerModal.HUD;
         public Transform tr_parent_screens;
         public PlayerBody player;
+        [Space]
+        public ImageController imgCtrl_curtain;
         #endregion
         #region Events
         private void Awake()
         {
+            imgCtrl_curtain.gameObject.SetActive(true);
             Time.timeScale = 1;
             CursorSystem.Hide();
         }

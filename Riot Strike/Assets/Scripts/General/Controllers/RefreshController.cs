@@ -17,7 +17,9 @@ public class RefreshController : MonoBehaviour
     [SerializeField] private Image[] imgs = new Image[0];
     [SerializeField] private Text[] txts = new Text[0];
     [SerializeField] private Button[] btns = new Button[0];
+    [SerializeField] private InputField[] inputs = new InputField[0];
     [SerializeField] private ParticleSystem[] parts = new ParticleSystem[0];
+
 
     #endregion
     #region Event
@@ -50,6 +52,9 @@ public class RefreshController : MonoBehaviour
 
 
     /// <summary>
+    /// Get the <seealso cref="InputField"/>
+    /// </summary>
+    public InputField GetInput<T>(T index) => inputs[index.ToInt()];
     /// Get the <seealso cref="ParticleSystem"/>
     /// </summary>
     public ParticleSystem GetParticle<T>(T index) => parts[index.ToInt()];
