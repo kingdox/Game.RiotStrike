@@ -31,7 +31,7 @@ public class StatBuff : Buff
     public override void DoEffectBuff(in Transform target){
 
         target.Component(out Body body);
-
+        
         if (body)
         {
             switch (eStat)

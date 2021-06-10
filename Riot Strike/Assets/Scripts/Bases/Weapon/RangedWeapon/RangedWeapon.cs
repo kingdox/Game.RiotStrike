@@ -47,7 +47,7 @@ public  class RangedWeapon : Weapon
         bullet.transform.SetParent(null); // todo no dejar fuera en la jerarquía
 
         //Settings data
-        bullet.damage = body.stat.STRENGHT;
+        bullet.damage = body.stat.RealStrength;
         bullet.tag = tag;
 
         bullet.OnImpact += EmitTargetImpactWeapon;

@@ -19,8 +19,7 @@ public class PlayerBody : Body
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
     private Camera cam;
-    private float baseFOV;
-         
+
     [Header("Player Body")]
     public HUDController ctrl_HUD;
     public bool canMove = true;
@@ -32,7 +31,6 @@ public class PlayerBody : Body
     public override void Awake() {
         base.Awake();
         cam = Camera.main;
-        baseFOV = cam.fieldOfView;
     }
     public override void OnEnable()
     {
@@ -82,7 +80,7 @@ public class PlayerBody : Body
     /// <summary>
     /// Emit the Life status in UI
     /// </summary>
-    private void EmitLife() => ctrl_HUD.RefreshLife(life, stat.DEFENSE);
+    private void EmitLife() => ctrl_HUD.RefreshLife(life, stat.RealHealth);
     /// <summary>
     /// Emit the new shot cursor in UI
     /// </summary>
@@ -90,13 +88,13 @@ public class PlayerBody : Body
     /// <summary>
     /// Emits the target and the damage dealed
     /// </summary>
-    private void EmitAttackImpact(Body targetBody, int damage) => ctrl_HUD.CreateDamageText(damage, targetBody.Life, targetBody.stat.DEFENSE);
+    private void EmitAttackImpact(Body targetBody, int damage) => ctrl_HUD.CreateDamageText(damage, targetBody.Life, targetBody.stat.RealHealth);
     /// <summary>
     /// Adds the zoom percent based on the actual saved base FOV
     /// </summary>
     private void CameraZoom(float aimZoomPercent)
     {
-        cam.fieldOfView += aimZoomPercent.QtyOf(baseFOV, true);// + or -
+        cam.fieldOfView += aimZoomPercent.QtyOf(cam.fieldOfView, true);// + or -
     }
     /// <summary>
     /// Controls the actions of the player
@@ -106,7 +104,9 @@ public class PlayerBody : Body
         if (!isDead) //&& !Time.timeScale.Equals(0)
         {
             //MOVEMENT
-            if (canMove) movement.Move(stat.SPEED,
+            if (canMove) movement.Move(
+                controller,
+                stat.RealSpeed,
                 Utils.Axis(EControl.RIGHT, EControl.LEFT),
                 0f,
                 Utils.Axis(EControl.FORWARD, EControl.BACK)
@@ -114,8 +114,8 @@ public class PlayerBody : Body
 
             //ROTATION
             if (canRotate) rotation.Rotate(
-                Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.SPEED),
-                Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.SPEED),
+                Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.RealSpeed),
+                Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.RealSpeed),
                 tr_head
             );
 

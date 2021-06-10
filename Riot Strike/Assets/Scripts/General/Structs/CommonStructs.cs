@@ -137,6 +137,8 @@ public struct StatData
     /// not based on 0-<seealso cref="Dat.STAT_MAX"/>
     /// </summary>
     private StatData CallBaseStat => Dat.GetStatData(Dat.ID_BASE_STAT);
+
+
 }
 /// <summary>
 /// Shows the information of the buff selected

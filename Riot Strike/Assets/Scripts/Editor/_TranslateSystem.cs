@@ -1,4 +1,5 @@
-﻿#region Access
+﻿#if UNITY_EDITOR
+#region Access
 using UnityEngine;
 using UnityEditor;
 using XavHelpTo.EditWindow;
@@ -66,3 +67,4 @@ public class TranslateSystemEditor : Editor
 
 }
 #endregion
+#endif

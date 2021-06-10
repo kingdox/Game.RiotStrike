@@ -977,6 +977,7 @@ namespace XavHelpTo
         }
         #endregion
     }
+#if UNITY_EDITOR
     namespace EditWindow
     {
         using static Change.Change;
@@ -1048,16 +1049,16 @@ namespace XavHelpTo
             }
 
 
+
             /// <summary>
             /// Set the title, icon of the window
-            /// </summary>
-            public static void TabWindow<T>(this T @this, string title, string iconPath = default)
-                where T : EditorWindow
-            {
-                Texture2D myIcon = EditorGUIUtility.Load(iconPath) as Texture2D;
-                @this.titleContent = new GUIContent(title, myIcon);
-
-            }
+            /// </summary> FIXME ERROR COMPILER 'CAUSE EDITOR WINDOW NOT FOUND (in where T :....)
+            //public static void TabWindow<T>(this T @this, string title, string iconPath = default)
+            //    where T : EditorWindow
+            //{
+            //    Texture2D myIcon = EditorGUIUtility.Load(iconPath) as Texture2D;
+            //    @this.titleContent = new GUIContent(title, myIcon);
+            //}
 
 
             /// <summary> 
@@ -1106,6 +1107,7 @@ namespace XavHelpTo
         }
 
     }
+#endif
 }
 
 /// <summary>

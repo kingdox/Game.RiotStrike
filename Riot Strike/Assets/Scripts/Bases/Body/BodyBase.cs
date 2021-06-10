@@ -37,27 +37,23 @@ public abstract class Body : MonoBehaviour
     [HideInInspector] public MovementController movement;
     [HideInInspector] public RotationController rotation;
     [HideInInspector] public GravityController gravity;
-    
-    [Space]
     public Character character;
+    [Space]
     public Action OnChangeLife;
     #endregion
     #region Event
     public virtual void Awake()
     {
         //body = this;
-        stat = Dat.GetStatData(character.idStat).RealStats;
-        life = stat.DEFENSE; //asign the max life
+        stat = Dat.GetStatData(character.idStat);
+        life = stat.RealHealth;//.DEFENSE; //asign the max life
         this.Component(out gravity);
         this.Component(out controller);
         this.Component(out movement);
         this.Component(out rotation);
         character.Init(this);
     }
-    public virtual void Start()
-    {
-
-    }
+    public virtual void Start(){} // a proposito
     public virtual void OnEnable()
     {
         gravity.OnImpact += FallImpact;
@@ -89,7 +85,7 @@ public abstract class Body : MonoBehaviour
     public virtual void AddLife(int value){
         if (value < 0 && isInmune) return; // no damage, only health if is invincible
         life += value;
-        life = life.Min(0).Max(stat.DEFENSE);
+        life = life.Min(0).Max(stat.RealHealth);
         OnChangeLife?.Invoke();
         if (life.Equals(0)) Death();
     }

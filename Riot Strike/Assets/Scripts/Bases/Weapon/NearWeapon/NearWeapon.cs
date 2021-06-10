@@ -44,7 +44,7 @@ public class NearWeapon : Weapon, ITargetImpact
     {
         if (!CanAtack()) return; // 🛡
         base.Attack(body);
-        lastDamage = body.stat.STRENGHT;
+        lastDamage = body.stat.RealStrength;
 
         //Suscribes
         OnImpact += EmitTargetImpactWeapon;
