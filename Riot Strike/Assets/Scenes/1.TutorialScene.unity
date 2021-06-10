@@ -4468,7 +4468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c06005f6d3d343778ffe6b09625bfa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: _tutorials_game_0
+  key: _tutorials_game_-1
   txt: {fileID: 0}
   startTranslate: 0
 --- !u!4 &312261568 stripped

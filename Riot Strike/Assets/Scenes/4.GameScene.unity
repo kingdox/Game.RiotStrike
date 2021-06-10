@@ -12963,7 +12963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931392ed20d5c44b2aff5361b380918b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tr_parent_buffs: {fileID: 626050453}
+  tr_parent_buffPoints: {fileID: 626050453}
+  timerSpawn: 180
+  prefs_buffs: {fileID: 0}
 --- !u!1 &649653120
 GameObject:
   m_ObjectHideFlags: 0

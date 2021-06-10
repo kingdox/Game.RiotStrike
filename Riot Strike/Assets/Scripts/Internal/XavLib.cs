@@ -77,6 +77,13 @@ namespace XavHelpTo
             }
         }
 
+
+        /// <summary>
+        /// Returns the lenght of a enum
+        /// </summary>
+        public static int Lenght<T>() => S.Enum.GetValues(typeof(T)).Length;
+
+
         /// <summary>
         ///  Saca el porcentaje de la cantidad y el maximo en caso de tener
         /// </summary>
@@ -142,22 +149,22 @@ namespace XavHelpTo
             /// Gets all the types of the objects
             /// </summary>
             public static S.Type[] Types(params object[] objs) {
-            int length = objs.Length;
-            S.Type[] types = new S.Type[length];
-            for (int x = 0; x < length; x++)
-            {
-                types[x] = objs.GetType();
-            }
-            return types;
+                int length = objs.Length;
+                S.Type[] types = new S.Type[length];
+                for (int x = 0; x < length; x++)
+                {
+                    types[x] = objs.GetType();
+                }
+                return types;
             }
 
 
-            
+
             /// <summary>
             /// Returns the components of this gameobject without any order
             /// </summary>
             public static void ComponentsWithoutOrder<T>(this GameObject gameobj, out T[] t) => t = gameobj.GetComponents<T>();
-            
+
             /// <summary>
             /// Returns the components of this object and this component object whether it have 
             /// </summary>
@@ -222,7 +229,7 @@ namespace XavHelpTo
             /// </summary>
             /// <returns>el Ancho de <seealso cref="Camera"/> en unidades Unity</returns>
             public static float ScreenWidthUnit(float camHeight) => camHeight * (Screen.width / Screen.height);
-            
+
             /// <summary>
             /// Obtienes el valor del rango dado 
             /// </summary>
@@ -240,10 +247,10 @@ namespace XavHelpTo
             public static float MinusMax(float max) => Random.Range(-max, max);
             public static Vector2 MinusMax(this Vector2 max) => new Vector2(MinusMax(max.x), MinusMax(max.y));
 
-            public static Vector3 MinusMax(Vector3 pos, float range, int blocked = -1){
+            public static Vector3 MinusMax(Vector3 pos, float range, int blocked = -1) {
 
-                for (int x = 0; x < 3; x++){
-                    if (blocked != x){
+                for (int x = 0; x < 3; x++) {
+                    if (blocked != x) {
                         pos[x] += MinusMax(range);
                     }
                 }
@@ -257,8 +264,15 @@ namespace XavHelpTo
             public static int ZeroMax(this int max) => Random.Range(0, max);
             public static float ZeroMax(this float max) => Random.Range(0, max);
             public static int ZeroMax<T>(this T[] arr) => arr.Length.ZeroMax();
+            public static int ZeroMax<T>(params int[] ignoreInts) {
+                int max = Supply.Lenght<T>();
+                int result = -1;
+                //TODO
 
-            public static float Max(this float value, float max) => value > max ? max : value;
+                return result;
+            }
+
+        public static float Max(this float value, float max) => value > max ? max : value;
             public static int Max(this int value, int max) => value > max ? max : value;
             public static Vector3 Max(this Vector3 value, float max) => new Vector3(value.x.Max(max), value.y.Max(max), value.z.Max(max));
 
@@ -578,6 +592,10 @@ namespace XavHelpTo
     /// </summary>
     public static class Change{
 
+            //public static T toEnum<T>(T @enum) //where T : S.en
+            //{
+            //    return S.Enum.Parse(typeof(T));
+            //}
 
         /// <summary>
         /// Cambiamos a la escena indicada en numerico
@@ -934,6 +952,22 @@ namespace XavHelpTo
                     flag = true;
                 }
                 return flag;
+            }
+
+
+            /// <summary>
+            /// Find the index who does not contain any child
+            /// returns -1 if is not finded a empty child
+            /// </summary>
+            /// <returns></returns>
+            public static int IsEmptyAnyChild(this Transform _transform, int startIn = 0)
+            {
+                int index = -1;
+                for (int i = startIn; i < _transform.childCount; i++)
+                {
+                    if (_transform.GetChild(i).childCount.Equals(0)) index = i;
+                }
+                return index;
             }
 
         }

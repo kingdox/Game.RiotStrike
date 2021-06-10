@@ -92,7 +92,7 @@
         <_tutorials key="_tutorials_opt_play">Jugar Tutorial</_tutorials>
         <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
 	    <_tutorials key="_tutorials_game_-1">Presiona Enter para pasar a los siguientes consejos</_tutorials>
-	<_tutorials key="_tutorials_game_0">Usa las teclas WASD para moverte y el mouse girar</_tutorials>
+	        <_tutorials key="_tutorials_game_0">Usa las teclas WASD para moverte y el mouse girar</_tutorials>
             <_tutorials key="_tutorials_game_1">Las caídas pueden hacer daño que pueden ser letales.</_tutorials>
             <_tutorials key="_tutorials_game_2">Usa R para Recargar y Click Izquierdo para disparar, Apuntas con Click Derecho.</_tutorials>
             <_tutorials key="_tutorials_game_3">Los orbes proporcionan mejoras para la partida, pueden curarte o mejorar tus estadisticas. Intenta tomarlos cuando salgan.</_tutorials>

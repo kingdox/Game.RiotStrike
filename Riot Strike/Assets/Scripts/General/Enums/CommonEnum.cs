@@ -63,6 +63,18 @@ public enum EStat
     HEALTH=3,
 }
 /// <summary>
+/// Enum of the buffs in game
+/// </summary>
+public enum EBuff
+{
+    ATTACK=0,
+    DEFENSE=1,
+    SPEED=2,
+    HEALTH=3,
+    //...
+}
+
+/// <summary>
 /// Special elements who define the player and their own play style
 /// </summary>
 public enum EQuirk

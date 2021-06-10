@@ -20,7 +20,7 @@ namespace TutorialScene
         #region Variables
         private const int QTY_GAME_TUTORIALS = 4; // TODO multiplayer
         private const string KEY_TUTORIAL_GAME = "_tutorials_game_";
-        [SerializeField] private int lastIndexHint=0;
+        [SerializeField] private int lastIndexHint=-1;
         //private Tutorial tutorialGame = new Tutorial("_tutorials_title", "_tutorials_menu", QTY_GAME_TUTORIALS);
         [Header("Tutorial Game Manager")]
         public RefreshController refresh_tutorialScreen;
