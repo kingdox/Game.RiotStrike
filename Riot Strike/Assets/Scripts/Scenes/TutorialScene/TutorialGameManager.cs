@@ -26,7 +26,7 @@ namespace TutorialScene
         public RefreshController refresh_tutorialScreen;
         public PlayerBody player;
         public ImageController imgCtrl_curtain;
-
+        public ContactComponent contact_exit;
         #endregion
         #region Event
         private void Awake()
@@ -57,6 +57,7 @@ namespace TutorialScene
         /// </summary>
         private void Subscribe()
         {
+            contact_exit.OnContact += GoToMenu;
             player.OnInsert += ShowNextHint;
             player.OnPause += GoToMenu;
         }
@@ -65,6 +66,7 @@ namespace TutorialScene
         /// </summary>
         private void UnSuscribe()
         {
+            contact_exit.OnContact += GoToMenu;
             player.OnInsert -= ShowNextHint;
             player.OnPause -= GoToMenu;
         }

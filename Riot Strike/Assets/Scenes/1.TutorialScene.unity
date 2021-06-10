@@ -1075,6 +1075,7 @@ MonoBehaviour:
   refresh_tutorialScreen: {fileID: 1638209333}
   player: {fileID: 1982160918}
   imgCtrl_curtain: {fileID: 515829040}
+  contact_exit: {fileID: 1508755059}
 --- !u!4 &68502009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1706094747278947702, guid: eba68267fa3f24b208107be49c7de00f, type: 3}
@@ -5626,7 +5627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3874082076069386310, guid: 0f878276b279a4b2aa6eaa1f7baa6c5c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 13
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4854296434630622655, guid: 0f878276b279a4b2aa6eaa1f7baa6c5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16289,6 +16290,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495127890}
   m_Mesh: {fileID: 1767136660}
+--- !u!1 &1508755057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1996991608324507900, guid: 0f878276b279a4b2aa6eaa1f7baa6c5c, type: 3}
+  m_PrefabInstance: {fileID: 509885430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1508755058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508755057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1508755059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508755057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ad4f397464b714b99b2879469fb98e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToCheck: {fileID: 1887767734}
 --- !u!1001 &1534233455
 PrefabInstance:
   m_ObjectHideFlags: 0

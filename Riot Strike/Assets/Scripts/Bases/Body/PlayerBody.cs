@@ -19,7 +19,7 @@ public class PlayerBody : Body
     private const string KEY_AXIS_X = "Mouse X";
     private const string KEY_AXIS_Y = "Mouse Y";
     private Camera cam;
-
+    private float initFOV;
     [Header("Player Body")]
     public HUDController ctrl_HUD;
     public bool canMove = true;
@@ -32,6 +32,7 @@ public class PlayerBody : Body
     public override void Awake() {
         base.Awake();
         cam = Camera.main;
+        initFOV = cam.fieldOfView;
     }
     public override void OnEnable()
     {
@@ -81,7 +82,10 @@ public class PlayerBody : Body
     /// <summary>
     /// Emit in HUD the buff
     /// </summary>
-    public void EmitBuff(string message, Color color) => ctrl_HUD.CreateBuffText(message, color);
+    public void EmitBuff(string message, Color color) {
+        ctrl_HUD.CreateBuffText(message, color);
+        EmitLife();
+    }
     /// <summary>
     /// Emit the Life status in UI
     /// </summary>
@@ -99,7 +103,7 @@ public class PlayerBody : Body
     /// </summary>
     private void CameraZoom(float aimZoomPercent)
     {
-        cam.fieldOfView += aimZoomPercent.QtyOf(cam.fieldOfView, true);// + or -
+        cam.fieldOfView =  initFOV + aimZoomPercent.QtyOf(cam.fieldOfView, true);// + or -
     }
     /// <summary>
     /// Controls the actions of the player
