@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5810756721012518969
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6756883087812825458, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686955, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686964, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Name
+      value: 4. HIDE Weapon (Machine Gun) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686964, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281084686964, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_TagString
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281135358983, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415281599640809, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415282153235158, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415282186567899, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415282418573539, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222415282473299137, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe839a68d12ff4a0990b33d9ab4aaf4a, type: 3}

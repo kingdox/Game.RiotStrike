@@ -58,6 +58,15 @@ public class StatBuff : Buff
             $"Error al buscar body en {target.name}".Print("red");
         }
     }
+
+    protected override void CheckMessage(Transform target) {
+       // base.CheckMessage(target);
+        target.Component(out PlayerBody player, false);
+        if (player) {
+            player.EmitBuff($"+{qty} {TranslateSystem.Translate(message)} !", color);
+        }
+    }
+
     public override void DestroyBuff(in Transform target){
         refresh.RefreshPlayParticle(Particle.CONSTANT,false);
         refresh.RefreshPlayParticle(Particle.DESTRUCTION);

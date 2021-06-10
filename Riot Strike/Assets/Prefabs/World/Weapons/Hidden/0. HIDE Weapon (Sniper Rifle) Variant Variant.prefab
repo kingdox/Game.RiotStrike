@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2278352386618356082
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1493904175464532726, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014458968256365, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014459166111557, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014459220966247, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014459487558495, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014459521825106, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460504166275, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620847, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620848, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Name
+      value: 0. HIDE Weapon (Sniper Rifle) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620848, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262014460587620848, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}
+      propertyPath: m_TagString
+      value: Hide
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7dcba1af2dde241049cc7d4b5d902842, type: 3}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Know;
 using XavHelpTo.Change;
 using Environment;
 using TutorialGameRefresh;
@@ -18,9 +19,11 @@ namespace TutorialScene
     {
         #region Variables
         private const int QTY_GAME_TUTORIALS = 4; // TODO multiplayer
+        private const string KEY_TUTORIAL_GAME = "_tutorials_game_";
+        [SerializeField] private int lastIndexHint=0;
         //private Tutorial tutorialGame = new Tutorial("_tutorials_title", "_tutorials_menu", QTY_GAME_TUTORIALS);
         [Header("Tutorial Game Manager")]
-        public RefreshController refresh_skip;
+        public RefreshController refresh_tutorialScreen;
         public PlayerBody player;
         public ImageController imgCtrl_curtain;
 
@@ -41,8 +44,7 @@ namespace TutorialScene
             string KEY = DataSystem.Get.controlKeys[EControl.PAUSE.ToInt()];
             string MSG_2 = "_intro_skip_1".Translate();
 
-            refresh_skip.RefreshText(Text.SKIP, $"{MSG_1} {KEY} {MSG_2}");
-
+            refresh_tutorialScreen.RefreshText(Text.SKIP, $"{MSG_1} {KEY} {MSG_2}");
         }
         private void OnDisable()
         {
@@ -55,6 +57,7 @@ namespace TutorialScene
         /// </summary>
         private void Subscribe()
         {
+            player.OnInsert += ShowNextHint;
             player.OnPause += GoToMenu;
         }
         /// <summary>
@@ -62,6 +65,7 @@ namespace TutorialScene
         /// </summary>
         private void UnSuscribe()
         {
+            player.OnInsert -= ShowNextHint;
             player.OnPause -= GoToMenu;
         }
 
@@ -69,6 +73,15 @@ namespace TutorialScene
         /// Go to the menu
         /// </summary>
         public void GoToMenu() => Scenes.MENU_SCENE.ToScene();
+
+        /// <summary>
+        /// Show the following hint based on a index
+        /// </summary>
+        [ContextMenu("Next Hint")]
+        public void ShowNextHint() {
+            lastIndexHint = Know.NextIndex(true, QTY_GAME_TUTORIALS, lastIndexHint);
+            refresh_tutorialScreen.Translate(Text.HINT_MESSAGE, (KEY_TUTORIAL_GAME + lastIndexHint));
+        }
         #endregion
     }
 }

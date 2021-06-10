@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4985694570015420121, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: m_Name
-      value: Buff Strenght
+      value: Buff Strenght Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4985694570015420126, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,6 +54,22 @@ PrefabInstance:
     - target: {fileID: 4985694570015420126, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.g
+      value: 0.10980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: message
+      value: stat_strength
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}

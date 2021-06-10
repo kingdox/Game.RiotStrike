@@ -24,6 +24,7 @@ public abstract class Body : MonoBehaviour
     private const float BODY_MASS = 10f;
     //protected Body body;
     [Header("Body")]
+     public Color _debugColorIdentifier;
     [SerializeField] protected int life;
     [SerializeField] protected bool isDead=false;
     [SerializeField] protected bool isInmune=false;
@@ -63,6 +64,12 @@ public abstract class Body : MonoBehaviour
     {
         gravity.OnImpact -= FallImpact;
         character.UnSubscribes(this);
+    }
+    private void OnDrawGizmos() {
+        if (!controller) this.Component(out controller);
+        Gizmos.color = _debugColorIdentifier;
+        Gizmos.DrawCube(transform.position + controller.center, transform.localScale + (new Vector3(0,controller.height -1,0)));
+
     }
     #endregion
     #region Method

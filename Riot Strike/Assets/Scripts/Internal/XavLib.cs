@@ -107,7 +107,7 @@ namespace XavHelpTo
 
         /// <summary>
         /// Access in <seealso cref="Application.streamingAssetsPath "/> and Loads the object
-        /// path = $"{Application.streamingAssetsPath}/{path}.json"
+        /// path = $"{Application.streamingAssetsPath}/{path}.json"s
         /// </summary>
         public static T LoadJson<T>(this string path) => path.LoadJson(out T t);
         public static T LoadJson<T>(this string path, out T container)
@@ -1078,7 +1078,6 @@ namespace XavHelpTo
             public static string TextField(ref string txtRef) => txtRef = EditorGUILayout.TextField(txtRef);
             public static string TextArea(ref string txtRef) => txtRef = EditorGUILayout.TextArea(txtRef);
             public static bool Toggle(ref bool txtRef) => txtRef = EditorGUILayout.Toggle(txtRef);
-
             /// <summary>
             /// Create a Standar Button
             /// returns true if exist changes

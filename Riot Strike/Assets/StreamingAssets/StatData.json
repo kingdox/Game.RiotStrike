@@ -1,6 +1,12 @@
 ﻿{
     "DATA": [
         {
+            "ID": "Doll",
+            "STRENGHT": 0,
+            "DEFENSE": 999,
+            "SPEED": 0
+        },
+        {
             "ID": "Base",
             "STRENGHT": 25,
             "DEFENSE": 350,

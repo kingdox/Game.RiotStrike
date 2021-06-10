@@ -24,7 +24,9 @@ public class HUDController : MonoBehaviour
     public RefreshController refresh;
     [Space]
     public Transform tr_parent_damageTexts;
+    public Transform tr_parent_buffText;
     public GameObject pref_damageText;
+    public GameObject pref_buffText;
     public float lenghtRandomDamage = 10;
     public float durationDamage = 2f;
     public float durationFadeDamage = 1f;
@@ -121,22 +123,11 @@ public class HUDController : MonoBehaviour
     public void CreateDamageText(int damage,int life,int max ){
         Color color = Color.white;//Get.RandomColor();
         color.ColorParam(ColorType.RGB.ToInt(), (1f*life).PercentOf(max, true));
-
         int valueToShow = life > damage
             ? damage
             :  life
         ;
-
-
-        Vector3 variation = new Vector3(1,1,0) * (Random.insideUnitCircle * lenghtRandomDamage);
-        Instantiate(
-            pref_damageText,
-            tr_parent_damageTexts.position + variation,
-            Quaternion.identity,
-            tr_parent_damageTexts
-        ).transform
-        .Component(out UI.Text txt);
-
+        UI.Text txt = DoText(tr_parent_damageTexts);
         txt.color = color;
         txt.text = valueToShow.ToString();
         StartCoroutine(FadeDamageText(txt));
@@ -144,13 +135,36 @@ public class HUDController : MonoBehaviour
         //Text FUnnny
         //txt.text = Set.ToArray("POW","SMACK", "WOW").Any();// valueToShow.ToString();
     }
+
+    public UI.Text DoText(Transform parent) {
+        Vector3 variation = new Vector3(1,1,0) * (Random.insideUnitCircle * lenghtRandomDamage);
+        Instantiate(
+            pref_damageText,
+            parent.position + variation,
+            Quaternion.identity,
+            parent
+        ).transform
+        .Component(out UI.Text txt);
+
+        return txt;
+    } 
+
+    /// <summary>
+    /// Creates the text of the buff with colors
+    /// </summary>
+    public void CreateBuffText(string message, Color color) {
+        UI.Text txt = DoText(tr_parent_buffText);
+        txt.color = color;
+        txt.text = message;
+        StartCoroutine(FadeDamageText(txt));
+    }
+
     /// <summary>
     /// Do the fade of the text and then destroy it
     /// </summary>
     IEnumerator FadeDamageText(UI.Text txt)
     {
         yield return new WaitForSeconds(durationDamage);
-
         float count = 0;
         while (!durationFadeDamage.TimerIn(ref count)){
             txt.CrossFadeAlpha(0, durationFadeDamage, false);

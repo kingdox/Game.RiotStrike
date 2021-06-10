@@ -14,16 +14,14 @@ public class BuffManager : MonoBehaviour
 {
 
     #region Start
-    private Transform[][] jagged_buffs; // matrix donde asignamos toda la información en cada punto de manera ordenada
+    [Tooltip("matrix donde asignamos toda la información en cada punto de manera ordenada")]
+    private Transform[][] jagged_buffs = default; 
     [SerializeField] private Transform tr_parent_buffs;
 
     #endregion
     #region Event
     private void Start(){
         LoadTheInformation();
-
-
-
 
     }
     #endregion
@@ -57,12 +55,5 @@ public class BuffManager : MonoBehaviour
     {
 
     }
-
     #endregion
 }
-
-/**
- * 
- * 
- * 
- */

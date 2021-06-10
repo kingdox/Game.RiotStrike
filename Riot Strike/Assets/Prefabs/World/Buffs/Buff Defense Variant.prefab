@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4985694570015420121, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: m_Name
-      value: Buff Defense
+      value: Buff Defense Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4985694570015420126, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,6 +74,22 @@ PrefabInstance:
     - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: eStat
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.g
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: message
+      value: stat_defense
       objectReference: {fileID: 0}
     - target: {fileID: 4985694570584280401, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r

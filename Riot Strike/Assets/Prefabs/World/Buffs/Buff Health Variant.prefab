@@ -71,6 +71,22 @@ PrefabInstance:
       propertyPath: qty
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.b
+      value: 0.73333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: message
+      value: stat_health
+      objectReference: {fileID: 0}
     - target: {fileID: 4985694570584280401, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1

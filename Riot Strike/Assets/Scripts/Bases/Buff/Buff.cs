@@ -17,7 +17,9 @@ public abstract class Buff : MonoBehaviour
     #region Variables
     private Collider col;
     private bool isBuffTaked = false;
-    //public Action OnBuff;
+    [Header("Buff")]
+    public Color color;
+    public string message;
     #endregion
     #region Events
     private void Awake()
@@ -28,6 +30,7 @@ public abstract class Buff : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (isBuffTaked || !other.CompareTag(tag)) return; // 🛡, only can get the same tag of the buff
         isBuffTaked = true;
+
         BuffTaking(other.transform);
     }
     #endregion
@@ -37,10 +40,21 @@ public abstract class Buff : MonoBehaviour
     /// </summary>
     private void BuffTaking(in Transform target)
     {
-        //OnBuff?.Invoke();
+        CheckMessage(target);
+
         DoEffectBuff(in target);
         DestroyBuff(in target);
     }
+
+    /// <summary>
+    /// Do the management of the ianformation to show in HUD wether is a player the target
+    /// </summary>
+    protected virtual void CheckMessage(Transform target) {
+
+        target.Component(out PlayerBody player, false);
+        if (player)  player.EmitBuff(message, color); 
+    }
+
     /// <summary>
     /// Do the effect of the buff
     /// </summary>

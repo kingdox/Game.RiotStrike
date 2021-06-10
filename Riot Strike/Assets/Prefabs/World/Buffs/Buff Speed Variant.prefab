@@ -75,6 +75,18 @@ PrefabInstance:
       propertyPath: destroyDuration
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420127, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: message
+      value: stat_speed
+      objectReference: {fileID: 0}
     - target: {fileID: 4985694570584280401, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.13751912

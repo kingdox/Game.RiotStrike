@@ -85,7 +85,8 @@
         <_tutorials key="_tutorials_opt_goal">Goals</_tutorials>
         <_tutorials key="_tutorials_opt_play">Play Tutorial</_tutorials>
         <_ key="_tutorials_game"><!--TUTORIALS GAME--></_>
-            <_tutorials key="_tutorials_game_0">Use WASD to move and use the mouse to rotate</_tutorials>
+	        <_tutorials key="_tutorials_game_-1">Press enter to show the next hint</_tutorials>
+        	<_tutorials key="_tutorials_game_0">Use WASD to move and use the mouse to rotate</_tutorials>
             <_tutorials key="_tutorials_game_1">Falls can cause injury that can be lethal</_tutorials>
             <_tutorials key="_tutorials_game_2">Use R to Reload and Left Click to shoot, Aim with Right Click.</_tutorials>
             <_tutorials key="_tutorials_game_3">The orbs provide improvements for the game, they can heal you or improve your statistics. Try to take them when they come out.</_tutorials>
@@ -209,5 +210,6 @@ mortal, for this he has a variety of weapons integrated into his body.
     <_ key="_stat"><!--STATS--></_>
         <stat key="stat_strength">Strength</stat>
         <stat key="stat_defense">Defense</stat>
-        <stat key="stat_speed">Agility</stat>
+	    <stat key="stat_speed">Agility</stat>
+	    <stat key="stat_health">Health</stat>
 </main>

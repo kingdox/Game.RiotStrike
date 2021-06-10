@@ -26,6 +26,7 @@ public class PlayerBody : Body
     public bool canRotate = true;
 
     public Action OnPause;
+    public Action OnInsert;
     #endregion
     #region Event
     public override void Awake() {
@@ -77,6 +78,10 @@ public class PlayerBody : Body
         character.weapon.OnZoom -= CameraZoom;
         OnChangeLife -= EmitLife;
     }
+    /// <summary>
+    /// Emit in HUD the buff
+    /// </summary>
+    public void EmitBuff(string message, Color color) => ctrl_HUD.CreateBuffText(message, color);
     /// <summary>
     /// Emit the Life status in UI
     /// </summary>
@@ -135,6 +140,7 @@ public class PlayerBody : Body
         }
 
         //CHAT
+        CheckPressDown(EControl.CHAT, OnInsert);
         // TODO (Multiplayer) 
 
         //PAUSE

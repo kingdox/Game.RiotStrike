@@ -27,7 +27,8 @@ namespace TutorialGameRefresh
     /// </summary>
     public enum Text
     {
-        SKIP=0
+        SKIP=0,
+        HINT_MESSAGE = 1,
     }
 }
 #endregion
