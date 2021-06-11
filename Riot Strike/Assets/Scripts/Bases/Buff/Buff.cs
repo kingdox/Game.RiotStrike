@@ -20,6 +20,7 @@ public abstract class Buff : MonoBehaviour
     [Header("Buff")]
     public Color color;
     public string message;
+    public Action OnDestroyed;
     #endregion
     #region Events
     private void Awake()
@@ -28,7 +29,12 @@ public abstract class Buff : MonoBehaviour
         if (!col) $"Fallo de toma de colisión en {name}".Print("red");
     }
     private void OnTriggerEnter(Collider other) {
-        if (isBuffTaked || !other.CompareTag(tag)) return; // 🛡, only can get the same tag of the buff
+        other.transform.Component(out Body body);
+        if (
+            isBuffTaked
+            || !other.CompareTag(tag)
+            || !body // si no posee body
+            ) return; // 🛡, only can get the same tag of the buff
         isBuffTaked = true;
 
         BuffTaking(other.transform);
@@ -64,6 +70,7 @@ public abstract class Buff : MonoBehaviour
     /// </summary>
     public virtual void DestroyBuff(in Transform target)
     {
+        OnDestroyed?.Invoke();
         Destroy(this.gameObject);
     }
     #endregion

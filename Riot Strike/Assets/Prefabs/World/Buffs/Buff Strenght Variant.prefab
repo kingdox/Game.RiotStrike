@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buff Strenght Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4985694570015420121, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4985694570015420126, guid: afaf73c454e1244a58816bb7cc412dbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.9816794

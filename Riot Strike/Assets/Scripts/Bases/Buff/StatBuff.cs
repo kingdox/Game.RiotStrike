@@ -71,6 +71,7 @@ public class StatBuff : Buff
         refresh.RefreshPlayParticle(Particle.CONSTANT,false);
         refresh.RefreshPlayParticle(Particle.DESTRUCTION);
         render.enabled = false;
+        OnDestroyed?.Invoke();
         Destroy(this.gameObject, destroyDuration);
     }
     #endregion

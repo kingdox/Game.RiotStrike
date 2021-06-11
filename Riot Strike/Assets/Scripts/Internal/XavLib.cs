@@ -264,11 +264,27 @@ namespace XavHelpTo
             public static int ZeroMax(this int max) => Random.Range(0, max);
             public static float ZeroMax(this float max) => Random.Range(0, max);
             public static int ZeroMax<T>(this T[] arr) => arr.Length.ZeroMax();
+            /// <summary>
+            /// Take the val between 0 and max, you can also ignore some indexs
+            /// </summary>
             public static int ZeroMax<T>(params int[] ignoreInts) {
                 int max = Supply.Lenght<T>();
                 int result = -1;
-                //TODO
 
+                //si hay mas elementos que ignorados bien
+                if (max > ignoreInts.Length )
+                {
+                    result = ignoreInts[0];
+                    //revisamos que no sea igual que alguno de los ignorados
+                    while (Know.Know.IsEqualOf(result,ignoreInts))  
+                    {
+                        result = max.ZeroMax();
+                    }
+                }
+                else
+                {
+                    "Error, more ignores than lenght in the enum".Print("red");
+                }
                 return result;
             }
 
@@ -962,12 +978,10 @@ namespace XavHelpTo
             /// <returns></returns>
             public static int IsEmptyAnyChild(this Transform _transform, int startIn = 0)
             {
-                int index = -1;
-                for (int i = startIn; i < _transform.childCount; i++)
-                {
-                    if (_transform.GetChild(i).childCount.Equals(0)) index = i;
+                for (int i = startIn; i < _transform.childCount; i++){
+                    if (_transform.GetChild(i).childCount.Equals(0))return i;
                 }
-                return index;
+                return -1;
             }
 
         }
@@ -1011,10 +1025,11 @@ namespace XavHelpTo
         }
         #endregion
     }
-#if UNITY_EDITOR
     namespace EditWindow
     {
+#if UNITY_EDITOR
         using static Change.Change;
+
         public static class EditWindow
         {
 
