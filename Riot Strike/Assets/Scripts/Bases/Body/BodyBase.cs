@@ -24,7 +24,9 @@ public abstract class Body : MonoBehaviour
     private const float BODY_MASS = 10f;
     //protected Body body;
     [Header("Body")]
-     public Color _debugColorIdentifier;
+    public Color _debugColorIdentifier;
+    public Vector3 debug_size;
+    public Vector3 debug_center;
     [SerializeField] protected int life;
     [SerializeField] protected bool isDead=false;
     [SerializeField] protected bool isInmune=false;
@@ -66,10 +68,8 @@ public abstract class Body : MonoBehaviour
         character.UnSubscribes(this);
     }
     private void OnDrawGizmos() {
-        if (!controller) this.Component(out controller);
         Gizmos.color = _debugColorIdentifier;
-        Gizmos.DrawCube(transform.position + controller.center, transform.localScale + (new Vector3(0,controller.height -1,0)));
-
+        Gizmos.DrawCube(transform.position + debug_center, transform.localScale + (debug_size));
     }
     #endregion
     #region Method
