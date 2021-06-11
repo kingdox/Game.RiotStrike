@@ -62,65 +62,96 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6540778405395507382
+--- !u!1 &6198336959080306151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6723656760992223069}
+  m_Layer: 0
+  m_Name: sci_fi_kitbash_Puerta_Ventana_Puerta_Low
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6723656760992223069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6198336959080306151}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.9938126, y: -0.8988111, z: -2.4773855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2932403237578607581}
+  m_Father: {fileID: 3844328922103426184}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3444056615152975908
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3844328922103426184}
+    m_TransformParent: {fileID: 6723656760992223069}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9938126
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8988111
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.4773855
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
+    - target: {fileID: 2046689604425669602, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
       propertyPath: m_Name
-      value: sci_fi_kitbash_Puerta_Ventana_Puerta_Low
+      value: _ Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
---- !u!4 &6723656760992223069 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
+--- !u!4 &2932403237578607581 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 411291053484b4882b532abfa0eb7c37, type: 3}
-  m_PrefabInstance: {fileID: 6540778405395507382}
+  m_CorrespondingSourceObject: {fileID: 538815721486093305, guid: 081852a869e9d40cb9b25614cfbd673e, type: 3}
+  m_PrefabInstance: {fileID: 3444056615152975908}
   m_PrefabAsset: {fileID: 0}
