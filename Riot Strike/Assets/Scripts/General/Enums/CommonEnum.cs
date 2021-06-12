@@ -101,4 +101,15 @@ public enum EBulletBehaviour
     [InspectorName("Por Impulso (Parabola)")] IMPULSE=2,
     [InspectorName("Perseguidora")] FOLLOW= 3
 }
+/// <summary>
+/// List of modals in GameScene
+/// </summary>
+[SerializeField]
+public enum EGameModal
+{
+    HUD = 0,
+    PAUSE = 1,
+    END = 2,
+    CHEAT = 3 // esta se cuenta por separado
+}
 #endregion

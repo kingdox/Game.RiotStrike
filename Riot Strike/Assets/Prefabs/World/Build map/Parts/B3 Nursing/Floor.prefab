@@ -55,13 +55,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4213016728363692882, guid: 8e5e6420d5fbf40c893fe67863435afc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4913461677558400070, guid: 8e5e6420d5fbf40c893fe67863435afc, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8114399687635968000, guid: 8e5e6420d5fbf40c893fe67863435afc, type: 3}
       propertyPath: m_Name
-      value: Floor Roof Wall
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 8114399687635968000, guid: 8e5e6420d5fbf40c893fe67863435afc, type: 3}
       propertyPath: m_IsActive

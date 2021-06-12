@@ -951,9 +951,9 @@ namespace XavHelpTo
             /// <summary>
             /// Based on a cooldown, updates the timer and returns true if pass the cooldown
             /// </summary>
-            public static bool TimerIn(this float cooldown, ref float count)
+            public static bool TimerIn(this float cooldown, ref float count, bool fixedTime = false)
             {
-                count += Time.deltaTime;
+                count += fixedTime ? Time.fixedDeltaTime :Time.deltaTime;
                 bool result = count > cooldown;
                 if (result) count = 0;
                 return result;

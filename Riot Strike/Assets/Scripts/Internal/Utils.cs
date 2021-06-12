@@ -92,7 +92,7 @@ public static class Utils
         float init = canvasGroup.alpha;
         float count = 0;
         float deltaTime;
-        while (!duration.TimerIn(ref count))
+        while (!duration.TimerIn(ref count,true))
         {
             deltaTime = count.PercentOf(duration, true);
 
@@ -101,9 +101,10 @@ public static class Utils
                 end, 
                 deltaTime
             );
+            //$"delta{deltaTime}, {Time.deltaTime}, {Time.time}".Print("magenta");
             yield return new WaitForEndOfFrame();
         }
-
+        canvasGroup.alpha = end;
         //only if the canvas is ended the display
         if (!fade) canvasGroup.CanvasInteract(true);
     }

@@ -16,17 +16,21 @@ namespace GameScene
     public class GameManager : MonoBehaviour
     {
         #region Variables
+        private static GameManager _;
         private CanvasGroup[] canvaScreens;
         [Header("Game Manager")]
-        public GameManagerModal currentModal = GameManagerModal.HUD;
+        public EGameModal currentModal = EGameModal.HUD;
         public Transform tr_parent_screens;
         public PlayerBody player;
+        public bool IsPause { get; private set; } = false;
         [Space]
         public ImageController imgCtrl_curtain;
         #endregion
         #region Events
         private void Awake()
         {
+            this.Singleton(ref _, false);
+
             imgCtrl_curtain.gameObject.SetActive(true);
             Time.timeScale = 1;
             CursorSystem.Hide();
@@ -37,6 +41,7 @@ namespace GameScene
         }
         private void Start() {
             tr_parent_screens.Components(out canvaScreens);
+            StartCoroutine(ChangeModal(EGameModal.HUD, false));
         }
         private void Update()
         {
@@ -67,37 +72,20 @@ namespace GameScene
         /// Pause the game or not
         /// </summary>
         public void Pause(){
-            //isPause = !isPause;
+            IsPause = !IsPause;
 
-            //TIME
-            //Time.timeScale = (!isPause).ToInt();
+            Time.timeScale = (!IsPause).ToInt();
 
-            //DISPLAY
-            /*
-            canvaScreens[GameManagerModal.PAUSE.ToInt()]
-                .gameObject
-                .SetActive(isPause);
-
-            if (isPause) CursorSystem.Show();
-            else CursorSystem.Hide();
-            */
-
-            //    //si hay pausa retorna a la anterior
-            //if (currentModal.Equals(GameManagerModal.PAUSE))
-            //{
-            //    ChangeModal(currentModal, true); // hide
-            //    currentModal = GameManagerModal.HUD;
-            //    ChangeModal(currentModal, false); //->show
-
-            //}
-            //else
-            //{
-            //    // sino, abre pausa
-            //    ChangeModal(currentModal, true); // hide
-            //    currentModal = GameManagerModal.PAUSE;
-            //    ChangeModal(currentModal, false); // show
-
-            //}
+            if (IsPause)
+            {
+                CursorSystem.Show();
+                StartCoroutine(ChangeModal(EGameModal.PAUSE, false));
+            }
+            else
+            {
+                CursorSystem.Hide();
+                StartCoroutine(ChangeModal(EGameModal.HUD, false));
+            }
 
         }
         /// <summary>
@@ -105,7 +93,12 @@ namespace GameScene
         /// Do a fade or not.
         /// dependency with <seealso cref="Utils.Fade(bool, CanvasGroup)"/>
         /// </summary>
-        IEnumerator ChangeModal( GameManagerModal toModal, bool fade){
+        IEnumerator ChangeModal(EGameModal toModal, bool fade){
+            foreach (CanvasGroup c in canvaScreens)
+            {
+                //hides the others modals
+                if (!c.Equals(GetCanvasOf(toModal))) StartCoroutine(Utils.Fade(true, c));
+            }
             StartCoroutine(Utils.Fade(fade, GetCanvasOf(toModal)));
             yield return new WaitForEndOfFrame();
         }
@@ -114,7 +107,7 @@ namespace GameScene
         /// <summary>
         /// Returns the <seealso cref="CanvasGroup"/> of the specified element
         /// </summary>
-        private CanvasGroup GetCanvasOf(GameManagerModal modal)
+        private CanvasGroup GetCanvasOf(EGameModal modal)
         {
             tr_parent_screens.GetChild(modal.ToInt()).Component(out CanvasGroup canvas);
             return canvas;
@@ -132,18 +125,4 @@ namespace GameScene
         #endregion
     }
 }
-
-
-/// <summary>
-/// TODO MOVER A UN SCRIPT COMMON
-/// </summary>
-[SerializeField]
-public enum GameManagerModal
-{
-    HUD=0,
-    PAUSE=1,
-    END=2,
-    CHEAT=3 // esta se cuenta por separado
-}
-
 //!Time.timeScale.Equals(0)
