@@ -14,6 +14,7 @@
         <general key="accept">Accept</general>
         <general key="cancel">Cancel</general>
         <general key="connect">Connect</general>
+        <general key="play">Play</general>
 
     <_ key="_owo"><!--OWO--></_>
     <_owo key="owo_insert_ip">Insert your IP</_owo>

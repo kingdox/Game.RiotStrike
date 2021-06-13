@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 using XavHelpTo;
 using XavHelpTo.Change;
@@ -15,7 +16,6 @@ namespace MenuScene
 {
     /// <summary>
     /// Manages the selection of the user player
-    /// <para>TODO If you're on multiplayer, then it shows the players selected of the others inGame</para>
     /// in <seealso cref="Environment.Scenes.MENU_SCENE"/>
     /// </summary>
     public class SelectorManager : MonoBehaviour
@@ -37,6 +37,8 @@ namespace MenuScene
         [Space]
         public Transform tr_parent_character;
         public GameObject[] pref_characters;
+        [Space]
+        public Button btn_play;
         #endregion
         #region Event
         private void Start()
@@ -48,7 +50,6 @@ namespace MenuScene
         }
         #endregion
         #region Method
-
         /// <summary>
         /// Clear the information into the panel
         /// </summary>
@@ -71,7 +72,6 @@ namespace MenuScene
 
 
         }
-
         /// <summary>
         /// Refresh the information visual of the character, includes
         /// <para>Stats, Spell weapon and Lore</para>
@@ -87,7 +87,6 @@ namespace MenuScene
 
             //Refresh the title
             refresh_title.Translate(Title.Text.TITLE, characterData.NICKNAME);
-            //refresh_title.RefreshText(Title.Text.TITLE, characterData.NICKNAME);
 
             //Refresh the stats
             int[] stats = statData.ToArray();
@@ -98,7 +97,6 @@ namespace MenuScene
             RefreshQuirk(EQuirk.WEAPON, weaponData.NAME, weaponData.APPEARENCE, $"{PATH_FOLDER_WEAPON}/{weaponData.ID}");
 
             //Refresh the lore
-            //refresh_lore.RefreshText(Lore.Text.LORE, in characterData.DESCRITION);
             refresh_lore.Translate(Lore.Text.LORE, characterData.DESCRITION);
 
             //Refresh the visual Character
@@ -115,9 +113,7 @@ namespace MenuScene
         )
         {
             RefreshController refresh = refresh_quirks[quirk.ToInt()];
-            //refresh.RefreshText(Quirk.Text.TITLE, name);
             refresh.Translate(Quirk.Text.TITLE, name);
-            //refresh.RefreshText(Quirk.Text.DESCRIPTION, description);
             refresh.Translate(Quirk.Text.DESCRIPTION, description);
             refresh.RefreshImgColor(Quirk.Image.BACKGROUND, Color.white);
 
@@ -135,9 +131,6 @@ namespace MenuScene
             }
 
         }
-
-
-
         /// <summary>
         /// Selects the character and refresh the information
         /// </summary>
@@ -145,11 +138,16 @@ namespace MenuScene
 
             //Tech TODO
             currentCharacter = (ECharacter)i;
-
+            btn_play.interactable = true;
 
             //Visual
             RefreshCharacterInfo(currentCharacter);
-        
+
+
+            // Data
+            SavedData saved = DataSystem.Get;
+            saved.characterSelected = i;
+            DataSystem.Set(saved);
         }
 
 

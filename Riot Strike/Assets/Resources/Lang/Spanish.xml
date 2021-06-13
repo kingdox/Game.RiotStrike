@@ -14,6 +14,7 @@
         <general key="accept">Aceptar</general>
         <general key="cancel">Cancelar</general>
         <general key="connect">Conectar</general>
+        <general key="play">Jugar</general>
 
         <_ key="_owo"><!--OWO--></_>
         <_owo key="owo_insert_ip">Ingresa tu IP</_owo>

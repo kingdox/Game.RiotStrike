@@ -21,7 +21,9 @@ namespace GameScene
         [Header("Game Manager")]
         public EGameModal currentModal = EGameModal.HUD;
         public Transform tr_parent_screens;
+        [Space]
         public PlayerBody player;
+        public Character[] characters;
         public bool IsPause { get; private set; } = false;
         [Space]
         public ImageController imgCtrl_curtain;
@@ -40,12 +42,10 @@ namespace GameScene
             Subscribe();
         }
         private void Start() {
+            SetPlayerCharacter();
+
             tr_parent_screens.Components(out canvaScreens);
             StartCoroutine(ChangeModal(EGameModal.HUD, false));
-        }
-        private void Update()
-        {
-            
         }
         private void OnDisable()
         {
@@ -66,7 +66,13 @@ namespace GameScene
         private void UnSuscribe()
         {
             player.OnPause -= Pause;
-
+        }
+        private void SetPlayerCharacter()
+        {
+            SavedData saved = DataSystem.Get;
+            player.character = characters[saved.characterSelected];
+            //$"Character Selected: {(ECharacter)saved.characterSelected}".Print("blue");
+            player.gameObject.SetActive(true);
         }
         /// <summary>
         /// Pause the game or not

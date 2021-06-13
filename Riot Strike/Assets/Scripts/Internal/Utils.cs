@@ -9,7 +9,7 @@ using XavHelpTo.Change;
 #endregion
 
 /// <summary>
-/// Helper to actions in this game and their own structure
+/// Helper actions in this game and their own structure
 /// </summary>
 public static class Utils 
 {

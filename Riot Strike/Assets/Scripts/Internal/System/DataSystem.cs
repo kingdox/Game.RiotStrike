@@ -123,13 +123,16 @@ public struct SavedData
 
 
     [Header("Options in Saved Data")]
-        [Tooltip("decibeles guardado de musica")] public float musicPercent;
+        [Tooltip("Decibeles guardado de musica")] public float musicPercent;
         [Tooltip("Porcentaje guardado de sonido")] public float soundPercent;
         [Tooltip("Porcentaje guardado de Sensibilidad del mouse")] public float sensibilityPercent;//
+        [Tooltip("Configurations that need boolean movements")]public bool[] switch_configs;
         [Tooltip("Current language")] public string currentLang;
         [Tooltip("Keys guardados del usuario, por defecto tendrá los del arreglo")] public string[] controlKeys;
 
-        [Tooltip("Configurations that need boolean movements")]public bool[] switch_configs;
+
+    [Header("InGame")]
+        [Tooltip("Último personaje escojido")] public int characterSelected;
 
     //Extra Debug ?
     [Header("Debug Area")]
