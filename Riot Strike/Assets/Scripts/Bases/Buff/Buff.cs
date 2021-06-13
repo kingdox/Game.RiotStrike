@@ -29,7 +29,7 @@ public abstract class Buff : MonoBehaviour
         if (!col) $"Fallo de toma de colisión en {name}".Print("red");
     }
     private void OnTriggerEnter(Collider other) {
-        other.transform.Component(out Body body);
+        other.transform.Component(out Body body, false);
         if (
             isBuffTaked
             || !other.CompareTag(tag)

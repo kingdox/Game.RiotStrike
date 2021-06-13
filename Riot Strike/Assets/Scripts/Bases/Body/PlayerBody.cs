@@ -133,6 +133,7 @@ public class PlayerBody : Body
 
             //FOCUS
             CheckPressDown(EControl.AIM, character.OnAim, this);
+
             //DISFOCUS
             CheckPressUp(EControl.AIM, character.OnDisAim, this);
 
@@ -155,7 +156,7 @@ public class PlayerBody : Body
     /// <summary>
     /// fire the <seealso cref="Action"/> if <seealso cref="EControl"/> is pressed
     /// </summary>
-    private void CheckPress(EControl e, Action a){if (e.IsPressed()) a?.Invoke();}
+    //private void CheckPress(EControl e, Action a){if (e.IsPressed()) a?.Invoke();} 
     /// <summary>
     /// Check if the <seealso cref="EControl"/> is pressing and send the <seealso cref="Action"/>
     /// </summary>

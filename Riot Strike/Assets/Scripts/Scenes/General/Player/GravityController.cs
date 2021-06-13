@@ -16,6 +16,7 @@ public class GravityController : MonoBehaviour
     private CharacterController player;
     private float gravityAcelerator;
     private bool ignorefollowingImpact=false;
+    private const float BODY_LIMIT = 55f; 
     [Header("Gravity Controller")]
     public const float GRAVITY_EARTH= -9.807f;//9,807 m/s²
     public Action<float> OnImpact;
@@ -26,14 +27,8 @@ public class GravityController : MonoBehaviour
         this.Component(out player);
         gravityAcelerator = 1;
     }
-    private void Update(){
-        if (Time.timeScale == 0) {
-            IgnoreFollowingImpact();
-            return; // FIXME recibe daño al caer, esto lo repara,
-                    //  pero que pasaría si uno pausa mientras cae?
-        }
-
-
+    private void FixedUpdate()
+    {
         ApplyGravity();
     }
     #endregion
@@ -46,7 +41,7 @@ public class GravityController : MonoBehaviour
         //Physics.gravity
 
         //apply the fall
-        player.Move( (transform.up * GRAVITY_EARTH * gravityAcelerator * Time.deltaTime).Max(55f) );
+        player.Move( (transform.up * GRAVITY_EARTH * gravityAcelerator * Time.deltaTime).Max(BODY_LIMIT) );
         CheckDistance();
     }
 
@@ -65,7 +60,7 @@ public class GravityController : MonoBehaviour
             if (!ignorefollowingImpact)
             {
                 // if aceleration reach the min damage then emits the impact
-                if (!gravityAcelerator.ToInt().Equals(1))
+                if ( gravityAcelerator > 2)
                 {
                     OnImpact?.Invoke(-gravityAcelerator);
                 }

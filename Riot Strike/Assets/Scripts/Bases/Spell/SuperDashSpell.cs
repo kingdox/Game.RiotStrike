@@ -79,6 +79,7 @@ public class SuperDashSpell : Spell
         Vector3 aditionalMotion = body.transform.TransformDirection(movement);
         body.movement.enabled = false;
         body.gravity.IgnoreFollowingImpact();
+        //body.gravity.enabled = false;
 
         // MOVE
         float count = 0;
@@ -90,6 +91,8 @@ public class SuperDashSpell : Spell
 
         // ENABLE MOVEMENT
         body.movement.enabled = true;
+        //body.gravity.enabled = true;
+
     }
     /// <summary>
     /// Do the manages of the Strenght and returns to normality when is usedAttack 
@@ -100,7 +103,6 @@ public class SuperDashSpell : Spell
         int savedStrenght = body.stat.STRENGHT; // Stores the last strenght
         body.stat.STRENGHT += savedStrenght; // set the x2 damage of the buff
 
-        // SUSCRIBE TO Remove Buff when Impact
         yield return new WaitUntil(IsImpact);
 
         body.stat.STRENGHT -= savedStrenght;

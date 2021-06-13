@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 4514047810728484612}
   - component: {fileID: 7970638894554781663}
   - component: {fileID: 1383390042845331846}
+  - component: {fileID: 5694859368007448235}
   m_Layer: 0
   m_Name: Puerta_low
   m_TagString: Untagged
@@ -307,3 +308,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5694859368007448235
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216064849454980823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5062749568598173295, guid: 7e695178ab499418da0724aabeb73494, type: 3}

@@ -4993,6 +4993,7 @@ MonoBehaviour:
   imgs: []
   txts: []
   btns: []
+  inputs: []
   parts:
   - {fileID: 3822990372145063149}
 --- !u!114 &6338652548698711092
@@ -5009,7 +5010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   movement: {x: 0, y: 20, z: 20}
-  duration: 1
+  duration: 0.5
 --- !u!1001 &4367003622880509771
 PrefabInstance:
   m_ObjectHideFlags: 0

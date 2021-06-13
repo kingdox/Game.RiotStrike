@@ -18,7 +18,7 @@ namespace TutorialScene
     public class TutorialGameManager : MonoBehaviour
     {
         #region Variables
-        private const int QTY_GAME_TUTORIALS = 9;
+        private const int QTY_GAME_TUTORIALS = 10;
         private const string KEY_TUTORIAL_GAME = "_tutorials_game_";
         [SerializeField] private int lastIndexHint=-1;
         //private Tutorial tutorialGame = new Tutorial("_tutorials_title", "_tutorials_menu", QTY_GAME_TUTORIALS);

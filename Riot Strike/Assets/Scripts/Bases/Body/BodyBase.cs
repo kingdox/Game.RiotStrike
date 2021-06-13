@@ -21,7 +21,7 @@ using XavHelpTo.Get;
 public abstract class Body : MonoBehaviour
 {
     #region Variables
-    private const float BODY_MASS = 10f;
+    private const float BODY_MASS = 1f;//prev 10
     //protected Body body;
     [Header("Body")]
     public Color _debugColorIdentifier;
@@ -43,6 +43,7 @@ public abstract class Body : MonoBehaviour
     public Character character;
     [Space]
     public Action OnChangeLife;
+    public Action OnDeath;
     #endregion
     #region Event
     public virtual void Awake()
@@ -84,7 +85,7 @@ public abstract class Body : MonoBehaviour
     protected virtual void Death()
     {
         isDead = true;
-        //TODO
+        OnDeath?.Invoke();
     }
     /// <summary>
     /// Do the damage to the body
