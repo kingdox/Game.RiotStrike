@@ -49,8 +49,7 @@ public abstract class Body : MonoBehaviour
     public virtual void Awake()
     {
         //body = this;
-        stat = Dat.GetStatData(character.idStat);
-        life = stat.RealHealth;//.DEFENSE; //asign the max life
+        SetStat();
         this.Component(out gravity);
         this.Component(out controller);
         this.Component(out movement);
@@ -74,6 +73,14 @@ public abstract class Body : MonoBehaviour
     }
     #endregion
     #region Method
+    /// <summary>
+    /// Set the stat information to the body, using the character id information
+    /// </summary>
+    public void SetStat()
+    {
+        stat = Dat.GetStatData(character.idStat);
+        life = stat.RealHealth;
+    }
     /// <summary>
     /// Makes the damage of a impact by a <seealso cref="GravityController"/>
     /// where <seealso cref="BODY_MASS"/> represent the mass

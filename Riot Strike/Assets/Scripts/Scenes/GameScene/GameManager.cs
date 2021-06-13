@@ -27,12 +27,14 @@ namespace GameScene
         public bool IsPause { get; private set; } = false;
         [Space]
         public ImageController imgCtrl_curtain;
+        [Space]
+        [SerializeField] private bool isCheatOn=false;
         #endregion
         #region Events
         private void Awake()
         {
             this.Singleton(ref _, false);
-
+            isCheatOn = false;
             imgCtrl_curtain.gameObject.SetActive(true);
             Time.timeScale = 1;
             CursorSystem.Hide();
@@ -42,10 +44,27 @@ namespace GameScene
             Subscribe();
         }
         private void Start() {
-            SetPlayerCharacter();
+            SetPlayerCharacter(DataSystem.Get.characterSelected);
+            player.gameObject.SetActive(true);
 
             tr_parent_screens.Components(out canvaScreens);
             StartCoroutine(ChangeModal(EGameModal.HUD, false));
+        }
+        private void Update()
+        {
+
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+            {
+                isCheatOn = !isCheatOn;
+                "Cheats!".Print("magenta");
+                StartCoroutine(Utils.Fade(!isCheatOn, GetCanvasOf(EGameModal.CHEAT)));
+
+                if (isCheatOn) CursorSystem.Show();
+                else CursorSystem.Hide();
+
+            }
+
+
         }
         private void OnDisable()
         {
@@ -67,12 +86,9 @@ namespace GameScene
         {
             player.OnPause -= Pause;
         }
-        private void SetPlayerCharacter()
+        private void SetPlayerCharacter(int charIndex)
         {
-            SavedData saved = DataSystem.Get;
-            player.character = characters[saved.characterSelected];
-            //$"Character Selected: {(ECharacter)saved.characterSelected}".Print("blue");
-            player.gameObject.SetActive(true);
+            player.character = characters[charIndex];
         }
         /// <summary>
         /// Pause the game or not
@@ -128,7 +144,44 @@ namespace GameScene
             Time.timeScale = 1;
             Scenes.MENU_SCENE.ToScene();
         }
-        #endregion
+
+
+
+        #region Cheats Methods
+        /// <summary>
+        /// Change the character with one of the options displayed in the cheat window
+        /// </summary>
+        public void ChangePlayerCharacter(int i)
+        {
+            player.gameObject.SetActive(false);
+            SetPlayerCharacter(i);
+            player.SetStat();
+            player.character.Init(player);
+            player.gameObject.SetActive(true);
+            player.StartVisual();
+
+        }
+        /// <summary>
+        /// Modify the time
+        /// </summary>
+        public static void ChangeTimeScale(float percent) => Time.timeScale=percent;
+        /// <summary>
+        /// Change the life of the player
+        /// </summary>
+        public static void ChangePlayerLife(float percent) => _.ChangePlayerLife(in percent);
+        private void ChangePlayerLife(in float percent)
+        {
+            int max = player.stat.RealHealth;
+            //curamos por completo
+            player.AddLife(max);
+            float qty  = percent.QtyOf(max,true) - max;
+            player.AddLife(qty);
+        }
+
+
+            #endregion
+
+            #endregion
+        }
     }
-}
 //!Time.timeScale.Equals(0)

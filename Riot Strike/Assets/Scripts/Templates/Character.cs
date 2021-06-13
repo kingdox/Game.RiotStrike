@@ -38,24 +38,47 @@ public class Character : ScriptableObject
     public void Init(Body body){
         tag = body.tag;
         layer = body.gameObject.layer;
+
+
+
+        SetCharacterPart(body.tr_spells, pref_spell, out spell);
         //SPELL
-        Instantiate(pref_spell, body.tr_spells).transform
-            .Component(out spell)
-        ;
-        spell.tag = tag;
-        spell.gameObject.layer = layer;
+        //body.tr_spells.ClearChilds();
+        //Instantiate(pref_spell, body.tr_spells).transform
+        //    .Component(out spell)
+        //;
+        //spell.tag = tag;
+        //spell.gameObject.layer = layer;
 
-        //WEAPON 
-        Instantiate(pref_weapon, body.tr_visualWeapon).transform
-            .Component(out weapon)
-        ;
-        weapon.tag = tag;
-        weapon.gameObject.layer = layer;
+        SetCharacterPart(body.tr_visualWeapon, pref_weapon, out weapon);
+        //WEAPON
+        //body.tr_visualWeapon.ClearChilds();
+        //Instantiate(pref_weapon, body.tr_visualWeapon).transform
+        //    .Component(out weapon)
+        //;
+        //weapon.tag = tag;
+        //weapon.gameObject.layer = layer;
 
+        SetCharacterPart(body.tr_body, pref_body, out Transform model);
         //VISUAL MODEL
-        GameObject model = Instantiate(pref_body, body.tr_body);
-        model.tag = tag;
-        model.layer = layer;
+        //body.tr_body.ClearChilds();
+        //GameObject model = Instantiate(pref_body, body.tr_body);
+        //model.tag = tag;
+        //model.layer = layer;
+    }
+
+    /// <summary>
+    /// Clear and set the part with their character values like tag and layer
+    /// </summary>
+    private void SetCharacterPart<T>(Transform tr_parent, GameObject pref, out T part)
+        where T: Component
+    {
+        tr_parent.ClearChilds();
+        Instantiate(pref, tr_parent).transform
+            .Component(out part)
+        ;
+        part.tag = tag;
+        part.gameObject.layer = layer;
     }
     /// <summary>
     /// Do the subscriptions

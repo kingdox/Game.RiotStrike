@@ -42,8 +42,7 @@ public class PlayerBody : Body
     public override void Start()
     {
         base.Start();
-        EmitLife();
-        EmitShotCursor();
+        StartVisual();
     }
     private void Update() {
         Control();
@@ -176,6 +175,14 @@ public class PlayerBody : Body
     /// </summary>
     private void CheckPressUp<T>(EControl e, Action<T> a, T val) { if (e.IsPressedUp()) a?.Invoke(val); }
 
+    /// <summary>
+    /// Starts the visual updates
+    /// </summary>
+    public void StartVisual()
+    {
+        EmitLife();
+        EmitShotCursor();
+    }
     /// <summary>
     /// Adds positive or negative life
     /// </summary>

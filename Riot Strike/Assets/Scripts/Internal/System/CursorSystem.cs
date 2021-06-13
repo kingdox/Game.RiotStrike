@@ -10,7 +10,7 @@ public class CursorSystem : MonoBehaviour
 {
     #region Variables
     private static CursorSystem _;
-    public static Action<bool> OnCursor;
+    //public static Action<bool> OnCursor;
     #endregion
     #region Events
     private void Awake() => this.Singleton(ref _);
@@ -24,7 +24,7 @@ public class CursorSystem : MonoBehaviour
         bool isLocked = c.Equals(CursorLockMode.Locked);
         Cursor.lockState = c;
         Cursor.visible = !isLocked;
-        OnCursor?.Invoke(!isLocked);
+        //OnCursor?.Invoke(!isLocked);
     }
     /// <summary>
     /// Hides the cursor
