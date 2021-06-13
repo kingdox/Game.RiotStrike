@@ -22,7 +22,6 @@ public abstract class Body : MonoBehaviour
 {
     #region Variables
     private const float BODY_MASS = 1f;//prev 10
-    //protected Body body;
     [Header("Body")]
     public Color _debugColorIdentifier;
     public Vector3 debug_size;
@@ -48,7 +47,6 @@ public abstract class Body : MonoBehaviour
     #region Event
     public virtual void Awake()
     {
-        //body = this;
         SetStat();
         this.Component(out gravity);
         this.Component(out controller);

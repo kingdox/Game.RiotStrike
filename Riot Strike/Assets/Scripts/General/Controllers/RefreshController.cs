@@ -22,9 +22,6 @@ public class RefreshController : MonoBehaviour
 
 
     #endregion
-    #region Event
-
-    #endregion
     #region Methods
 
     /// <summary>

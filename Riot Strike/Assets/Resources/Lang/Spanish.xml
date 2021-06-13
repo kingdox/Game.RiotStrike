@@ -15,6 +15,8 @@
         <general key="cancel">Cancelar</general>
         <general key="connect">Conectar</general>
         <general key="play">Jugar</general>
+        <general key="thanks">¡Gracias por jugar!</general>
+
 
         <_ key="_owo"><!--OWO--></_>
         <_owo key="owo_insert_ip">Ingresa tu IP</_owo>
@@ -228,4 +230,20 @@ mortal, para ello tiene integrado en su cuerpo armas variadas.
         <stat key="stat_defense">Defensa</stat>
         <stat key="stat_speed">Agilidad</stat>
 	    <stat key="stat_health">Vida</stat>
+
+
+    <_ key="_pause"><!--PAUSE--></_>
+        <stat key="pause_title">Pausa</stat>
+        <stat key="pause_resume">Reanudar</stat>
+        <stat key="pause_exit">Salir</stat>
+
+    <_ key="_end"><!--END--></_>
+        <stat key="end_title">Resultados</stat>
+        <stat key="end_again">Volver a Jugar</stat>
+        <stat key="end_menu">Regresar al Menú</stat>
+
+        <stat key="end_results_enemiesKilled">Enemigos Eliminados</stat>
+        <stat key="end_results_time">Duración</stat>
+        <stat key="end_results_shot">Ataques</stat>
+
 </main>

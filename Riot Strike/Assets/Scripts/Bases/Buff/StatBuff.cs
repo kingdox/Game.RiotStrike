@@ -1,10 +1,7 @@
 ﻿#region Accesss
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
 using BuffRefresh.StatBuff;
-using Dat = Environment.Data;
 # endregion
 /// <summary>
 /// Buff that add 1 on strenght stat
@@ -40,7 +37,10 @@ public class StatBuff : Buff
                     body.stat.STRENGHT += qty;
                     break;
                 case EStat.DEFENSE:
+                    StatData _stat = body.stat;
+                    _stat.DEFENSE = qty;
                     body.stat.DEFENSE += qty;
+                    body.AddLife(_stat.RealHealth);
                     break;
                 case EStat.SPEED:
                     body.stat.SPEED += qty;
@@ -58,7 +58,9 @@ public class StatBuff : Buff
             $"Error al buscar body en {target.name}".Print("red");
         }
     }
-
+    /// <summary>
+    /// Check if the target was a player, then it emit the buff to show in HUD
+    /// </summary>
     protected override void CheckMessage(Transform target) {
        // base.CheckMessage(target);
         target.Component(out PlayerBody player, false);
@@ -66,7 +68,9 @@ public class StatBuff : Buff
             player.EmitBuff($"+{qty} {TranslateSystem.Translate(message)} !", color);
         }
     }
-
+    /// <summary>
+    /// Destroys itself, showing particles of explosion and emit that it was destroyed
+    /// </summary>
     public override void DestroyBuff(in Transform target){
         refresh.RefreshPlayParticle(Particle.CONSTANT,false);
         refresh.RefreshPlayParticle(Particle.DESTRUCTION);

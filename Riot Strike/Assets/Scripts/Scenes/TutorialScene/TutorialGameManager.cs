@@ -27,6 +27,9 @@ namespace TutorialScene
         public PlayerBody player;
         public ImageController imgCtrl_curtain;
         public ContactComponent contact_exit;
+        [Space]
+        public GameObject obj_postProcessing;
+
         #endregion
         #region Event
         private void Awake()
@@ -45,6 +48,9 @@ namespace TutorialScene
             string MSG_2 = "_intro_skip_1".Translate();
 
             refresh_tutorialScreen.RefreshText(Text.SKIP, $"{MSG_1} {KEY} {MSG_2}");
+
+            obj_postProcessing.SetActive(DataSystem.Get.switch_configs[ESwitchOpt.POST_PROCESSING.ToInt()]);
+
         }
         private void OnDisable()
         {

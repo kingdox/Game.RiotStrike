@@ -1,12 +1,13 @@
 ﻿#region Access
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using XavHelpTo;
+using XavHelpTo.Set;
 using XavHelpTo.Get;
+using XavHelpTo.Know;
 using XavHelpTo.Change;
 using Environment;
+using EndRefresh;
 # endregion
 namespace GameScene
 {
@@ -17,59 +18,66 @@ namespace GameScene
     {
         #region Variables
         private static GameManager _;
-        private CanvasGroup[] canvaScreens;
+
+        private const float MINUTE = 60;
+
         [Header("Game Manager")]
+        private float currentTime=0;
+        public float timerToEnd = 10 * MINUTE;
+        private bool gameEnd = false;
+        public GameObject obj_postProcessing;
+
+  
+
+        [Space]
+        [SerializeField] private bool isCheatOn = false;
+
+
+        [Space(10)]
+        [Header("UI Elements")] 
         public EGameModal currentModal = EGameModal.HUD;
         public Transform tr_parent_screens;
-        [Space]
+        private CanvasGroup[] canvaScreens;
+        public ImageController imgCtrl_curtain;
+
+        [Space(10)]
+        [Header("Character")]
         public PlayerBody player;
         public Character[] characters;
         public bool IsPause { get; private set; } = false;
-        [Space]
-        public ImageController imgCtrl_curtain;
-        [Space]
-        [SerializeField] private bool isCheatOn=false;
+
+
+        [Space(10)]
+        [Header("End Screen")]
+        public GameObject pref_itemResult;
+        public Transform tr_parent_itemResults;
+
         #endregion
         #region Events
         private void Awake()
         {
             this.Singleton(ref _, false);
-            isCheatOn = false;
             imgCtrl_curtain.gameObject.SetActive(true);
             Time.timeScale = 1;
             CursorSystem.Hide();
         }
-        private void OnEnable()
-        {
-            Subscribe();
-        }
+        private void OnEnable(){Subscribe();}
+
         private void Start() {
             SetPlayerCharacter(DataSystem.Get.characterSelected);
             player.gameObject.SetActive(true);
 
             tr_parent_screens.Components(out canvaScreens);
             StartCoroutine(ChangeModal(EGameModal.HUD, false));
+
+            obj_postProcessing.SetActive(DataSystem.Get.switch_configs[ESwitchOpt.POST_PROCESSING.ToInt()]);
         }
         private void Update()
         {
-
-            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
-            {
-                isCheatOn = !isCheatOn;
-                "Cheats!".Print("magenta");
-                StartCoroutine(Utils.Fade(!isCheatOn, GetCanvasOf(EGameModal.CHEAT)));
-
-                if (isCheatOn) CursorSystem.Show();
-                else CursorSystem.Hide();
-
-            }
-
-
+            CheckTimeToEnd();
+            CheatInput();
         }
-        private void OnDisable()
-        {
-            UnSuscribe();
-        }
+        private void OnDisable(){UnSuscribe();}
         #endregion
         #region MEthods
         /// <summary>
@@ -78,6 +86,7 @@ namespace GameScene
         private void Subscribe()
         {
             player.OnPause += Pause;
+            player.OnDeath += GameEnd;
         }
         /// <summary>
         /// Do the unsuscriptions of the actions
@@ -85,6 +94,7 @@ namespace GameScene
         private void UnSuscribe()
         {
             player.OnPause -= Pause;
+            player.OnDeath -= GameEnd;
         }
         private void SetPlayerCharacter(int charIndex)
         {
@@ -93,7 +103,7 @@ namespace GameScene
         /// <summary>
         /// Pause the game or not
         /// </summary>
-        public void Pause(){
+        public void Pause() {
             IsPause = !IsPause;
 
             Time.timeScale = (!IsPause).ToInt();
@@ -108,14 +118,13 @@ namespace GameScene
                 CursorSystem.Hide();
                 StartCoroutine(ChangeModal(EGameModal.HUD, false));
             }
-
         }
         /// <summary>
         /// Change the modal in GameManager
         /// Do a fade or not.
         /// dependency with <seealso cref="Utils.Fade(bool, CanvasGroup)"/>
         /// </summary>
-        IEnumerator ChangeModal(EGameModal toModal, bool fade){
+        IEnumerator ChangeModal(EGameModal toModal, bool fade) {
             foreach (CanvasGroup c in canvaScreens)
             {
                 //hides the others modals
@@ -134,8 +143,6 @@ namespace GameScene
             tr_parent_screens.GetChild(modal.ToInt()).Component(out CanvasGroup canvas);
             return canvas;
         }
-
-
         /// <summary>
         /// Go to the MenuScene
         /// </summary>
@@ -144,10 +151,81 @@ namespace GameScene
             Time.timeScale = 1;
             Scenes.MENU_SCENE.ToScene();
         }
+        /// <summary>
+        /// Play again
+        /// </summary>
+        public void PlayAgain(){
+            Time.timeScale = 1;
+            Scenes.GAME_SCENE.ToScene();
+        }
 
 
 
+        #region End MEthods
+        /// <summary>
+        /// Check the time and updates the images to give feedback of the status of the game
+        /// </summary>
+        private void CheckTimeToEnd()
+        {
+            //pasará una sola vez puesto que se acabo el tiempo
+            if (!gameEnd
+                && timerToEnd.TimerFlag(
+                    ref gameEnd,
+                    ref currentTime
+                )
+            ){
+                GameEnd();
+            }
+        }
+        /// <summary>
+        /// Displays the end of the Game
+        /// starts the game over
+        /// </summary>
+        private void GameEnd()
+        {
+            if (gameEnd) return; // 🛡
+            gameEnd = true;
+            //"Starts game End".Print("blue");
+            //ENEMIES KILLED
+            InstantiateResultItem("end_results_enemiesKilled", FindObjectOfType<EnemyManager>().enemiesKilled.ToString());
+            //TIME
+            InstantiateResultItem("end_results_time", $"{ (currentTime / MINUTE).ToInt()} minutes");
+            //SHOT
+            InstantiateResultItem("end_results_shot", player.countAttacks.ToString());
+
+            StartCoroutine(ChangeModal(EGameModal.END, false));
+        }
+        /// <summary>
+        /// Creates the end item with a key to be translated and their own value
+        /// </summary>
+        private void InstantiateResultItem(string key, string value)
+        {
+            Instantiate(pref_itemResult, tr_parent_itemResults)
+                .transform
+                .Component(out RefreshController _refresh);
+
+            //ENEMIES KILLED
+            _refresh.Translate(Text.TITLE, key);
+            _refresh.RefreshText(Text.VALUE, value);
+        }
+        #endregion
         #region Cheats Methods
+        /// <summary>
+        /// Check if the player use the cheat command
+        /// </summary>
+        private void CheatInput()
+        {
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+            {
+                isCheatOn = !isCheatOn;
+                //"Cheats!".Print("magenta");
+                StartCoroutine(Utils.Fade(!isCheatOn, GetCanvasOf(EGameModal.CHEAT)));
+
+                if (isCheatOn) CursorSystem.Show();
+                else CursorSystem.Hide();
+
+            }
+        }
         /// <summary>
         /// Change the character with one of the options displayed in the cheat window
         /// </summary>
@@ -164,7 +242,7 @@ namespace GameScene
         /// <summary>
         /// Modify the time
         /// </summary>
-        public static void ChangeTimeScale(float percent) => Time.timeScale=percent;
+        public static void ChangeTimeScale(float percent) => Time.timeScale = percent;
         /// <summary>
         /// Change the life of the player
         /// </summary>
@@ -174,14 +252,45 @@ namespace GameScene
             int max = player.stat.RealHealth;
             //curamos por completo
             player.AddLife(max);
-            float qty  = percent.QtyOf(max,true) - max;
-            player.AddLife(qty);
+            player.AddLife(percent.QtyOf(max, true) - max);
+        }
+        /// <summary>
+        /// Generates a random buff if exist space
+        /// </summary>
+        public void GenerateBuff()
+        {
+            FindObjectOfType<BuffManager>().GenerateBuff();
         }
 
-
+        /// <summary>
+        /// Add 1 point to the player stat
+        /// </summary>
+        public void AddPointStat(int i) => ChangePlayerStat(i, 1);
+        /// <summary>
+        /// Removes 1 point to the player stat
+        /// </summary>
+        public void RemovePointStat(int i) => ChangePlayerStat(i, -1);
+        /// <summary>
+        /// Can add or remove stats
+        /// </summary>
+        private void ChangePlayerStat(int i, int qty)
+        {
+            switch ((EStat)i)
+            {
+                case EStat.ATTACK:
+                    player.stat.STRENGHT += qty;
+                    break;
+                case EStat.DEFENSE:
+                    player.stat.DEFENSE += qty;
+                    player.AddLife(0);
+                    break;
+                case EStat.SPEED:
+                    player.stat.SPEED += qty;
+                    break;
+            }
+        }
             #endregion
 
             #endregion
         }
     }
-//!Time.timeScale.Equals(0)

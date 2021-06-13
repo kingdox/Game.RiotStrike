@@ -14,11 +14,11 @@ public class TranslateController : MonoBehaviour
     public string key;
     public Text txt;
     //public RefreshControl refresh;
-    public bool startTranslate = true;
+    //public bool startTranslate = true;
     #endregion
     #region Events
     private void Awake(){if (!txt) this.Component(out txt);}
-    private void Start() {if (startTranslate) Translate();}
+    private void Start() {if (TranslateSystem.Inited) Translate();}
     private void OnEnable() => TranslateSystem.OnSetLanguage += Translate;
     private void OnDisable() => TranslateSystem.OnSetLanguage -= Translate;
     #endregion

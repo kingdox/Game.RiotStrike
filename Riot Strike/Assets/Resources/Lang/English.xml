@@ -15,6 +15,7 @@
         <general key="cancel">Cancel</general>
         <general key="connect">Connect</general>
         <general key="play">Play</general>
+        <general key="thanks">Thanks to play!</general>
 
     <_ key="_owo"><!--OWO--></_>
     <_owo key="owo_insert_ip">Insert your IP</_owo>
@@ -28,7 +29,7 @@
         <intro key="_intro_skip_1">to skip intro</intro>
 
     <_ key="_menu"><!--MENU--></_>
-        <menu key="menu_singlePlayer">Sigleplayer</menu>
+        <menu key="menu_singlePlayer">Singleplayer</menu>
         <menu key="menu_multiPlayer">Multiplayer</menu>
         <menu key="menu_options">Options</menu>
         <menu key="menu_achievements">Achievements</menu>
@@ -218,4 +219,22 @@ mortal, for this he has a variety of weapons integrated into his body.
         <stat key="stat_defense">Defense</stat>
 	    <stat key="stat_speed">Agility</stat>
 	    <stat key="stat_health">Health</stat>
+
+
+    <_ key="_pause"><!--PAUSE--></_>
+        <stat key="pause_title">Pause</stat>
+        <stat key="pause_resume">Resume</stat>
+        <stat key="pause_exit">Exit</stat>
+
+
+    <_ key="_end"><!--END--></_>
+        <stat key="end_title">Results</stat>
+        <stat key="end_again">Play Again</stat>
+        <stat key="end_menu">Go to Menu</stat>
+
+        <stat key="end_results_enemiesKilled">Enemies Killed</stat>
+        <stat key="end_results_time">Duration</stat>
+        <stat key="end_results_shot">Attacks</stat>
+
+
 </main>

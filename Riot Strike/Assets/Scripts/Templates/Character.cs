@@ -1,12 +1,8 @@
 ﻿#region Access
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
-using XavHelpTo.Set;
 # endregion
-
 /// <summary>
 /// Information of a character and their own elements
 /// </summary>
@@ -38,33 +34,12 @@ public class Character : ScriptableObject
     public void Init(Body body){
         tag = body.tag;
         layer = body.gameObject.layer;
-
-
-
+        // SPELL
         SetCharacterPart(body.tr_spells, pref_spell, out spell);
-        //SPELL
-        //body.tr_spells.ClearChilds();
-        //Instantiate(pref_spell, body.tr_spells).transform
-        //    .Component(out spell)
-        //;
-        //spell.tag = tag;
-        //spell.gameObject.layer = layer;
-
+        // WEAPON
         SetCharacterPart(body.tr_visualWeapon, pref_weapon, out weapon);
-        //WEAPON
-        //body.tr_visualWeapon.ClearChilds();
-        //Instantiate(pref_weapon, body.tr_visualWeapon).transform
-        //    .Component(out weapon)
-        //;
-        //weapon.tag = tag;
-        //weapon.gameObject.layer = layer;
-
+        // BODY
         SetCharacterPart(body.tr_body, pref_body, out Transform model);
-        //VISUAL MODEL
-        //body.tr_body.ClearChilds();
-        //GameObject model = Instantiate(pref_body, body.tr_body);
-        //model.tag = tag;
-        //model.layer = layer;
     }
 
     /// <summary>

@@ -1,15 +1,8 @@
 ﻿#region Access
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
-using XavHelpTo.Change;
-using XavHelpTo.Set;
-using XavHelpTo.Get;
-using Dat = Environment.Data;
 #endregion
-
 /// <summary>
 /// Management of the body who player can `play`
 /// </summary>
@@ -24,6 +17,8 @@ public class PlayerBody : Body
     public HUDController ctrl_HUD;
     public bool canMove = true;
     public bool canRotate = true;
+    public int countAttacks { get; private set; } = 0;
+
 
     public Action OnPause;
     public Action OnInsert;
@@ -45,7 +40,7 @@ public class PlayerBody : Body
         StartVisual();
     }
     private void Update() {
-        Control();
+        if (!isDead) Control();
     }
     public override void OnDisable()
     {
@@ -96,52 +91,52 @@ public class PlayerBody : Body
     /// <summary>
     /// Emits the target and the damage dealed
     /// </summary>
-    private void EmitAttackImpact(Body targetBody, int damage) => ctrl_HUD.CreateDamageText(damage, targetBody.Life, targetBody.stat.RealHealth);
+    private void EmitAttackImpact(Body targetBody, int damage)
+    {
+        countAttacks++;
+
+        ctrl_HUD.CreateDamageText(damage, targetBody.Life, targetBody.stat.RealHealth);
+    }
     /// <summary>
     /// Adds the zoom percent based on the actual saved base FOV
     /// </summary>
-    private void CameraZoom(float aimZoomPercent)
-    {
-        cam.fieldOfView =  initFOV + aimZoomPercent.QtyOf(cam.fieldOfView, true);// + or -
-    }
+    private void CameraZoom(float aimZoomPercent) => cam.fieldOfView =  initFOV + aimZoomPercent.QtyOf(cam.fieldOfView, true);// + or -
     /// <summary>
     /// Controls the actions of the player
     /// </summary>
     private void Control()
     {
-        if (!isDead) //&& !Time.timeScale.Equals(0)
-        {
-            //MOVEMENT
-            if (canMove) movement.Move(
-                controller,
-                stat.RealSpeed,
-                Utils.Axis(EControl.RIGHT, EControl.LEFT),
-                0f,
-                Utils.Axis(EControl.FORWARD, EControl.BACK)
-            );
+       
+        //MOVEMENT
+        if (canMove) movement.Move(
+            controller,
+            stat.RealSpeed,
+            Utils.Axis(EControl.RIGHT, EControl.LEFT),
+            0f,
+            Utils.Axis(EControl.FORWARD, EControl.BACK)
+        );
 
-            //ROTATION
-            if (canRotate) rotation.Rotate(
-                Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.RealSpeed),
-                Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.RealSpeed),
-                tr_head
-            );
+        //ROTATION
+        if (canRotate) rotation.Rotate(
+            Utils.Axis(KEY_AXIS_X, ESwitchOpt.INVERT_AXIS_X, stat.RealSpeed),
+            Utils.Axis(KEY_AXIS_Y, ESwitchOpt.INVERT_AXIS_Y, stat.RealSpeed),
+            tr_head
+        );
 
-            //ATTACK
-            CheckPress(EControl.ATTACK, character.OnAttack, this);
+        //ATTACK
+        CheckPress(EControl.ATTACK, character.OnAttack, this);
 
-            //FOCUS
-            CheckPressDown(EControl.AIM, character.OnAim, this);
+        //FOCUS
+        CheckPressDown(EControl.AIM, character.OnAim, this);
 
-            //DISFOCUS
-            CheckPressUp(EControl.AIM, character.OnDisAim, this);
+        //DISFOCUS
+        CheckPressUp(EControl.AIM, character.OnDisAim, this);
 
-            //RELOAD
-            CheckPressDown(EControl.RELOAD, character.OnReload);
+        //RELOAD
+        CheckPressDown(EControl.RELOAD, character.OnReload);
 
-            //SPELL
-            CheckPressDown(EControl.CAST, character.OnCast, this);
-        }
+        //SPELL
+        CheckPressDown(EControl.CAST, character.OnCast, this);
 
         //CHAT
         CheckPressDown(EControl.CHAT, OnInsert);

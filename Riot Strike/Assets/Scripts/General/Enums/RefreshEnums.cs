@@ -252,6 +252,18 @@ namespace HUDRefresh
     }
 
 }
+namespace EndRefresh
+{
+    /// <summary>
+    /// Refresher enum in <seealso cref="RefreshController"/> of <see cref="Text"/> in play when it ends
+    /// <para in <seealso cref="Scenes.GAME_SCENE"/>
+    /// </summary>
+    public enum Text
+    {
+        TITLE=0,
+        VALUE=1
+    }
+}
 
 namespace SpellsRefresh
 {
