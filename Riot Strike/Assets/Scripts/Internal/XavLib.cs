@@ -233,9 +233,9 @@ namespace XavHelpTo
             /// <summary>
             /// Obtienes el valor del rango dado 
             /// </summary>
-            public static float Range(float[] range) => Random.Range(range[0], range[1]);
-            public static int Range(int[] range) => Random.Range(range[0], range[1]);
-            public static float Range(Vector2 range) => Random.Range(range[0], range[1]);
+            public static float Range(this float[] range) => Random.Range(range[0], range[1]);
+            public static int Range(this int[] range) => Random.Range(range[0], range[1]);
+            public static float Range(this Vector2 range) => Random.Range(range[0], range[1]);
 
             public static T Range<T>(params T[] range) => range[ZeroMax(range.Length)];
 

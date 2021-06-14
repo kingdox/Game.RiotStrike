@@ -13,24 +13,19 @@ using Dat = Environment.Data;
 public class IABody : Body
 {
     #region Variables
-    /*
-     * TODO Hacer un patrón de estados para el manejo de comportamientos
-     *  - Esta debe poder ser que llame al padre para manejo de los invoke___
-     *  
-     *  
-     *  TODO TODO COLOCAR LAS STATS de IA AQUI
-     */
 
     [Header("Enemy Body")]
     [HideInInspector] public NavMeshAgent agent;
-    public bool aiActive = true; // ya tenemos body set active? //TODO
-    //public State state;
+    public bool aiActive = true;
 
 
     [Header("IA Stat")]
+    [Tooltip("Patrulla que hará la IA por defecto")]
     public Transform patrol;
-    public float percentCastSpell; // cuanto es probable que use la habilidad cuando localize al jugador? (spell 1 sola vez)
-    public float delayAttack; // cuanto tiempo dura para atacar al enemigo
+    [Tooltip("Posibilidad de usar habilidad cuando localize al jugador")]
+    public float percentCastSpell;
+    [Tooltip("Tiempo que le toma al enemigo en disparar con el arma mientras esta apuntando")]
+    public float delayAttack;
 
     #endregion
     #region Events
@@ -49,6 +44,14 @@ public class IABody : Body
 
     //}
 
+    /// <summary>
+    /// Destroy the IA character if is death
+    /// </summary>
+    protected override void Death()
+    {
+        base.Death();
+        Destroy(gameObject);
+    }
     #endregion
 }
 

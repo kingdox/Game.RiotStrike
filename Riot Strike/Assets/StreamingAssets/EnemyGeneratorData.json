@@ -1,7 +1,7 @@
 ﻿{
 	"DATA": [
 		{
-			"MIN_CONDITION_TIME": 0,
+			"MIN_CONDITION_TIME": 3,
 			"GENERATION_TIME": 5,
 			"MAX_GENERATION_ENEMIES": 10,
 			"ID_ENEMY": "Enemy_0",
@@ -9,7 +9,7 @@
 			"ENEMY_DELAY_ATTACK": [1,2]
 		},
 		{
-			"MIN_CONDITION_TIME": 3,
+			"MIN_CONDITION_TIME": 6,
 			"GENERATION_TIME": 10,
 			"MAX_GENERATION_ENEMIES": 15,
 			"ID_ENEMY": "Enemy_1",
@@ -17,7 +17,7 @@
 			"ENEMY_DELAY_ATTACK": [1,1.5]
 		},
 		{
-			"MIN_CONDITION_TIME": 6,
+			"MIN_CONDITION_TIME": 9,
 			"GENERATION_TIME": 15,
 			"MAX_GENERATION_ENEMIES": 20,
 			"ID_ENEMY": "Enemy_2",
@@ -25,7 +25,7 @@
 			"ENEMY_DELAY_ATTACK": [0.5,1]
 		},
 		{
-			"MIN_CONDITION_TIME": 9,
+			"MIN_CONDITION_TIME": -1,
 			"GENERATION_TIME": 20,
 			"MAX_GENERATION_ENEMIES": 20,
 			"ID_ENEMY": "Enemy_3",

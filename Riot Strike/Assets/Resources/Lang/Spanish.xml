@@ -112,7 +112,7 @@ El jugador poseerá controles para moverse, Recargar arma (en caso de quedarte s
             <_tutorials key="_tutorials_menu_1">Los jugador poseera estadisticas que le permiten alterar su daño, la vida que poseen y la velocidad con la que se mueven</_tutorials>
             <_tutorials key="_tutorials_menu_2">Al jugar poseerá una mira y se les mostrará su arma, pudiendo estimar la dirección del disparo</_tutorials>
         <_ key="_tutorials_goal"><!--TUTORIALS GOAL--></_>
-            <_tutorials key="_tutorials_goal_0">Estas encerrado en un centro muy importante, y para que los refuerzos lleguen a salvarte deberás aguantar 10 minutos y elimnar a los restantes que sabían que estabas ahí</_tutorials>
+            <_tutorials key="_tutorials_goal_0">Estas encerrado en un centro muy importante, y para que los refuerzos lleguen a salvarte deberás aguantar 10 minutos.</_tutorials>
             <_tutorials key="_tutorials_goal_1">El jugador deberá ir eliminado a los enemigos mientras recoge mejoras que te puedan sanar ó mejorar tus estadisticas </_tutorials>
 
 

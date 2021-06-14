@@ -107,7 +107,7 @@ The player will have controls to move, Reload weapon (in case of running out of 
             <_tutorials key="_tutorials_menu_1">The players will have statistics that allow them to alter their damage, the life they have and the speed with which they move</_tutorials>
             <_tutorials key="_tutorials_menu_2">When playing, they will have a sight and their weapon will be shown to them, being able to estimate the direction of the shot</_tutorials>
         <_ key="_tutorials_goal"><!--TUTORIALS GOAL--></_>
-            <_tutorials key="_tutorials_goal_0">You are locked in a very important center, and for the reinforcements to save you, you will have to hold out for 10 minutes and eliminate the rest who knew you were there.</_tutorials>
+            <_tutorials key="_tutorials_goal_0">You are locked in a very important center, and for the reinforcements to save you, you will have to hold out for 10 minutes.</_tutorials>
             <_tutorials key="_tutorials_goal_1">The player must eliminate the enemies while collecting improvements that can heal you or improve your statistics</_tutorials>
 
 

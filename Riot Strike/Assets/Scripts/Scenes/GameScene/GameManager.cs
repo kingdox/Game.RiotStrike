@@ -27,7 +27,7 @@ namespace GameScene
         public AudioClip clip_music;
 
         [Header("Time to End")]
-        private float currentTime=0;
+        [SerializeField] private float currentTime = 0;
         public float timerToEnd = 10 * MINUTE;
         private bool gameEnd = false;
         public Image img_time; // forma parte de los elementos de time
@@ -103,6 +103,7 @@ namespace GameScene
             player.OnPause -= Pause;
             player.OnDeath -= GameEnd;
         }
+        
         /// <summary>
         /// Move the player to the position assigned
         /// </summary>
@@ -171,7 +172,10 @@ namespace GameScene
             Scenes.GAME_SCENE.ToScene();
         }
 
-
+        /// <summary>
+        /// Gets the current time
+        /// </summary>
+        public static float GetCurrentTime => _.currentTime;
 
         #region End MEthods
         /// <summary>
@@ -197,13 +201,17 @@ namespace GameScene
         /// </summary>
         private void GameEnd()
         {
-            if (gameEnd) return; // 🛡
+            //if (gameEnd) return; // 🛡
+            Time.timeScale = 0;
+            player.enabled = false;
             gameEnd = true;
+            CursorSystem.Show();
+            EnemyManager.KeepGenerating(false);
             //"Starts game End".Print("blue");
             //ENEMIES KILLED
             InstantiateResultItem("end_results_enemiesKilled", FindObjectOfType<EnemyManager>().enemiesKilled.ToString());
             //TIME
-            InstantiateResultItem("end_results_time", $"{ (currentTime / MINUTE).ToInt()} minutes");
+            InstantiateResultItem("end_results_time", $"{ System.Math.Round((currentTime / MINUTE),2)} minutes");
             //SHOT
             InstantiateResultItem("end_results_shot", player.countAttacks.ToString());
 

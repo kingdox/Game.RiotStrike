@@ -19,10 +19,20 @@ public  class RangedWeapon : Weapon
 
     #endregion
     #region Events
-  
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(HotSpotInWorld, HotSpotInWorld + tr_hotSpot.forward*5);
+
+    }
     #endregion
     #region Methods
 
+    /// <summary>
+    /// Returns the information of the hotspot based on the world
+    /// </summary>
+    public Vector3 HotSpotInWorld => tr_hotSpot.position + tr_hotSpot.forward;
 
     /// <summary>
     /// Shot the weapon with the bullet prefab
@@ -40,7 +50,7 @@ public  class RangedWeapon : Weapon
     public Bullet Shot(Body body, GameObject pref)
     {
         //takes the bullet
-        Instantiate(pref, tr_hotSpot)
+        Instantiate(pref, HotSpotInWorld, Quaternion.identity,tr_hotSpot)
            .transform
            .Component(out Bullet bullet);
         bullet.transform.forward = body.tr_head.forward;

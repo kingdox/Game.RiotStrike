@@ -131,7 +131,7 @@ public class SuperDashSpell : Spell
         }
         TargetStop(false);
         yield return new WaitForSeconds(3);
-        TargetStop(true);
+        if (targetBody) TargetStop(true);
     }
     /// <summary>
     /// Returns if is waiting for the impact
