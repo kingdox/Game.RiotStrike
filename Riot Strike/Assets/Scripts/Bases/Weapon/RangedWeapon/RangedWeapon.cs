@@ -44,7 +44,14 @@ public  class RangedWeapon : Weapon
            .transform
            .Component(out Bullet bullet);
         bullet.transform.forward = body.tr_head.forward;
-        bullet.transform.SetParent(TargetManager.GetParentTemporalElements);
+
+
+        Transform _parent = TargetManager.Exist
+            ? TargetManager.GetParentTemporalElements
+            : null
+        ;
+
+        bullet.transform.SetParent(_parent);
 
         //Settings data
         bullet.damage = body.stat.RealStrength;

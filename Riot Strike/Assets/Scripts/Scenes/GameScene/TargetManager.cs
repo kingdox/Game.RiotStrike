@@ -35,7 +35,10 @@ public class TargetManager : MonoBehaviour
     }
     #endregion
     #region Methods
-
+    /// <summary>
+    /// Check if exist the Target manager
+    /// </summary>
+    public static bool Exist => !!_;
     /// <summary>
     /// Get the parent of the patrols
     /// </summary>
