@@ -169,4 +169,17 @@ public struct Tutorial
         this.qty = qty;
     }
 }
+/// <summary>
+/// Information to generate the enemies based on the min condition time, where over the time the enemies will be changed for the next and so on
+/// </summary>
+[Serializable]
+public struct EnemyGeneratorData
+{
+    public float MIN_CONDITION_TIME;
+    public float GENERATION_TIME;
+    public int MAX_GENERATION_ENEMIES;
+    public string ID_ENEMY;
+    public float ENEMY_PROBABILITY_TO_CAST_SPELL;
+    public float[] ENEMY_DELAY_ATTACK;
+}
 #endregion

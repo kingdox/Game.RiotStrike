@@ -17,7 +17,13 @@ namespace GameScene
         [Header("Enemy Manager")]
         public bool isGenerating = true;
         public int indexCurrentEnemy; // cambia mientras pasa el tiempo
-        public GameObject[] prefs_enemy;
+
+
+        [Space]
+        [Header("Generate")]
+        public Character[] characters_enemies;
+        public GameObject pref_character;
+
 
         [Space]
         [Header("Stats")]
@@ -31,6 +37,10 @@ namespace GameScene
         {
             enemiesKilled = 0;
         }
+        private void Start()
+        {
+            
+        }
         private void Update()
         {
             
@@ -40,6 +50,7 @@ namespace GameScene
 
         private void GenerateEnemy()
         {
+            //TargetManager.Get.tr_parent_spawnPoints
 
         }
 

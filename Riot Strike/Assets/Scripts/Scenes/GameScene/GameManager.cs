@@ -1,13 +1,14 @@
 ﻿#region Access
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Set;
 using XavHelpTo.Get;
 using XavHelpTo.Know;
 using XavHelpTo.Change;
 using Environment;
-using EndRefresh;
+using RefreshText =  EndRefresh.Text;
 # endregion
 namespace GameScene
 {
@@ -22,12 +23,14 @@ namespace GameScene
         private const float MINUTE = 60;
 
         [Header("Game Manager")]
+        public GameObject obj_postProcessing;
+        public AudioClip clip_music;
+
+        [Header("Time to End")]
         private float currentTime=0;
         public float timerToEnd = 10 * MINUTE;
         private bool gameEnd = false;
-        public GameObject obj_postProcessing;
-        public AudioClip clip_music;
-  
+        public Image img_time; // forma parte de los elementos de time
 
         [Space]
         [SerializeField] private bool isCheatOn = false;
@@ -168,14 +171,16 @@ namespace GameScene
         /// </summary>
         private void CheckTimeToEnd()
         {
-            //pasará una sola vez puesto que se acabo el tiempo
-            if (!gameEnd
-                && timerToEnd.TimerFlag(
-                    ref gameEnd,
-                    ref currentTime
-                )
-            ){
-                GameEnd();
+            if (!gameEnd)
+            {
+               img_time.fillAmount = 1- currentTime.PercentOf(timerToEnd, true);
+                //pasará una sola vez puesto que se acabo el tiempo
+                if (timerToEnd.TimerFlag(ref gameEnd,ref currentTime))
+                {
+                    img_time.fillAmount = 0;
+                    GameEnd();
+                }
+
             }
         }
         /// <summary>
@@ -206,8 +211,8 @@ namespace GameScene
                 .Component(out RefreshController _refresh);
 
             //ENEMIES KILLED
-            _refresh.Translate(Text.TITLE, key);
-            _refresh.RefreshText(Text.VALUE, value);
+            _refresh.Translate(RefreshText.TITLE, key);
+            _refresh.RefreshText(RefreshText.VALUE, value);
         }
         #endregion
         #region Cheats Methods

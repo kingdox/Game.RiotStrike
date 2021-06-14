@@ -257,6 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugColorIdentifier: {r: 1, g: 0, b: 0, a: 1}
+  debug_size: {x: 0, y: 0, z: 0}
+  debug_center: {x: 0, y: 0, z: 0}
   life: 0
   isDead: 0
   isInmune: 0
@@ -274,6 +276,6 @@ MonoBehaviour:
   movement: {fileID: 0}
   rotation: {fileID: 0}
   gravity: {fileID: 0}
-  character: {fileID: 11400000, guid: 4e4baf4e3b4f54ae9b355e07ac4b0b6f, type: 2}
+  character: {fileID: 0}
   agent: {fileID: 0}
   aiActive: 1

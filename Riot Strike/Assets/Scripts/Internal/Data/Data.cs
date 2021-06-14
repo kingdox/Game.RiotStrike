@@ -17,7 +17,7 @@ namespace Environment
         public static Data data = new Data();
 
         public const string savedPath = "saved.txt";
-        public const string version = "v0.8.0";
+        public const string version = "v0.8.5";
 
         public const string TAG_PLAYER = "Player";
         public const string TAG_ENEMY = "Enemy";
@@ -48,12 +48,12 @@ namespace Environment
         public readonly static ControlData[] CONTROLS = LoadData<ControlData>();
 
 
-        //TODO los nuevos
         public readonly static BuffData[] BUFFS = LoadData<BuffData>();
         public readonly static SpellData[] SPELLS = LoadData<SpellData>();
         public readonly static WeaponData[] WEAPONS = LoadData<WeaponData>();
         public readonly static CharacterData[] CHARACTERS = LoadData<CharacterData>();
 
+        public readonly static EnemyGeneratorData[] ENEMY_GENERATOR = LoadData<EnemyGeneratorData>();
 
 
         /// <summary>
