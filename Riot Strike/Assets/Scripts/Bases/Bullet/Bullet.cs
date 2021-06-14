@@ -100,9 +100,10 @@ public class Bullet : MonoBehaviour, ITargetImpact
     /// Moves the bullet forward
     /// </summary>
     private void Move(){
+        //FIXME Tabare flare problemas
         movement.z = speed; // metters per second
-        Vector3 forward = transform.TransformDirection(movement);
-        body.velocity = forward * Time.deltaTime;
+        Vector3 forward = transform.TransformDirection(movement);//transform.forward
+        body.velocity = forward * Time .deltaTime ;//(forward * Time.deltaTime).Print("yellow");
 
         //si nos pasamos del recorrido limite que peude llegar nuestra bala
         if (Vector3.Distance(initPosition,transform.position) > speed){
