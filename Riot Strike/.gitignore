@@ -10,6 +10,8 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /[Aa]ssets/[Mm]odels/
+/[Aa]ssets/[Aa]udio/[Mm]usic/
+/[Aa]ssets/[Aa]udio/[Ss]ound/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
