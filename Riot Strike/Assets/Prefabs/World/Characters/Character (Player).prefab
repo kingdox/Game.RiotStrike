@@ -364,6 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugColorIdentifier: {r: 0, g: 0.5006671, b: 1, a: 1}
+  debug_size: {x: 0, y: 0, z: 0}
+  debug_center: {x: 0, y: 0, z: 0}
   life: 0
   isDead: 0
   isInmune: 0

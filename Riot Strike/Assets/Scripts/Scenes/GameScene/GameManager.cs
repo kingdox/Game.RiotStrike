@@ -67,6 +67,9 @@ namespace GameScene
         private void OnEnable(){Subscribe();}
 
         private void Start() {
+            WarpPlayerTo(TargetManager.SpawnPoints.Any());
+
+
             SetPlayerCharacter(DataSystem.Get.characterSelected);
             player.gameObject.SetActive(true);
 
@@ -100,10 +103,15 @@ namespace GameScene
             player.OnPause -= Pause;
             player.OnDeath -= GameEnd;
         }
-        private void SetPlayerCharacter(int charIndex)
-        {
-            player.character = characters[charIndex];
-        }
+        /// <summary>
+        /// Move the player to the position assigned
+        /// </summary>
+        /// <param name="pos"></param>
+        private void WarpPlayerTo(Transform point) => player.transform.position = point.position;
+        /// <summary>
+        /// Assign he character of the player
+        /// </summary>
+        private void SetPlayerCharacter(int charIndex) => player.character = characters[charIndex];
         /// <summary>
         /// Pause the game or not
         /// </summary>
@@ -295,8 +303,17 @@ namespace GameScene
                     break;
             }
         }
-            #endregion
-
-            #endregion
+        /// <summary>
+        /// Teleports the character to the assigned position
+        /// </summary>
+        public static void WarpTo(float index)
+        {
+            _.player.controller.enabled = false;
+            _.WarpPlayerTo(TargetManager.SpawnPoints[index.ToInt()]);
+            _.player.controller.enabled = true;
         }
+        #endregion
+
+        #endregion
+    }
     }

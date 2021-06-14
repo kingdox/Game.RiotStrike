@@ -167,12 +167,12 @@ GameObject:
   - component: {fileID: 1063663620236050310}
   - component: {fileID: 4876952930381792080}
   m_Layer: 10
-  m_Name: Character (Enemy)
+  m_Name: Character (Enemy) (START DISABLE)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1063663620236050314
 Transform:
   m_ObjectHideFlags: 0

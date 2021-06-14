@@ -16,13 +16,21 @@ public class IABody : Body
     /*
      * TODO Hacer un patrón de estados para el manejo de comportamientos
      *  - Esta debe poder ser que llame al padre para manejo de los invoke___
+     *  
+     *  
+     *  TODO TODO COLOCAR LAS STATS de IA AQUI
      */
 
     [Header("Enemy Body")]
-    //public State state;
     [HideInInspector] public NavMeshAgent agent;
     public bool aiActive = true; // ya tenemos body set active? //TODO
+    //public State state;
 
+
+    [Header("IA Stat")]
+    public Transform patrol;
+    public float percentCastSpell; // cuanto es probable que use la habilidad cuando localize al jugador? (spell 1 sola vez)
+    public float delayAttack; // cuanto tiempo dura para atacar al enemigo
 
     #endregion
     #region Events

@@ -44,7 +44,7 @@ public  class RangedWeapon : Weapon
            .transform
            .Component(out Bullet bullet);
         bullet.transform.forward = body.tr_head.forward;
-        bullet.transform.SetParent(null); // todo no dejar fuera en la jerarquía
+        bullet.transform.SetParent(TargetManager.GetParentTemporalElements);
 
         //Settings data
         bullet.damage = body.stat.RealStrength;

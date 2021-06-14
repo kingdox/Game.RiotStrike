@@ -10,13 +10,16 @@ using XavHelpTo;
 public class TargetManager : MonoBehaviour
 {
     #region Variables
-    public static TargetManager _;
+    private static TargetManager _;
 
-    public Transform[] tr_spawnPoints;
+    [HideInInspector] private Transform[] tr_spawnPoints;
     [Header("Target Manager")]
     public Transform tr_parent_spawnPoints;
+    [Space]
     public Transform tr_parent_patrols;
     public Transform tr_parent_enemies;
+    [Space]
+    public Transform tr_parent_temporalElements;
 
     #endregion
     #region Event
@@ -33,7 +36,25 @@ public class TargetManager : MonoBehaviour
     #endregion
     #region Methods
 
+    /// <summary>
+    /// Get the parent of the patrols
+    /// </summary>
+    public static Transform GetParentPatrols => _.tr_parent_patrols;
 
+    /// <summary>
+    /// Get the parent where all the enemies are setted
+    /// </summary>
+    public static Transform GetParentEnemies => _.tr_parent_enemies;
+
+    /// <summary>
+    /// Returns the Points to spawn characters, player or enemies
+    /// </summary>
+    public static Transform[] SpawnPoints => _.tr_spawnPoints;
+
+    /// <summary>
+    /// Returns the container of the temporal elements
+    /// </summary>
+    public static Transform GetParentTemporalElements => _.tr_parent_temporalElements;
 
     /// <summary>
     /// Find the instance in the hierarchy
