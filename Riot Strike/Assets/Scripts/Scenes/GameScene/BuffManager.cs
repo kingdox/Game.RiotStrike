@@ -36,7 +36,7 @@ public class BuffManager : MonoBehaviour
     private void Update()
     {
         if (timerSpawn.TimerIn(ref timerSpawnCount)){
-            "Spawning".Print("magenta");
+            //"Spawning".Print("magenta");
             GenerateBuff();
         }
         

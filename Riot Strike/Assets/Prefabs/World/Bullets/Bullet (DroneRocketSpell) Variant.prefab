@@ -255,6 +255,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet (DroneRocketSpell) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3937128610881215136, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f6564e5c9f184245b5d217932ce154f, type: 2}
+    - target: {fileID: 5341394442891744127, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed2a9a4417d191041ae3dd9fb2831d3f, type: 2}
     - target: {fileID: 7989130574948633723, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
       propertyPath: behaviour
       value: 3

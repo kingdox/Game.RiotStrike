@@ -51,7 +51,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e2364653123ea0745864d6145af8f4c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet  (Rifle Sniper)
       objectReference: {fileID: 0}
+    - target: {fileID: 5341394442891744127, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2364653123ea0745864d6145af8f4c8, type: 2}
     - target: {fileID: 7989130574948633723, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
       propertyPath: destroyDelay
       value: 1
