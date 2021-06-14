@@ -33,6 +33,8 @@ namespace MenuScene
         public int timeToExit;
         [Space]
         public ImageController imgCtrl_curtain;
+        [Space]
+        public AudioClip clip_music;
         #endregion
         #region Events
         private void Awake()
@@ -41,6 +43,7 @@ namespace MenuScene
         }
         private void Start()
         {
+            AudioSystem.Play(clip_music);
            // $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
             CursorSystem.Show();
         }

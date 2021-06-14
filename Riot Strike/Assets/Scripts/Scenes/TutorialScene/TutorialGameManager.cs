@@ -80,7 +80,15 @@ namespace TutorialScene
         /// <summary>
         /// Go to the menu
         /// </summary>
-        public void GoToMenu() => Scenes.MENU_SCENE.ToScene();
+        public void GoToMenu()
+        {
+            SavedData saved = DataSystem.Get;
+            saved.tutorialDone = true;
+            DataSystem.Set(saved);
+            DataSystem.Save();
+
+            Scenes.MENU_SCENE.ToScene();
+        }
 
         /// <summary>
         /// Show the following hint based on a index

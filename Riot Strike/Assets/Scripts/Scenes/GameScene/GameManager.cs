@@ -26,7 +26,7 @@ namespace GameScene
         public float timerToEnd = 10 * MINUTE;
         private bool gameEnd = false;
         public GameObject obj_postProcessing;
-
+        public AudioClip clip_music;
   
 
         [Space]
@@ -71,6 +71,7 @@ namespace GameScene
             StartCoroutine(ChangeModal(EGameModal.HUD, false));
 
             obj_postProcessing.SetActive(DataSystem.Get.switch_configs[ESwitchOpt.POST_PROCESSING.ToInt()]);
+            AudioSystem.Play(clip_music);
         }
         private void Update()
         {

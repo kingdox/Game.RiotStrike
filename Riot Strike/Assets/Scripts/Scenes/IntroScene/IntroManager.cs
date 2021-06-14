@@ -22,7 +22,8 @@ namespace IntroScene
         public Animator animator_UI;
         [Space]
         public RefreshController refresh_skip;
-
+        [Space]
+        public AudioClip clip_music;
         #endregion
         #region Event
         private void Awake(){
@@ -32,6 +33,8 @@ namespace IntroScene
         }
         private void Start()
         {
+            AudioSystem.Play(clip_music);
+
             string MSG_1 = TranslateSystem.Translate("_intro_skip_0");
             string KEY = DataSystem.Get.controlKeys[EControl.PAUSE.ToInt()];
             string MSG_2 = TranslateSystem.Translate("_intro_skip_1");

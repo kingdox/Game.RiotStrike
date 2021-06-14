@@ -465,6 +465,8 @@ MonoBehaviour:
   txts:
   - {fileID: 1267342802}
   btns: []
+  inputs: []
+  parts: []
 --- !u!222 &164315391
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6611,6 +6613,7 @@ MonoBehaviour:
   animator_gun: {fileID: 23154661}
   animator_UI: {fileID: 1047919859}
   refresh_skip: {fileID: 164315389}
+  clip_music: {fileID: 8300000, guid: 956244a6eb8614f3f8ebc9128f1ff5be, type: 3}
 --- !u!1 &1876188708
 GameObject:
   m_ObjectHideFlags: 0

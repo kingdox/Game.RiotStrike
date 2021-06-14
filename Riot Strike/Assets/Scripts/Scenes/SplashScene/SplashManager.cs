@@ -37,6 +37,8 @@ namespace SplashScene
         public Transform tr_parent_buttons;
         public CanvasGroup canvasGroup;
         public Button btn_acceptLang;
+        [Space]
+        public AudioClip clip_music;
 
         //[Range(0.1f,5f)]
         //public float speed=.5f;
@@ -45,13 +47,14 @@ namespace SplashScene
         private void Start()
         {
             CursorSystem.Hide();
+            AudioSystem.Play(clip_music);
+
             langSelected = false;
             canvasGroup.alpha = 0;
             GenerateModalButtons();
 
             btn_acceptLang.onClick.AddListener(delegate { 
                 langSelected = true;
-                //TODO Hacer que sea aceptado y se guarde los elementos, aprovecha y desactiva el botón
             });
         }
         private void Update()

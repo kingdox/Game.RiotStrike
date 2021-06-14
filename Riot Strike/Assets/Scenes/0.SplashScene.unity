@@ -379,6 +379,7 @@ MonoBehaviour:
   tr_parent_buttons: {fileID: 1894902816}
   canvasGroup: {fileID: 1552842188}
   btn_acceptLang: {fileID: 1789484613}
+  clip_music: {fileID: 8300000, guid: 506c638babdfd4ae287b9b266b9cf5b9, type: 3}
 --- !u!1 &246568270
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +928,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: accept
   txt: {fileID: 0}
-  startTranslate: 1
 --- !u!1 &665480697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1763,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: lang_title
   txt: {fileID: 2017950611}
-  startTranslate: 1
 --- !u!114 &2017950611 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4649853483932797780, guid: 9b1433b46072848b1b126c3da43cce08, type: 3}
