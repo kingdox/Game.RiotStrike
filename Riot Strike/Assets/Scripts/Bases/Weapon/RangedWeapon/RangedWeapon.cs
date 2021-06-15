@@ -49,21 +49,14 @@ public  class RangedWeapon : Weapon
     /// </summary>
     public Bullet Shot(Body body, GameObject pref)
     {
-
-
         //takes the bullet
         Instantiate(
             pref, 
             tr_hotSpot.position, 
             Quaternion.Euler(body.tr_head.forward)
-             //Quaternion.LookRotation(body.tr_head.forward)
-           // Quaternion.identity
             ).transform
            .Component(out Bullet bullet);
 
-
-
-        //TODO
         bullet.transform.forward = body.tr_head.forward;
 
         Transform _parent = TargetManager.Exist
