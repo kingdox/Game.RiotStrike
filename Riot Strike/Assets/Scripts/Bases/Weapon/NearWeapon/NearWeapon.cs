@@ -10,8 +10,7 @@ using XavHelpTo.Know;
 /// <summary>
 /// Physical Weapon, with near attacks behaviour
 /// </summary> 
-public class NearWeapon : Weapon, ITargetImpact
-{
+public class NearWeapon : Weapon {
     #region Variables
     private const string KEY_ATTACK = "Attack";
     private int lastDamage;
@@ -21,18 +20,19 @@ public class NearWeapon : Weapon, ITargetImpact
     public Animator animator;
     public Action<Body, int> OnImpact;
     #endregion
-    private void Awake()
-    {
+    private void Awake() {
         this.Component(out collide);
+
+        collide.tag = tag;
+        collide.gameObject.layer = gameObject.layer;
         collide.enabled = false;
         isImpactingTarget = false;
     }
-    protected override void Update()
-    {
+    protected override void Update() {
         base.Update();
         if (currentAmmo.Equals(0)) Reload();
     }
-    private void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other) {
         if (isImpactingTarget) return;
         CheckTarget(other.transform);
     }
@@ -40,8 +40,7 @@ public class NearWeapon : Weapon, ITargetImpact
     /// <summary>
     /// Shot the weapon with the bullet prefab
     /// </summary>
-    public override void Attack(Body body)
-    {
+    public override void Attack(Body body) {
         if (!CanAtack()) return; // 🛡
         base.Attack(body);
         lastDamage = body.stat.RealStrength;
@@ -61,15 +60,13 @@ public class NearWeapon : Weapon, ITargetImpact
     /// Check if the target is a <seealso cref="Body"/>
     /// and then resolves the damage
     /// </summary>
-    public void CheckTarget(Transform tr_target)
-    {
+    public void CheckTarget(Transform tr_target) {
         //CHECK if is Target
         tr_target.Component(out Body targetBody, false);
         bool isValidTarget = !targetBody.IsNull()
             && !gameObject.CompareTag(targetBody.tag);
         //DO DAMAGE
-        if (isValidTarget)
-        {
+        if (isValidTarget) {
             collide.enabled = false;
             isImpactingTarget = true;
 
@@ -87,8 +84,7 @@ public class NearWeapon : Weapon, ITargetImpact
     /// Enables the collision to do attacks until the indicadors say to end
     /// used to return the default value if the weapon cannot find a target
     /// </summary>
-    IEnumerator CollisionOpenUntil(Body body)
-    {
+    IEnumerator CollisionOpenUntil(Body body) {
         //waits until the player can attack again
         yield return new WaitUntil(body.character.weapon.CanAtack);
         collide.enabled = false;

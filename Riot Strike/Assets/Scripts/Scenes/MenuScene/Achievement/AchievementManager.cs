@@ -51,9 +51,11 @@ namespace MenuScene
         /// <summary>
         /// Create a achievement
         /// </summary>
-        private void CreateAchievement(in AchievementData achievement, int pts)
-        {
-            RefreshController _refresh = RefreshController.CreateRefresh(in pref_achievementItem, in tr_parent_achievements);
+        private void CreateAchievement(in AchievementData achievement, int pts){
+            if (!achievement.ENABLED) return; //hides the achievement
+
+            RefreshController _refresh = RefreshController
+                .CreateRefresh(in pref_achievementItem, in tr_parent_achievements);
 
             bool isDone = pts >= achievement.REQUIREMENT;
 

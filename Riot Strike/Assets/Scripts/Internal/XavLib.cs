@@ -1153,9 +1153,8 @@ namespace XavHelpTo
             }
 
         }
-
+    #endif
     }
-#endif
 }
 
 /// <summary>
@@ -1170,16 +1169,3 @@ public enum ColorType
     a,
     RGB = -1
 }
-
-#region Committed
-//TEST
-//public readonly struct Operate
-//{
-//    public static Operate operator ~(Operate i) => new Operate();
-//}
-/*
- //public static T operator +<T>(T a) => a;
-        //public static float operator ^(float a) => aa;
-        public static bool operator (Craft a, ItemContent i) => a.Equals(i);
- */
-#endregion

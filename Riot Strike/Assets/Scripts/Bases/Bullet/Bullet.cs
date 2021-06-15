@@ -19,7 +19,7 @@ using OWO;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(RefreshController))]
 [DisallowMultipleComponent]
-public class Bullet : MonoBehaviour, ITargetImpact
+public class Bullet : MonoBehaviour
 {
     #region Variables
     private RefreshController refresh;
@@ -167,7 +167,7 @@ public class Bullet : MonoBehaviour, ITargetImpact
     ///  Check if the target is a player and then apply the owo damage
     /// </summary>
     public void OWOCheckPlayer(Body body) {
-        body.Component(out PlayerBody player);
+        body.Component(out PlayerBody player,false);
         if (!player) return; // 🛡
 
         OWOMuscles part = (OWOMuscles)Supply.Lenght<OWOMuscles>().ZeroMax();

@@ -85,6 +85,9 @@ namespace TutorialScene
         public void GoToMenu()
         {
             SavedData saved = DataSystem.Get;
+            //Achievement Tutorial Done
+            saved.achievementsPoints["tutorial_done".IndexAchievement()]++;
+            
             saved.tutorialDone = true;
             DataSystem.Set(saved);
             DataSystem.Save();

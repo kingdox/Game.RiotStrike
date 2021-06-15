@@ -6,6 +6,8 @@ using UnityEngine;
 using XavHelpTo;
 using XavHelpTo.Know;
 using XavHelpTo.Change;
+using System.Linq;
+using Dat = Environment.Data;
 #endregion
 
 /// <summary>
@@ -119,5 +121,22 @@ public static class Utils
         canvas.blocksRaycasts = canInteract;
     }
          
+
+    /// <summary>
+    /// Find the index of the achievement
+    /// -1 if is not finded
+    /// </summary>
+    public static int IndexAchievement(this string key) {
+        int index = -1;
+
+        for (int i = 0; i < Dat.ACHIEVEMENTS.Length; i++) {
+            bool condition = Dat.ACHIEVEMENTS[i].ID.Equals(key);
+            if (condition) return i;
+        }
+
+        if (index.Equals(-1)) $"Logro {key} NO ENCONTRADO".Print("red");
+
+        return index;
+    }
     #endregion
 }

@@ -2,48 +2,64 @@
 
   "DATA" :[
     {
+        "ID":"tutorial_done",
+        "ENABLED":true,
         "NAME": "achievements_name_0",
         "DESCRIPTION": "achievements_description_0",
         "REQUIREMENT": 1,
         "DEBUG_REQUIREMENT": "Completa el tutorial o abre la ventana de tutorial."
     },
     {
+        "ID":"shot_1000",
+        "ENABLED":true,
         "NAME": "achievements_name_1",
         "DESCRIPTION": "achievements_description_1",
         "REQUIREMENT": 1000,
         "DEBUG_REQUIREMENT": "Dispara 1000 balas"
     },
     {
+        "ID":"shot_pc",
+        "ENABLED":true,
         "NAME": "achievements_name_2",
         "DESCRIPTION": "achievements_description_2",
-        "REQUIREMENT": 9,
-        "DEBUG_REQUIREMENT": "Dispara a todas las basuras en 1 partida. (son 9)"
+        "REQUIREMENT": 1,
+        "DEBUG_REQUIREMENT": "Dispara a las pc (son 5)"
     },
     {
+        "ID":"shot_ally",
+        "ENABLED":false,
         "NAME": "achievements_name_3",
         "DESCRIPTION": "achievements_description_3",
         "REQUIREMENT": 1,
         "DEBUG_REQUIREMENT": "Dispara a alguno de tus aliados"
     },
     {
+        "ID":"revive_ally",
+        "ENABLED":false,
         "NAME": "achievements_name_4",
         "DESCRIPTION": "achievements_description_4",
         "REQUIREMENT": 20,
         "DEBUG_REQUIREMENT": "Revive a los aliados más de 20 veces"
     },
     {
+        "ID":"chat_50",
+        "ENABLED":false,
         "NAME": "achievements_name_5",
         "DESCRIPTION": "achievements_description_5",
         "REQUIREMENT": 50,
         "DEBUG_REQUIREMENT": "Envía más de 50 mensajes"
     },
     {
+        "ID":"play_characters",
+        "ENABLED":true,
         "NAME": "achievements_name_6",
         "DESCRIPTION": "achievements_description_6",
-        "REQUIREMENT": 5,
-        "DEBUG_REQUIREMENT": "Juega con todos los personajes (son 5)"
+        "REQUIREMENT": 6,
+        "DEBUG_REQUIREMENT": "Juega con los personajes hasta 6"
     },
     {
+        "ID":"shot_note",
+        "ENABLED":true,
         "NAME": "achievements_name_7",
         "DESCRIPTION": "achievements_description_7",
         "REQUIREMENT": 1,

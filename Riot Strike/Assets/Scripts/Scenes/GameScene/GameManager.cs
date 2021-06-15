@@ -8,6 +8,8 @@ using XavHelpTo.Get;
 using XavHelpTo.Know;
 using XavHelpTo.Change;
 using Environment;
+using Dat = Environment.Data;
+using System.Linq;
 using RefreshText =  EndRefresh.Text;
 # endregion
 namespace GameScene
@@ -209,7 +211,18 @@ namespace GameScene
             gameEnd = true;
             CursorSystem.Show();
             EnemyManager.KeepGenerating(false);
-            //"Starts game End".Print("blue");
+
+            //Achievement set
+            SavedData saved = DataSystem.Get;
+            //SHOT 1000
+            saved.achievementsPoints["shot_1000".IndexAchievement()] += player.countAttacks;
+            // Played character
+            saved.achievementsPoints["play_characters".IndexAchievement()]++;
+            
+            DataSystem.Set(saved);
+            DataSystem.Save();
+
+
             //ENEMIES KILLED
             InstantiateResultItem("end_results_enemiesKilled", FindObjectOfType<EnemyManager>().enemiesKilled.ToString());
             //TIME
@@ -326,4 +339,4 @@ namespace GameScene
 
         #endregion
     }
-    }
+}

@@ -60,8 +60,8 @@
             <_achievements key="achievements_name_1">Malgasta-balas</_achievements>
             <_achievements key="achievements_description_1">Igual se crean solas, no?</_achievements>
         <_ key="_achievements_2"><!--2--></_>
-            <_achievements key="achievements_name_2">Sucio</_achievements>
-            <_achievements key="achievements_description_2">No me gusta botar la basura</_achievements>
+            <_achievements key="achievements_name_2">PC dañadas</_achievements>
+            <_achievements key="achievements_description_2">Odias la tecnología</_achievements>
         <_ key="_achievements_3"><!--3--></_>
             <_achievements key="achievements_name_3">Mala mia</_achievements>
             <_achievements key="achievements_description_3">Ese es tu héroe?</_achievements>
@@ -73,7 +73,7 @@
             <_achievements key="achievements_description_5">¡Que esto no es una red social niño !</_achievements>
         <_ key="_achievements_6"><!--6--></_>
             <_achievements key="achievements_name_6">Master</_achievements>
-            <_achievements key="achievements_description_6">Ya has tocado de todo un poco</_achievements>
+            <_achievements key="achievements_description_6">has jugado un buen rato</_achievements>
         <_ key="_achievements_7"><!--7--></_>
             <_achievements key="achievements_name_7">Escondidas</_achievements>
             <_achievements key="achievements_description_7">Encuentra el elemento misterioso</_achievements>

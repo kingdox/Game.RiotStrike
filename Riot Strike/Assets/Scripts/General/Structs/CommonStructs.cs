@@ -11,6 +11,8 @@ using Dat = Environment.Data;
 [Serializable]
 public struct AchievementData
 {
+    public string ID;
+    public bool ENABLED;
     public string NAME;
     public string DESCRIPTION;
     public int REQUIREMENT;

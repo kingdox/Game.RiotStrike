@@ -76,7 +76,7 @@ public class AudioSystem : MonoBehaviour
         {
             src_sound.clip = clip;
             src_sound.Play();
-            $"Sonando {clip.name}".Print("lime");
+           // $"Sonando {clip.name}".Print("lime");
             StartCoroutine(FadePlay(timer));
         }
     }
