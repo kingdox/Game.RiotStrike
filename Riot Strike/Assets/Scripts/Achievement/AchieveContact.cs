@@ -40,10 +40,6 @@ public class AchieveContact : MonoBehaviour
             if (!( bullet || nearWeapon )) return;
             if (contactOnce && isContacted) return;
             isContacted = true;
-
-            $"Contacted ! with {name} to {key}".Print("green");
-            //TODO
-            //Achievement set
             SavedData saved = DataSystem.Get;
             saved.achievementsPoints[key.IndexAchievement()]++;
             DataSystem.Set(saved);
