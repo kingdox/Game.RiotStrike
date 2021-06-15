@@ -9,6 +9,7 @@ using XavHelpTo.Change;
 using XavHelpTo.Set;
 using XavHelpTo.Know;
 using WeaponRefresh.Ranged;
+using OWO;
 #endregion
 /// <summary>
 /// Movement of a bullet with their own effects when it hits and other
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour, ITargetImpact
     private Vector3 movement;
     private Vector3 initPosition;
     private bool isImpacted=false;
+    private const ushort OWO_ID_BULLET = 9;
     [Header("Bullet Base")]
     [HideInInspector] public float damage;
     public float speed;
@@ -137,7 +139,6 @@ public class Bullet : MonoBehaviour, ITargetImpact
     /// </summary>
     private void Orientate(){
         if (!tr_target) return;//🛡
-
         transform.rotation = Quaternion.LookRotation(tr_target.position - transform.position);
         //transform.rotation.SetLookRotation(tr_target.position);
     }
@@ -154,10 +155,23 @@ public class Bullet : MonoBehaviour, ITargetImpact
         //DO DAMAGE
         if (isValidTarget)
         {
+            OWOCheckPlayer(targetBody);
             //Invoke first, next the calc
             OnImpact?.Invoke(targetBody, damage.ToInt());
             targetBody.AddLife(-damage);
         }
+    }
+
+
+    /// <summary>
+    ///  Check if the target is a player and then apply the owo damage
+    /// </summary>
+    public void OWOCheckPlayer(Body body) {
+        body.Component(out PlayerBody player);
+        if (!player) return; // 🛡
+
+        OWOMuscles part = (OWOMuscles)Supply.Lenght<OWOMuscles>().ZeroMax();
+        OWOSytem.SendSensation(OWO_ID_BULLET, part);
     }
     /// <summary>
     /// Destroys the bullet

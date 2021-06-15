@@ -244,7 +244,7 @@ namespace XavHelpTo
             /// <summary>
             /// Returns a random value between the limits possitive and negative
             /// </summary>
-            public static float MinusMax(float max) => Random.Range(-max, max);
+            public static float MinusMax(this float max) => Random.Range(-max, max);
             public static Vector2 MinusMax(this Vector2 max) => new Vector2(MinusMax(max.x), MinusMax(max.y));
 
             public static Vector3 MinusMax(Vector3 pos, float range, int blocked = -1) {

@@ -123,6 +123,13 @@ namespace SplashScene
                 saved.sensibilityPercent = 0.5f;
                 saved.controlKeys = new string[Dat.CONTROLS.Length];
                 for (int i = 0; i < saved.controlKeys.Length; i++) saved.controlKeys[i]=Dat.CONTROLS[i].KEY;
+
+                saved.switch_configs = new bool[Supply.Lenght<ESwitchOpt>()];
+                for (int i = 0; i < saved.switch_configs.Length; i++) {
+                    saved.switch_configs[i] = true;
+                }
+
+
                 DataSystem.Set(saved);
                 
                 StartCoroutine(DisplayLanguageModal());

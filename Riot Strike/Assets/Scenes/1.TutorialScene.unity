@@ -1060,6 +1060,7 @@ MonoBehaviour:
   imgCtrl_curtain: {fileID: 515829040}
   contact_exit: {fileID: 1508755059}
   obj_postProcessing: {fileID: 1553140702}
+  clip_music: {fileID: 8300000, guid: 506c638babdfd4ae287b9b266b9cf5b9, type: 3}
 --- !u!4 &68502009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1706094747278947702, guid: eba68267fa3f24b208107be49c7de00f, type: 3}

@@ -29,7 +29,8 @@ namespace TutorialScene
         public ContactComponent contact_exit;
         [Space]
         public GameObject obj_postProcessing;
-
+         [Space]
+        public AudioClip clip_music;
         #endregion
         #region Event
         private void Awake()
@@ -51,6 +52,7 @@ namespace TutorialScene
 
             obj_postProcessing.SetActive(DataSystem.Get.switch_configs[ESwitchOpt.POST_PROCESSING.ToInt()]);
 
+            AudioSystem.Play(clip_music);
         }
         private void OnDisable()
         {
