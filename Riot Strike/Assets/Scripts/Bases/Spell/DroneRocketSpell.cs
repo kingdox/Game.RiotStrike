@@ -46,11 +46,11 @@ public class DroneRocketSpell : Spell
         Body newBody;
 
         int indexNearest = 0;
-        float lenght = 0;
+        float lenght = -1;
         for (int i = 0; i < bodys.Length; i++){
             float entryLength = Distance(bodys[i]);
             // if the distance of the last is worst than the current then refresh with the nearest positioned body
-            if ((lenght > entryLength) && !bodys[i].CompareTag(body.tag)){
+            if (lenght.Equals(-1) || (lenght > entryLength) && !bodys[i].CompareTag(body.tag)){
                 //"OBJETIVO ENCONTRADO".Print("magenta");
                 indexNearest = i;
                 lenght = entryLength;

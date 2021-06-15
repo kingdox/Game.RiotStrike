@@ -15,15 +15,15 @@ public  class RangedWeapon : Weapon
     [SerializeField] private RefreshController refresh;
     [SerializeField] private GameObject pref_bullet = null;
     [SerializeField] private Transform tr_hotSpot = null;
+    public float bulletSpeed;
     public Action<Bullet> OnShot;
-
     #endregion
     #region Events
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(HotSpotInWorld, HotSpotInWorld + tr_hotSpot.forward*5);
+        Gizmos.DrawLine(tr_hotSpot.position, HotSpotInWorld);
 
     }
     #endregion
@@ -49,10 +49,19 @@ public  class RangedWeapon : Weapon
     /// </summary>
     public Bullet Shot(Body body, GameObject pref)
     {
+
+
         //takes the bullet
-        Instantiate(pref, HotSpotInWorld, Quaternion.identity,tr_hotSpot)
-           .transform
+        Instantiate(
+            pref, 
+            tr_hotSpot.position, 
+            Quaternion.Euler(body.tr_head.forward)
+             //Quaternion.LookRotation(body.tr_head.forward)
+           // Quaternion.identity
+            ).transform
            .Component(out Bullet bullet);
+
+
 
         //TODO
         bullet.transform.forward = body.tr_head.forward;
@@ -65,6 +74,7 @@ public  class RangedWeapon : Weapon
         bullet.transform.SetParent(_parent);
 
         //Settings data
+        bullet.speed = bulletSpeed;
         bullet.damage = body.stat.RealStrength;
         bullet.tag = tag;
 

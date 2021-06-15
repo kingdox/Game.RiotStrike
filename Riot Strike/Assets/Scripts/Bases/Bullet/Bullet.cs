@@ -24,13 +24,12 @@ public class Bullet : MonoBehaviour
     #region Variables
     private RefreshController refresh;
     private Rigidbody body;
-    private Vector3 movement;
-    private Vector3 initPosition;
     private bool isImpacted=false;
     private const ushort OWO_ID_BULLET = 9;
     [Header("Bullet Base")]
     [HideInInspector] public float damage;
-    public float speed;
+    [HideInInspector] public float speed;
+
     [SerializeField] private EBulletBehaviour behaviour = EBulletBehaviour.CONSTANT;
     public Transform tr_target; // actualmente usado solo para la buscqueda, pero puede extenderse a especificaciones de las demás
     [Space]
@@ -40,7 +39,6 @@ public class Bullet : MonoBehaviour
     public Action<Body, int> OnImpact;
     public void Start()
     {
-        initPosition = transform.position;
         this.Component(out body);
         this.Component(out refresh);
 
@@ -60,7 +58,8 @@ public class Bullet : MonoBehaviour
 
 
         CheckTarget(collision.transform);
-        
+
+        collision.gameObject.name.Print();
 
         DestroyBullet();
     }
@@ -81,8 +80,10 @@ public class Bullet : MonoBehaviour
                 }
                 return;
             case EBulletBehaviour.CONSTANT:
-                if (firstTime) body.useGravity = false;
-                Move();
+                if (firstTime) {
+                    body.useGravity = false;
+                    Move();
+                }
                 break;
             case EBulletBehaviour.INSTANT:
                 if (firstTime)
@@ -102,19 +103,12 @@ public class Bullet : MonoBehaviour
     /// Moves the bullet forward
     /// </summary>
     private void Move(){
-        /* ANtes
-        //FIXME Tabare flare problemas
-        movement.z = speed; // metters per second
-        Vector3 forward = transform.TransformDirection(movement);//transform.forward
-        body.velocity = forward * Time .deltaTime ;//(forward * Time.deltaTime).Print("yellow");
-        */
+      
+        body.AddForce(transform.forward * speed, ForceMode.Impulse);
 
-        //body.AddRelativeForce(Vector3.forward * 5 * Time.deltaTime);
-        body.AddRelativeForce(0,0,10,ForceMode.VelocityChange);
-        //si nos pasamos del recorrido limite que peude llegar nuestra bala
-        //if (Vector3.Distance(initPosition,transform.position) > speed){
-        //    DestroyBullet();
-        //}
+
+        //body.velocity += transform.forward * 5; con COle Megalos va bn
+
     }
     /// <summary>
     /// Move instantaneously fetching a target 'til end
@@ -176,6 +170,9 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Destroys the bullet
     /// </summary>
-    private void DestroyBullet() => Destroy(gameObject, destroyDelay);
+    private void DestroyBullet() {
+        " Destroy_____".Print("yellow");
+        Destroy(gameObject, destroyDelay);
+    }
     #endregion
 }
