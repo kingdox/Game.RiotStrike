@@ -20,6 +20,8 @@ public class HUDController : MonoBehaviour
 {
     #region Variables
     private const string PATH_SHOT_CURSOR = "ShotCursor/shot_";
+    private const string PATH_SPELL_ICON = "Spells/";
+
     [Header("HUDController")]
     public RefreshController refresh;
     [Space]
@@ -49,6 +51,17 @@ public class HUDController : MonoBehaviour
         Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
         //loads the sprite
         refresh.RefreshImgSprite(Image.SHOT_CURSOR,sprite);
+    }
+
+    /// <summary>
+    /// Refresh he icon showd in the HUD of the character
+    /// </summary>
+    public void RefreshSpellIcon(string ID)
+    {
+        string path = $"{Dat.PATH_ICON}/{PATH_SPELL_ICON}{ID}";
+        Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
+        refresh.RefreshImgSprite(Image.SPELL_ICON, sprite);
+        refresh.RefreshImgSprite(Image.SPELL, sprite);
     }
 
     /// <summary>

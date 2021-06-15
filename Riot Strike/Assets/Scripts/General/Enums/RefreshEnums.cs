@@ -245,10 +245,11 @@ namespace HUDRefresh
     public enum Image
     {
         LIFE=0,
-        SPELL=1,
+        [InspectorName("Cooldown")]SPELL=1,
         SHOT_CURSOR=2,
         AMMO_CURRENT=3,
         RELOAD=4,
+        [InspectorName("Background del icono")]SPELL_ICON=5
     }
 
 }

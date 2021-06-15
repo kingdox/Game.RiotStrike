@@ -89,6 +89,10 @@ public class PlayerBody : Body
     /// </summary>
     private void EmitShotCursor() => ctrl_HUD.RefreshShotCursor(character.weapon.ID);
     /// <summary>
+    /// Emit the new icon of the spell in UI
+    /// </summary>
+    private void EmitSpellIcon() => ctrl_HUD.RefreshSpellIcon(character.spell.ID);
+    /// <summary>
     /// Emits the target and the damage dealed
     /// </summary>
     private void EmitAttackImpact(Body targetBody, int damage)
@@ -177,6 +181,7 @@ public class PlayerBody : Body
     {
         EmitLife();
         EmitShotCursor();
+        EmitSpellIcon();
     }
     /// <summary>
     /// Adds positive or negative life
