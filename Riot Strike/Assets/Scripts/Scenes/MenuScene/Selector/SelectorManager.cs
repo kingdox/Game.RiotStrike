@@ -5,12 +5,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using XavHelpTo;
+using XavHelpTo.Get;
+using XavHelpTo.Set;
 using XavHelpTo.Change;
 using Dat = Environment.Data;
 using Lore = SelectorRefresh.Lore;
 using Quirk = SelectorRefresh.Quirk;
 using Title = SelectorRefresh.Title;
-# endregion
+using SelectorRefresh.Character;
+#endregion
 
 namespace MenuScene
 {
@@ -101,7 +104,23 @@ namespace MenuScene
 
             //Refresh the visual Character
             tr_parent_character.ClearChilds();
-            Instantiate(pref_characters[character.ToInt()], tr_parent_character);
+            Instantiate(pref_characters[character.ToInt()], tr_parent_character)
+                .transform
+                .Component(out RefreshController refresh_character);
+
+
+            //Refresh the Random animation
+            refresh_character
+                .GetAnimator(Anim.CHARACTER)
+                .SetTrigger(
+                    Set.ToArray(
+                        "Idle",
+                        "Act1",
+                        "Jump",
+                        "Reload"
+                    ).Any()
+                );
+
         }
         /// <summary>
         /// Refresh the quirk, the name, description, and icon (loading)

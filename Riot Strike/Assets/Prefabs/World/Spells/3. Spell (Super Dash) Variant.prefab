@@ -4996,6 +4996,7 @@ MonoBehaviour:
   inputs: []
   parts:
   - {fileID: 3822990372145063149}
+  animators: []
 --- !u!114 &6338652548698711092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,7 +5011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   clip: {fileID: 8300000, guid: f9133fa0f9134495bb604aca7b4ea18e, type: 3}
-  movement: {x: 0, y: 20, z: 20}
+  movement: {x: 0, y: 30, z: 20}
   duration: 0.5
 --- !u!1001 &4367003622880509771
 PrefabInstance:

@@ -14,8 +14,8 @@ public class IABody : Body
 {
     #region Variables
 
-    [Header("Enemy Body")]
     [HideInInspector] public NavMeshAgent agent;
+    [Header("Enemy Body")]
     public bool aiActive = true;
 
 
@@ -27,22 +27,67 @@ public class IABody : Body
     [Tooltip("Tiempo que le toma al enemigo en disparar con el arma mientras esta apuntando")]
     public float delayAttack;
 
+
+
+
     #endregion
     #region Events
     public override void Start(){
         this.Component(out agent);
+
+
+        //TODO temporal
+        //agent.SetDestination(patrol.position);
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+
+        agent.radius = controller.radius;
+        //agent.isStopped=true;
     }
     private void Update(){
-        if (!Time.timeScale.Equals(0)) return;
+        if (Time.timeScale.Equals(0)) return;
+        
+        ManageIA();
         //state.UpdateState(this);
     }
     #endregion
     #region Methods
+
+    /// <summary>
+    /// Resolves the IA Management to start to act, if the ai Is  not enabled then itself will do nothing
+    /// </summary>
+    private void ManageIA(){
+        if (!aiActive) return; // 🛡
+
+
+        Move(patrol.position);
+        
+
+    }
     //public  void TransitionToState(State newState){
     //    if (newState != state) return;// 🛡
     //    state = newState;
 
     //}
+
+
+    /// <summary>
+    /// Move the IA to the asigned destination
+    /// </summary>
+    public void Move(Vector3 destination) => movement.Move(
+        controller,
+        agent,
+        stat.RealSpeed,
+        destination
+    );
+    /// <summary>
+    /// Rotates the IA to the asigned destination
+    /// </summary>
+    public void Rotate(Vector3 destination) => rotation.Rotate(
+        destination,
+        stat.RealSpeed
+    );
+
 
     /// <summary>
     /// Destroy the IA character if is death

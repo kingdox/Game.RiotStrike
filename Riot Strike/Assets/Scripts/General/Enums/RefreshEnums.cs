@@ -179,6 +179,16 @@ namespace AchievementRefresh
 }
 namespace SelectorRefresh
 {
+    namespace Character
+    {
+        /// <summary>
+        /// Refresher enum of the fbx character animator
+        /// </summary>
+        public enum Anim
+        {
+            CHARACTER = 0
+        }
+    }
     namespace Title
     {
         /// <summary>

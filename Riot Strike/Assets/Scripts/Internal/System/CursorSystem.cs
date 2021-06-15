@@ -35,5 +35,16 @@ public class CursorSystem : MonoBehaviour
     /// Shows the cursor
     /// </summary>
     public static void Show() => Display(CursorLockMode.None);
+
+    [ContextMenu("Show")]
+    /// <summary>
+    /// Shows in inspector the option to show the cursor
+    /// </summary>
+    public void _Show() => Show();
+    [ContextMenu("Hide")]
+    /// <summary>
+    /// Shows in inspector the option to HIDE the cursor
+    /// </summary>
+    public void _Hide() => Hide();
     #endregion
 }

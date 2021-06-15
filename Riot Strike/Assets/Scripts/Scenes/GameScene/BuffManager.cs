@@ -100,7 +100,8 @@ public class BuffManager : MonoBehaviour
                 .transform
                 .Component(out Buff newBuff);
 
-            //newBuff.transform.sca.Set(.5f, 1, .5f);
+
+            newBuff.transform.localScale = new Vector3(.5f, 1, .5f); // 💊 Patch
 
             //añadimos
             buffCounts++;

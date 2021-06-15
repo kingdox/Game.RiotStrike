@@ -32,5 +32,17 @@ public class RotationController : MonoBehaviour
         rotation.x = rotationVertical;
         tr_head.localEulerAngles = rotation;
     }
+    /// <summary>
+    /// Rotates to look directly
+    /// </summary>
+    public void Rotate(Vector3 destination, float speed){
+        destination -= transform.position;
+        destination.y = 0;
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            Quaternion.LookRotation(destination),
+            (Time.deltaTime * speed)
+        );
+    }
     #endregion
 }

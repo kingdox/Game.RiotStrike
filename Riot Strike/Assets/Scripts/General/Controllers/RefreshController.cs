@@ -19,7 +19,7 @@ public class RefreshController : MonoBehaviour
     [SerializeField] private Button[] btns = new Button[0];
     [SerializeField] private InputField[] inputs = new InputField[0];
     [SerializeField] private ParticleSystem[] parts = new ParticleSystem[0];
-
+    [SerializeField] private Animator[] animators = new Animator[0];
 
     #endregion
     #region Methods
@@ -48,6 +48,11 @@ public class RefreshController : MonoBehaviour
     public void RefreshPlayParticle<T>(T index, bool play=true) => parts[index.ToInt()].ActiveParticle(play);
 
 
+
+    /// <summary>
+    /// Get the selected animator
+    /// </summary>
+    public Animator GetAnimator<T>(T index) => animators[index.ToInt()];
     /// <summary>
     /// Get the <seealso cref="InputField"/>
     /// </summary>

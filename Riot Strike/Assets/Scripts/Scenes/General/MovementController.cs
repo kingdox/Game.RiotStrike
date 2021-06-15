@@ -39,12 +39,19 @@ public class MovementController : MonoBehaviour
     }
     /// <summary>
     /// Do the movement for a agent
-    /// TODO
     /// </summary>
-    public void Move(NavMeshAgent agent, float speed, float x, float y = 0, float z = 0)
+    public void Move(CharacterController controller, NavMeshAgent agent, float speed, Vector3 destination)
     {
         if (!CanMove) return; //🛡
+        agent.destination = destination;
+        controller.Move(
+            agent.desiredVelocity.normalized
+            * speed
+            * Time.deltaTime
+        );
 
+        //equales the value to keep in the same area
+        agent.velocity = controller.velocity;
 
     }
     #endregion

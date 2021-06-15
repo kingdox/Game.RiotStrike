@@ -4,7 +4,7 @@
 			"NAME": "weapon_name_0",
 			"ID": "0",
 			"APPEARENCE": "weapon_appearence_0",
-			"AMMO": 4,
+			"AMMO": 6,
 			"RELOAD_TIME": 4,
 			"CADENCE": 0.8,
 			"OWNER": "Enlai Ming"
@@ -13,7 +13,7 @@
 			"NAME": "weapon_name_1",
 			"ID": "1",
 			"APPEARENCE": "weapon_appearence_1",
-			"AMMO": 4,
+			"AMMO": 8,
 			"RELOAD_TIME": 2,
 			"CADENCE": 0.5,
 			"OWNER": "Tabare Flare"
@@ -42,7 +42,7 @@
 			"APPEARENCE": "weapon_appearence_4",
 			"AMMO": 20,
 			"RELOAD_TIME": 5,
-			"CADENCE": 0.2,
+			"CADENCE": 0.1,
 			"OWNER": "X-F20"
 		}
 	]
