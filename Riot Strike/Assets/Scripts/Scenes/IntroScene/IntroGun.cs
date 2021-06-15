@@ -11,12 +11,22 @@ namespace IntroScene
     {
         #region Variables
         public ParticleSystem part_shot;
+        public AudioClip clipShort;
         #endregion
+        private void Start()
+        {
+
+        }
         #region
         /// <summary>
         /// Shows the shot animation
         /// </summary>
-        public void GunAnimShot() => part_shot.Play();
+        public void GunAnimShot()
+        {
+
+
+            part_shot.Play();
+        }
         /// <summary>
         /// Call <see cref="IntroManager"/> to advice and then starts the end animation
         /// </summary>

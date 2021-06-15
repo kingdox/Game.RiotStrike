@@ -53,8 +53,10 @@ public  class RangedWeapon : Weapon
         Instantiate(pref, HotSpotInWorld, Quaternion.identity,tr_hotSpot)
            .transform
            .Component(out Bullet bullet);
-        bullet.transform.forward = body.tr_head.forward;
 
+
+        //TODO
+        bullet.transform.forward = body.tr_head.forward;
 
         Transform _parent = TargetManager.Exist
             ? TargetManager.GetParentTemporalElements

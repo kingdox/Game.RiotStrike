@@ -13,6 +13,63 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0.5, z: 1}
+--- !u!1001 &281068712246521530
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4745674440996800578}
+    m_Modifications:
+    - target: {fileID: 2498564612380299876, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_Name
+      value: 'Weapon Katana '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0057087243
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.38425815
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.34889105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.049547225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.77378047
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.075106576
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.627031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 3.101
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -101.694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 9.853
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
 --- !u!1001 &4795253531026181414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32,6 +89,18 @@ PrefabInstance:
       propertyPath: collider
       value: 
       objectReference: {fileID: 3522497627760058398}
+    - target: {fileID: 6814705326208990619, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228145974378655, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117228146775455833, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9117228146858692138, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
       propertyPath: m_Name
       value: 3. NearWeapon (Katana) Variant
@@ -86,5 +155,10 @@ PrefabInstance:
 --- !u!1 &4326498127741993740 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9117228146858692138, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
+  m_PrefabInstance: {fileID: 4795253531026181414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4745674440996800578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 238739625697543524, guid: c873bd65d34e24cceb380ca13019467d, type: 3}
   m_PrefabInstance: {fileID: 4795253531026181414}
   m_PrefabAsset: {fileID: 0}
