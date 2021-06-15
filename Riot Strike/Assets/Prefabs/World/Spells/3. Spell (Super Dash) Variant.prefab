@@ -5009,6 +5009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
+  clip: {fileID: 8300000, guid: f9133fa0f9134495bb604aca7b4ea18e, type: 3}
   movement: {x: 0, y: 20, z: 20}
   duration: 0.5
 --- !u!1001 &4367003622880509771

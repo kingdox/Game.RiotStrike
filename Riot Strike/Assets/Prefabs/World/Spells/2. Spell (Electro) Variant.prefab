@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &531512583056948949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973735346252112617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a966358a70b445b9acaf77fd56d419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 2
-  buffMultiplier: 2
-  duration: 2
---- !u!114 &5768605253274344115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973735346252112617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d1bc36b34dc442b4ae146f85e555a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imgs: []
-  txts: []
-  btns: []
-  parts:
-  - {fileID: 7661550856833738961}
 --- !u!1 &1706076984218122093
 GameObject:
   m_ObjectHideFlags: 0
@@ -5010,6 +4978,40 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &531512583056948949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973735346252112617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a966358a70b445b9acaf77fd56d419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
+  clip: {fileID: 8300000, guid: 73d6d2145ebe544f39de353aede33715, type: 3}
+  buffMultiplier: 2
+  duration: 2
+--- !u!114 &5768605253274344115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973735346252112617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1bc36b34dc442b4ae146f85e555a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgs: []
+  txts: []
+  btns: []
+  inputs: []
+  parts:
+  - {fileID: 7661550856833738961}
 --- !u!1001 &1166010903777373379
 PrefabInstance:
   m_ObjectHideFlags: 0

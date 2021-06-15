@@ -100,6 +100,8 @@ public class BuffManager : MonoBehaviour
                 .transform
                 .Component(out Buff newBuff);
 
+            //newBuff.transform.sca.Set(.5f, 1, .5f);
+
             //añadimos
             buffCounts++;
             //si se destruye lo quitamos

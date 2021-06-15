@@ -61,6 +61,14 @@ PrefabInstance:
       propertyPath: tr_hotSpot
       value: 
       objectReference: {fileID: 31202710660424333}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: clip_attack
+      value: 
+      objectReference: {fileID: 8300000, guid: d9d5ad8595a9040d39e1ece148f0d9c6, type: 3}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: clip_impact
+      value: 
+      objectReference: {fileID: 8300000, guid: 05fdb4fc16256499eac795f0b7381a76, type: 3}
     - target: {fileID: 9117228145786474120, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_IsActive
       value: 0

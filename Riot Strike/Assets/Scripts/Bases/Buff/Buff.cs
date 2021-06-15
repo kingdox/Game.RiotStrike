@@ -18,6 +18,7 @@ public abstract class Buff : MonoBehaviour
     [Header("Buff")]
     public Color color;
     public string message;
+    public AudioClip clip;
     public Action OnDestroyed;
     #endregion
     #region Events
@@ -44,6 +45,8 @@ public abstract class Buff : MonoBehaviour
     /// </summary>
     private void BuffTaking(in Transform target)
     {
+        if (clip) AudioSystem.PlaySound(clip);
+
         CheckMessage(target);
 
         DoEffectBuff(in target);

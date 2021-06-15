@@ -115,6 +115,7 @@ public class AudioSystem : MonoBehaviour
     /// </summary>
     public static void PlaySound(GeneralSounds g) => PlaySound(g.ToInt());
     public static void PlaySound(int index) => _.src_generalSound.PlayOneShot(_.clip_generalSounds[index]);
+    public static void PlaySound(AudioClip clip) => _.src_generalSound.PlayOneShot(clip);
     #endregion
 }
 

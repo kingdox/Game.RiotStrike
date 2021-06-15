@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: tr_hotSpot
       value: 
       objectReference: {fileID: 3562494556586331931}
+    - target: {fileID: 4215344852472557547, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
+      propertyPath: clip_impact
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9117228145786474120, guid: 55e40bb130b174d16bb12bd087995437, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -35,6 +35,7 @@ public class SuperDashSpell : Spell
     public override void Cast(Body body)
     {
         if (!CanCast()) return; // 🛡
+        AudioSystem.PlaySound(clip);
 
         //EFFECT
         refresh.RefreshPlayParticle(Particle.ELECTRO);

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4
+  clip: {fileID: 8300000, guid: 9daf1050012e34c3b8c506e994917538, type: 3}
   pref_bullet: {fileID: 7285141731464565782, guid: 4a46212c7fcd5433d9a9067736945672, type: 3}
 --- !u!1001 &3146849950758784819
 PrefabInstance:

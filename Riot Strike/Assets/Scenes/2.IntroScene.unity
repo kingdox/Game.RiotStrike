@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part_shot: {fileID: 277422135}
+  clipShort: {fileID: 8300000, guid: d9d5ad8595a9040d39e1ece148f0d9c6, type: 3}
 --- !u!1 &100627617
 GameObject:
   m_ObjectHideFlags: 0

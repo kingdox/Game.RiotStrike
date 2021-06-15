@@ -27,6 +27,10 @@ public abstract class Weapon : MonoBehaviour
     [HideInInspector] public bool canUseWeapon=true;
     public string ID = "0";
     [Range(0, 1)] public float aimZoomPercent = 1;
+
+    public AudioClip clip_attack;
+    public AudioClip clip_impact;
+
     public Action<int,int>      OnFireAttack;
     public Action<float, float> OnReload;
     public Action<Body, int>    OnTargetImpactWeapon; 
@@ -75,7 +79,12 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// returns values of the target and then shows the qty of life and the body of the target
     /// </summary>
-    protected void EmitTargetImpactWeapon(Body target, int damage) => OnTargetImpactWeapon?.Invoke(target, damage);
+    protected void EmitTargetImpactWeapon(Body target, int damage)
+    {
+        if (clip_impact) AudioSystem.PlaySound(clip_impact);
+
+        OnTargetImpactWeapon?.Invoke(target, damage);
+    }
     /// <summary>
     /// Check if the weapon can attack
     /// </summary>
@@ -94,6 +103,8 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>a
     public virtual void Attack(Body body) {
         flag_canAttack = false;
+        if (clip_attack) AudioSystem.PlaySound(clip_attack);
+
         currentAmmo--;
         EmitWeapon();
     }

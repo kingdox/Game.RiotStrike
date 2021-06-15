@@ -72,6 +72,8 @@ public class AntiGravityJumpSpell : Spell
     /// </summary>
     public override void Cast(Body body){
         if (!CanCast()) return; // 🛡
+        AudioSystem.PlaySound(clip);
+
         //Jump
         refresh.RefreshPlayParticle(Particle.JUMP);
         StartCoroutine(Jump(body));

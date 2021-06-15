@@ -31,6 +31,7 @@ public class ElectroSpell : Spell
     public override void Cast(Body body)
     {
         if (!CanCast()) return; // 🛡
+        AudioSystem.PlaySound(clip);
 
         //Set the buff and manages itself
         StartCoroutine(SpellStrenght(body));

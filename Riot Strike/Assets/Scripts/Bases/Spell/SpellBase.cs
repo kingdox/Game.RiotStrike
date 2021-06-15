@@ -19,6 +19,7 @@ public abstract class Spell : MonoBehaviour
     private bool flagReady;
     [Header("Spell")]
     public string ID = "0";
+    public AudioClip clip;
     public Action<float, float> OnTimer;
     public Action OnFireCast;
     #endregion

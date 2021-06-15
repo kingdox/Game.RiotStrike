@@ -24,6 +24,7 @@ public class DroneRocketSpell : Spell
     public override void Cast(Body body)
     {
         if (!CanCast()) return; // 🛡
+        AudioSystem.PlaySound(clip);
         LaunchRocket(body);
     }
     /// <summary>

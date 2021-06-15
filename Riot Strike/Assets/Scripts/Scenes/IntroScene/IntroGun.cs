@@ -13,10 +13,6 @@ namespace IntroScene
         public ParticleSystem part_shot;
         public AudioClip clipShort;
         #endregion
-        private void Start()
-        {
-
-        }
         #region
         /// <summary>
         /// Shows the shot animation
@@ -24,6 +20,7 @@ namespace IntroScene
         public void GunAnimShot()
         {
 
+            AudioSystem.PlaySound(clipShort);
 
             part_shot.Play();
         }

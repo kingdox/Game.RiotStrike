@@ -54,7 +54,6 @@ public  class RangedWeapon : Weapon
            .transform
            .Component(out Bullet bullet);
 
-
         //TODO
         bullet.transform.forward = body.tr_head.forward;
 

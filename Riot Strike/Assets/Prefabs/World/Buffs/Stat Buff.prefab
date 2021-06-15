@@ -5042,6 +5042,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb55b5f083844d7fb2f59cf3598c780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  message: 
+  clip: {fileID: 8300000, guid: cedc65a89f5c041bc9b7ba85711683db, type: 3}
   eStat: 0
   qty: 1
   destroyDuration: 2

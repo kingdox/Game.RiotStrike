@@ -26,6 +26,8 @@ public class HealSpell : Spell
     /// </summary>
     public override void Cast(Body body){
         if (!CanCast()) return; // 🛡
+        AudioSystem.PlaySound(clip);
+
         body.AddLife(healQty);
         refresh.RefreshPlayParticle(Particle.HEAL);
         refresh.RefreshPlayParticle(Particle.HEAL_AREA);

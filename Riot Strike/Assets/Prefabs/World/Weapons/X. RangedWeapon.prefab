@@ -366,6 +366,7 @@ MonoBehaviour:
   imgs: []
   txts: []
   btns: []
+  inputs: []
   parts: []
 --- !u!114 &4215344852472557547
 MonoBehaviour:
@@ -379,7 +380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b58ce199ecf4b1eb523f385ca7afa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canUseWeapon: 1
   ID: 0
+  aimZoomPercent: 1
+  clip_attack: {fileID: 8300000, guid: d9d5ad8595a9040d39e1ece148f0d9c6, type: 3}
+  clip_impact: {fileID: 0}
   refresh: {fileID: 5052789119148704414}
   pref_bullet: {fileID: 3101680606432361369, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
   tr_hotSpot: {fileID: 3121846999292772998}
