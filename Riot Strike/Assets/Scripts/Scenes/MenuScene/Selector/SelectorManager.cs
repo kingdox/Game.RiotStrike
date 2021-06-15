@@ -115,7 +115,7 @@ namespace MenuScene
             RefreshController refresh = refresh_quirks[quirk.ToInt()];
             refresh.Translate(Quirk.Text.TITLE, name);
             refresh.Translate(Quirk.Text.DESCRIPTION, description);
-            refresh.RefreshImgColor(Quirk.Image.BACKGROUND, Color.white);
+            //refresh.RefreshImgColor(Quirk.Image.BACKGROUND, Color.white);
 
             //refresh the image
             string path = $"{Dat.PATH_ICON}/{pathFile}";

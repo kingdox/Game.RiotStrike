@@ -59,7 +59,6 @@ public class Bullet : MonoBehaviour
 
         CheckTarget(collision.transform);
 
-        collision.gameObject.name.Print();
 
         DestroyBullet();
     }
@@ -150,9 +149,13 @@ public class Bullet : MonoBehaviour
         if (isValidTarget)
         {
             OWOCheckPlayer(targetBody);
+
+
+            float damageToTake = damage + Get.RandomBool.ToInt();// (damage + (damage/5).MinusMax()).Min(0);
+
             //Invoke first, next the calc
-            OnImpact?.Invoke(targetBody, damage.ToInt());
-            targetBody.AddLife(-damage);
+            OnImpact?.Invoke(targetBody, damageToTake.ToInt());
+            targetBody.AddLife(-damageToTake);
         }
     }
 
@@ -171,7 +174,6 @@ public class Bullet : MonoBehaviour
     /// Destroys the bullet
     /// </summary>
     private void DestroyBullet() {
-        " Destroy_____".Print("yellow");
         Destroy(gameObject, destroyDelay);
     }
     #endregion
