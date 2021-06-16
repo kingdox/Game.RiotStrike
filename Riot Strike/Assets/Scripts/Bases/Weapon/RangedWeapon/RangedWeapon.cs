@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Change;
+using WeaponRefresh.Ranged.Weapon;
 # endregion
 /// <summary>
 /// Weapons who gets a gun behaviour
@@ -40,6 +42,8 @@ public  class RangedWeapon : Weapon
     public override void Attack(Body body){
         if (!CanAtack()) return; // 🛡
         base.Attack(body);
+
+        refresh.RefreshPlayParticle(Particle.HOTSPOT_SHOT);
 
         Shot(body, pref_bullet);
     }

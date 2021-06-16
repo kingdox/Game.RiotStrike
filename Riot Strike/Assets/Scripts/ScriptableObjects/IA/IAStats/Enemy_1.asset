@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentCastSpell: 0
   delayAttack: 0
-  lastSeenTargetLocation: {x: 14.25, y: 5.3, z: 8.5}
-  viewDepth: 100
+  lastSeenTargetLocation: {x: 5.579957, y: -0.42000008, z: 12.470223}
+  viewDepth: 1000
   viewWidth: 0

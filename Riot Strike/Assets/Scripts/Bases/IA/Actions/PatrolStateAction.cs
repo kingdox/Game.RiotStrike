@@ -16,11 +16,11 @@ public class PatrolStateAction : StateAction
 {
     #region Variables
     private int index = 0;
-    private Transform[] childsPatrol;
-    private bool firstTime=true;
     [Header("Patrol Action")]
     public bool isRandom = false;
     public float distanceWithTarget = 1f;
+
+    public bool firstTime = true;
     #endregion
     #region Methods
     /// <summary>
@@ -34,8 +34,7 @@ public class PatrolStateAction : StateAction
     /// </summary>
     private void InitState(IABody ia){
         firstTime = false;
-        ia.patrol.Components(out childsPatrol);
-        index = childsPatrol.Length.ZeroMax();
+        index = ia.patrol.childCount.ZeroMax();
     }
     /// <summary>
     /// Patrol who where is he in the  state
@@ -43,8 +42,8 @@ public class PatrolStateAction : StateAction
     private void Patrol(IABody ia)
     {
         //Do the patrol
-        ia.Move(childsPatrol[index].position);
-        ia.Rotate(PatrolPosition);
+        ia.Move(PatrolPosition(ia));
+        ia.Rotate(PatrolPosition(ia));
         CheckForNextPosition(ia);
     }
     /// <summary>
@@ -52,21 +51,25 @@ public class PatrolStateAction : StateAction
     /// it can be random or not
     /// </summary>
     private void CheckForNextPosition(IABody ia) {
-           float distance = Vector3.Distance(
+        float distance = Vector3.Distance(
             ia.transform.position,
-            PatrolPosition
+            PatrolPosition(ia)
         );
         if (distance < distanceWithTarget)
         {
             index = isRandom 
-                ? childsPatrol.Length.DifferentIndex(index)
-                : Know.NextIndex(true, childsPatrol.Length, index)
+                ? PatrolQty(ia).DifferentIndex(index)
+                : Know.NextIndex(true, PatrolQty(ia), index)
             ;
         }
     }
     /// <summary>
     /// get the position of the patrol
     /// </summary>
-    private Vector3 PatrolPosition => childsPatrol[index].position;
+    private Vector3 PatrolPosition(IABody ia) => ia.patrol.GetChild(index).position;
+    /// <summary>
+    /// Qty of childs
+    /// </summary>
+    private int PatrolQty(IABody ia) => ia.patrol.childCount;
     #endregion
 }

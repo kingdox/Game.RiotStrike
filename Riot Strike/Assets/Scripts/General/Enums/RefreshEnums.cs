@@ -315,14 +315,26 @@ namespace WeaponRefresh
 {
     namespace Ranged
     {
-        /// <summary>
-        /// Refresher of the particle for <seealso cref="SniperRifleRangedWeapon"/>
-        /// </summary>
-        public enum Particle
-        {
-            LINE=0,
-            IMPACT=1,
-            //SPLAT=2
+
+        namespace Weapon {
+            /// <summary>
+            /// Refresh the weapon
+            /// </summary>
+            public enum Particle {
+                HOTSPOT_SHOT=0,
+            }
+        }
+
+        namespace Bullet {
+            /// <summary>
+            /// Refresher of the particle for the bullet and their things
+            /// </summary>
+            public enum Particle
+            {
+                LINE=0,
+                IMPACT=1,
+                //SPLAT=2
+            }
         }
     }
     namespace Near{

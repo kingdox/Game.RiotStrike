@@ -12,14 +12,11 @@ public class MovementController : MonoBehaviour
     //private CharacterController player;
     private Vector3 movement = new Vector3();
     #endregion
-    #region Events
-    #endregion
     #region Methods
     /// <summary>
     /// check if it can move
     /// </summary>
     private bool CanMove => enabled && !Time.timeScale.Equals(0);
-
     /// <summary>
     /// Move the player in X and Z based on the orientation of the transform in Z axis (forward)
     /// </summary>
@@ -57,10 +54,6 @@ public class MovementController : MonoBehaviour
 
         //equales the value to keep in the same area
         agent.velocity = controller.velocity;
-
-        //TODO hacer que el movimiento de este permita
-
-
     }
     #endregion
 }

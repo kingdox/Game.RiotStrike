@@ -116,20 +116,21 @@ namespace GameScene
             //CREATE ENEMY
             Instantiate(pref_character,TargetManager.SpawnPoints.Any().position, Quaternion.identity, TargetManager.GetParentEnemies)
                 .transform
-                .Component(out IABody iaBody);
+                .Component(out IABody ia);
 
             //SET CHARACTER
-            iaBody.character = characters_enemies[indexCurrentEnemy];
+            ia.character = characters_enemies[indexCurrentEnemy];
             //iaBody.character = characters_enemies.Where(c => c.idStat.Equals(EnemyConfigs.ID_ENEMY as Character);
 
             //SET IA STATS (PATROL, DELAYE, ETC )
-            iaBody.patrol = GetRandomPatrol();
-            iaBody.iaStat.percentCastSpell = EnemyConfigs.ENEMY_PROBABILITY_TO_CAST_SPELL;
-            iaBody.iaStat.delayAttack = EnemyConfigs.ENEMY_DELAY_ATTACK.Range();
+            ia.patrol = GetRandomPatrol();
+            ia.iaStat.percentCastSpell = EnemyConfigs.ENEMY_PROBABILITY_TO_CAST_SPELL;
+            ia.iaStat.delayAttack = EnemyConfigs.ENEMY_DELAY_ATTACK.Range();
 
-            iaBody.gameObject.SetActive(true);
+            ia.gameObject.SetActive(true);
+            ia.iaActive = true;
 
-            iaBody.OnDeath += delegate { enemiesKilled++; };
+            ia.OnDeath += delegate { enemiesKilled++; };
         }
 
 

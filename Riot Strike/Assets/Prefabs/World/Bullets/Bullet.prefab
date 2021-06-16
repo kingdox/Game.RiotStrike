@@ -4893,6 +4893,7 @@ MonoBehaviour:
   damage: 0
   speed: 900
   behaviour: 1
+  tr_target: {fileID: 0}
   effectImpact: 1
   effectMoving: 1
   destroyDelay: 5
@@ -4911,9 +4912,11 @@ MonoBehaviour:
   imgs: []
   txts: []
   btns: []
+  inputs: []
   parts:
   - {fileID: 2477328419808817964}
   - {fileID: 1688281914346278932}
+  animators: []
 --- !u!1 &3101680607143394632
 GameObject:
   m_ObjectHideFlags: 0

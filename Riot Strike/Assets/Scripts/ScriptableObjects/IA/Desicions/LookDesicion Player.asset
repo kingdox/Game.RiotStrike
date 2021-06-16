@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: LookDesicion Player
   m_EditorClassIdentifier: 
   targetTag: Player
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 512

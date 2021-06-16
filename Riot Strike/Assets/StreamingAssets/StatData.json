@@ -46,25 +46,25 @@
             "ID": "Enemy_0",
             "STRENGHT": 1,
             "DEFENSE": 1,
-            "SPEED": 1
+            "SPEED": 2
         },
         {
             "ID": "Enemy_1",
             "STRENGHT": 2,
             "DEFENSE": 1,
-            "SPEED": 1
+            "SPEED": 3
         },
         {
             "ID": "Enemy_2",
             "STRENGHT": 2,
             "DEFENSE": 2,
-            "SPEED": 2
+            "SPEED": 4
         },
         {
             "ID": "Enemy_3",
             "STRENGHT": 3,
             "DEFENSE": 3,
-            "SPEED": 3
+            "SPEED": 5
         }
     ]
 }

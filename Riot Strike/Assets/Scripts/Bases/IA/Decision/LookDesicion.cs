@@ -12,6 +12,8 @@ public class LookDesicion : Decision
 {
     #region Variables
     public string targetTag;
+    public LayerMask targetLayer;
+
     #endregion
     #region Events
     public override bool Decide(IABody ia) {
@@ -39,7 +41,8 @@ public class LookDesicion : Decision
             ray,
             ia.iaStat.viewWidth,
             out hit,
-            ia.iaStat.viewDepth
+            ia.iaStat.viewDepth,
+            targetLayer
             ) && hit.collider.CompareTag(targetTag)
         ) {
             // "Encontrado en el campo de vision".Print("green");

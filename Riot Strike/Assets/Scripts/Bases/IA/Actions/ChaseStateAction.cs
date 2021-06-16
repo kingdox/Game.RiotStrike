@@ -28,11 +28,10 @@ public class ChaseStateAction : StateAction
     /// </summary>
     private void Chase(IABody ia) {
 
-        // Si tiene target
-        if (ia.target) {
+        // Si tiene target y se encuentra a una distancia tolerable
+        if (ia.target &&false) {
             Fetch(ia, ia.iaStat.lastSeenTargetLocation);
         }
-
 
         // si la distancia para llegar es menor que la cual deberá detenerse
         // se quita la referencia del objetivo

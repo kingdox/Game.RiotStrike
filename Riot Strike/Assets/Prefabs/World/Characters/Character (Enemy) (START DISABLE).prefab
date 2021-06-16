@@ -173,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1063663620236050314
 Transform:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
   gravity: {fileID: 0}
   character: {fileID: 11400000, guid: 1dd3949b59dcc47aab6b380e736c6b2b, type: 2}
   agent: {fileID: 0}
-  iaActive: 1
+  iaActive: 0
   currentState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}
   iaStat: {fileID: 11400000, guid: 700e7b77502fa49a69a29c4ce7e1fab3, type: 2}
   patrol: {fileID: 0}

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using XavHelpTo;
+using XavHelpTo.Know;
+using XavHelpTo.Get;
 using Dat = Environment.Data;
 # endregion
 
@@ -15,6 +17,7 @@ public class IABody : Body
 {
     #region Variables
 
+    private bool trySpell = true;
     [HideInInspector] public NavMeshAgent agent;
     [Header("Enemy Body")]
     public bool iaActive = true;
@@ -66,8 +69,6 @@ public class IABody : Body
 
         currentState = newState;
     }
-
-
     /// <summary>
     /// Move the IA to the asigned destination
     /// </summary>
@@ -84,8 +85,31 @@ public class IABody : Body
         destination,
         stat.RealSpeed
     );
+    /// <summary>
+    /// Do an Attack with the weapon
+    /// also can reload or cast the spell
+    /// </summary>
+    public void Attack() {
+        "Ataca bot".Print("yellow");
+
+        if (character.weapon.IsEmptyAmmo) {
+            character.OnReload?.Invoke();
+        } else {
+            character.OnAttack?.Invoke(this);
+        }
 
 
+        if (trySpell) {
+            trySpell = false;
+
+            //Try cast spell
+            float percentMax = 100f.ZeroMax();
+            if (iaStat.percentCastSpell > percentMax) {
+                percentMax.IsOnBounds(iaStat.percentCastSpell);
+                character.OnCast.Invoke(this);
+            }
+        }
+    }
     /// <summary>
     /// Destroy the IA character if is death
     /// </summary>
@@ -106,22 +130,4 @@ public class IABody : Body
  *  - Disparar (si no ha apuntado)
  *  - Recargar (si no puede disparar
  *  - Habilidad (por porcentaje de posibilidad)
- */
-
-/*
- 
-    public State currentState;
-    [HideInInspector] public NavMeshAgent navMeshAgent;
-
-    public List<Transform> wayPointList;
-    public int nextWayPoint;
-
-    public bool aiActive = true;
-
-    public EnemyStats enemyStats;
-    public Transform eyes;
-    public Transform target;
-    public Vector3 lastSpotedPosition;
- 
- 
  */

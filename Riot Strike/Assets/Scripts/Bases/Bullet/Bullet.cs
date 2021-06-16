@@ -8,12 +8,12 @@ using XavHelpTo.Get;
 using XavHelpTo.Change;
 using XavHelpTo.Set;
 using XavHelpTo.Know;
-using WeaponRefresh.Ranged;
+using WeaponRefresh.Ranged.Bullet;
 using OWO;
 #endregion
 /// <summary>
 /// Movement of a bullet with their own effects when it hits and other
-/// behaviours
+/// behaviours   
 /// </summary>
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
@@ -50,15 +50,13 @@ public class Bullet : MonoBehaviour
         if (Time.timeScale == 0) return;
         ActionBehaviour();
     }
-    private void OnCollisionEnter(Collision collision){
+    private void OnCollisionEnter(Collision collision) {
         if (isImpacted) return;// 🛡
         isImpacted = true;
         if (effectImpact) refresh.RefreshPlayParticle(Particle.IMPACT);
         refresh.GetParticle(Particle.LINE).ActiveParticle(false);
 
-
         CheckTarget(collision.transform);
-
 
         DestroyBullet();
     }

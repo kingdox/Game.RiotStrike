@@ -810,7 +810,8 @@ namespace XavHelpTo
         /// <summary>
         /// Detecta si el indice está dentro del arreglo
         /// </summary>
-        public static bool IsOnBounds(int i, int length) => i == Mathf.Clamp(i, 0, length - 1);
+        public static bool IsOnBounds(this int i, int length) => i == Mathf.Clamp(i, 0, length - 1);
+        public static bool IsOnBounds(this float i, float max) => i == Mathf.Clamp(i, 0, max);
         public static bool IsOnBounds<T>(this int i, T[] length) => IsOnBounds(i, length.Length);
         public static bool IsOnBounds(int i, int length, bool direction) => i == Mathf.Clamp(i + (direction ? 1 : -1) , 0, length - 1);
             

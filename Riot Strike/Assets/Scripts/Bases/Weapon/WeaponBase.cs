@@ -92,12 +92,17 @@ public abstract class Weapon : MonoBehaviour
     public bool CanAtack(){
         if (!canUseWeapon
             || !flag_canAttack
-            || currentAmmo.Equals(0)
+            || IsEmptyAmmo
             || isReloading)
             return false; // 🛡
         return true;
     }
-    
+
+    /// <summary>
+    /// Check if you have not attacks to use
+    /// </summary>
+    public bool IsEmptyAmmo => currentAmmo.Equals(0);
+
     /// <summary>
     /// Do the attack if it have ammo
     /// </summary>a

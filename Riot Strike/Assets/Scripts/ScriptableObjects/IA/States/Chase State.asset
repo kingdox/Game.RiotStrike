@@ -16,6 +16,7 @@ MonoBehaviour:
     se logro ver."
   actions:
   - {fileID: 11400000, guid: a92cd35d0498fd04ab42d2816bf3a8e2, type: 2}
+  - {fileID: 11400000, guid: 4fceb948fdcaf0a4d98b61935641d540, type: 2}
   transition:
   - description: Si seguimos viendo al player perseguimos, sino volvemos al patrol
     decision: {fileID: 11400000, guid: 5c0cb244b9dda411286e52e125285396, type: 2}
