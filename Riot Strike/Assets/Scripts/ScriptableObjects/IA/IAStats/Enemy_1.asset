@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b772af5749aca49ecbcca79bf99fcdf8, type: 3}
-  m_Name: PatrolState
+  m_Script: {fileID: 11500000, guid: 7565ef8f64c094ba9b2896f4aed03048, type: 3}
+  m_Name: Enemy_1
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: b75000fd4c7a34e20909ca952cc56d11, type: 2}
-  transition: []
+  percentCastSpell: 0
+  delayAttack: 0
+  lastSeenTargetLocation: {x: 14.25, y: 5.3, z: 8.5}
+  viewDepth: 100
+  viewWidth: 0

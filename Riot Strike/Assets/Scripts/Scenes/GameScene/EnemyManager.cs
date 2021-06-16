@@ -124,8 +124,8 @@ namespace GameScene
 
             //SET IA STATS (PATROL, DELAYE, ETC )
             iaBody.patrol = GetRandomPatrol();
-            iaBody.percentCastSpell = EnemyConfigs.ENEMY_PROBABILITY_TO_CAST_SPELL;
-            iaBody.delayAttack = EnemyConfigs.ENEMY_DELAY_ATTACK.Range();
+            iaBody.iaStat.percentCastSpell = EnemyConfigs.ENEMY_PROBABILITY_TO_CAST_SPELL;
+            iaBody.iaStat.delayAttack = EnemyConfigs.ENEMY_DELAY_ATTACK.Range();
 
             iaBody.gameObject.SetActive(true);
 

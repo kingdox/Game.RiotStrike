@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b772af5749aca49ecbcca79bf99fcdf8, type: 3}
+  m_Name: Patrol State
+  m_EditorClassIdentifier: 
+  description: "Estado de movimiento de patrulla donde seguiremos los pasos que\nexistan,
+    basandonos en el patrol puesto en IABody.\n\n* Acciones:\n\t - Patrullar en los
+    puntos indicados\n\n* Cambia de estado a\n\n\t- Patrulla si  no encuentre objetivo\n\t-
+    Persigue si encuentra un jugador"
+  actions:
+  - {fileID: 11400000, guid: b75000fd4c7a34e20909ca952cc56d11, type: 2}
+  transition:
+  - description: "Jugador en campo de visi\xF3n?"
+    decision: {fileID: 11400000, guid: 5c0cb244b9dda411286e52e125285396, type: 2}
+    trueState: {fileID: 11400000}
+    falseState: {fileID: 0}

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13878fc3c6715429db931312d8982a87, type: 3}
-  m_Name: PatrolStateAction
+  m_Script: {fileID: 11500000, guid: 9fed842f2e628426dae2cfa508d99b7c, type: 3}
+  m_Name: LookDesicion Player
   m_EditorClassIdentifier: 
-  isRandom: 1
-  distanceWithTarget: 1
+  targetTag: Player

@@ -17,30 +17,17 @@ public class IABody : Body
 
     [HideInInspector] public NavMeshAgent agent;
     [Header("Enemy Body")]
-    public bool aiActive = true;
+    public bool iaActive = true;
     [Space]
     public State currentState;
 
+    public IAStat iaStat;
 
-
-    [Header("IA Stat")]
-    //Patrol
+    //Parent of the Patrols
     public Transform patrol;
-    public int indexPatrolPoint;
-
-    //Spell Casting
-    public float percentCastSpell;
-
-    //Aiming
-    public float delayAttack;
 
     //Target to chase
     public Transform target;
-    public Vector3 lastSeenTargetLocation;
-
-
-    //General
-    public bool isStateActionInited = false;
 
     #endregion
     #region Events
@@ -67,17 +54,16 @@ public class IABody : Body
     /// Resolves the IA Management to start to act, if the ai Is  not enabled then itself will do nothing
     /// </summary>
     private void ManageIA(){
-        if (!aiActive) return; // 🛡
+        if (!iaActive) return; // 🛡
 
         currentState.UpdateState(this);
     }
     /// <summary>
-    /// Transition between states
+    /// Transition between states 
     /// </summary>
-    public void TransitionToState(State newState)
-    {
-        //if (newState != currentState) return;// 🛡
-        if (newState != currentState) return;// 🛡
+    public void TransitionToState(State newState){
+        if (!newState || newState.Equals(currentState)) return;// 🛡
+
         currentState = newState;
     }
 

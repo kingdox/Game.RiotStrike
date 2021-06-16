@@ -42,6 +42,7 @@ public class MovementController : MonoBehaviour
     /// </summary>
     public void Move(CharacterController controller, NavMeshAgent agent, float speed, Vector3 destination)
     {
+        agent.isStopped = !CanMove;
         if (!CanMove) return; //🛡
         agent.destination = destination;
         controller.Move(
@@ -54,6 +55,7 @@ public class MovementController : MonoBehaviour
         agent.velocity = controller.velocity;
 
         //TODO hacer que el movimiento de este permita
+
 
     }
     #endregion

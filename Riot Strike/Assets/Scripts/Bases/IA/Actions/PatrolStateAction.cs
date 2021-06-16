@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XavHelpTo;
+using XavHelpTo.Get;
 using XavHelpTo.Know;
 using XavHelpTo.Look;
 
@@ -10,14 +11,15 @@ using XavHelpTo.Look;
 /// <summary>
 /// Follow the object and their childs to do the movement
 /// </summary>
-[CreateAssetMenu(menuName = "AISystem/Actions/Patrol")]
+[CreateAssetMenu(menuName = "IA/Action/Patrol")]
 public class PatrolStateAction : StateAction
 {
     #region
     private int index = 0;
     private Transform[] childsPatrol;
-    private Transform toGo;
-
+    private bool firstTime=true;
+    [Header("Patrol Action")]
+    public bool isRandom = false;
     public float distanceWithTarget = 1f;
     #endregion
     #region Event
@@ -26,18 +28,18 @@ public class PatrolStateAction : StateAction
     /// Do the Patrol
     /// </summary>
     public override void Act(IABody ia) {
-
-        if (!ia.isStateActionInited) InitState(ia);
-        
-
+        if (firstTime) InitState(ia);
         Patrol(ia);
     }
     #region methods
+    /// <summary>
+    /// Initializes the status of the patrol
+    /// </summary>
     private void InitState(IABody ia){
-        ia.isStateActionInited = true;
+        firstTime = false;
         ia.patrol.Components(out childsPatrol);
         //"Init, go to base patrol".Print("Red");
-        toGo = ia.patrol;
+        index = childsPatrol.Length.ZeroMax();
     }
     /// <summary>
     /// Patrol who where is he in the  state
@@ -45,23 +47,35 @@ public class PatrolStateAction : StateAction
     private void Patrol(IABody ia)
     {
         //Do the patrol
-        ia.Move(toGo.position);
-        ia.Rotate(toGo.position);
+        ia.Move(childsPatrol[index].position);
+        ia.Rotate(PatrolPosition);
 
 
         float distance = Vector3.Distance(
             ia.transform.position,
-            toGo.position
+            PatrolPosition
         );
 
         //si esta dentro del rango
         if (distance < distanceWithTarget)
         {
-            index = Know.NextIndex(true, childsPatrol.Length, index);
-            toGo = childsPatrol[index];
+            if (isRandom)
+            {
+                //Set a random order
+                index = childsPatrol.Length.DifferentIndex(index);
+            }
+            else
+            {
+                index = Know.NextIndex(true, childsPatrol.Length, index);
+
+            }
         }
-
-
     }
+
+
+    /// <summary>
+    /// get the position of the patrol
+    /// </summary>
+    private Vector3 PatrolPosition => childsPatrol[index].position;
     #endregion
 }

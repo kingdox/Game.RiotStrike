@@ -6,11 +6,15 @@ using UnityEngine;
 ///<summary>
 /// State
 ///</summary>
-[CreateAssetMenu(menuName = "Template/State")]
+[CreateAssetMenu(menuName = "IA/State")]
 public class State : ScriptableObject
 {
     #region Variables
+    [TextArea(3,20)]
+    [SerializeField]private string description;
+    [Space(20)]
     public StateAction[] actions;
+    [Space(20)]
     public Transition[] transition;
 
     #endregion
@@ -49,9 +53,13 @@ public class State : ScriptableObject
             ;
 
             if (desicionSucceded) {
-                ia.TransitionToState(transition[i].trueState);
+                ia.TransitionToState(transition[i]
+                    .trueState
+                );
             } else {
-                ia.TransitionToState(transition[i].falseState);
+                ia.TransitionToState(transition[i]
+                    .falseState
+                );
             }
 
         }

@@ -10,16 +10,10 @@ using UnityEngine;
 public class Transition 
 {
     #region Variables
-
+    [SerializeField] private string description;
     public Decision decision;
     public State trueState;
     public State falseState;
-
-#endregion
-#region Methods
-
-
-
 
 #endregion
 }
