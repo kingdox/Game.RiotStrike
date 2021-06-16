@@ -53,6 +53,8 @@ public class MovementController : MonoBehaviour
         //equales the value to keep in the same area
         agent.velocity = controller.velocity;
 
+        //TODO hacer que el movimiento de este permita
+
     }
     #endregion
 }

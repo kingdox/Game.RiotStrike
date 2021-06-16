@@ -17,6 +17,8 @@ public class PatrolStateAction : StateAction
     private int index = 0;
     private Transform[] childsPatrol;
     private Transform toGo;
+
+    public float distanceWithTarget = 1f;
     #endregion
     #region Event
     #endregion
@@ -53,9 +55,8 @@ public class PatrolStateAction : StateAction
         );
 
         //si esta dentro del rango
-        if (
-            distance < 1
-        ){
+        if (distance < distanceWithTarget)
+        {
             index = Know.NextIndex(true, childsPatrol.Length, index);
             toGo = childsPatrol[index];
         }
