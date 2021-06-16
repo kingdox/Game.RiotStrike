@@ -14,7 +14,7 @@ using XavHelpTo.Look;
 [CreateAssetMenu(menuName = "IA/Action/Patrol")]
 public class PatrolStateAction : StateAction
 {
-    #region
+    #region Variables
     private int index = 0;
     private Transform[] childsPatrol;
     private bool firstTime=true;
@@ -22,8 +22,7 @@ public class PatrolStateAction : StateAction
     public bool isRandom = false;
     public float distanceWithTarget = 1f;
     #endregion
-    #region Event
-    #endregion
+    #region Methods
     /// <summary>
     /// Do the Patrol
     /// </summary>
@@ -31,14 +30,11 @@ public class PatrolStateAction : StateAction
         if (firstTime) InitState(ia);
         Patrol(ia);
     }
-    #region methods
-    /// <summary>
     /// Initializes the status of the patrol
     /// </summary>
     private void InitState(IABody ia){
         firstTime = false;
         ia.patrol.Components(out childsPatrol);
-        //"Init, go to base patrol".Print("Red");
         index = childsPatrol.Length.ZeroMax();
     }
     /// <summary>
@@ -49,30 +45,25 @@ public class PatrolStateAction : StateAction
         //Do the patrol
         ia.Move(childsPatrol[index].position);
         ia.Rotate(PatrolPosition);
-
-
-        float distance = Vector3.Distance(
+        CheckForNextPosition(ia);
+    }
+    /// <summary>
+    /// Check if is at the end of the current position and choose the next
+    /// it can be random or not
+    /// </summary>
+    private void CheckForNextPosition(IABody ia) {
+           float distance = Vector3.Distance(
             ia.transform.position,
             PatrolPosition
         );
-
-        //si esta dentro del rango
         if (distance < distanceWithTarget)
         {
-            if (isRandom)
-            {
-                //Set a random order
-                index = childsPatrol.Length.DifferentIndex(index);
-            }
-            else
-            {
-                index = Know.NextIndex(true, childsPatrol.Length, index);
-
-            }
+            index = isRandom 
+                ? childsPatrol.Length.DifferentIndex(index)
+                : Know.NextIndex(true, childsPatrol.Length, index)
+            ;
         }
     }
-
-
     /// <summary>
     /// get the position of the patrol
     /// </summary>

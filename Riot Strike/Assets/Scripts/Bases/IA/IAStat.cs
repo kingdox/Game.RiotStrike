@@ -21,6 +21,9 @@ public class IAStat: ScriptableObject
 
     //Aiming
     [HideInInspector] public float delayAttack;
+    
+    
+    //LOOK
     [HideInInspector] public Vector3 lastSeenTargetLocation;
     public float viewDepth = 100;
     public float viewWidth = 0;//0 or 1, TODO study this

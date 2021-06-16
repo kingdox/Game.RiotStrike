@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Weapon Katana '
       objectReference: {fileID: 0}
+    - target: {fileID: 5911297489905897839, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8502118934248065410, guid: 934a12e6601cb4528889e92a141d8f86, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0057087243

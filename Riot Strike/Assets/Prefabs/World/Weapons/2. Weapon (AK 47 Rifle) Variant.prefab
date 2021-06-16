@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3562494556586331931}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HotSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +170,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3926170983562709369}
     m_Modifications:
+    - target: {fileID: 216299750727403215, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 496592756580672242, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 752042140497886452, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185781532188964098, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195074600260603726, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010687589358799763, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317988920642983738, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579284092772857374, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719684174907103895, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5401419194194675236, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
       propertyPath: m_Name
       value: Weapon Thunderbold
@@ -177,6 +213,14 @@ PrefabInstance:
     - target: {fileID: 5401419194194675236, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729470333949195282, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822686703335269460, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7163524546960224739, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,6 +277,18 @@ PrefabInstance:
     - target: {fileID: 7163524546960224739, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102039086391464790, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616988308425291005, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058131810697238873, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2c9313dbf544531ba280f4178abd11, type: 3}

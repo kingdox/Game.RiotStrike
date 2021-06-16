@@ -21,5 +21,5 @@ MonoBehaviour:
   transition:
   - description: "Jugador en campo de visi\xF3n?"
     decision: {fileID: 11400000, guid: 5c0cb244b9dda411286e52e125285396, type: 2}
-    trueState: {fileID: 11400000}
+    trueState: {fileID: 11400000, guid: 22f11e4d89f8272419e1bb8e6eda9edb, type: 2}
     falseState: {fileID: 0}

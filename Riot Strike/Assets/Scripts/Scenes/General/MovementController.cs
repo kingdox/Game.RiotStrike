@@ -43,7 +43,11 @@ public class MovementController : MonoBehaviour
     public void Move(CharacterController controller, NavMeshAgent agent, float speed, Vector3 destination)
     {
         agent.isStopped = !CanMove;
-        if (!CanMove) return; //🛡
+        if (!CanMove) {
+            agent.Warp(controller.transform.position);
+
+            return; //🛡
+        }
         agent.destination = destination;
         controller.Move(
             agent.desiredVelocity.normalized

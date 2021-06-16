@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b772af5749aca49ecbcca79bf99fcdf8, type: 3}
+  m_Name: Chase State
+  m_EditorClassIdentifier: 
+  description: "Estado de persecusi\xF3n del objetivo o la ultima posicion en donde
+    se logro ver."
+  actions:
+  - {fileID: 11400000, guid: a92cd35d0498fd04ab42d2816bf3a8e2, type: 2}
+  transition:
+  - description: Si seguimos viendo al player perseguimos, sino volvemos al patrol
+    decision: {fileID: 11400000, guid: 5c0cb244b9dda411286e52e125285396, type: 2}
+    trueState: {fileID: 11400000}
+    falseState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}

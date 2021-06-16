@@ -279,10 +279,11 @@ MonoBehaviour:
   gravity: {fileID: 0}
   character: {fileID: 11400000, guid: 1dd3949b59dcc47aab6b380e736c6b2b, type: 2}
   agent: {fileID: 0}
-  aiActive: 1
+  iaActive: 1
+  currentState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}
+  iaStat: {fileID: 11400000, guid: 700e7b77502fa49a69a29c4ce7e1fab3, type: 2}
   patrol: {fileID: 0}
-  percentCastSpell: 0
-  delayAttack: 0
+  target: {fileID: 0}
 --- !u!195 &654067008
 NavMeshAgent:
   m_ObjectHideFlags: 0
