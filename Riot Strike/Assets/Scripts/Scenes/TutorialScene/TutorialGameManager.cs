@@ -87,12 +87,17 @@ namespace TutorialScene
             SavedData saved = DataSystem.Get;
             //Achievement Tutorial Done
             saved.achievementsPoints["tutorial_done".IndexAchievement()]++;
-            
+
+            bool tutorialWasDone = saved.tutorialDone;
+
             saved.tutorialDone = true;
             DataSystem.Set(saved);
             DataSystem.Save();
 
-            Scenes.MENU_SCENE.ToScene();
+
+            if (tutorialWasDone) Scenes.MENU_SCENE.ToScene();
+            else Scenes.INTRO_SCENE.ToScene();
+
         }
 
         /// <summary>

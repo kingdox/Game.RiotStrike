@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3101680606432361351, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3101680606432361369, guid: e413bd68af1d54927b795c22d01f9294, type: 3}
       propertyPath: m_Name
       value: Bullet  (Grenades Launcher)

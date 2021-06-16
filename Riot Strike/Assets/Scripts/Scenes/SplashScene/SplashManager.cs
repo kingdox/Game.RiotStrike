@@ -177,6 +177,7 @@ namespace SplashScene
         /// </summary>
         private void GoTo(bool toIntro)
         {
+
             if (toIntro) Scenes.INTRO_SCENE.ToScene();
             else Scenes.TUTORIAL_SCENE.ToScene();
         }

@@ -42,8 +42,15 @@ public class PatrolStateAction : StateAction
     private void Patrol(IABody ia)
     {
         //Do the patrol
+        try
+        {
         ia.Move(PatrolPosition(ia));
         ia.Rotate(PatrolPosition(ia));
+        }
+        catch (System.Exception ex)
+        {
+
+        }
         CheckForNextPosition(ia);
     }
     /// <summary>
@@ -59,7 +66,7 @@ public class PatrolStateAction : StateAction
         {
             index = isRandom 
                 ? PatrolQty(ia).DifferentIndex(index)
-                : Know.NextIndex(true, PatrolQty(ia), index)
+                : Know.NextIndex(true, PatrolQty(ia)-1, index)
             ;
         }
     }

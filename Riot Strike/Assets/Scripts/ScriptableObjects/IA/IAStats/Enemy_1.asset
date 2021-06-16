@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_1
   m_EditorClassIdentifier: 
   percentCastSpell: 0
-  delayAttack: 0
-  lastSeenTargetLocation: {x: 5.579957, y: -0.42000008, z: 12.470223}
-  viewDepth: 1000
-  viewWidth: 0
+  delayAttack: 1.1766672
+  lastSeenTargetLocation: {x: 3.698541, y: -0.4200002, z: 2.8311877}
+  viewDepth: 100
+  viewWidth: 0.5

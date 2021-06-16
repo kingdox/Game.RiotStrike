@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     #region Variables
     private RefreshController refresh;
     private Rigidbody body;
+    private Collider col;
     private bool isImpacted=false;
     private const ushort OWO_ID_BULLET = 9;
     [Header("Bullet Base")]
@@ -39,8 +40,9 @@ public class Bullet : MonoBehaviour
     public Action<Body, int> OnImpact;
     public void Start()
     {
-        this.Component(out body);
-        this.Component(out refresh);
+        this.Component(out body,false);
+        this.Component(out refresh,false);
+        this.Component(out col,false);
 
         refresh.GetParticle(Particle.LINE).ActiveParticle(effectMoving);
 
@@ -53,6 +55,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (isImpacted) return;// 🛡
         isImpacted = true;
+        col.enabled = false;
         if (effectImpact) refresh.RefreshPlayParticle(Particle.IMPACT);
         refresh.GetParticle(Particle.LINE).ActiveParticle(false);
 
