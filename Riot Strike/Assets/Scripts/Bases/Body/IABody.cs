@@ -10,6 +10,7 @@ using Dat = Environment.Data;
 /// <summary>
 /// Body who manages the Enemy States by itself with their own IA
 /// </summary>
+[RequireComponent(typeof(NavMeshAgent))]
 public class IABody : Body
 {
     #region Variables
@@ -17,58 +18,68 @@ public class IABody : Body
     [HideInInspector] public NavMeshAgent agent;
     [Header("Enemy Body")]
     public bool aiActive = true;
+    [Space]
+    public State currentState;
+
 
 
     [Header("IA Stat")]
-    [Tooltip("Patrulla que hará la IA por defecto")]
+    //Patrol
     public Transform patrol;
-    [Tooltip("Posibilidad de usar habilidad cuando localize al jugador")]
+    public int indexPatrolPoint;
+
+    //Spell Casting
     public float percentCastSpell;
-    [Tooltip("Tiempo que le toma al enemigo en disparar con el arma mientras esta apuntando")]
+
+    //Aiming
     public float delayAttack;
 
+    //Target to chase
+    public Transform target;
+    public Vector3 lastSeenTargetLocation;
 
 
+    //General
+    public bool isStateActionInited = false;
 
     #endregion
     #region Events
     public override void Start(){
-        this.Component(out agent);
-
-
-        //TODO temporal
-        //agent.SetDestination(patrol.position);
-        agent.updatePosition = false;
-        agent.updateRotation = false;
-
-        agent.radius = controller.radius;
-        //agent.isStopped=true;
+        this.Component(out agent,false);
+        InitNavAgent();
     }
     private void Update(){
         if (Time.timeScale.Equals(0)) return;
-        
         ManageIA();
-        //state.UpdateState(this);
     }
     #endregion
     #region Methods
-
+    /// <summary>
+    /// Starts to adjust the NavAgent internally
+    /// </summary>
+    private void InitNavAgent()
+    {
+        agent.updateRotation = false;
+        agent.updatePosition = false;
+        agent.radius = controller.radius;
+    }
     /// <summary>
     /// Resolves the IA Management to start to act, if the ai Is  not enabled then itself will do nothing
     /// </summary>
     private void ManageIA(){
         if (!aiActive) return; // 🛡
 
-
-        Move(patrol.position);
-        
-
+        currentState.UpdateState(this);
     }
-    //public  void TransitionToState(State newState){
-    //    if (newState != state) return;// 🛡
-    //    state = newState;
-
-    //}
+    /// <summary>
+    /// Transition between states
+    /// </summary>
+    public void TransitionToState(State newState)
+    {
+        //if (newState != currentState) return;// 🛡
+        if (newState != currentState) return;// 🛡
+        currentState = newState;
+    }
 
 
     /// <summary>

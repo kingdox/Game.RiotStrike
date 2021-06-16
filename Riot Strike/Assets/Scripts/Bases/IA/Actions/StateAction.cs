@@ -9,12 +9,6 @@ using UnityEngine;
 public abstract class StateAction : ScriptableObject
 {
     #region Variables
-    public abstract void Act(StateController controller);
-#endregion
-#region Events
-    
-#endregion
-#region Methods
-
+    public abstract void Act(IABody ia);
 #endregion
 }
