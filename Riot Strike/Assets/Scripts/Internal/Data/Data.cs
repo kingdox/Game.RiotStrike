@@ -13,11 +13,10 @@ namespace Environment
     /// </summary>
     public class Data 
     {
-        [HideInInspector]
-        public static Data data = new Data();
+        [HideInInspector]public static Data data = new Data();
 
         public const string savedPath = "saved.txt";
-        public const string version = "v0.8.5";
+        public const string version = "v0.9.0";
 
         public const string TAG_PLAYER = "Player";
         public const string TAG_ENEMY = "Enemy";
@@ -46,13 +45,10 @@ namespace Environment
         public readonly static AchievementData[] ACHIEVEMENTS = LoadData<AchievementData>();
         public readonly static CreditData[] CREDITS = LoadData<CreditData>();
         public readonly static ControlData[] CONTROLS = LoadData<ControlData>();
-
-
         public readonly static BuffData[] BUFFS = LoadData<BuffData>();
         public readonly static SpellData[] SPELLS = LoadData<SpellData>();
         public readonly static WeaponData[] WEAPONS = LoadData<WeaponData>();
         public readonly static CharacterData[] CHARACTERS = LoadData<CharacterData>();
-
         public readonly static EnemyGeneratorData[] ENEMY_GENERATOR = LoadData<EnemyGeneratorData>();
 
 

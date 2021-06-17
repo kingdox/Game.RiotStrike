@@ -24,19 +24,12 @@ public class ChaseStateAction : StateAction
         Chase(ia);
     }
     /// <summary>
-    /// Fetch the last position saw
+    /// Chase the last position saw
     /// </summary>
     private void Chase(IABody ia) {
-
         // Si tiene target y se encuentra a una distancia tolerable
-        if (ia.target &&false) {
+        if (ia.target) {
             Fetch(ia, ia.lastSeenTargetLocation);
-        }
-
-        // si la distancia para llegar es menor que la cual deberá detenerse
-        // se quita la referencia del objetivo
-        if (ia.agent.remainingDistance <= stopDistance) {
-            ia.target = null;
         }
     }
 

@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b772af5749aca49ecbcca79bf99fcdf8, type: 3}
-  m_Name: Chase State
+  m_Name: Fetch State
   m_EditorClassIdentifier: 
-  description: persigue la ultima posicion del objetivo
+  description: 'Buscamos al objetivo siempre que este no se encuentre fuera de lso
+    limites establecidos
+
+'
   actions:
   - {fileID: 11400000, guid: a92cd35d0498fd04ab42d2816bf3a8e2, type: 2}
-  transition:
-  - description: Si el player se encuentra cerca
-    decision: {fileID: 11400000, guid: fc2a6b78a9b35ad439c8ebd2dd84bbe8, type: 2}
-    trueState: {fileID: 11400000, guid: a09ae5ce6a05d484b87ee45d8e3488ac, type: 2}
-    falseState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}
+  transition: []
