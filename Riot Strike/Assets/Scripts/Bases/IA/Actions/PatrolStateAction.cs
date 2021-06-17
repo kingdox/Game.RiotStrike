@@ -42,6 +42,9 @@ public class PatrolStateAction : StateAction
     /// </summary>
     private void Patrol(IABody ia)
     {
+        ia.agent.updatePosition = true;
+        ia.agent.updateRotation = true;
+
         ia.agent.stoppingDistance = 0;
         //Do the patrol
         ia.Move(PatrolPosition(ia));

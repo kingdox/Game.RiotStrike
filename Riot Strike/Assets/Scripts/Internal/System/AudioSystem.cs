@@ -29,7 +29,7 @@ public class AudioSystem : MonoBehaviour
     #endregion
     #region Event
     private void Awake() {
-        this.Singleton(ref _,true);
+        this.Singleton(ref _, true);
         this.Component(out src_sound);
         transform.GetChild(0).Component(out src_generalSound, true);
     }
@@ -51,7 +51,7 @@ public class AudioSystem : MonoBehaviour
     /// </summary>
     private void SetAdjustedB(ref float dB, float percent, string key)
     {
-        mixer.GetFloat(key, out dB);//FIXME?
+        mixer.GetFloat(key, out dB);
         dB = (-1 + percent).QtyOf(MAX_dB) * 100;
         mixer.SetFloat(key, dB);
     }
@@ -76,7 +76,7 @@ public class AudioSystem : MonoBehaviour
         {
             src_sound.clip = clip;
             src_sound.Play();
-           // $"Sonando {clip.name}".Print("lime");
+            // $"Sonando {clip.name}".Print("lime");
             StartCoroutine(FadePlay(timer));
         }
     }
@@ -92,7 +92,7 @@ public class AudioSystem : MonoBehaviour
     /// <summary>
     /// Save the latest configurations in <see cref="DataPass"/>
     /// </summary>
-    public static void SavedBValues(){
+    public static void SavedBValues() {
         SavedData _saved = DataSystem.Get;
         _saved.musicPercent = _.Normalize(_.dBValues.x);
         _saved.soundPercent = _.Normalize(_.dBValues.y);
@@ -103,7 +103,7 @@ public class AudioSystem : MonoBehaviour
     /// Plays the music, if exist another playing then trys to go down and set the new one
     /// </summary>
     public static void Play(AudioClip clip) {
-        if (_.src_sound.clip && clip.name.Equals(_.src_sound.clip.name)){
+        if (_.src_sound.clip && clip.name.Equals(_.src_sound.clip.name)) {
             "Se esta intentando una cancion que ya esta puesta".Print("red");
             return;//🛡
         }
@@ -114,8 +114,12 @@ public class AudioSystem : MonoBehaviour
     /// Playes one of the most common sounds in game
     /// </summary>
     public static void PlaySound(GeneralSounds g) => PlaySound(g.ToInt());
-    public static void PlaySound(int index) => _.src_generalSound.PlayOneShot(_.clip_generalSounds[index]);
-    public static void PlaySound(AudioClip clip) => _.src_generalSound.PlayOneShot(clip);
+    public static void PlaySound(int index) => PlaySound(_.clip_generalSounds[index]);
+    public static void PlaySound(AudioClip clip) {
+
+        _.src_generalSound.pitch = 1 + (.15f.MinusMax());
+        _.src_generalSound.PlayOneShot(clip);
+    }
     #endregion
 }
 

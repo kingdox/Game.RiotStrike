@@ -43,9 +43,15 @@ public class LookDesicion : Decision
             ia.iaStat.viewDepth
             ) && hit.collider.CompareTag(targetTag)
         ) {
-            ia.target = hit.transform;
-            ia.lastSeenTargetLocation = hit.transform.position;
-            condition = true;
+
+            hit.transform.Component(out PlayerBody player, false);
+
+            if (player)
+            {
+                ia.target = hit.transform;
+                ia.lastSeenTargetLocation = hit.transform.position;
+                condition = true;
+            }
         }
 
 
