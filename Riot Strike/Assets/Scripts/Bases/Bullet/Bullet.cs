@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision) {
         if (isImpacted) return;// 🛡
-        isImpacted = true;
+        isImpacted = true;//Nescesario?
         col.enabled = false;
         if (effectImpact) refresh.RefreshPlayParticle(Particle.IMPACT);
         refresh.GetParticle(Particle.LINE).ActiveParticle(false);
