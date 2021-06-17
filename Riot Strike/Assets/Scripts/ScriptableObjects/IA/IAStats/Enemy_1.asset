@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7565ef8f64c094ba9b2896f4aed03048, type: 3}
   m_Name: Enemy_1
   m_EditorClassIdentifier: 
-  percentCastSpell: 5
-  delayAttack: 1.772684
+  percentCastSpell: 10
+  delayAttack: 1.156511
   viewDepth: 100
-  viewWidth: 5
+  viewWidth: 2

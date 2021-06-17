@@ -16,6 +16,7 @@ public abstract class Buff : MonoBehaviour
     private Collider col;
     private bool isBuffTaked = false;
     [Header("Buff")]
+    public string tagToDetect;
     public Color color;
     public string message;
     public AudioClip clip;
@@ -31,7 +32,7 @@ public abstract class Buff : MonoBehaviour
         other.transform.Component(out Body body, false);
         if (
             isBuffTaked
-            || !other.CompareTag(tag)
+            || !other.CompareTag(tagToDetect)
             || !body // si no posee body
             ) return; // 🛡, only can get the same tag of the buff
         isBuffTaked = true;

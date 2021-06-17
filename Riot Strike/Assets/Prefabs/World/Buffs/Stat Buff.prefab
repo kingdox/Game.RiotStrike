@@ -5042,6 +5042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb55b5f083844d7fb2f59cf3598c780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagToDetect: Player
   color: {r: 0, g: 0, b: 0, a: 0}
   message: 
   clip: {fileID: 8300000, guid: cedc65a89f5c041bc9b7ba85711683db, type: 3}
@@ -5069,6 +5070,7 @@ MonoBehaviour:
   - {fileID: 4985694569593738134}
   - {fileID: 4985694570763650417}
   - {fileID: 4985694570584280401}
+  animators: []
 --- !u!1 &4985694570420060122
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,8 @@ namespace MenuScene
         public GameObject[] pref_characters;
         [Space]
         public Button btn_play;
+        [Space]
+        public AudioClip[] clips_characters;
         #endregion
         #region Event
         private void Start()
@@ -159,9 +161,8 @@ namespace MenuScene
             //SI ES EL MISMO QUE EL ULTIMO PJ NO HACEMOS UIDO
             if (!currentCharacter.ToInt().Equals(i)){
                 //hacemos el ruido
-
                 $"escogido a {i}".Print();
-
+                AudioSystem.PlaySound(clips_characters[i]);
             }
 
 
