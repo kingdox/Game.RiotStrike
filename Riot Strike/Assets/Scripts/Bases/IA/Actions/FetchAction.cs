@@ -10,10 +10,10 @@ using UnityEngine;
 [CreateAssetMenu (menuName ="IA/Action/Fetch")]
 public class FetchAction : StateAction
 {
-    #region Variables
-
-    #endregion
     #region Event
+    /// <summary>
+    /// Do the fetch
+    /// </summary>
     public override void Act(IABody ia) {
         Fetch(ia);
     }
@@ -25,9 +25,8 @@ public class FetchAction : StateAction
     /// </summary>
     private void Fetch(IABody ia) {
         if (!ia.target) return; // 🛡
-
         ia.Move(ia.target.position);
-        ia.Rotate(ia.agent.nextPosition);
+        ia.Rotate(ia.target.position);
     }
     #endregion
 }

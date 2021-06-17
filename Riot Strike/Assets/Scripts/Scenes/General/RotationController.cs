@@ -38,6 +38,8 @@ public class RotationController : MonoBehaviour
     public void Rotate(Vector3 destination, float speed){
         destination -= transform.position;
         destination.y = 0;
+
+        //transform.rotation = Quaternion.LookRotation(destination);
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
             Quaternion.LookRotation(destination),

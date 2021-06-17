@@ -9,10 +9,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="IA/Decision/IsNear")]
 public class IsNearDesicion : Decision
 {
-    #region Variable
-    public float distanceLimit = 5;
-    #endregion
     #region Event
+    /// <summary>
+    /// Do the management to know wether is the target still near
+    /// </summary>
     public override bool Decide(IABody ia){
         return IsTargetNear(ia);
     }
@@ -25,7 +25,7 @@ public class IsNearDesicion : Decision
         if (!ia.target) return false;
 
         if (Vector3.Distance(ia.lastSeenTargetLocation,ia.target.position)
-            < distanceLimit
+            < ia.iaStat.viewDepth
         ) return true;
         else return false;
     }

@@ -12,8 +12,6 @@ public class LookDesicion : Decision
 {
     #region Variables
     public string targetTag;
-    public LayerMask targetLayer;
-
     #endregion
     #region Events
     public override bool Decide(IABody ia) {
@@ -26,7 +24,7 @@ public class LookDesicion : Decision
     /// </summary>
     private bool Look(IABody ia) {
 
-        //Center
+        //Visualize the raycast
         Debug.DrawRay(
             ia.tr_eyes.position, 
             ia.tr_eyes.forward.normalized 
@@ -44,12 +42,9 @@ public class LookDesicion : Decision
             ia.iaStat.viewDepth
             ) && hit.collider.CompareTag(targetTag)
         ) {
-           // if (hit.transform.gameObject.layer.Equals(targetLayer)) {
-                // "Encontrado en el campo de vision".Print("green");
                 ia.target = hit.transform;
                 ia.lastSeenTargetLocation = hit.transform.position;
                 return true;
-            //}
         }
         return false;
 

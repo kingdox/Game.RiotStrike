@@ -27,10 +27,7 @@ public class ChaseStateAction : StateAction
     /// Chase the last position saw
     /// </summary>
     private void Chase(IABody ia) {
-        // Si tiene target y se encuentra a una distancia tolerable
-        if (ia.target) {
-            Fetch(ia, ia.lastSeenTargetLocation);
-        }
+        Fetch(ia, ia.lastSeenTargetLocation);
     }
 
     /// <summary>

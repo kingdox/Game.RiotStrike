@@ -64,7 +64,7 @@ public class IABody : Body
             .SetFloat(
                 "Run", 
                 agent.velocity.normalized.z
-                .Positive().Max(1).Min(0)
+                .Positive()
             );
     }
     #endregion

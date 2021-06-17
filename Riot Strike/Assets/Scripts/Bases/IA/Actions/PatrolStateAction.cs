@@ -25,10 +25,11 @@ public class PatrolStateAction : StateAction
     /// Do the Patrol
     /// </summary>
     public override void Act(IABody ia) {
-
         if (!ia.initedPatrol) InitState(ia);
         Patrol(ia);
     }
+
+    /// <summary>
     /// Initializes the status of the patrol
     /// </summary>
     private void InitState(IABody ia){
@@ -46,6 +47,7 @@ public class PatrolStateAction : StateAction
         ia.Rotate(PatrolPosition(ia));
         CheckForNextPosition(ia);
     }
+
     /// <summary>
     /// Check if is at the end of the current position and choose the next
     /// it can be random or not
@@ -69,6 +71,7 @@ public class PatrolStateAction : StateAction
     /// get the position of the patrol
     /// </summary>
     private Vector3 PatrolPosition(IABody ia) => ia.patrol.GetChild(ia.indexPatrol).position;
+    
     /// <summary>
     /// Qty of childs
     /// </summary>
