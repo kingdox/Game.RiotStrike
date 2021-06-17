@@ -81,7 +81,7 @@ public abstract class Body : MonoBehaviour
     /// <summary>
     /// Do the subscriptions
     /// </summary>
-    public void Subscribes()
+    public virtual void Subscribes()
     {
         OnAttack += weapon.Attack;
         OnAim += weapon.Aim;
@@ -93,7 +93,7 @@ public abstract class Body : MonoBehaviour
     /// <summary>
     /// Do the unsubscriptions
     /// </summary>
-    public void UnSubscribes()
+    public virtual void UnSubscribes()
     {
         OnAttack -= weapon.Attack;
         OnAim -= weapon.Aim;

@@ -32,7 +32,7 @@ public class PlayerBody : Body
     public override void OnEnable()
     {
         base.OnEnable();
-        Subscribes();
+       // Subscribes();
     }
     public override void Start()
     {
@@ -45,15 +45,16 @@ public class PlayerBody : Body
     public override void OnDisable()
     {
         base.OnDisable();
-        UnSubscribes();
+       // UnSubscribes();
     }
     #endregion
     #region Methods
     /// <summary>
     /// Do the subscriptions
     /// </summary>
-    private void Subscribes()
+    public override void Subscribes()
     {
+        base.Subscribes();
         spell.OnTimer += ctrl_HUD.RefreshSpell;
         weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
         weapon.OnReload += ctrl_HUD.RefreshReload;
@@ -64,8 +65,9 @@ public class PlayerBody : Body
     /// <summary>
     /// Do the UnSubscriptions
     /// </summary>
-    private void UnSubscribes()
+    public override void UnSubscribes()
     {
+        base.UnSubscribes();
         spell.OnTimer -= ctrl_HUD.RefreshSpell;
         weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
         weapon.OnReload -= ctrl_HUD.RefreshReload;
