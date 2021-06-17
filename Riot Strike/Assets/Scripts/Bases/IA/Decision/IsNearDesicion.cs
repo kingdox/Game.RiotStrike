@@ -6,14 +6,14 @@ using UnityEngine;
 /// <summary> 
 /// Check if the target is near as the last spotted position
 /// </summary>
+[CreateAssetMenu(menuName ="IA/Decision/IsNear")]
 public class IsNearDesicion : Decision
 {
     #region Variable
     public float distanceLimit = 5;
     #endregion
     #region Event
-    public override bool Decide(IABody ia)
-    {
+    public override bool Decide(IABody ia){
         return IsTargetNear(ia);
     }
     #endregion
@@ -26,13 +26,8 @@ public class IsNearDesicion : Decision
 
         if (Vector3.Distance(ia.lastSeenTargetLocation,ia.target.position)
             < distanceLimit
-        ){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        ) return true;
+        else return false;
     }
     #endregion
 }
