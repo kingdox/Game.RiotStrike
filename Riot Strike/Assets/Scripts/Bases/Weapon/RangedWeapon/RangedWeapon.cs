@@ -24,7 +24,7 @@ public  class RangedWeapon : Weapon
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.white;
         Gizmos.DrawLine(tr_hotSpot.position, HotSpotInWorld);
 
     }

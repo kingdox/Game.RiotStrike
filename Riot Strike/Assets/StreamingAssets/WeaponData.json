@@ -4,25 +4,25 @@
 			"NAME": "weapon_name_0",
 			"ID": "0",
 			"APPEARENCE": "weapon_appearence_0",
-			"AMMO": 6,
-			"RELOAD_TIME": 4,
-			"CADENCE": 0.8,
+			"AMMO": 9,
+			"RELOAD_TIME": 2.5,
+			"CADENCE": 0.45,
 			"OWNER": "Enlai Ming"
 		},
 		{
 			"NAME": "weapon_name_1",
 			"ID": "1",
 			"APPEARENCE": "weapon_appearence_1",
-			"AMMO": 8,
-			"RELOAD_TIME": 2,
-			"CADENCE": 0.5,
+			"AMMO": 16,
+			"RELOAD_TIME": 3,
+			"CADENCE": 0.6,
 			"OWNER": "Tabare Flare"
 		},
 		{
 			"NAME": "weapon_name_2",
 			"ID": "2",
 			"APPEARENCE": "weapon_appearence_2",
-			"AMMO": 12,
+			"AMMO": 12,		
 			"RELOAD_TIME": 3,
 			"CADENCE": 0.3,
 			"OWNER": "Cole Megalos"

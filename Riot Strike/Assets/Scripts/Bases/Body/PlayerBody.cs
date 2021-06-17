@@ -192,6 +192,9 @@ public class PlayerBody : Body
     {
         base.AddLife(value);
         EmitLife();
+
+        if (value < 0) ctrl_HUD.Ondamage?.Invoke();
+
     }
     #endregion
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UI = UnityEngine.UI;
 using HUDRefresh;
 using XavHelpTo;
@@ -32,12 +33,13 @@ public class HUDController : MonoBehaviour
     public float lenghtRandomDamage = 10;
     public float durationDamage = 2f;
     public float durationFadeDamage = 1f;
+
+    public UnityEvent Ondamage;
     #endregion
     #region Events
     private void Start()
     {
         this.Component(out refresh);
-
     }
     #endregion
     #region Methods

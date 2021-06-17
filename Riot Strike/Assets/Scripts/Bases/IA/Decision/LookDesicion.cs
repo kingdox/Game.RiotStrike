@@ -41,14 +41,15 @@ public class LookDesicion : Decision
             ray,
             ia.iaStat.viewWidth,
             out hit,
-            ia.iaStat.viewDepth,
-            targetLayer
+            ia.iaStat.viewDepth
             ) && hit.collider.CompareTag(targetTag)
         ) {
-            // "Encontrado en el campo de vision".Print("green");
-            ia.target = hit.transform;
-            ia.lastSeenTargetLocation = hit.transform.position;
-            return true;
+           // if (hit.transform.gameObject.layer.Equals(targetLayer)) {
+                // "Encontrado en el campo de vision".Print("green");
+                ia.target = hit.transform;
+                ia.lastSeenTargetLocation = hit.transform.position;
+                return true;
+            //}
         }
         return false;
 

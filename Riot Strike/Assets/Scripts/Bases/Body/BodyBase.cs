@@ -41,6 +41,7 @@ public abstract class Body : MonoBehaviour
     [HideInInspector] public GravityController gravity;
     [HideInInspector] public Weapon weapon;
     [HideInInspector] public Spell spell;
+    [HideInInspector] public Transform tr_model;
     public Character character;
     [Space]
     public Action OnChangeLife;

@@ -6,7 +6,10 @@ using UnityEngine.AI;
 using XavHelpTo;
 using XavHelpTo.Know;
 using XavHelpTo.Get;
+using XavHelpTo.Set;
+using XavHelpTo.Change;
 using Dat = Environment.Data;
+using Anim = SelectorRefresh.Character.Anim;
 # endregion
 
 /// <summary>
@@ -18,6 +21,7 @@ public class IABody : Body
     #region Variables
     private const float MAX_PERCENT = 100f;
     private bool trySpell = true;
+    [HideInInspector]public RefreshController refresh_body;
     [HideInInspector] public NavMeshAgent agent;
     [Header("Enemy Body")]
     public bool iaActive = true;
@@ -39,11 +43,13 @@ public class IABody : Body
     [HideInInspector] public float lostTimeCount = 0;
     public bool isLost = false;
     [HideInInspector] public Vector3 lastSeenTargetLocation;
-
+    
     #endregion
     #region Events
     public override void Start(){
         this.Component(out agent,false);
+        tr_model.Component(out refresh_body,false);
+
         InitNavAgent();
     }
     private void Update(){
@@ -51,6 +57,15 @@ public class IABody : Body
         ManageIA();
 
         ReAdjustAgent();
+
+
+        refresh_body
+            .GetAnimator(Anim.CHARACTER)
+            .SetFloat(
+                "Run", 
+                agent.velocity.normalized.z
+                .Positive().Max(1).Min(0)
+            );
     }
     #endregion
     #region Methods

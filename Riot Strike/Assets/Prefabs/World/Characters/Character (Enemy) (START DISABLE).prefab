@@ -203,7 +203,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 0.35
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -277,13 +277,22 @@ MonoBehaviour:
   movement: {fileID: 0}
   rotation: {fileID: 0}
   gravity: {fileID: 0}
+  weapon: {fileID: 0}
+  spell: {fileID: 0}
+  tr_model: {fileID: 0}
   character: {fileID: 11400000, guid: 1dd3949b59dcc47aab6b380e736c6b2b, type: 2}
+  refresh_body: {fileID: 0}
   agent: {fileID: 0}
   iaActive: 0
   currentState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}
   iaStat: {fileID: 11400000, guid: 700e7b77502fa49a69a29c4ce7e1fab3, type: 2}
   patrol: {fileID: 0}
+  indexPatrol: 0
+  initedPatrol: 0
   target: {fileID: 0}
+  lostTimeCount: 0
+  isLost: 0
+  lastSeenTargetLocation: {x: 0, y: 0, z: 0}
 --- !u!195 &654067008
 NavMeshAgent:
   m_ObjectHideFlags: 0

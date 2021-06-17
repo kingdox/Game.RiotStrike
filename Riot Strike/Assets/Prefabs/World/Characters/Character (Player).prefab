@@ -417,7 +417,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 0.35
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -491,6 +491,9 @@ MonoBehaviour:
   movement: {fileID: 0}
   rotation: {fileID: 0}
   gravity: {fileID: 0}
+  weapon: {fileID: 0}
+  spell: {fileID: 0}
+  tr_model: {fileID: 0}
   character: {fileID: 11400000, guid: 93407ca4c8e2a44e48e7c8f667fcd664, type: 2}
   ctrl_HUD: {fileID: 0}
   canMove: 1

@@ -35,7 +35,7 @@ public class Character : ScriptableObject
         // WEAPON
         SetCharacterPart(body.tr_visualWeapon, pref_weapon, out body.weapon);
         // BODY
-        SetCharacterPart(body.tr_body, pref_body, out Transform model);
+        SetCharacterPart(body.tr_body, pref_body, out body.tr_model);
     }
 
     /// <summary>
