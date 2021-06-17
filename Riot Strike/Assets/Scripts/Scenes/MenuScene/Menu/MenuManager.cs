@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XavHelpTo;
 using XavHelpTo.Set;
 using XavHelpTo.Change;
@@ -27,7 +28,8 @@ namespace MenuScene
         }
 
         [Header("Menu Manager")]
-
+        public Text txt_version;
+        [Space]
         public CameraComponent comp_cam;
         [Range(1, 10)]
         public int timeToExit;
@@ -43,6 +45,8 @@ namespace MenuScene
         }
         private void Start()
         {
+            txt_version.text = $"V-{Application.version}";
+
             AudioSystem.Play(clip_music);
            // $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
             CursorSystem.Show();
@@ -86,6 +90,12 @@ namespace MenuScene
             yield return new WaitForSeconds(timeToExit);
             Scenes.GAME_SCENE.ToScene();
         }
+
+
+        /// <summary>
+        /// Opens a link
+        /// </summary>
+        public void OpenLink(string url) => Application.OpenURL(url);
         #endregion
     }
 }

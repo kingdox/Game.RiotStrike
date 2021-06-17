@@ -15,6 +15,8 @@ public class DataSystem : MonoBehaviour
 {
     #region ####### VARIABLES
     private static DataSystem _;
+
+    private const string savedPath = "saved.txt";
     [Header("Saved Data")]
     [SerializeField]
     private SavedData savedData = new SavedData();
@@ -28,7 +30,7 @@ public class DataSystem : MonoBehaviour
     #endregion
     #region ####### METHODS
     /// <returns>The path of the saved data</returns>
-    private static string Path => Application.persistentDataPath + Environment.Data.savedPath;
+    private static string Path => Application.persistentDataPath + savedPath;
     /// <summary>
     /// Save or loads the files
     /// </summary>

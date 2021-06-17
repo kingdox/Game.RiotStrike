@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 654067008, guid: 06cfcfe1371f5f841bfccfdadcad6ea6, type: 3}
       propertyPath: m_ObstacleAvoidanceType
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 654067008, guid: 06cfcfe1371f5f841bfccfdadcad6ea6, type: 3}
       propertyPath: m_Radius
