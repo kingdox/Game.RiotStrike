@@ -56,7 +56,7 @@ namespace MenuScene
 
 
         /// <summary>
-        /// Move the camera and wait until the camera reach at the end of the Scene
+        /// Moves the camera and wait until the camera reach at the end of the Scene
         /// </summary>
         public void ExitGame(){
             imgCtrl_curtain.Invert();

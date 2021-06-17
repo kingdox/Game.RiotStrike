@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc74b14a6507384bb74531c8023062b, type: 3}
-  m_Name: ChaseStateAction
+  m_Script: {fileID: 11500000, guid: 13878fc3c6715429db931312d8982a87, type: 3}
+  m_Name: Random PatrolStateAction
   m_EditorClassIdentifier: 
-  stopDistance: 3
+  isRandom: 1
+  distanceWithTarget: 1

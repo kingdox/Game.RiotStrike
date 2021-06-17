@@ -316,7 +316,7 @@ Animator:
   m_GameObject: {fileID: 1063663619869225185}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 541ff1f2aaa3cf04cb74de4996dfcd21, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -514,7 +514,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   spell: {fileID: 0}
   tr_model: {fileID: 0}
-  character: {fileID: 11400000, guid: 93407ca4c8e2a44e48e7c8f667fcd664, type: 2}
+  character: {fileID: 11400000, guid: f1c6a3efcc58044dfbced87a44ec8e94, type: 2}
   ctrl_HUD: {fileID: 0}
   canMove: 1
   canRotate: 1

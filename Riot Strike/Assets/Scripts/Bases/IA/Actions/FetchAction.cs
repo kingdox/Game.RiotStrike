@@ -10,6 +10,9 @@ using UnityEngine;
 [CreateAssetMenu (menuName ="IA/Action/Fetch")]
 public class FetchAction : StateAction
 {
+    #region Variable
+    public float stopDistance;
+    #endregion
     #region Event
     /// <summary>
     /// Do the fetch
@@ -24,6 +27,8 @@ public class FetchAction : StateAction
     /// Fetch the target 
     /// </summary>
     private void Fetch(IABody ia) {
+        ia.agent.stoppingDistance = stopDistance;
+
         if (!ia.target) return; // 🛡
         ia.Move(ia.target.position);
         ia.Rotate(ia.target.position);

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afff84a64a7b94640af949143ce5fb94, type: 3}
   m_Name: FetchStateAction
   m_EditorClassIdentifier: 
+  stopDistance: 3

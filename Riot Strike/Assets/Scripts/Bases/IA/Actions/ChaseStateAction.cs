@@ -27,6 +27,7 @@ public class ChaseStateAction : StateAction
     /// Chase the last position saw
     /// </summary>
     private void Chase(IABody ia) {
+        ia.agent.stoppingDistance = stopDistance;
         Fetch(ia, ia.lastSeenTargetLocation);
     }
 
