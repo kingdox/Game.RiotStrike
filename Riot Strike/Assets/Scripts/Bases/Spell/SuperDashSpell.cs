@@ -63,10 +63,10 @@ public class SuperDashSpell : Spell
 
             // SUSCRIBE IMPACT 
             //"SUBSCRIBE".Print();
-            body.character.weapon.OnTargetImpactWeapon += ResolveImpactEffects;
+            body.weapon.OnTargetImpactWeapon += ResolveImpactEffects;
             yield return new WaitUntil(IsImpact);
             //"UNSUBSCRIBE".Print();
-            body.character.weapon.OnTargetImpactWeapon -= ResolveImpactEffects;
+            body.weapon.OnTargetImpactWeapon -= ResolveImpactEffects;
             isWaitImpact = false;
         }
     }

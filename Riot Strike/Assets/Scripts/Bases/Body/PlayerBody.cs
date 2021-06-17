@@ -54,11 +54,11 @@ public class PlayerBody : Body
     /// </summary>
     private void Subscribes()
     {
-        character.spell.OnTimer += ctrl_HUD.RefreshSpell;
-        character.weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
-        character.weapon.OnReload += ctrl_HUD.RefreshReload;
-        character.weapon.OnTargetImpactWeapon += EmitAttackImpact;
-        character.weapon.OnZoom += CameraZoom;
+        spell.OnTimer += ctrl_HUD.RefreshSpell;
+        weapon.OnFireAttack += ctrl_HUD.RefreshWeapon;
+        weapon.OnReload += ctrl_HUD.RefreshReload;
+        weapon.OnTargetImpactWeapon += EmitAttackImpact;
+        weapon.OnZoom += CameraZoom;
         OnChangeLife += EmitLife;
     }
     /// <summary>
@@ -66,11 +66,11 @@ public class PlayerBody : Body
     /// </summary>
     private void UnSubscribes()
     {
-        character.spell.OnTimer -= ctrl_HUD.RefreshSpell;
-        character.weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
-        character.weapon.OnReload -= ctrl_HUD.RefreshReload;
-        character.weapon.OnTargetImpactWeapon -= EmitAttackImpact;
-        character.weapon.OnZoom -= CameraZoom;
+        spell.OnTimer -= ctrl_HUD.RefreshSpell;
+        weapon.OnFireAttack -= ctrl_HUD.RefreshWeapon;
+        weapon.OnReload -= ctrl_HUD.RefreshReload;
+        weapon.OnTargetImpactWeapon -= EmitAttackImpact;
+        weapon.OnZoom -= CameraZoom;
         OnChangeLife -= EmitLife;
     }
     /// <summary>
@@ -87,11 +87,11 @@ public class PlayerBody : Body
     /// <summary>
     /// Emit the new shot cursor in UI
     /// </summary>
-    private void EmitShotCursor() => ctrl_HUD.RefreshShotCursor(character.weapon.ID);
+    private void EmitShotCursor() => ctrl_HUD.RefreshShotCursor(weapon.ID);
     /// <summary>
     /// Emit the new icon of the spell in UI
     /// </summary>
-    private void EmitSpellIcon() => ctrl_HUD.RefreshSpellIcon(character.spell.ID);
+    private void EmitSpellIcon() => ctrl_HUD.RefreshSpellIcon(spell.ID);
     /// <summary>
     /// Emits the target and the damage dealed
     /// </summary>
@@ -128,19 +128,19 @@ public class PlayerBody : Body
         );
 
         //ATTACK
-        CheckPress(EControl.ATTACK, character.OnAttack, this);
+        CheckPress(EControl.ATTACK, OnAttack, this);
 
         //FOCUS
-        CheckPressDown(EControl.AIM, character.OnAim, this);
+        CheckPressDown(EControl.AIM, OnAim, this);
 
         //DISFOCUS
-        CheckPressUp(EControl.AIM, character.OnDisAim, this);
+        CheckPressUp(EControl.AIM, OnDisAim, this);
 
         //RELOAD
-        CheckPressDown(EControl.RELOAD, character.OnReload);
+        CheckPressDown(EControl.RELOAD, OnReload);
 
         //SPELL
-        CheckPressDown(EControl.CAST, character.OnCast, this);
+        CheckPressDown(EControl.CAST, OnCast, this);
 
         //CHAT
         CheckPressDown(EControl.CHAT, OnInsert);

@@ -15,42 +15,35 @@ using XavHelpTo.Look;
 public class PatrolStateAction : StateAction
 {
     #region Variables
-    private int index = 0;
     [Header("Patrol Action")]
     public bool isRandom = false;
     public float distanceWithTarget = 1f;
 
-    public bool firstTime = true;
     #endregion
     #region Methods
     /// <summary>
     /// Do the Patrol
     /// </summary>
     public override void Act(IABody ia) {
-        if (firstTime) InitState(ia);
+
+        if (!ia.initedPatrol) InitState(ia);
         Patrol(ia);
     }
     /// Initializes the status of the patrol
     /// </summary>
     private void InitState(IABody ia){
-        firstTime = false;
-        index = ia.patrol.childCount.ZeroMax();
+        ia.initedPatrol = true;
+        ia.indexPatrol = PatrolQty(ia).ZeroMax();
     }
+
     /// <summary>
     /// Patrol who where is he in the  state
     /// </summary>
     private void Patrol(IABody ia)
     {
         //Do the patrol
-        try
-        {
         ia.Move(PatrolPosition(ia));
         ia.Rotate(PatrolPosition(ia));
-        }
-        catch (System.Exception ex)
-        {
-
-        }
         CheckForNextPosition(ia);
     }
     /// <summary>
@@ -64,16 +57,18 @@ public class PatrolStateAction : StateAction
         );
         if (distance < distanceWithTarget)
         {
-            index = isRandom 
-                ? PatrolQty(ia).DifferentIndex(index)
-                : Know.NextIndex(true, PatrolQty(ia)-1, index)
+            ia.indexPatrol = isRandom 
+                ? PatrolQty(ia).DifferentIndex(ia.indexPatrol)
+                : Know.NextIndex(true, PatrolQty(ia) , ia.indexPatrol)
             ;
         }
     }
+
+    
     /// <summary>
     /// get the position of the patrol
     /// </summary>
-    private Vector3 PatrolPosition(IABody ia) => ia.patrol.GetChild(index).position;
+    private Vector3 PatrolPosition(IABody ia) => ia.patrol.GetChild(ia.indexPatrol).position;
     /// <summary>
     /// Qty of childs
     /// </summary>

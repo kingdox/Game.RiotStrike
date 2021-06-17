@@ -39,10 +39,17 @@ public abstract class Body : MonoBehaviour
     [HideInInspector] public MovementController movement;
     [HideInInspector] public RotationController rotation;
     [HideInInspector] public GravityController gravity;
+    [HideInInspector] public Weapon weapon;
+    [HideInInspector] public Spell spell;
     public Character character;
     [Space]
     public Action OnChangeLife;
     public Action OnDeath;
+    public Action<Body> OnAttack;
+    public Action<Body> OnAim;
+    public Action<Body> OnDisAim;
+    public Action OnReload;
+    public Action<Body> OnCast;
     #endregion
     #region Event
     public virtual void Awake()
@@ -58,12 +65,12 @@ public abstract class Body : MonoBehaviour
     public virtual void OnEnable()
     {
         gravity.OnImpact += FallImpact;
-        character.Subscribes(this);
+        Subscribes();
     }
     public virtual void OnDisable()
     {
         gravity.OnImpact -= FallImpact;
-        character.UnSubscribes(this);
+        UnSubscribes();
     }
     private void OnDrawGizmos() {
         Gizmos.color = _debugColorIdentifier;
@@ -71,6 +78,30 @@ public abstract class Body : MonoBehaviour
     }
     #endregion
     #region Method
+    /// <summary>
+    /// Do the subscriptions
+    /// </summary>
+    public void Subscribes()
+    {
+        OnAttack += weapon.Attack;
+        OnAim += weapon.Aim;
+        OnDisAim += weapon.DisAim;
+        OnReload += weapon.Reload;
+        OnCast += spell.Cast;
+
+    }
+    /// <summary>
+    /// Do the unsubscriptions
+    /// </summary>
+    public void UnSubscribes()
+    {
+        OnAttack -= weapon.Attack;
+        OnAim -= weapon.Aim;
+        OnDisAim += weapon.DisAim;
+        OnReload -= weapon.Reload;
+        OnCast -= spell.Cast;
+    }
+
     /// <summary>
     /// Set the stat information to the body, using the character id information
     /// </summary>

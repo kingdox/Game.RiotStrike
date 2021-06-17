@@ -86,7 +86,7 @@ public class NearWeapon : Weapon {
     /// </summary>
     IEnumerator CollisionOpenUntil(Body body) {
         //waits until the player can attack again
-        yield return new WaitUntil(body.character.weapon.CanAtack);
+        yield return new WaitUntil(body.weapon.CanAtack);
         collide.enabled = false;
         isImpactingTarget = false;
         OnImpact -= EmitTargetImpactWeapon;

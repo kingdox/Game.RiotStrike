@@ -34,7 +34,7 @@ public class DroneRocketSpell : Spell
     {
         //TODO, en teoria el misil sale por la espalada, si hay tiempo no usar RangedWeapon sino
         // crearla desde aquí.
-        RangedWeapon weapon = body.character.weapon as RangedWeapon;
+        RangedWeapon weapon = body.weapon as RangedWeapon;
         Bullet bullet = weapon.Shot(body, pref_bullet);
         bullet.damage *= 2;
         //ASSIGN TARGET

@@ -28,7 +28,8 @@ public class IABody : Body
 
     //Parent of the Patrols
     public Transform patrol;
-
+    [HideInInspector] public int indexPatrol;
+    [HideInInspector] public bool initedPatrol = false;
     //Target to chase
     public Transform target;
 
@@ -92,10 +93,10 @@ public class IABody : Body
     public void Attack() {
         "Ataca bot".Print("yellow");
 
-        if (character.weapon.IsEmptyAmmo) {
-            character.OnReload?.Invoke();
+        if (weapon.IsEmptyAmmo) {
+            OnReload?.Invoke();
         } else {
-            character.OnAttack?.Invoke(this);
+            OnAttack?.Invoke(this);
         }
 
 
@@ -106,7 +107,7 @@ public class IABody : Body
             float percentMax = 100f.ZeroMax();
             if (iaStat.percentCastSpell > percentMax) {
                 percentMax.IsOnBounds(iaStat.percentCastSpell);
-                character.OnCast.Invoke(this);
+                OnCast.Invoke(this);
             }
         }
     }

@@ -14,7 +14,7 @@ public  class RangedWeapon : Weapon
 {
     #region Variables
     [Header("Ranged Weapon")]
-    [SerializeField] private RefreshController refresh;
+    [SerializeField] private RefreshController refresh = null;
     [SerializeField] private GameObject pref_bullet = null;
     [SerializeField] private Transform tr_hotSpot = null;
     public float bulletSpeed;

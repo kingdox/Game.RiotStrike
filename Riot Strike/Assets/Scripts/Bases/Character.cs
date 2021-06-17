@@ -12,8 +12,9 @@ using XavHelpTo;
 public class Character : ScriptableObject
 {
     #region Variable
-    [HideInInspector] public Weapon weapon;
-    [HideInInspector] public Spell spell;
+    //TODO moverlas a superior ? (Body). aquí son globales
+    //FIXME
+    
     [HideInInspector] public string tag;
     [HideInInspector] public int layer;
     [Header("Character")]
@@ -21,11 +22,7 @@ public class Character : ScriptableObject
     public GameObject pref_body;
     public GameObject pref_weapon;
     public GameObject pref_spell;
-    public Action<Body> OnAttack;
-    public Action<Body> OnAim;
-    public Action<Body> OnDisAim;
-    public Action OnReload;
-    public Action<Body> OnCast;
+    
     #endregion
     #region Method
     /// <summary>
@@ -35,9 +32,9 @@ public class Character : ScriptableObject
         tag = body.tag;
         layer = body.gameObject.layer;
         // SPELL
-        SetCharacterPart(body.tr_spells, pref_spell, out spell);
+        SetCharacterPart(body.tr_spells, pref_spell, out body.spell);
         // WEAPON
-        SetCharacterPart(body.tr_visualWeapon, pref_weapon, out weapon);
+        SetCharacterPart(body.tr_visualWeapon, pref_weapon, out body.weapon);
         // BODY
         SetCharacterPart(body.tr_body, pref_body, out Transform model);
     }
@@ -54,28 +51,6 @@ public class Character : ScriptableObject
         ;
         part.tag = tag;
         part.gameObject.layer = layer;
-    }
-    /// <summary>
-    /// Do the subscriptions
-    /// </summary>
-    public void Subscribes(Body body){
-        OnAttack += weapon.Attack;
-        OnAim += weapon.Aim;
-        OnDisAim += weapon.DisAim;
-        OnReload += weapon.Reload;
-        OnCast += spell.Cast;
-
-    }
-    /// <summary>
-    /// Do the unsubscriptions
-    /// </summary>
-    public void UnSubscribes(Body body)
-    {
-        OnAttack -= weapon.Attack;
-        OnAim -= weapon.Aim;
-        OnDisAim += weapon.DisAim;
-        OnReload -= weapon.Reload;
-        OnCast -= spell.Cast;
     }
     #endregion
 }
