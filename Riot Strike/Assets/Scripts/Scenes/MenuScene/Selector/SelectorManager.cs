@@ -155,12 +155,26 @@ namespace MenuScene
         /// </summary>
         public void SelectCharacter(int i) {
 
-            //Tech TODO
+            //TODO EJECUTAR UN AUDIO DEPENDIENDO DEL PJ
+            //SI ES EL MISMO QUE EL ULTIMO PJ NO HACEMOS UIDO
+            if (!currentCharacter.ToInt().Equals(i)){
+                //hacemos el ruido
+
+                $"escogido a {i}".Print();
+
+            }
+
+
+
+            //Tech 
             currentCharacter = (ECharacter)i;
             btn_play.interactable = true;
 
             //Visual
             RefreshCharacterInfo(currentCharacter);
+
+
+
 
 
             // Data

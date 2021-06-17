@@ -48,6 +48,9 @@ public class LookDesicion : Decision
 
             if (player)
             {
+                ia.tr_head.rotation = Quaternion.LookRotation(
+                    player.tr_head.position - ia.tr_head.position
+                );
                 ia.target = hit.transform;
                 ia.lastSeenTargetLocation = hit.transform.position;
                 condition = true;
