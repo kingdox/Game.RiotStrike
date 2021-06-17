@@ -20,3 +20,7 @@ MonoBehaviour:
     decision: {fileID: 11400000, guid: fc2a6b78a9b35ad439c8ebd2dd84bbe8, type: 2}
     trueState: {fileID: 11400000, guid: bb4cf0e9acc7e9543b25d5dfc72b8d7b, type: 2}
     falseState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}
+  - description: Objetivo Cerca del ultimo punto visto?
+    decision: {fileID: 11400000, guid: fc2a6b78a9b35ad439c8ebd2dd84bbe8, type: 2}
+    trueState: {fileID: 11400000, guid: bb4cf0e9acc7e9543b25d5dfc72b8d7b, type: 2}
+    falseState: {fileID: 11400000, guid: 14d4ef81fbb0842efa7fbcfbbc68233e, type: 2}
