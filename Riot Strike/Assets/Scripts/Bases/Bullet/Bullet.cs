@@ -54,10 +54,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision) {
         if (isImpacted) return;// 🛡
-        isImpacted = true;//Nescesario?
-        col.enabled = false;
-        if (effectImpact) refresh.RefreshPlayParticle(Particle.IMPACT);
-        refresh.GetParticle(Particle.LINE).ActiveParticle(false);
+        Impact();
 
         CheckTarget(collision.transform);
 
@@ -65,6 +62,17 @@ public class Bullet : MonoBehaviour
     }
     #endregion
     #region Methods
+
+    /// <summary>
+    /// Apply the Impact effects
+    /// </summary>
+    private void Impact() {
+        isImpacted = true;
+        col.enabled = false;
+        if (effectImpact) refresh.RefreshPlayParticle(Particle.IMPACT);
+        refresh.GetParticle(Particle.LINE).ActiveParticle(false);
+    }
+
     /// <summary>
     /// Do the action based on the <seealso cref="behaviour"/>
     /// </summary>
@@ -88,6 +96,7 @@ public class Bullet : MonoBehaviour
             case EBulletBehaviour.INSTANT:
                 if (firstTime)
                 {
+                    col.enabled = false;
                     body.useGravity = false;
                     StartCoroutine(InstantMove());
                 }
@@ -103,12 +112,7 @@ public class Bullet : MonoBehaviour
     /// Moves the bullet forward
     /// </summary>
     private void Move(){
-      
         body.AddForce(transform.forward * speed, ForceMode.Impulse);
-
-
-        //body.velocity += transform.forward * 5; con COle Megalos va bn
-
     }
     /// <summary>
     /// Move instantaneously fetching a target 'til end
@@ -117,10 +121,15 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         //where speed represent the max distance
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, speed))
-        {
+        if (Physics.Raycast(
+            transform.position, 
+            transform.forward, 
+            out RaycastHit hit, 
+            speed
+        )){
+            Impact();
             transform.position = hit.point;
-            //CheckTarget(hit.transform);
+            CheckTarget(hit.transform);
         }
         else
         {

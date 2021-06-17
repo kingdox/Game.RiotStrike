@@ -82,9 +82,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1500034864882955054, guid: 2a7704bc9fc01471eb2d167e5dca7ed8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a7704bc9fc01471eb2d167e5dca7ed8, type: 3}
       propertyPath: m_Name
       value: Thunderbold_animations (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529723852429613631, guid: 2a7704bc9fc01471eb2d167e5dca7ed8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7706110884207132511, guid: 2a7704bc9fc01471eb2d167e5dca7ed8, type: 3}
       propertyPath: m_Materials.Array.data[0]
