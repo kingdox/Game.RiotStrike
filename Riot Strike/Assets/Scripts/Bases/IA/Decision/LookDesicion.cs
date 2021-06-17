@@ -47,7 +47,7 @@ public class LookDesicion : Decision
         ) {
             // "Encontrado en el campo de vision".Print("green");
             ia.target = hit.transform;
-            ia.iaStat.lastSeenTargetLocation = hit.transform.position;
+            ia.lastSeenTargetLocation = hit.transform.position;
             return true;
         }
         return false;

@@ -27,7 +27,6 @@ public class IAStat: ScriptableObject
     
     
     //LOOK
-    [HideInInspector] public Vector3 lastSeenTargetLocation;
     public float viewDepth = 100;
     public float viewWidth = 0;//0 or 1, TODO check this
 

@@ -7,7 +7,7 @@ using UnityEngine;
 ///<summary>
 /// AttackAction class
 ///<summary>
-[CreateAssetMenu (menuName ="IA/Actions/Attack")]
+[CreateAssetMenu (menuName ="IA/Action/Attack")]
 public class AttackAction : StateAction
 {
     #region Variables
@@ -21,8 +21,6 @@ public class AttackAction : StateAction
     /// Check if is in the range to attack
     /// </summary>
     private void Attack(IABody ia) {
-
-        //TODO, saber si tiene balas
 
         //Si esta en el rango de visión
         if (ia.agent.remainingDistance <= ia.iaStat.viewDepth) {

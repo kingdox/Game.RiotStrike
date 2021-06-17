@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XavHelpTo;
+using XavHelpTo.Know;
 #endregion
 ///<summary>
 /// LostAction
 ///</summary>
-[CreateAssetMenu(menuName = "IA/Actions/Lost")]
+[CreateAssetMenu(menuName = "IA/Action/Lost")]
 public class LostAction : StateAction
 {
     #region Variables   
@@ -22,18 +24,13 @@ public class LostAction : StateAction
     /// Rotates by itself looking for the target 
     /// </summary>
     private void Lost(IABody ia) {
-     /**   if (!ia.timerCounting) {
-            ia.stateTimer = lostDuration;
-            ia.timerCounting = true;
 
-
-        }
-
+        //Checkea si se encuentra perdido
+        lostDuration.TimerFlag(ref ia.isLost, ref ia.lostTimeCount);
 
         ia.agent.isStopped = true;
-        ia.transform.Rotate(0f, turnSpeed * Time.deltaTime, 0f);
-        ia.stateTimer -= Time.deltaTime;
-     **/
+        Vector3 toRotate = new Vector3(0f, turnSpeed * Time.deltaTime, 0f);
+        ia.Rotate(toRotate);
 
     }
     #endregion

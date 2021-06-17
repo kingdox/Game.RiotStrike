@@ -12,11 +12,10 @@ using XavHelpTo;
 public class Character : ScriptableObject
 {
     #region Variable
-    //TODO moverlas a superior ? (Body). aquí son globales
-    //FIXME
-    
+    //uso para escribir corto
     [HideInInspector] public string tag;
     [HideInInspector] public int layer;
+
     [Header("Character")]
     public string idStat;
     public GameObject pref_body;

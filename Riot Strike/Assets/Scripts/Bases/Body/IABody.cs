@@ -16,7 +16,7 @@ using Dat = Environment.Data;
 public class IABody : Body
 {
     #region Variables
-
+    private const float MAX_PERCENT = 100f;
     private bool trySpell = true;
     [HideInInspector] public NavMeshAgent agent;
     [Header("Enemy Body")]
@@ -30,8 +30,15 @@ public class IABody : Body
     public Transform patrol;
     [HideInInspector] public int indexPatrol;
     [HideInInspector] public bool initedPatrol = false;
+
     //Target to chase
     public Transform target;
+
+
+    //LOST
+    [HideInInspector] public float lostTimeCount = 0;
+    public bool isLost = false;
+    [HideInInspector] public Vector3 lastSeenTargetLocation;
 
     #endregion
     #region Events
@@ -42,9 +49,23 @@ public class IABody : Body
     private void Update(){
         if (Time.timeScale.Equals(0)) return;
         ManageIA();
+
+        ReAdjustAgent();
     }
     #endregion
     #region Methods
+    /// <summary>
+    /// Adjust the position of the agent
+    /// if exceed a considerable limit between itself and their transform.position
+    /// </summary>
+    private void ReAdjustAgent()
+    {
+        //💊 PATCH para ajustar la pos del agente si supera una distancia muy larga
+        if (Vector3.Distance(agent.nextPosition, transform.position) > 0.6f)
+        {
+            agent.Warp(transform.position);
+        }
+    }
     /// <summary>
     /// Starts to adjust the NavAgent internally
     /// </summary>
@@ -54,7 +75,7 @@ public class IABody : Body
         agent.updatePosition = false;
         agent.radius = controller.radius;
     }
-    /// <summary>
+    /// <summary>lost
     /// Resolves the IA Management to start to act, if the ai Is  not enabled then itself will do nothing
     /// </summary>
     private void ManageIA(){
@@ -91,8 +112,8 @@ public class IABody : Body
     /// also can reload or cast the spell
     /// </summary>
     public void Attack() {
-        "Ataca bot".Print("yellow");
 
+        //si no tiene balas recarga
         if (weapon.IsEmptyAmmo) {
             OnReload?.Invoke();
         } else {
@@ -100,13 +121,14 @@ public class IABody : Body
         }
 
 
+        //Intenta usar la spell 1 sola vez
         if (trySpell) {
             trySpell = false;
 
             //Try cast spell
-            float percentMax = 100f.ZeroMax();
-            if (iaStat.percentCastSpell > percentMax) {
-                percentMax.IsOnBounds(iaStat.percentCastSpell);
+            float percentRandom = MAX_PERCENT.ZeroMax();
+            if (iaStat.percentCastSpell > percentRandom) {
+                percentRandom.IsOnBounds(iaStat.percentCastSpell);
                 OnCast.Invoke(this);
             }
         }

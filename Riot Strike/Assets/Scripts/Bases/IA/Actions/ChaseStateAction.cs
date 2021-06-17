@@ -30,7 +30,7 @@ public class ChaseStateAction : StateAction
 
         // Si tiene target y se encuentra a una distancia tolerable
         if (ia.target &&false) {
-            Fetch(ia, ia.iaStat.lastSeenTargetLocation);
+            Fetch(ia, ia.lastSeenTargetLocation);
         }
 
         // si la distancia para llegar es menor que la cual deberá detenerse
