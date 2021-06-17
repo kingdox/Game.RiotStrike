@@ -12,6 +12,7 @@ public class LookDesicion : Decision
 {
     #region Variables
     public string targetTag;
+    public LayerMask layer;
     #endregion
     #region Events
     public override bool Decide(IABody ia) {
@@ -23,7 +24,7 @@ public class LookDesicion : Decision
     /// Evalua si hay un posible objetivo a la vista
     /// </summary>
     private bool Look(IABody ia) {
-
+        bool condition = false;
         //Visualize the raycast
         Debug.DrawRay(
             ia.tr_eyes.position, 
@@ -42,11 +43,20 @@ public class LookDesicion : Decision
             ia.iaStat.viewDepth
             ) && hit.collider.CompareTag(targetTag)
         ) {
-                ia.target = hit.transform;
-                ia.lastSeenTargetLocation = hit.transform.position;
-                return true;
+            ia.target = hit.transform;
+            ia.lastSeenTargetLocation = hit.transform.position;
+            condition = true;
         }
-        return false;
+
+
+      /*  Debug.DrawRay(
+            hit.point, 
+            ia.tr_eyes.forward.normalized * 10,
+            Color.magenta
+        );*/
+
+
+        return condition;
 
     }
     #endregion

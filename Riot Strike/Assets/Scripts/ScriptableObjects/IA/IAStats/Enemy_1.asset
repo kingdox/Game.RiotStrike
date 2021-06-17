@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Enemy_1
   m_EditorClassIdentifier: 
   percentCastSpell: 0
-  delayAttack: 1.0190821
+  delayAttack: 1.3833156
   viewDepth: 100
-  viewWidth: 100
+  viewWidth: 0.1
