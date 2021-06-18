@@ -24,8 +24,12 @@ namespace Environment
         //languages availables in game
         public static readonly string[] LANGUAGES =
         {
-            TranslateSystem.DEFAULT_LANG,
-            "English"
+            TranslateSystem.DEFAULT_LANG, // Arriba españa 🇪🇸
+            "English",
+            "French",
+            "Catalan",
+            "German",
+            "Japanese",
         };
 
 

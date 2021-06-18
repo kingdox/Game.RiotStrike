@@ -37,13 +37,12 @@ public class IABody : Body
 
     //Target to chase
     public Transform target;
-
-
-    //LOST
-    [HideInInspector] public float lostTimeCount = 0;
-    public bool isLost = false;
     [HideInInspector] public Vector3 lastSeenTargetLocation;
-    
+
+    //attack
+    private float attackDelaycount = 0;
+    private bool flag_finishDelay = false;
+
     #endregion
     #region Events
     public override void Start(){
@@ -127,6 +126,16 @@ public class IABody : Body
     /// also can reload or cast the spell
     /// </summary>
     public void Attack() {
+
+        if (!flag_finishDelay
+            && !iaStat.delayAttack
+            .TimerFlag(ref flag_finishDelay,ref attackDelaycount))
+        {
+            //Delay effect
+            return;
+
+
+        }
 
         //si no tiene balas recarga
         if (weapon.IsEmptyAmmo) {

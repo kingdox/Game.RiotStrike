@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<main>
+    <string key="lang_title">idioma</string>
+    <string key="lang">català</string>
+    <string key="game">riot Strike</string>
+
+    <_ key=""><!-- COMMIT --></_>
+
+
+    <_ key="general"><!-- General --></_>
+        <general key = "back">enrere</general>
+        <general key="active">activat</general>
+        <general key="disabled">desactivat</general>
+        <general key="accept">acceptar</general>
+        <general key="cancel">Cancel</general>
+        <general key="connect">connectar</general>
+        <general key="play">jugar</general>
+        <general key="thanks">Gràcies per jugar!</general>
+
+
+        <_ key="_owo"><!-- Owo --></_>
+        <_owo key="owo_insert_ip">Ingressa la teva IP</_owo>
+        <_owo key="owo_feel">~ Sent el joc ~</_owo>
+        <_owo key="owo_connection_success">connexió completada</_owo>
+        <_owo key="owo_connection_failed">connexió fallida</_owo>
+
+    <_ key="_intro"><!-- INTRO --></_>
+        <intro key="_intro_skip_0">prem</intro>
+        <intro key="_intro_skip_1">Per saltar a la introducció</intro>
+
+    <_ key="_menu"><!-- MENU --></_>
+        <menu key="menu_singlePlayer">un Jugador</menu>
+        <menu key="menu_multiPlayer">Multijugador</menu>
+        <menu key="menu_options">opcions</menu>
+        <menu key="menu_achievements">assoliments</menu>
+        <menu key="menu_credits">crèdits</menu>
+        <menu key="menu_exit">sortir</menu>
+
+    <_ key="_menu_selector"><!-- SELECTOR --></_>
+        <selector key="selector_title">Tria el teu personatge</selector>
+
+    <_ key="_options"><!-- OPTIONS --></_>
+        <_options key="options_title">opcions</_options>
+        <_options key="options_music">musica</_options>
+        <_options key="options_sound">so</_options>
+        <_options key="options_sensibility">sensibilitat</_options>
+        <_options key="options_postProcessing">post Procés</_options>
+        <_options key="options_invert_x">Invertir eix X</_options>
+        <_options key="options_invert_y">Invertir eix I</_options>
+        <_options key="options_controls">controls</_options>
+        <_options key="options_tutorial">tutorial</_options>
+
+
+    <_ key="_achievements"><!-- achievements --></_>
+        <_achievements key="achievements_title">assoliments</_achievements>
+        <_ key="_achievements_0"><!-- 0 --></_>
+            <_achievements key="achievements_name_0">Novice</_achievements>
+            <_achievements key="achievements_description_0">Completat el complex Estatut</_achievements>
+        <_ key="_achievements_1"><!-- 1 --></_>
+            <_achievements key="achievements_name_1">Malgasta-bales</_achievements>
+            <_achievements key="achievements_description_1">Igual es creen soles, no?</_achievements>
+        <_ key="_achievements_2"><!-- 2 --></_>
+            <_achievements key="achievements_name_2">PC danyades</_achievements>
+            <_achievements key="achievements_description_2">Odies la tecnologia</_achievements>
+        <_ key="_achievements_3"><!-- 3 --></_>
+            <_achievements key="achievements_name_3">mala mia</_achievements>
+            <_achievements key="achievements_description_3">Aquest és el teu heroi?</_achievements>
+        <_ key="_achievements_4"><!-- 4 --></_>
+            <_achievements key="achievements_name_4">wiu wiu</_achievements>
+            <_achievements key="achievements_description_4">Es la millor ambulància per als teus compas</_achievements>
+        <_ key="_achievements_5"><!-- 5 --></_>
+            <_achievements key="achievements_name_5">Perico</_achievements>
+            <_achievements key="achievements_description_5">Que això no és una xarxa social nen!</_achievements>
+        <_ key="_achievements_6"><!-- 6 --></_>
+            <_achievements key="achievements_name_6">Màster</_achievements>
+            <_achievements key="achievements_description_6">has jugat una bona estona</_achievements>
+        <_ key="_achievements_7"><!-- 7 --></_>
+            <_achievements key="achievements_name_7">amagades</_achievements>
+            <_achievements key="achievements_description_7">Troba l'element misteriós</_achievements>
+
+
+    <_ key="_credits"><!--CREDITS--></_>
+        <_credits key="_credits_title">crèdits</_credits>
+        <_credits key="_credits_text_0">Disseny i desenvolupament</_credits>
+        <_credits key="_credits_text_1">art 2D</_credits>
+        <_credits key="_credits_text_2">art 3D</_credits>
+        <_credits key="_credits_text_3">màrqueting</_credits>
+        <_credits key="_credits_text_4">dimensions Especials</_credits>
+
+
+    <_ key="_tutorials"><!-- TUTORIALS --></_>
+        <_tutorials key="_tutorials_title">tutorial</_tutorials>
+        <_tutorials key="_tutorials_opt_how">Com Jugar</_tutorials>
+        <_tutorials key="_tutorials_opt_goal">objectius</_tutorials>
+        <_tutorials key="_tutorials_opt_play">jugar Tutorial</_tutorials>
+        <_ key="_tutorials_game"><!-- TUTORIALS GAME --></_>
+	    <_tutorials key="_tutorials_game_-1">Prem Enter per passar als següents consells</_tutorials>
+	        <_tutorials key="_tutorials_game_0">Fes servir les tecles WASD per moure't i el ratolí girar</_tutorials>
+            <_tutorials key="_tutorials_game_1">Les caigudes poden fer mal que poden ser letals.</_tutorials>
+            <_tutorials key="_tutorials_game_2">Utilitza R per a carregar i Click Izquierdo per disparar, Apuntes amb Click Dret.</_tutorials>
+            <_tutorials key="_tutorials_game_3">Utilitza Espai per utilitzar l'habilitat del teu personatge (aquest augmentarà la teva força momentàniament).</_tutorials>
+            <_tutorials key="_tutorials_game_4">Els orbes proporcionen millores per a la partida, poden curar-te o millorar les teves estadístiques. Intenta prendre'ls quan surtin.</_tutorials>
+            <_tutorials key="_tutorials_game_5">Els orbes vermells milloraran la força del teu personatge</_tutorials>
+            <_tutorials key="_tutorials_game_6">Els orbes verds milloraran la velocitat i sensibilitat de moviment del teu personatge</_tutorials>
+            <_tutorials key="_tutorials_game_7">Els orbes blaus milloraran la vida màxima del teu personatge</_tutorials>
+            <_tutorials key="_tutorials_game_8">Els orbes roses et restauraran part de la vida</_tutorials>
+            <_tutorials key="_tutorials_game_9">Per sortir de l'tutorial pressiona fuita o passa la porta</_tutorials>
+        <_ key="_tutorials_menu"><!-- TUTORIALS MENU --></_>
+            <_tutorials key="_tutorials_menu_0">El jugador posseirà un personatges que serà l'encarregat de representar-te, el personatge posseirà unes estadístiques que influiran en el seu mètode de joc, així com també posseeix una habilitat i una arma. Per jugar es requerirà d'el ratolí per apuntar als enemics i disparar. El jugador posseirà controls per moure, Recarregar arma (en cas de quedar-te sense munició guardada) i usar l'habilitat especial de el personatge escollit</_tutorials>
+            <_tutorials key="_tutorials_menu_1">Els jugador POSEERA estadístiques que li permeten alterar el seu mal, la vida que posseeixen i la velocitat amb què es mouen</_tutorials>
+            <_tutorials key="_tutorials_menu_2">A l'jugar posseirà una mira i se'ls mostrarà la seva arma, i pot estimar la direcció de el tret</_tutorials>
+        <_ key="_tutorials_goal"><!-- TUTORIALS GOAL --></_>
+            <_tutorials key="_tutorials_goal_0">Aquestes tancat en un centre molt important, i perquè els reforços arribin a salvar-te hauràs aguantar 10 minuts.</_tutorials>
+            <_tutorials key="_tutorials_goal_1">El jugador haurà d'anar eliminat els enemics mentre recull millores que et puguin curar o millorar les teves estadístiques</_tutorials>
+
+
+    <_ key="_controls"><!-- CONTROLS --></_>
+        <_controls key="_controls_title">controls</_controls>
+        <_controls key="_controls_reset">reiniciar valors</_controls>
+        <_controls key="_controls_attack">atacar</_controls>
+        <_controls key="_controls_focus">apuntar</_controls>
+        <_controls key="_controls_reload">recarregar</_controls>
+        <_controls key="_controls_spell">habilitat</_controls>
+        <_controls key="_controls_move_forward">moure Endavant</_controls>
+        <_controls key="_controls_move_back">moure Enrere</_controls>
+        <_controls key="_controls_move_left">moure Esquerra</_controls>
+        <_controls key="_controls_move_right">moure Dreta</_controls>
+        <_controls key="_controls_chat">obrir Xat</_controls>
+        <_controls key="_controls_pause">pausa</_controls>
+
+
+
+
+
+    <_ key="_character"><!--PERSONAJES--></_>
+        <_ key="_character_0"><!--Enlai Ming--></_>
+            <character key="character_role_0">sanador</character>
+            <character key="character_description_0">Enlai ha estudiat les arts de curació xineses des que té ús de raó i sempre ha estat en la cort juntament amb el seu millor amic l'emperador, les seves aptituds curatives transcendeixen l'imperi i arriben a totes les regions limítrofes, fins i tot es diu que Enlai és capaç de ressuscitar als morts. En el seu camí, Enlai pateix una gran tempesta a prop del vessant de l'Everest que li fa refugiar-se en una cova profunda, La tempesta creix i el fred fer que Enlai avanç cap a l'interior de la mateixa fins que arriba a una sala allunyada de l'exterior, allà encén una foguera i aconsegueix agafar el son, però a l'poc temps terra sota els seus peus cedeix i Enlai cau per les esquerdes ràpidament. Enlai es troba en un lloc més desenvolupat que la que ella creia. Durant molt de temps Enlai actua com a metge en nombrosos conflictes bèl·lics, guarint tota la gent possible però en l'any 2010 una organització li aconsegueix trobar perquè s'uneixi a una missió que canviarà el destí de l'món.</character>
+        <_ key="_character_1"><!-- Tabare Flare --></_>
+            <character key="character_role_1">velocista</character>
+            <character key="character_description_1">Tabare pertany a una dinastia que baixa d'antics esquimals assentats a Alaska. Durant una de les seves incursions en solitari per les muntanyes d'Alaska Tabare és sorpresa per una tempesta elèctrica de gran potència, curiosament els núvols tenen un to morat i els raigs que surten d'ella són vermells, cosa que al llarg de la seva vida no havia vist mai. Tabare arriba a quedar acorralada en una vora amb una alta caiguda, fa un salt que estava desafiant la gravetat. Tabare flexiona les cames i salta amb totes les seves forces, superant el penya-segat i avançant en l'aire. Des d'aquest moment conscient de la seva situació Tabare entra formar part d'una unitat especial de custòdia i protecció de l'exèrcit.</character>
+        <_ key="_character_2"><!-- Col Megalos --></_>
+            <character key="character_role_2">tanc</character>
+            <character key="character_description_2">Cole és un soldat de l'exèrcit grec el qual ha dedicat gairebé la tota la seva vida a servir al seu país, tota la seva família té una gran ascendència de glòria militar i Cole és un del més destacats membres del seu esquadró, el qual s'encarrega de realitzar incursions armades a les zones més conflictives de l'món. Cole una vegada va estar prop de morir, en una obra un dels cables es va deixar anar, alliberant electricitat a l'aigua, però a l'ésser aconseguit pel raig Cole sent com les seves forces es restableixen millor que mai. Avança i veu com entre els seus dits espurneja l'electricitat, s'ha transformat en una bateria humana, un ésser d'energia, però alguna cosa ha canviat ha perdut. Tot el pèl del seu cap i és completament calb.</character>
+        <_ key="_character_3"><!-- Akiyama Arata --></_>
+            <character key="character_role_3">assassí</character>
+            <character key="character_description_3">La família Arata sempre ha tingut una gran relació amb el món de l'espasa, no en va provenen d'una llarga estirp de samurais de al nord del Japó. Akiyama és el segon fill d'un acabalat empresari japonès que dirigeix ​​un conglomerat d'empreses dedicades a la venda i exportació d'armament tecnològic. Durant anys realitza nombroses millores en el seu cos substituint nombroses parts per implants, fins gairebé automatitzar les seves accions.</character>
+        <_ key="_character_4"><!-- X-F20 --></_>
+            <character key="character_role_4">equilibrat</character>
+            <character key="character_description_4"> El patruller X-F20 és un robot creat per la companyia concreti per a la defensa i pacificació de masses. La seva principal finalitat és patrullar zones i evitar l'assalt a determinades instal·lacions. Per complir la seva funció està autoritzat a usar mètodes dissuasius i força de grau mortal, per a això té integrat en el seu cos armes variades.</character>
+
+    <_ key="_spell"><!--HABILIDADES--></_>
+        <_ key="_spell_0"><!--Enlai Ming--></_>
+            <spell key="spell_name_0">Curació en àrea</spell>
+            <spell key="spell_description_0">Restaureu la vida aliada i pròpia, els aliats han d'estar a prop</spell>
+        <_ key="_spell_1"><!-- Tabare Flare --></_>
+            <spell key="spell_name_1">salt antigravitatori</spell>
+            <spell key="spell_description_1">Obtens un salt que et eleva pels cels, anul·les dany per caiguda</spell>
+        <_ key="_spell_2"><!-- Col Megalos --></_>
+            <spell key="spell_name_2">Electrització de projectils</spell>
+            <spell key="spell_description_2">Actives un estat que dobla el dany de la teva arma per un temps</spell>
+        <_ key="_spell_3"><!-- Akiyama Arata --></_>
+            <spell key="spell_name_3">desplaçament propulsat</spell>
+            <spell key="spell_description_3">Fas un salt cap endavant, paralitzant a el proper objectiu de la teva katana</spell>
+        <_ key="_spell_4"><!-- X-F20 --></_>
+            <spell key="spell_name_4">Llançament de coets teledirigits</spell>
+            <spell key="spell_description_4">Del teu esquena desplegues míssils que persegueixen per la calor</spell>
+
+
+
+    <_ key="_weapon"><!--WEAPON--></_>
+        <_ key="_weapon_0"><!--Enlai Ming--></_>
+            <weapon key="weapon_name_0">rifle</weapon>
+            <weapon key="weapon_appearence_0">Rifle de franctirador un rifle llarg i pesat amb un espiell telescòpica</weapon>
+        <_ key="_weapon_1"><!-- Tabare Flare --></_>
+            <weapon key="weapon_name_1">llançagranades</weapon>
+            <weapon key="weapon_appearence_1">llançagranades curt</weapon>
+        <_ key="_weapon_2"><!-- Col Megalos --></_>
+            <weapon key="weapon_name_2">Fusell AK 47</weapon>
+            <weapon key="weapon_appearence_2">Fusell de repetició amb capacitat de electrificar</weapon>
+        <_ key="_weapon_3"><!-- Akiyama Arata --></_>
+            <weapon key="weapon_name_3">katana</weapon>
+            <weapon key="weapon_appearence_3">Katana llarga d'un material indestructible i que condueix el corrent elèctric</weapon>
+        <_ key="_weapon_4"><!-- X-F20 --></_>
+            <weapon key="weapon_name_4">metralladora</weapon>
+            <weapon key="weapon_appearence_4">Metralladora integrada en el braç esquerre</weapon>
+
+    <_ key="_stat"><!--STATS--></_>
+        <stat key="stat_strength">força</stat>
+        <stat key="stat_defense">defensa</stat>
+        <stat key="stat_speed">agilitat</stat>
+	    <stat key="stat_health">vida</stat>
+
+
+    <_ key="_pause"><!-- PAUSE --></_>
+        <stat key="pause_title">pausa</stat>
+        <stat key="pause_resume">reprendre</stat>
+        <stat key="pause_exit">sortir</stat>
+
+    <_ key="_end"><!-- END --></_>
+        <stat key="end_title">resultats</stat>
+        <stat key="end_again">Tornar a Jugar</stat>
+        <stat key="end_menu">Tornar a l'Menú</stat>
+
+        <stat key="end_results_enemiesKilled">enemics Eliminats</stat>
+        <stat key="end_results_time">durada</stat>
+        <stat key="end_results_shot">atacs</stat>
+
+</main>

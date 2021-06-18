@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<main>
+    <string key="lang_title">言語</string>
+    <string key="lang">日本語</string>
+    <string key="game">ライオットストライク</string>
+
+    <_ key=""><!--COMMIT--></_>
+
+
+    <_ key="general"><!--一般--></_>
+        <general key = "back">バック</general>
+        <general key="active">有効</general>
+        <general key="disabled">オフ</general>
+        <general key="accept">受け入れる</general>
+        <general key="cancel">キャンセル</general>
+        <general key="connect">コネクト</general>
+        <general key="play">プレイ</general>
+        <general key="thanks">プレイしてくれてありがとう。</general>
+
+
+        <_ key="_owo"><!--OWO--></_>
+        <_owo key="owo_insert_ip">IPを入力する</_owo>
+        <_owo key="owo_feel">~ゲームを感じてください。</_owo>
+        <_owo key="owo_connection_success">接続完了</_owo>
+        <_owo key="owo_connection_failed">接続に失敗しました。</_owo>
+
+    <_ key="_intro"><!--INTRO--></_>
+        <intro key="_intro_skip_0">プレス</intro>
+        <intro key="_intro_skip_1">導入部分をスキップするには</intro>
+
+    <_ key="_menu"><!--MENU--></_>
+        <menu key="menu_singlePlayer">シングルプレイヤー</menu>
+        <menu key="menu_multiPlayer">マルチプレイ</menu>
+        <menu key="menu_options">オプション</menu>
+        <menu key="menu_achievements">実績紹介</menu>
+        <menu key="menu_credits">クレジット</menu>
+        <menu key="menu_exit">出口</menu>
+
+    <_ key="_menu_selector"><!--セレクター--></_>
+        <selector key="selector_title">キャラクターの選択</selector>
+
+    <_ key="_options"><!--OPTIONS--></_>
+        <_options key="options_title">オプション</_options>
+        <_options key="options_music">音楽</_options>
+        <_options key="options_sound">サウンド</_options>
+        <_options key="options_sensibility">感度</_options>
+        <_options key="options_postProcessing">ポストプロセス</_options>
+        <_options key="options_invert_x">X軸の反転</_options>
+        <_options key="options_invert_y">Y軸の反転</_options>
+        <_options key="options_controls">コントロール</_options>
+        <_options key="options_tutorial">チュートリアル</_options>
+
+
+    <_ key="_achievements"><!--ACHIEVEMENTS--></_>
+        <_achievements key="achievements_title">実績紹介</_achievements>
+        <_ key="_achievements_0"><!--0--></_>
+            <_achievements key="achievements_name_0">ノービス</_achievements>
+            <_achievements key="achievements_description_0">コンプレックスのツボが完成</_achievements>
+        <_ key="_achievements_1"><!--1--></_>
+            <_achievements key="achievements_name_1">バレットワスター</_achievements>
+            <_achievements key="achievements_description_1">やはり自分で作ってしまうんですね。</_achievements>
+        <_ key="_achievements_2"><!--2--></_>
+            <_achievements key="achievements_name_2">ダメージを受けたPC</_achievements>
+            <_achievements key="achievements_description_2">テクノロジーが嫌いな人</_achievements>
+        <_ key="_achievements_3"><!--3--></_>
+            <_achievements key="achievements_name_3">Mala mia.</_achievements>
+            <_achievements key="achievements_description_3">それがあなたのヒーローですか？</_achievements>
+        <_ key="_achievements_4"><!--4--></_>
+            <_achievements key="achievements_name_4">Woo Woo。</_achievements>
+            <_achievements key="achievements_description_4">コンパスのために最高の救急車になろう</_achievements>
+        <_ key="_achievements_5"><!--5--></_>
+            <_achievements key="achievements_name_5">パロット</_achievements>
+            <_achievements key="achievements_description_5">これはソーシャルネットワークの子供ではありません。</_achievements>
+        <_ key="_achievements_6"><!--6--></_>
+            <_achievements key="achievements_name_6">マスター</_achievements>
+            <_achievements key="achievements_description_6">あなたは楽しい時間を過ごしました</_achievements>
+        <_ key="_achievements_7"><!--7--></_>
+            <_achievements key="achievements_name_7">隠し</_achievements>
+            <_achievements key="achievements_description_7">謎のアイテムを探す</_achievements>
+
+
+    <_ key="_credits"><!--CREDITS--></_>
+        <_credits key="_credits_title">クレジット</_credits>
+        <_credits key="_credits_text_0">設計・開発</_credits>
+        <_credits key="_credits_text_1">2Dアート</_credits>
+        <_credits key="_credits_text_2">3Dアート</_credits>
+        <_credits key="_credits_text_3">マーケティング</_credits>
+        <_credits key="_credits_text_4">スペシャルメンション</_credits>
+
+
+    <_ key="_tutorials"><!--TUTORIALS--></_>
+        <_tutorials key="_tutorials_title">チュートリアル</_tutorials>
+        <_tutorials key="_tutorials_opt_how">遊び方</_tutorials>
+        <_tutorials key="_tutorials_opt_goal">目標</_tutorials>
+        <_tutorials key="_tutorials_opt_play">チュートリアルを再生する</_tutorials>
+        <_ key="_tutorials_game"><!-- -チュートリアルゲーム --></_>
+	    <_tutorials key="_tutorials_game_-1">Enterキーを押して、次のヒントに進みます</_tutorials>
+	        <_tutorials key="_tutorials_game_0">WASDキーを使用して移動し、マウスを使用して回転します</_tutorials>
+            <_tutorials key="_tutorials_game_1">転倒は致命的な傷害を引き起こす可能性があります。</_tutorials>
+            <_tutorials key="_tutorials_game_2">Rを使用してリロードし、左クリックして撮影し、右クリックで狙います。</_tutorials>
+            <_tutorials key="_tutorials_game_3">スペースを使用してキャラクターの能力を使用します（これにより、瞬間的に体力が向上します）。</_tutorials>
+            <_tutorials key="_tutorials_game_4">オーブはゲームに改善をもたらし、あなたを癒したり、統計を改善したりすることができます。彼らが出てきたらそれらを取るようにしてください。</_tutorials>
+            <_tutorials key="_tutorials_game_5">赤いオーブはキャラクターの強さを強化します</_tutorials>
+            <_tutorials key="_tutorials_game_6">緑のオーブはキャラクターの速度と動きの感度を向上させます</_tutorials>
+            <_tutorials key="_tutorials_game_7">青いオーブはキャラクターの最大体力を向上させます</_tutorials>
+            <_tutorials key="_tutorials_game_8">ピンクのオーブはあなたの人生の一部を回復します</_tutorials>
+            <_tutorials key="_tutorials_game_9">チュートリアルを終了するには、Escキーを押すか、ドアを通り抜けます</_tutorials>
+        <_ key="_tutorials_menu"><!-- -チュートリアルメニュー --></_>
+            <_tutorials key="_tutorials_menu_0">プレイヤーはあなたを代表するキャラクターを持ち、キャラクターは彼らのプレイ方法に影響を与える統計、そして能力と武器を持ちます。プレイするには、マウスが敵を狙って撃つ必要があります。プレイヤーは、移動、武器のリロード（保存されている弾薬が不足した場合）、および選択したキャラクターの特殊能力を使用するためのコントロールを持ちます。</_tutorials>
+            <_tutorials key="_tutorials_menu_1">プレイヤーは、ダメージ、ライフ、移動速度を変更できる統計を持っています。</_tutorials>
+            <_tutorials key="_tutorials_menu_2">プレイするとき、彼らは視力を持ち、彼らの武器が彼らに示され、ショットの方向を推定することができます</_tutorials>
+        <_ key="_tutorials_goal"><!-- -チュートリアルの目標 --></_>
+            <_tutorials key="_tutorials_goal_0">あなたは非常に重要なセンターに閉じ込められています、そしてあなたを救うための援軍のためにあなたは10分間持ちこたえなければなりません。</_tutorials>
+            <_tutorials key="_tutorials_goal_1">プレイヤーは、あなたを癒したり統計を改善したりできる改善を収集しながら、敵を排除する必要があります</_tutorials>
+
+
+    <_ key="_controls"><!-- -コントロール --></_>
+        <_controls key="_controls_title">コントロール</_controls>
+        <_controls key="_controls_reset">値をリセット</_controls>
+        <_controls key="_controls_attack">攻撃</_controls>
+        <_controls key="_controls_focus">ポイント</_controls>
+        <_controls key="_controls_reload">充電する</_controls>
+        <_controls key="_controls_spell">スキル</_controls>
+        <_controls key="_controls_move_forward">前進する</_controls>
+        <_controls key="_controls_move_back">戻ってくる</_controls>
+        <_controls key="_controls_move_left">左に移動</_controls>
+        <_controls key="_controls_move_right">右に動く</_controls>
+        <_controls key="_controls_chat">チャットを開く</_controls>
+        <_controls key="_controls_pause">一時停止</_controls>
+
+
+
+
+
+    <_ key="_character"><!--PERSONAJES--></_>
+        <_ key="_character_0"><!--Enlai Ming--></_>
+            <character key="character_role_0">ヒーラー</character>
+            <character key="character_description_0">エンライは記憶に残る中国の癒しの芸術を学び、親友の皇帝と常に法廷に出ていました。彼の癒しの能力は帝国を超えて国境を接するすべての地域に到達し、エンライは死者を育てることができるとさえ言われています。途中、エンライはエベレストの斜面近くで大嵐に見舞われ、深い洞窟に避難しました。嵐が激しくなり、寒さのためにエンライは外から遠く離れた部屋に到着するまで、その内部に向かって前進しました。焚き火に火をつけて、なんとか眠りにつくことができます、しかし、彼の足の下の地面はすぐに道を譲り、彼は亀裂を素早く通り抜けます。エンライは思っていたよりも発展した場所にいます。長い間、エンライは多くの戦争紛争で医者として働き、できるだけ多くの人々を癒しましたが、2010年に組織は彼が世界の運命を変える使命に参加することをなんとか見つけました。</character>
+        <_ key="_character_1"><!-- -タバレフレア --></_>
+            <character key="character_role_1">スプリンター</character>
+            <character key="character_description_1">タバレは、アラスカに定住した古代エスキモーの子孫である王朝に属しています。アラスカの山々を一人で旅している間、タバレは強力な雷雨に驚いています。不思議なことに、雲は紫の色合いで、そこから出てくる光線は赤です。これは彼女の生涯を通じてなかったことです。見た。タバレはドロップの高いエッジで追い詰められ、重力に逆らったジャンプをします。タバレは足を曲げて全力で跳躍し、崖をクリアして空中に移動します。その瞬間から、タバレは彼の状況に気づき、軍の管理と保護のための特別部隊の一部になりました。</character>
+        <_ key="_character_2"><!-- -コールメガロス --></_>
+            <character key="character_role_2">タンク</character>
+            <character key="character_description_2">コールはギリシャ軍の兵士であり、ほぼ一生を国に奉仕することに専念してきました。彼の家族全員が軍事的栄光の偉大な祖先を持っており、コールは彼のチームの最も著名なメンバーの1人です。世界で最も紛争の多い地域での武力侵攻。コールはかつて死にかけていました。建設現場でケーブルの1つが緩み、水に電気を放出しましたが、落雷に見舞われたとき、コールは彼の力がこれまで以上に回復したと感じています。先に進んで、彼の指の間で電気がどのように焼けるかを見てください。彼はエネルギーの存在である人間のバッテリーに変わりましたが、何かが変わって彼は失いました。彼の頭のすべての髪と彼は完全に禿げています。</character>
+        <_ key="_character_3"><!-- -秋山荒田 --></_>
+            <character key="character_role_3">キラー</character>
+            <character key="character_description_3">荒田家は常に刀の世界と素晴らしい関係を築いてきましたが、日本北部の武士の長蛇の列から来たのは無駄ではありませんでした。秋山は、技術兵器の販売と輸出を専門とする企業のコングロマリットを運営する裕福な日本のビジネスマンの次男です。何年もの間、彼は自分の体に多くの改良を加え、多くの部品をインプラントに置き換え、ほとんど行動を自動化しました。</character>
+        <_ key="_character_4"><!-- -X-F20 --></_>
+            <character key="character_role_4">バランスの取れた</character>
+            <character key="character_description_4"> X-F20巡視艇は、大衆の防衛と鎮静のためにConCrete社によって作成されたロボットです。その主な目的は、エリアをパトロールし、特定の施設への攻撃を防ぐことです。その機能を果たすために、それは抑止方法と致命的な力を使用することを許可されており、そのためにさまざまな武器がその体に統合されています。</character>
+
+    <_ key="_spell"><!-- -スキル --></_>
+        <_ key="_spell_0"><!-- -エンライミン --></_>
+            <spell key="spell_name_0">エリアでの癒し</spell>
+            <spell key="spell_description_0">味方と自己生活を回復し、味方は近くにいる必要があります</spell>
+        <_ key="_spell_1"><!-- -タバレフレア --></_>
+            <spell key="spell_name_1">反重力ジャンプ</spell>
+            <spell key="spell_description_1">空を飛ぶジャンプを取得し、落下ダメージを無効にします</spell>
+        <_ key="_spell_2"><!-- -コールメガロス --></_>
+            <spell key="spell_name_2">発射体の帯電</spell>
+            <spell key="spell_description_2">しばらくの間、武器のダメージを2倍にする状態をアクティブにします</spell>
+        <_ key="_spell_3"><!-- -秋山荒田 --></_>
+            <spell key="spell_name_3">電動変位</spell>
+            <spell key="spell_description_3">あなたは前にジャンプし、刀の次のターゲットを麻痺させます</spell>
+        <_ key="_spell_4"><!-- -X-F20 --></_>
+            <spell key="spell_name_4">ガイド付きロケット弾の打ち上げ</spell>
+            <spell key="spell_description_4">背中から熱を追いかけるミサイルを配備します</spell>
+
+
+
+    <_ key="_weapon"><!--WEAPON--></_>
+        <_ key="_weapon_0"><!--Enlai Ming--></_>
+            <weapon key="weapon_name_0">ライフル</weapon>
+            <weapon key="weapon_appearence_0">スナイパーライフル望遠鏡の照準器を備えた長くて重いライフル</weapon>
+        <_ key="_weapon_1"><!-- -タバレフレア --></_>
+            <weapon key="weapon_name_1">グレネードランチャー</weapon>
+            <weapon key="weapon_appearence_1">ショートグレネードランチャー</weapon>
+        <_ key="_weapon_2"><!-- -コールメガロス --></_>
+            <weapon key="weapon_name_2">AK47ライフル</weapon>
+            <weapon key="weapon_appearence_2">電化する能力を持つ連発銃</weapon>
+        <_ key="_weapon_3"><!-- -秋山荒田 --></_>
+            <weapon key="weapon_name_3">刀</weapon>
+            <weapon key="weapon_appearence_3">電流を通す不滅の素材で作られた長い刀</weapon>
+        <_ key="_weapon_4"><!-- -X-F20 --></_>
+            <weapon key="weapon_name_4">機関銃</weapon>
+            <weapon key="weapon_appearence_4">左腕に統合された機関銃</weapon>
+
+    <_ key="_stat"><!-- -統計 --></_>
+        <stat key="stat_strength">力</stat>
+        <stat key="stat_defense">防御</stat>
+        <stat key="stat_speed">機敏</stat>
+	    <stat key="stat_health">一生</stat>
+
+
+    <_ key="_pause"><!-- -一時停止 --></_>
+        <stat key="pause_title">一時停止</stat>
+        <stat key="pause_resume">履歴書</stat>
+        <stat key="pause_exit">去る</stat>
+
+    <_ key="_end"><!-- -終了 --></_>
+        <stat key="end_title">結果</stat>
+        <stat key="end_again">再びプレー</stat>
+        <stat key="end_menu">メニューに戻る</stat>
+
+        <stat key="end_results_enemiesKilled">排除された敵</stat>
+        <stat key="end_results_time">デュレーション</stat>
+        <stat key="end_results_shot">攻撃</stat>
+
+</main>

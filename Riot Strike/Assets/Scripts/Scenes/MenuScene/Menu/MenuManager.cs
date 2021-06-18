@@ -41,11 +41,12 @@ namespace MenuScene
         #region Events
         private void Awake()
         {
+            Time.timeScale = 1;
             imgCtrl_curtain.gameObject.SetActive(true);
         }
         private void Start()
         {
-            txt_version.text = $"V-{Application.version}";
+            txt_version.text = $"V-1.0.0";//Application.version
 
             AudioSystem.Play(clip_music);
            // $"Bienvenido a {TranslateSystem.Translate("game")}".Print("blue");
@@ -95,7 +96,17 @@ namespace MenuScene
         /// <summary>
         /// Opens a link
         /// </summary>
-        public void OpenLink(string url) => Application.OpenURL(url);
+        public void OpenLink(string url)
+        {
+            try
+            {
+                Application.OpenURL(url);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError(ex);
+            }
+        }
         #endregion
     }
 }

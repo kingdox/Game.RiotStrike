@@ -33,6 +33,7 @@ public abstract class Weapon : MonoBehaviour
 
     public Action<int,int>      OnFireAttack;
     public Action<float, float> OnReload;
+    public Action OnReloadEnds;
     public Action<Body, int>    OnTargetImpactWeapon; 
     public Action<float>        OnZoom;
     #endregion
@@ -63,7 +64,7 @@ public abstract class Weapon : MonoBehaviour
     {
         isReloading = true;
         float count = 0;
-
+        EmitReload(0);
         while (!weaponData.RELOAD_TIME.TimerIn(ref count))
         {
             EmitReload(count);

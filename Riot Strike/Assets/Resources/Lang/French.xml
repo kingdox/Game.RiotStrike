@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<main>
+    <string key="lang_title">langage</string>
+    <string key="lang">français</string>
+    <string key="game">Grève d'émeute</string>
+
+    <_ key=""><!-- S'ENGAGE --></_>
+
+
+    <_ key="general"><!-- Général --></_>
+        <general key = "back">Derrière</general>
+        <general key="active">Activé</general>
+        <general key="disabled">désactivée</general>
+        <general key="accept">Accepter</general>
+        <general key="cancel">Annuler</general>
+        <general key="connect">Relier</general>
+        <general key="play">Jouer</general>
+        <general key="thanks">Merci d'avoir joué!</general>
+
+
+        <_ key="_owo"><!-- OWO --></_>
+        <_owo key="owo_insert_ip">Entrez votre IP</_owo>
+        <_owo key="owo_feel">~ Sentez le jeu ~</_owo>
+        <_owo key="owo_connection_success">Connexion terminée</_owo>
+        <_owo key="owo_connection_failed">Échec de la connexion</_owo>
+
+    <_ key="_intro"><!-- ENTRER --></_>
+        <intro key="_intro_skip_0">presse</intro>
+        <intro key="_intro_skip_1">Pour sauter l'introduction</intro>
+
+    <_ key="_menu"><!-- MENU --></_>
+        <menu key="menu_singlePlayer">Un joueur</menu>
+        <menu key="menu_multiPlayer">Multijoueur</menu>
+        <menu key="menu_options">Les choix</menu>
+        <menu key="menu_achievements">Réalisations</menu>
+        <menu key="menu_credits">Crédits</menu>
+        <menu key="menu_exit">sortir</menu>
+
+    <_ key="_menu_selector"><!-- SELECTEUR --></_>
+        <selector key="selector_title">Choisissez votre personnage</selector>
+
+    <_ key="_options"><!-- OPTIONS --></_>
+        <_options key="options_title">Les choix</_options>
+        <_options key="options_music">Musique</_options>
+        <_options key="options_sound">Sonner</_options>
+        <_options key="options_sensibility">Sensibilité</_options>
+        <_options key="options_postProcessing">Post-traitement</_options>
+        <_options key="options_invert_x">Inverser l'axe X</_options>
+        <_options key="options_invert_y">Inverser l'axe Y</_options>
+        <_options key="options_controls">Les contrôles</_options>
+        <_options key="options_tutorial">Didacticiel</_options>
+
+
+    <_ key="_achievements"><!-- RÉALISATIONS --></_>
+        <_achievements key="achievements_title">Réalisations</_achievements>
+        <_ key="_achievements_0"><!-- 0 --></_>
+            <_achievements key="achievements_name_0">Novice</_achievements>
+            <_achievements key="achievements_description_0">Vous avez terminé le didacticiel complexe</_achievements>
+        <_ key="_achievements_1"><!-- 1 --></_>
+            <_achievements key="achievements_name_1">Déchets-balles</_achievements>
+            <_achievements key="achievements_description_1">Peut-être qu'ils se créent eux-mêmes, non ?</_achievements>
+        <_ key="_achievements_2"><!-- 2 --></_>
+            <_achievements key="achievements_name_2">PC endommagé</_achievements>
+            <_achievements key="achievements_description_2">Vous détestez la technologie</_achievements>
+        <_ key="_achievements_3"><!-- 3 --></_>
+            <_achievements key="achievements_name_3">Ma faute</_achievements>
+            <_achievements key="achievements_description_3">C'est ton héros ?</_achievements>
+        <_ key="_achievements_4"><!-- 4 --></_>
+            <_achievements key="achievements_name_4">Wiu wiu</_achievements>
+            <_achievements key="achievements_description_4">Soyez la meilleure ambulance pour vos amis</_achievements>
+        <_ key="_achievements_5"><!-- 5 --></_>
+            <_achievements key="achievements_name_5">Perruche</_achievements>
+            <_achievements key="achievements_description_5">Que ce n'est pas un réseau social enfant !</_achievements>
+        <_ key="_achievements_6"><!-- 6 --></_>
+            <_achievements key="achievements_name_6">Maître</_achievements>
+            <_achievements key="achievements_description_6">tu as bien joué</_achievements>
+        <_ key="_achievements_7"><!-- 7 --></_>
+            <_achievements key="achievements_name_7">Caché</_achievements>
+            <_achievements key="achievements_description_7">Trouvez l'objet mystérieux</_achievements>
+
+
+    <_ key="_credits"><!--CREDITS--></_>
+        <_credits key="_credits_title">Crédits</_credits>
+        <_credits key="_credits_text_0">Design et développement</_credits>
+        <_credits key="_credits_text_1">art 2D</_credits>
+        <_credits key="_credits_text_2">art 3D</_credits>
+        <_credits key="_credits_text_3">Commercialisation</_credits>
+        <_credits key="_credits_text_4">Mentions spéciales</_credits>
+
+
+    <_ key="_tutorials"><!-- TUTORIELS --></_>
+        <_tutorials key="_tutorials_title">Didacticiel</_tutorials>
+        <_tutorials key="_tutorials_opt_how">Comment jouer</_tutorials>
+        <_tutorials key="_tutorials_opt_goal">Objectifs</_tutorials>
+        <_tutorials key="_tutorials_opt_play">Lire le didacticiel</_tutorials>
+        <_ key="_tutorials_game"><!-- JEU TUTORIEL --></_>
+	    <_tutorials key="_tutorials_game_-1">Appuyez sur Entrée pour passer aux conseils suivants</_tutorials>
+	        <_tutorials key="_tutorials_game_0">Utilisez les touches WASD pour vous déplacer et la souris pour faire pivoter</_tutorials>
+            <_tutorials key="_tutorials_game_1">Les chutes peuvent causer des blessures qui peuvent être mortelles.</_tutorials>
+            <_tutorials key="_tutorials_game_2">Utilisez R pour recharger et clic gauche pour tirer, visez avec un clic droit.</_tutorials>
+            <_tutorials key="_tutorials_game_3">Utilisez l'Espace pour utiliser la capacité de votre personnage (cela augmentera votre force momentanément).</_tutorials>
+            <_tutorials key="_tutorials_game_4">Les orbes apportent des améliorations au jeu, ils peuvent vous soigner ou améliorer vos statistiques. Essayez de les prendre quand ils sortent.</_tutorials>
+            <_tutorials key="_tutorials_game_5">Les orbes rouges augmenteront la force de votre personnage</_tutorials>
+            <_tutorials key="_tutorials_game_6">Les orbes vertes amélioreront la vitesse et la sensibilité aux mouvements de votre personnage</_tutorials>
+            <_tutorials key="_tutorials_game_7">Les orbes bleus amélioreront la santé maximale de votre personnage</_tutorials>
+            <_tutorials key="_tutorials_game_8">Les orbes roses restaureront une partie de votre vie</_tutorials>
+            <_tutorials key="_tutorials_game_9">Pour quitter le didacticiel, appuyez sur échapper ou passez la porte</_tutorials>
+        <_ key="_tutorials_menu"><!-- MENU TUTORIELS --></_>
+            <_tutorials key="_tutorials_menu_0">Le joueur aura un personnage qui sera chargé de vous représenter, le personnage aura des statistiques qui influenceront sa méthode de jeu, ainsi qu'une capacité et une arme. Pour jouer, la souris devra viser les ennemis et leur tirer dessus. Le joueur aura des commandes pour se déplacer, recharger l'arme (en cas de manque de munitions stockées) et utiliser la capacité spéciale du personnage choisi</_tutorials>
+            <_tutorials key="_tutorials_menu_1">Les joueurs auront des statistiques qui leur permettront de modifier leurs dégâts, la vie qu'ils ont et la vitesse à laquelle ils se déplacent</_tutorials>
+            <_tutorials key="_tutorials_menu_2">En jouant, ils auront un viseur et leur arme leur sera montrée, pouvant estimer la direction du tir</_tutorials>
+        <_ key="_tutorials_goal"><!-- OBJECTIF DES TUTORIELS --></_>
+            <_tutorials key="_tutorials_goal_0">Vous êtes enfermé dans un centre très important, et pour que les renforts vous sauvent vous devrez tenir 10 minutes.</_tutorials>
+            <_tutorials key="_tutorials_goal_1">Le joueur doit éliminer les ennemis tout en collectant des améliorations qui peuvent vous soigner ou améliorer vos statistiques</_tutorials>
+
+
+    <_ key="_controls"><!-- COMMANDES --></_>
+        <_controls key="_controls_title">Les contrôles</_controls>
+        <_controls key="_controls_reset">Réinitialiser les valeurs</_controls>
+        <_controls key="_controls_attack">Attaque</_controls>
+        <_controls key="_controls_focus">Point</_controls>
+        <_controls key="_controls_reload">Recharger</_controls>
+        <_controls key="_controls_spell">Compétence</_controls>
+        <_controls key="_controls_move_forward">Avance</_controls>
+        <_controls key="_controls_move_back">Reculer</_controls>
+        <_controls key="_controls_move_left">Se déplacer à gauche</_controls>
+        <_controls key="_controls_move_right">Déplacer vers la droite</_controls>
+        <_controls key="_controls_chat">Ouvrir le chat</_controls>
+        <_controls key="_controls_pause">Pause</_controls>
+
+
+
+
+
+    <_ key="_character"><!--PERSONAJES--></_>
+        <_ key="_character_0"><!--Enlai Ming--></_>
+            <character key="character_role_0">Guérisseur</character>
+            <character key="character_description_0">Enlai a étudié les arts de guérison chinois depuis qu'il se souvient et a toujours été à la cour avec son meilleur ami l'empereur, ses capacités de guérison transcendent l'empire et atteignent toutes les régions limitrophes, on dit même qu'Enlai est capable de ressusciter les morts . Sur son chemin, Enlai subit une grande tempête près du versant de l'Everest qui le fait se réfugier dans une grotte profonde, La tempête fait rage et le froid fait avancer Enlai vers l'intérieur de celle-ci jusqu'à ce qu'il atteigne une pièce loin de l'extérieur, Là il allume un feu de joie et parvient à s'endormir, mais en peu de temps, le sol sous ses pieds cède et il tombe rapidement à travers les fissures. Enlai est dans un endroit plus développé qu'elle ne le pensait. Pendant longtemps, Enlai agit comme médecin dans de nombreux conflits de guerre, guérissant le plus de personnes possible, cependant en 2010 une organisation parvient à le trouver pour se joindre à une mission qui changera le destin du monde.</character>
+        <_ key="_character_1"><!-- Fusée Tabare --></_>
+            <character key="character_role_1">Sprinter</character>
+            <character key="character_description_1">Tabare appartient à une dynastie qui descend des anciens Esquimaux installés en Alaska. Au cours d'une de ses incursions en solo à travers les montagnes de l'Alaska, Tabare est surprise par un puissant orage électrique, curieusement les nuages ​​ont une teinte violette et les rayons qui en sortent sont rouges, ce qu'il n'y avait pas eu tout au long de sa vie. vu. Tabare se retrouve coincé sur une carre avec une chute haute, fait un saut qui défiait la gravité. Tabare fléchit les jambes et saute de toutes ses forces, franchissant la falaise et se déplaçant dans les airs. A partir de ce moment, conscient de sa situation, Tabare fait partie d'une unité spéciale de garde et de protection de l'armée.</character>
+        <_ key="_character_2"><!-- Cole Megalos --></_>
+            <character key="character_role_2">Réservoir</character>
+            <character key="character_description_2">Cole est un soldat de l'armée grecque qui a consacré presque toute sa vie au service de son pays, toute sa famille a une grande ascendance militaire et Cole est l'un des membres les plus éminents de son équipe, qui est en charge de mener à bien incursions armées dans les zones les plus conflictuelles du monde. Cole était autrefois sur le point de mourir, dans un chantier de construction, l'un des câbles s'est détaché, libérant de l'électricité dans l'eau, mais lorsqu'il est frappé par la foudre, Cole sent que sa force est mieux restaurée que jamais. Avancez et voyez comment l'électricité grésille entre ses doigts, il s'est transformé en une batterie humaine, un être d'énergie, cependant quelque chose a changé qu'il a perdu. Tous les cheveux sur sa tête et il est complètement chauve.</character>
+        <_ key="_character_3"><!-- Akiyama Arata --></_>
+            <character key="character_role_3">Tueur</character>
+            <character key="character_description_3">La famille Arata a toujours eu une excellente relation avec le monde de l'épée, ce n'est pas en vain qu'elle est issue d'une longue lignée de samouraï du nord du Japon. Akiyama est le deuxième fils d'un riche homme d'affaires japonais qui dirige un conglomérat d'entreprises dédiées à la vente et à l'exportation d'armes technologiques. Pendant des années, il a apporté de nombreuses améliorations à son corps, remplaçant de nombreuses parties par des implants, automatisant presque ses actions.</character>
+        <_ key="_character_4"><!-- X-F20 --></_>
+            <character key="character_role_4">Équilibré</character>
+            <character key="character_description_4"> Le patrouilleur X-F20 est un robot créé par la société ConCrete pour la défense et la pacification des masses. Son objectif principal est de patrouiller les zones et d'empêcher l'assaut de certaines installations. Pour remplir sa fonction, il est autorisé à utiliser des moyens de dissuasion et la force meurtrière, pour lesquels il dispose de diverses armes intégrées dans son corps.</character>
+
+    <_ key="_spell"><!-- COMPÉTENCES --></_>
+        <_ key="_spell_0"><!-- Enlai Ming --></_>
+            <spell key="spell_name_0">Guérison dans la zone</spell>
+            <spell key="spell_description_0">Restaurez la vie alliée et personnelle, les alliés doivent être proches</spell>
+        <_ key="_spell_1"><!-- Fusée Tabare --></_>
+            <spell key="spell_name_1">Saut antigravité</spell>
+            <spell key="spell_description_1">Obtenez un saut qui vous emmène dans les cieux, annulez les dégâts de chute</spell>
+        <_ key="_spell_2"><!-- Cole Megalos --></_>
+            <spell key="spell_name_2">L'électrisation des projectiles</spell>
+            <spell key="spell_description_2">Activer un état qui double les dégâts de votre arme pendant un certain temps</spell>
+        <_ key="_spell_3"><!-- Akiyama Arata --></_>
+            <spell key="spell_name_3">Cylindrée motorisée</spell>
+            <spell key="spell_description_3">Vous sautez en avant, paralysant la prochaine cible de votre katana</spell>
+        <_ key="_spell_4"><!-- X-F20 --></_>
+            <spell key="spell_name_4">Lancement guidé de fusée</spell>
+            <spell key="spell_description_4">De ton dos tu déploies des missiles qui chassent la chaleur</spell>
+
+
+
+    <_ key="_weapon"><!-- ARME --></_>
+        <_ key="_weapon_0"><!-- Enlai Ming --></_>
+            <weapon key="weapon_name_0">Fusil</weapon>
+            <weapon key="weapon_appearence_0">Fusil de sniper un long fusil lourd avec une lunette de visée</weapon>
+        <_ key="_weapon_1"><!-- Fusée Tabare --></_>
+            <weapon key="weapon_name_1">Lance-grenades</weapon>
+            <weapon key="weapon_appearence_1">Lance-grenades court</weapon>
+        <_ key="_weapon_2"><!-- Cole Megalos --></_>
+            <weapon key="weapon_name_2">Fusil AK 47</weapon>
+            <weapon key="weapon_appearence_2">Fusil à répétition avec capacité d'électrification</weapon>
+        <_ key="_weapon_3"><!-- Akiyama Arata --></_>
+            <weapon key="weapon_name_3">Katana</weapon>
+            <weapon key="weapon_appearence_3">Long katana fait d'un matériau indestructible qui conduit le courant électrique</weapon>
+        <_ key="_weapon_4"><!-- X-F20 --></_>
+            <weapon key="weapon_name_4">Mitraillette</weapon>
+            <weapon key="weapon_appearence_4">Mitrailleuse intégrée au bras gauche</weapon>
+
+    <_ key="_stat"><!-- STATISTIQUES --></_>
+        <stat key="stat_strength">Obliger</stat>
+        <stat key="stat_defense">Défendre</stat>
+        <stat key="stat_speed">Agilité</stat>
+	    <stat key="stat_health">Durée de vie</stat>
+
+
+    <_ key="_pause"><!-- PAUSE --></_>
+        <stat key="pause_title">Pause</stat>
+        <stat key="pause_resume">Reprendre</stat>
+        <stat key="pause_exit">sortir</stat>
+
+    <_ key="_end"><!-- FIN --></_>
+        <stat key="end_title">Résultats</stat>
+        <stat key="end_again">Rejouer</stat>
+        <stat key="end_menu">Retour au menu</stat>
+
+        <stat key="end_results_enemiesKilled">Ennemis éliminés</stat>
+        <stat key="end_results_time">Durée</stat>
+        <stat key="end_results_shot">Attaques</stat>
+
+</main>
